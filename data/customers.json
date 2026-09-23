@@ -1,0 +1,1235 @@
+[
+  {
+    "id": "C001",
+    "name": "Maya Chen",
+    "company": "Acme, Inc.",
+    "email": "customer001@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": "Asked for \"priority\" support\nFollow up Friday"
+  },
+  {
+    "id": "C002",
+    "name": "José Álvarez",
+    "company": "Café São Paulo",
+    "email": "customer002@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": "Prefers email, after 14:00"
+  },
+  {
+    "id": "C003",
+    "name": "Jon Bell",
+    "company": "Studio \"North\"",
+    "email": "customer003@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": "First line\r\nSecond line"
+  },
+  {
+    "id": "C004",
+    "name": "李 明",
+    "company": "Cobalt Health",
+    "email": "customer004@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": "東京 office"
+  },
+  {
+    "id": "C005",
+    "name": "Noah Williams",
+    "company": "Harbor Systems",
+    "email": "customer005@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C006",
+    "name": "Priya Shah",
+    "company": "Juniper Works",
+    "email": "customer006@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C007",
+    "name": "Ethan Park",
+    "company": "Lumen Design",
+    "email": "customer007@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C008",
+    "name": "Isabel Costa",
+    "company": "Maple Finance",
+    "email": "customer008@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C009",
+    "name": "Leo Martin",
+    "company": "Orbit Commerce",
+    "email": "customer009@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C010",
+    "name": "Ava Johnson",
+    "company": "Pine & Co.",
+    "email": "customer010@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C011",
+    "name": "Owen Brooks",
+    "company": "Acme, Inc.",
+    "email": "customer011@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C012",
+    "name": "Nia Thompson",
+    "company": "Birch Studio",
+    "email": "customer012@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C013",
+    "name": "Lucas Silva",
+    "company": "Cedar Labs",
+    "email": "customer013@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C014",
+    "name": "Zoe Anderson",
+    "company": "Cobalt Health",
+    "email": "customer014@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C015",
+    "name": "Oliver Reed",
+    "company": "Harbor Systems",
+    "email": "customer015@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C016",
+    "name": "Emma Wilson",
+    "company": "Juniper Works",
+    "email": "customer016@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C017",
+    "name": "Elijah Brown",
+    "company": "Lumen Design",
+    "email": "customer017@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C018",
+    "name": "Mila Davis",
+    "company": "Maple Finance",
+    "email": "customer018@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C019",
+    "name": "Henry Clark",
+    "company": "Orbit Commerce",
+    "email": "customer019@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C020",
+    "name": "Aria Lewis",
+    "company": "Pine & Co.",
+    "email": "customer020@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C021",
+    "name": "Maya Chen",
+    "company": "Acme, Inc.",
+    "email": "customer021@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C022",
+    "name": "Amara Okafor",
+    "company": "Birch Studio",
+    "email": "customer022@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C023",
+    "name": "Jon Bell",
+    "company": "Cedar Labs",
+    "email": "customer023@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C024",
+    "name": "Sofia Rossi",
+    "company": "Cobalt Health",
+    "email": "customer024@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C025",
+    "name": "Noah Williams",
+    "company": "Harbor Systems",
+    "email": "customer025@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C026",
+    "name": "Priya Shah",
+    "company": "Juniper Works",
+    "email": "customer026@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C027",
+    "name": "Ethan Park",
+    "company": "Lumen Design",
+    "email": "customer027@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C028",
+    "name": "Isabel Costa",
+    "company": "Maple Finance",
+    "email": "customer028@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C029",
+    "name": "Leo Martin",
+    "company": "Orbit Commerce",
+    "email": "customer029@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C030",
+    "name": "Ava Johnson",
+    "company": "Pine & Co.",
+    "email": "customer030@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C031",
+    "name": "Owen Brooks",
+    "company": "Acme, Inc.",
+    "email": "customer031@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C032",
+    "name": "Nia Thompson",
+    "company": "Birch Studio",
+    "email": "customer032@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C033",
+    "name": "Lucas Silva",
+    "company": "Cedar Labs",
+    "email": "customer033@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C034",
+    "name": "Zoe Anderson",
+    "company": "Cobalt Health",
+    "email": "customer034@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C035",
+    "name": "Oliver Reed",
+    "company": "Harbor Systems",
+    "email": "customer035@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C036",
+    "name": "Emma Wilson",
+    "company": "Juniper Works",
+    "email": "customer036@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C037",
+    "name": "Elijah Brown",
+    "company": "Lumen Design",
+    "email": "customer037@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C038",
+    "name": "Mila Davis",
+    "company": "Maple Finance",
+    "email": "customer038@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C039",
+    "name": "Henry Clark",
+    "company": "Orbit Commerce",
+    "email": "customer039@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C040",
+    "name": "Aria Lewis",
+    "company": "Pine & Co.",
+    "email": "customer040@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C041",
+    "name": "Maya Chen",
+    "company": "Acme, Inc.",
+    "email": "customer041@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C042",
+    "name": "Amara Okafor",
+    "company": "Birch Studio",
+    "email": "customer042@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C043",
+    "name": "Jon Bell",
+    "company": "Cedar Labs",
+    "email": "customer043@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C044",
+    "name": "Sofia Rossi",
+    "company": "Cobalt Health",
+    "email": "customer044@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C045",
+    "name": "Noah Williams",
+    "company": "Harbor Systems",
+    "email": "customer045@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C046",
+    "name": "Priya Shah",
+    "company": "Juniper Works",
+    "email": "customer046@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C047",
+    "name": "Ethan Park",
+    "company": "Lumen Design",
+    "email": "customer047@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C048",
+    "name": "Isabel Costa",
+    "company": "Maple Finance",
+    "email": "customer048@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C049",
+    "name": "Leo Martin",
+    "company": "Orbit Commerce",
+    "email": "customer049@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C050",
+    "name": "Ava Johnson",
+    "company": "Pine & Co.",
+    "email": "customer050@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C051",
+    "name": "Owen Brooks",
+    "company": "Acme, Inc.",
+    "email": "customer051@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C052",
+    "name": "Nia Thompson",
+    "company": "Birch Studio",
+    "email": "customer052@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C053",
+    "name": "Lucas Silva",
+    "company": "Cedar Labs",
+    "email": "customer053@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C054",
+    "name": "Zoe Anderson",
+    "company": "Cobalt Health",
+    "email": "customer054@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C055",
+    "name": "Oliver Reed",
+    "company": "Harbor Systems",
+    "email": "customer055@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C056",
+    "name": "Emma Wilson",
+    "company": "Juniper Works",
+    "email": "customer056@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C057",
+    "name": "Elijah Brown",
+    "company": "Lumen Design",
+    "email": "customer057@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C058",
+    "name": "Mila Davis",
+    "company": "Maple Finance",
+    "email": "customer058@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C059",
+    "name": "Henry Clark",
+    "company": "Orbit Commerce",
+    "email": "customer059@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C060",
+    "name": "Aria Lewis",
+    "company": "Pine & Co.",
+    "email": "customer060@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C061",
+    "name": "Maya Chen",
+    "company": "Acme, Inc.",
+    "email": "customer061@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C062",
+    "name": "Amara Okafor",
+    "company": "Birch Studio",
+    "email": "customer062@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C063",
+    "name": "Jon Bell",
+    "company": "Cedar Labs",
+    "email": "customer063@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C064",
+    "name": "Sofia Rossi",
+    "company": "Cobalt Health",
+    "email": "customer064@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C065",
+    "name": "Noah Williams",
+    "company": "Harbor Systems",
+    "email": "customer065@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C066",
+    "name": "Priya Shah",
+    "company": "Juniper Works",
+    "email": "customer066@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C067",
+    "name": "Ethan Park",
+    "company": "Lumen Design",
+    "email": "customer067@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C068",
+    "name": "Isabel Costa",
+    "company": "Maple Finance",
+    "email": "customer068@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C069",
+    "name": "Leo Martin",
+    "company": "Orbit Commerce",
+    "email": "customer069@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C070",
+    "name": "Ava Johnson",
+    "company": "Pine & Co.",
+    "email": "customer070@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C071",
+    "name": "Owen Brooks",
+    "company": "Acme, Inc.",
+    "email": "customer071@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C072",
+    "name": "Nia Thompson",
+    "company": "Birch Studio",
+    "email": "customer072@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C073",
+    "name": "Lucas Silva",
+    "company": "Cedar Labs",
+    "email": "customer073@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C074",
+    "name": "Zoe Anderson",
+    "company": "Cobalt Health",
+    "email": "customer074@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C075",
+    "name": "Oliver Reed",
+    "company": "Harbor Systems",
+    "email": "customer075@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C076",
+    "name": "Emma Wilson",
+    "company": "Juniper Works",
+    "email": "customer076@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C077",
+    "name": "Elijah Brown",
+    "company": "Lumen Design",
+    "email": "customer077@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C078",
+    "name": "Mila Davis",
+    "company": "Maple Finance",
+    "email": "customer078@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C079",
+    "name": "Henry Clark",
+    "company": "Orbit Commerce",
+    "email": "customer079@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C080",
+    "name": "Aria Lewis",
+    "company": "Pine & Co.",
+    "email": "customer080@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C081",
+    "name": "Maya Chen",
+    "company": "Acme, Inc.",
+    "email": "customer081@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C082",
+    "name": "Amara Okafor",
+    "company": "Birch Studio",
+    "email": "customer082@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C083",
+    "name": "Jon Bell",
+    "company": "Cedar Labs",
+    "email": "customer083@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C084",
+    "name": "Sofia Rossi",
+    "company": "Cobalt Health",
+    "email": "customer084@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C085",
+    "name": "Noah Williams",
+    "company": "Harbor Systems",
+    "email": "customer085@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C086",
+    "name": "Priya Shah",
+    "company": "Juniper Works",
+    "email": "customer086@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C087",
+    "name": "Ethan Park",
+    "company": "Lumen Design",
+    "email": "customer087@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C088",
+    "name": "Isabel Costa",
+    "company": "Maple Finance",
+    "email": "customer088@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C089",
+    "name": "Leo Martin",
+    "company": "Orbit Commerce",
+    "email": "customer089@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C090",
+    "name": "Ava Johnson",
+    "company": "Pine & Co.",
+    "email": "customer090@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C091",
+    "name": "Owen Brooks",
+    "company": "Acme, Inc.",
+    "email": "customer091@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C092",
+    "name": "Nia Thompson",
+    "company": "Birch Studio",
+    "email": "customer092@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C093",
+    "name": "Lucas Silva",
+    "company": "Cedar Labs",
+    "email": "customer093@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C094",
+    "name": "Zoe Anderson",
+    "company": "Cobalt Health",
+    "email": "customer094@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C095",
+    "name": "Oliver Reed",
+    "company": "Harbor Systems",
+    "email": "customer095@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C096",
+    "name": "Emma Wilson",
+    "company": "Juniper Works",
+    "email": "customer096@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C097",
+    "name": "Elijah Brown",
+    "company": "Lumen Design",
+    "email": "customer097@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C098",
+    "name": "Mila Davis",
+    "company": "Maple Finance",
+    "email": "customer098@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C099",
+    "name": "Henry Clark",
+    "company": "Orbit Commerce",
+    "email": "customer099@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C100",
+    "name": "Aria Lewis",
+    "company": "Pine & Co.",
+    "email": "customer100@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C101",
+    "name": "Maya Chen",
+    "company": "Acme, Inc.",
+    "email": "customer101@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C102",
+    "name": "Amara Okafor",
+    "company": "Birch Studio",
+    "email": "customer102@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C103",
+    "name": "Jon Bell",
+    "company": "Cedar Labs",
+    "email": "customer103@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C104",
+    "name": "Sofia Rossi",
+    "company": "Cobalt Health",
+    "email": "customer104@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C105",
+    "name": "Noah Williams",
+    "company": "Harbor Systems",
+    "email": "customer105@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C106",
+    "name": "Priya Shah",
+    "company": "Juniper Works",
+    "email": "customer106@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C107",
+    "name": "Ethan Park",
+    "company": "Lumen Design",
+    "email": "customer107@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C108",
+    "name": "Isabel Costa",
+    "company": "Maple Finance",
+    "email": "customer108@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C109",
+    "name": "Leo Martin",
+    "company": "Orbit Commerce",
+    "email": "customer109@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C110",
+    "name": "Ava Johnson",
+    "company": "Pine & Co.",
+    "email": "customer110@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C111",
+    "name": "Owen Brooks",
+    "company": "Acme, Inc.",
+    "email": "customer111@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C112",
+    "name": "Nia Thompson",
+    "company": "Birch Studio",
+    "email": "customer112@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C113",
+    "name": "Lucas Silva",
+    "company": "Cedar Labs",
+    "email": "customer113@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C114",
+    "name": "Zoe Anderson",
+    "company": "Cobalt Health",
+    "email": "customer114@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C115",
+    "name": "Oliver Reed",
+    "company": "Harbor Systems",
+    "email": "customer115@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C116",
+    "name": "Emma Wilson",
+    "company": "Juniper Works",
+    "email": "customer116@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C117",
+    "name": "Elijah Brown",
+    "company": "Lumen Design",
+    "email": "customer117@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C118",
+    "name": "Mila Davis",
+    "company": "Maple Finance",
+    "email": "customer118@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C119",
+    "name": "Henry Clark",
+    "company": "Orbit Commerce",
+    "email": "customer119@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C120",
+    "name": "Aria Lewis",
+    "company": "Pine & Co.",
+    "email": "customer120@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C121",
+    "name": "Maya Chen",
+    "company": "Acme, Inc.",
+    "email": "customer121@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C122",
+    "name": "Amara Okafor",
+    "company": "Birch Studio",
+    "email": "customer122@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C123",
+    "name": "Jon Bell",
+    "company": "Cedar Labs",
+    "email": "customer123@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C124",
+    "name": "Sofia Rossi",
+    "company": "Cobalt Health",
+    "email": "customer124@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C125",
+    "name": "Noah Williams",
+    "company": "Harbor Systems",
+    "email": "customer125@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C126",
+    "name": "Priya Shah",
+    "company": "Juniper Works",
+    "email": "customer126@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C127",
+    "name": "Ethan Park",
+    "company": "Lumen Design",
+    "email": "customer127@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C128",
+    "name": "Isabel Costa",
+    "company": "Maple Finance",
+    "email": "customer128@example.test",
+    "status": "inactive",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C129",
+    "name": "Leo Martin",
+    "company": "Orbit Commerce",
+    "email": "customer129@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C130",
+    "name": "Ava Johnson",
+    "company": "Pine & Co.",
+    "email": "customer130@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C131",
+    "name": "Owen Brooks",
+    "company": "Acme, Inc.",
+    "email": "customer131@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C132",
+    "name": "Nia Thompson",
+    "company": "Birch Studio",
+    "email": "customer132@example.test",
+    "status": "inactive",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C133",
+    "name": "Lucas Silva",
+    "company": "Cedar Labs",
+    "email": "customer133@example.test",
+    "status": "active",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C134",
+    "name": "Zoe Anderson",
+    "company": "Cobalt Health",
+    "email": "customer134@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  },
+  {
+    "id": "C135",
+    "name": "Oliver Reed",
+    "company": "Harbor Systems",
+    "email": "customer135@example.test",
+    "status": "active",
+    "segment": "enterprise",
+    "notes": ""
+  },
+  {
+    "id": "C136",
+    "name": "Emma Wilson",
+    "company": "Juniper Works",
+    "email": "customer136@example.test",
+    "status": "inactive",
+    "segment": "starter",
+    "notes": ""
+  },
+  {
+    "id": "C137",
+    "name": "Elijah Brown",
+    "company": "Lumen Design",
+    "email": "customer137@example.test",
+    "status": "active",
+    "segment": "growth",
+    "notes": ""
+  }
+]

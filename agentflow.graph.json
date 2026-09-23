@@ -1,0 +1,169 @@
+{
+  "version": "1",
+  "graph_id": "northstar-export-readiness",
+  "intent": {
+    "goal": "Give Northstar operators a correct customer export and a clear preview of exactly what they will download.",
+    "acceptance_criteria": [
+      "The existing CSV export contract and the export preview contract are satisfied.",
+      "The implementation is focused and understandable, and the interface clearly distinguishes previewed samples from the full download.",
+      "The delivery includes actual validation evidence and a reviewable explanation."
+    ],
+    "constraints": [
+      "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+      "Do not weaken, remove, or skip existing tests.",
+      "Do not edit files outside this repository or change independent acceptance tools.",
+      "Do not add dependencies, call remote services, or include unrelated refactors.",
+      "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+      "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+    ]
+  },
+  "repos": {
+    "main": {
+      "path": ".",
+      "default_branch": "main"
+    }
+  },
+  "defaults": {
+    "launch_profile": "worker",
+    "workspace_backend": "inplace"
+  },
+  "profiles": {
+    "worker": {
+      "harness": "codex-cli",
+      "model": "auto",
+      "reasoning_effort": "medium",
+      "sandbox": "workspace-write",
+      "harness_config": {
+        "isolation": "isolated",
+        "codex": {
+          "config": {
+            "sandbox_workspace_write.network_access": true
+          }
+        }
+      }
+    },
+    "supervisor": {
+      "harness": "codex-cli",
+      "model": "auto",
+      "reasoning_effort": "medium",
+      "sandbox": "workspace-write",
+      "harness_config": {
+        "isolation": "isolated",
+        "codex": {
+          "config": {
+            "sandbox_workspace_write.network_access": true
+          }
+        }
+      }
+    },
+    "judge": {
+      "harness": "codex-cli",
+      "model": "auto",
+      "reasoning_effort": "medium",
+      "sandbox": "read-only",
+      "harness_config": {
+        "isolation": "isolated"
+      }
+    }
+  },
+  "supervision": {
+    "profile": "supervisor",
+    "max_total_interventions": 2
+  },
+  "graph": {
+    "type": "pattern_deep_work",
+    "id": "export_readiness",
+    "runtime": {
+      "repo": "main",
+      "profile": "worker"
+    },
+    "intent": {
+      "goal": "Repair customer exports and add a preview that helps an operations user understand and confirm the complete download.",
+      "acceptance_criteria": [
+        "CSV exports preserve all matching records and field values while customer listing remains paginated.",
+        "The preview API satisfies EXPORT_PREVIEW.md for count, columns, and first-five matching sample records.",
+        "The dashboard exposes a preview with active filter scope, sample labeling, download and cancel actions, and a useful no-match state.",
+        "The preview and download use the same query, and stale preview information cannot silently describe a different download.",
+        "Focused regression tests and the full product test suite pass.",
+        "The summary documents changed files, actual validation evidence, user-visible states with source references, and limitations."
+      ],
+      "constraints": [
+        "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+        "Do not weaken, remove, or skip existing tests.",
+        "Do not edit files outside this repository or change independent acceptance tools.",
+        "Do not add dependencies, call remote services, or include unrelated refactors.",
+        "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+        "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+      ]
+    },
+    "support": {
+      "context": [
+        {
+          "kind": "workspace_file",
+          "path": "TICKET.md",
+          "name": "customer_export_ticket",
+          "what": "Customer export defect and observable acceptance contract.",
+          "why": "The export must preserve the operator\u2019s filters and every customer field."
+        },
+        {
+          "kind": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "name": "project_guide",
+          "what": "Local commands, source layout, and public API semantics.",
+          "why": "The repair must preserve existing listing behavior and public routes."
+        },
+        {
+          "kind": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "name": "preview_contract",
+          "what": "The operator-facing preview behavior and stable preview API contract.",
+          "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+        }
+      ]
+    },
+    "artifacts": {
+      "summary": {
+        "from": "output_dir",
+        "path": "summary.md",
+        "content_type": "text/markdown",
+        "description": "Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations."
+      }
+    },
+    "completion": {
+      "max_cycles": 3,
+      "pass_threshold": 0.85,
+      "criteria": [
+        {
+          "id": "behavior",
+          "kind": "command",
+          "command": "npm test && python3 showcase/acceptance/check_preview.py",
+          "weight": 0.6,
+          "required": true
+        },
+        {
+          "id": "simplicity",
+          "kind": "rubric",
+          "target": "workspace",
+          "rubric": "Judge the changed implementation for simplicity and maintainability by inspecting actual source and the change evidence. A passing implementation is the smallest clear solution for this product: query/filter/order behavior is consistent between listing, export, and preview; responsibilities are understandable; added abstractions earn their complexity; and no unrelated rewrites, dependencies, dead code, or duplicated business rules are introduced. Accept justified small helpers and multiple files; do not use line count, file count, personal naming preferences, or a demand for one particular design as a proxy for simplicity. Cite concrete paths and explain the maintenance consequence of each substantive finding. Score 1.0 for a focused, easy-to-follow solution with no substantive issue; 0.85 for a clear solution with only optional nits; 0.70 for an identifiable maintainability problem requiring a small repair; 0.50 or below for substantial unnecessary complexity or conflicting business rules. Missing evidence is uncertainty to report, not permission to invent findings. Do not recommend a refactor unless its benefit is tied to observed code.",
+          "weight": 0.25,
+          "required": true
+        },
+        {
+          "id": "operator_clarity",
+          "kind": "rubric",
+          "target": "workspace",
+          "rubric": "Judge the clarity of the export preview from the implemented interface text and state handling in the source, supported by any actual UI observations recorded in the summary. A passing preview makes the full matching record count, active filter scope, exported columns, and first-five-record sample understandable to an operations user. It must distinguish the sample from the full download, provide unambiguous download and cancel actions, explain the no-match case, and avoid stale count/sample information being presented for a different query. Labels should describe the user's task rather than internal API or runtime details. Cite exact user-visible strings and source paths for findings. Score 1.0 when these decisions are immediately clear; 0.85 when they are clear with only optional wording improvements; 0.70 when a specific ambiguity could cause a wrong download decision; 0.50 or below when sample size, export scope, or actions are materially misleading or a required state is absent. Judge semantic clarity, not visual taste. Do not claim rendered layout, keyboard accessibility, or actual browser behavior was verified without corresponding observed evidence. Do not treat a confident summary as a substitute for implemented source.",
+          "weight": 0.15,
+          "required": true
+        }
+      ]
+    },
+    "phases": {
+      "verify": {
+        "runtime": {
+          "profile": "judge"
+        }
+      }
+    }
+  }
+}

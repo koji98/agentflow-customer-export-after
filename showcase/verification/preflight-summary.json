@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "message": "Graph validated with warnings for launch profile \"worker\" and workspace backend \"inplace\".",
+  "runtime_commit": "bf7399955a45ea9e8fe0959c64be7a06649d997f",
+  "graph": "agentflow.graph.json",
+  "command": "agentflow validate --graph agentflow.graph.json --strict",
+  "note": "Warnings about automatic artifact handoffs are produced by the managed-pattern compiler; no blockers were reported."
+}
