@@ -1,0 +1,106 @@
+{
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+  "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+  "kind": "agent",
+  "repo_alias": "main",
+  "execution_dir": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a",
+  "attempt_index": 1,
+  "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+  "iteration_index": 1,
+  "iteration_attempt_index": 1,
+  "status": "passed",
+  "started_at": "2026-09-23T21:58:04.779Z",
+  "artifacts": {
+    "agent_response": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/agent-response.md",
+    "plan": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/plan.md"
+  },
+  "metadata": {
+    "binary": "codex",
+    "args": [
+      "--cd",
+      ".",
+      "--sandbox",
+      "workspace-write",
+      "--add-dir",
+      "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a",
+      "--add-dir",
+      "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts",
+      "--add-dir",
+      "results/run/runtime",
+      "exec",
+      "--output-last-message",
+      "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/last_message.txt",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "\"sandbox_workspace_write.network_access\"=true",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "-"
+    ],
+    "native_harness": {
+      "harness": "codex-cli",
+      "config_isolation": "isolated"
+    },
+    "timed_out": false,
+    "force_killed": false,
+    "completion": {
+      "completion_status": "ready_for_verification",
+      "ready_for_verification": true,
+      "blocking_reasons": [],
+      "packet_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/completion-packet.json"
+    },
+    "node_workspace_changes": {
+      "baseline_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/baseline.json",
+      "after_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/after.json",
+      "status_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/status.txt",
+      "diff_patch_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/diff.patch",
+      "changed_files_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/changed-files.json",
+      "changed_file_count": 0,
+      "status": "captured"
+    },
+    "outcome_verification": {
+      "passed": true,
+      "summary": "The planning node satisfied its contract: it produced a focused execution plan for the customer export repair, identified concrete validation the executor should run, captured current failure evidence, and did not edit the workspace.",
+      "findings": [
+        {
+          "severity": "low",
+          "category": "missing_validation",
+          "evidence": "Completion Packet reports no captured execution transcript or validation logs, while artifacts/plan.md and artifacts/agent-response.md state baseline results: npm test passes 6/6 and check_preview.py currently fails for paginated/CSV-unsafe export behavior and missing /api/export-preview.",
+          "recommendation": "For future planning nodes, capture command transcripts or validation logs when recording baseline command results so the executor and verifier can cross-check exact output without relying only on artifact prose.",
+          "references": [
+            "artifacts/plan.md",
+            "artifacts/agent-response.md",
+            "runtime/completion-packet.json"
+          ]
+        }
+      ],
+      "blockers": [],
+      "verifier_metadata": {
+        "harness": "codex-cli",
+        "profile_name": "supervisor",
+        "model": "auto",
+        "duration_ms": 12365,
+        "prompt_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/verifier/prompt.md",
+        "response_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/verifier/raw-response.md",
+        "truncated_artifacts": [],
+        "workspace_diff_status": "captured",
+        "decision_log_count": 0,
+        "attempt_count": 1,
+        "parse_status": "ok"
+      }
+    }
+  },
+  "prompt_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/agent/prompt.md",
+  "prompt_sha256": "a23cf3edf4b7c42f8626564e3995ac06f653e1c13f587c9c6d2a929d24dee713",
+  "ended_at": "2026-09-23T22:00:14.517Z",
+  "duration_ms": 129738,
+  "outcome": "passed",
+  "stdout_log_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/harness/stdout.log",
+  "stderr_log_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/harness/stderr.log",
+  "result_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/result.json",
+  "context_packet_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/context.json",
+  "context_manifest_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/agent/context.md",
+  "context_provenance_path": "results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/context-provenance.json"
+}

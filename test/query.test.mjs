@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { queryCustomers } from '../src/customers.mjs';
+import { matchingCustomers, queryCustomers } from '../src/customers.mjs';
 
 const customers = [
-  { id: 'C001', name: 'Maya Chen', company: 'Acme, Inc.', email: 'maya@example.test', status: 'active', segment: 'growth' },
-  { id: 'C002', name: 'Jon Bell', company: 'Birch', email: 'jon@example.test', status: 'inactive', segment: 'starter' },
-  { id: 'C003', name: 'Amara Okafor', company: 'Acme, Inc.', email: 'amara@example.test', status: 'active', segment: 'growth' }
+  { id: 'C001', name: 'Maya Chen', company: 'Acme, Inc.', email: 'maya@example.test', status: 'active', segment: 'growth', notes: 'Uses CSV, often' },
+  { id: 'C002', name: 'Jon Bell', company: 'Birch', email: 'jon@example.test', status: 'inactive', segment: 'starter', notes: 'Paused' },
+  { id: 'C003', name: 'Amara Okafor', company: 'Acme, Inc.', email: 'amara@example.test', status: 'active', segment: 'growth', notes: 'Ready' }
 ];
 
 test('listing paginates after filtering and preserves total', () => {
@@ -17,6 +17,12 @@ test('listing paginates after filtering and preserves total', () => {
 test('search and segment combine, with descending ID order', () => {
   const result = queryCustomers(customers, new URLSearchParams('q=ACME&segment=growth&sort=id_desc'));
   assert.deepEqual(result.rows.map(row => row.id), ['C003', 'C001']);
+});
+
+test('matching customers ignore pagination while preserving filters and sort', () => {
+  const result = matchingCustomers(customers, new URLSearchParams('q=ACME&segment=growth&sort=id_desc&page=2&pageSize=1'));
+  assert.deepEqual(result.map(row => row.id), ['C003', 'C001']);
+  assert.equal(result[1].notes, 'Uses CSV, often');
 });
 
 test('zero matches and invalid pagination have safe defaults', () => {

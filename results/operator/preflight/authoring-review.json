@@ -1,0 +1,296 @@
+{
+  "mode": "strict",
+  "status": "warnings",
+  "summary": {
+    "finding_count": 10,
+    "serious_count": 0,
+    "warning_count": 10,
+    "info_count": 0,
+    "reviewed_node_count": 7,
+    "artifact_handoff_count": 11
+  },
+  "findings": [
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[0].context[5].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__plan",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.verification_json\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    },
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[0].context[6].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__plan",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stdout\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    },
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[0].context[7].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__plan",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stderr\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    },
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[0].context[8].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__plan",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_02_simplicity.verification_json\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    },
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[0].context[9].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__plan",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.verification_json\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    },
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[3].context[3].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.verification_json\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    },
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[3].context[4].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stdout\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    },
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[3].context[5].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stderr\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    },
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[3].context[6].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_02_simplicity.verification_json\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    },
+    {
+      "severity": "warning",
+      "category": "handoff",
+      "path": "$.graph.steps[0].body.steps[3].context[7].ref",
+      "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.verification_json\".",
+      "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+    }
+  ],
+  "artifact_handoffs": [
+    {
+      "producer_node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "artifact": "completion_scorecard",
+      "automatic_artifact": false,
+      "consumers": [
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "context_name": "failed_completion_scorecard",
+          "path": "export_readiness__managed__pattern_deep_work__plan.context[3]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "context_name": "failed_completion_scorecard",
+          "path": "export_readiness__managed__pattern_deep_work__generate_validate.context[4]"
+        },
+        {
+          "node_id": "export_readiness",
+          "context_name": "completion_scorecard",
+          "path": "export_readiness.context[3]"
+        }
+      ]
+    },
+    {
+      "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "artifact": "stderr",
+      "automatic_artifact": true,
+      "consumers": [
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "context_name": "previous_criterion_01_stderr",
+          "path": "export_readiness__managed__pattern_deep_work__plan.context[7]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "context_name": "criterion_01_stderr",
+          "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[5]"
+        }
+      ]
+    },
+    {
+      "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "artifact": "stdout",
+      "automatic_artifact": true,
+      "consumers": [
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "context_name": "previous_criterion_01_stdout",
+          "path": "export_readiness__managed__pattern_deep_work__plan.context[6]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "context_name": "criterion_01_stdout",
+          "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[4]"
+        }
+      ]
+    },
+    {
+      "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "artifact": "verification_json",
+      "automatic_artifact": true,
+      "consumers": [
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "context_name": "previous_criterion_01_result",
+          "path": "export_readiness__managed__pattern_deep_work__plan.context[5]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "context_name": "criterion_01_result",
+          "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[3]"
+        }
+      ]
+    },
+    {
+      "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "artifact": "verification_json",
+      "automatic_artifact": true,
+      "consumers": [
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "context_name": "previous_criterion_02_result",
+          "path": "export_readiness__managed__pattern_deep_work__plan.context[8]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "context_name": "criterion_02_result",
+          "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[6]"
+        }
+      ]
+    },
+    {
+      "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "artifact": "verification_json",
+      "automatic_artifact": true,
+      "consumers": [
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "context_name": "previous_criterion_03_result",
+          "path": "export_readiness__managed__pattern_deep_work__plan.context[9]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "context_name": "criterion_03_result",
+          "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[7]"
+        }
+      ]
+    },
+    {
+      "producer_node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+      "artifact": "draft_summary",
+      "automatic_artifact": false,
+      "consumers": [
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "context_name": "draft_summary",
+          "path": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.context[4]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+          "context_name": "draft_summary",
+          "path": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity.context[4]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+          "context_name": "draft_summary",
+          "path": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.context[4]"
+        },
+        {
+          "node_id": "export_readiness",
+          "context_name": "draft_summary",
+          "path": "export_readiness.context[5]"
+        }
+      ]
+    },
+    {
+      "producer_node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+      "artifact": "work_notes",
+      "automatic_artifact": false,
+      "consumers": [
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "context_name": "previous_work_notes",
+          "path": "export_readiness__managed__pattern_deep_work__plan.context[4]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "context_name": "work_notes",
+          "path": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.context[3]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+          "context_name": "work_notes",
+          "path": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity.context[3]"
+        },
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+          "context_name": "work_notes",
+          "path": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.context[3]"
+        },
+        {
+          "node_id": "export_readiness",
+          "context_name": "work_notes",
+          "path": "export_readiness.context[4]"
+        }
+      ]
+    },
+    {
+      "producer_node_id": "export_readiness__managed__pattern_deep_work__plan",
+      "artifact": "plan",
+      "automatic_artifact": false,
+      "consumers": [
+        {
+          "node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "context_name": "plan",
+          "path": "export_readiness__managed__pattern_deep_work__generate_validate.context[3]"
+        }
+      ]
+    },
+    {
+      "producer_node_id": "export_readiness",
+      "artifact": "packet",
+      "automatic_artifact": false,
+      "consumers": []
+    },
+    {
+      "producer_node_id": "export_readiness",
+      "artifact": "summary",
+      "automatic_artifact": false,
+      "consumers": []
+    }
+  ]
+}

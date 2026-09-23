@@ -1,0 +1,43 @@
+{
+  "exit_code": 0,
+  "passed": true,
+  "score": 1,
+  "summary": "The implementation is focused and maintainable: src/customers.mjs centralizes search/status/segment/sort in matchingCustomers, src/export.mjs reuses that for both CSV and preview, and src/server.mjs only adds a small route. UI changes in public/app.js separate listingParams from exportParams and store the preview query to avoid stale downloads without adding unrelated abstractions or dependencies. Regression tests cover the shared behavior. My local npm test attempt was blocked by sandbox EPERM on 127.0.0.1 listen, while the provided work notes report npm test and the independent checker passed.",
+  "issues": [],
+  "raw": {
+    "passed": true,
+    "score": 1,
+    "summary": "The implementation is focused and maintainable: src/customers.mjs centralizes search/status/segment/sort in matchingCustomers, src/export.mjs reuses that for both CSV and preview, and src/server.mjs only adds a small route. UI changes in public/app.js separate listingParams from exportParams and store the preview query to avoid stale downloads without adding unrelated abstractions or dependencies. Regression tests cover the shared behavior. My local npm test attempt was blocked by sandbox EPERM on 127.0.0.1 listen, while the provided work notes report npm test and the independent checker passed.",
+    "issues": []
+  },
+  "metadata": {
+    "binary": "codex",
+    "args": [
+      "--cd",
+      ".",
+      "--sandbox",
+      "read-only",
+      "--add-dir",
+      "results/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08",
+      "--add-dir",
+      "results/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/artifacts",
+      "exec",
+      "--output-last-message",
+      "results/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/artifacts/last_message.txt",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "-"
+    ],
+    "native_harness": {
+      "harness": "codex-cli",
+      "config_isolation": "isolated"
+    },
+    "timed_out": false,
+    "force_killed": false
+  },
+  "soft_verification": true,
+  "verifier_kind": "check",
+  "check_kind": "ai"
+}

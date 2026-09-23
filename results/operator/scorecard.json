@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "total_score": 1,
+  "pass_threshold": 0.85,
+  "blockers": [],
+  "criteria": [
+    {
+      "id": "behavior",
+      "kind": "command",
+      "weight": 0.6,
+      "required": true,
+      "passed": true,
+      "score": 1,
+      "weighted_score": 0.6,
+      "summary": "Deterministic check passed.",
+      "evidence_path": "results/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/artifacts/verification.json",
+      "issues": []
+    },
+    {
+      "id": "simplicity",
+      "kind": "rubric",
+      "weight": 0.25,
+      "required": true,
+      "passed": true,
+      "score": 1,
+      "weighted_score": 0.25,
+      "summary": "The implementation is focused and maintainable: src/customers.mjs centralizes search/status/segment/sort in matchingCustomers, src/export.mjs reuses that for both CSV and preview, and src/server.mjs only adds a small route. UI changes in public/app.js separate listingParams from exportParams and store the preview query to avoid stale downloads without adding unrelated abstractions or dependencies. Regression tests cover the shared behavior. My local npm test attempt was blocked by sandbox EPERM on 127.0.0.1 listen, while the provided work notes report npm test and the independent checker passed.",
+      "evidence_path": "results/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/artifacts/verification.json",
+      "issues": []
+    },
+    {
+      "id": "operator_clarity",
+      "kind": "rubric",
+      "weight": 0.15,
+      "required": true,
+      "passed": true,
+      "score": 1,
+      "weighted_score": 0.15,
+      "summary": "Source clearly satisfies operator clarity: public/index.html labels the entry and actions as \"Preview export\", \"Review customer export\", \"Cancel\", \"Download this CSV\", and \"Close preview\"; public/app.js renders \"${result.total} matching customers will be included in the full CSV download.\", active scope via \"Matching ...\", and \"Exported columns: ...\". The sample is explicitly labeled \"First 5 matching customers sample\" with all seven columns, no-match copy says the CSV will contain \"column headers only\", and stale previews are cleared or blocked when queries differ. I did not rely on unobserved browser layout; npm test could not complete in this sandbox because server listen on 127.0.0.1 returned EPERM, while work notes report prior passing validation.",
+      "evidence_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/artifacts/verification.json",
+      "issues": []
+    }
+  ],
+  "next_attempt_guidance": [],
+  "generated_at": "2026-09-23T22:08:29.451Z"
+}

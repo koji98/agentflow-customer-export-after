@@ -1,0 +1,19 @@
+{
+  "version": "1",
+  "node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+  "workspace_path": ".",
+  "artifacts_root": "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts",
+  "declared_artifacts": {
+    "work_notes": {
+      "from": "output_dir",
+      "path": "work-notes.md",
+      "description": "Notes and validation evidence from the current deep work result."
+    },
+    "draft_summary": {
+      "from": "output_dir",
+      "path": "draft-summary.md",
+      "description": "Draft content for final artifact summary."
+    }
+  }
+}

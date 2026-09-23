@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "{\n  \"command\": \"af milestone log\",\n  \"status\": \"passed\",\n  \"milestone_id\": \"m1\",\n  \"log\": {\n    \"log_id\": \"m1.l2\",\n    \"kind\": \"validation\",\n    \"summary\": \"Required combined validation passed: npm test reported 12/12 tests passing; independent checker reported passed=true, 24/24 export/listing checks, and all 5 preview checks passing.\",\n    \"command\": \"npm test && python3 showcase/acceptance/check_preview.py\",\n    \"result\": \"pass\",\n    \"created_at\": \"2026-09-23T22:05:51.870Z\"\n  }\n}\n",
+  "stderr": ""
+}

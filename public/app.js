@@ -1,7 +1,9 @@
 const form = document.querySelector('#filters');
 const body = document.querySelector('#customers');
+const preview = document.querySelector('#export-preview');
 let page = 1;
 let requestNumber = 0;
+let previewQuery = '';
 
 function cell(value, className = '') {
   const td = document.createElement('td');
@@ -10,11 +12,99 @@ function cell(value, className = '') {
   return td;
 }
 
-async function refresh() {
-  const currentRequest = ++requestNumber;
+function listingParams() {
   const params = new URLSearchParams(new FormData(form));
   params.set('page', page);
   params.set('pageSize', '25');
+  return params;
+}
+
+function exportParams() {
+  return new URLSearchParams(new FormData(form));
+}
+
+function selectedText(name) {
+  const field = form.elements[name];
+  return field.options[field.selectedIndex].textContent;
+}
+
+function filterScopeText() {
+  const search = form.elements.q.value.trim();
+  const parts = [
+    search ? `search "${search}"` : 'any search text',
+    selectedText('status').toLowerCase(),
+    selectedText('segment').toLowerCase(),
+    selectedText('sort').toLowerCase()
+  ];
+  return `Matching ${parts.join(', ')}.`;
+}
+
+function closePreview() {
+  preview.hidden = true;
+  previewQuery = '';
+  document.querySelector('#preview-sample').replaceChildren();
+}
+
+function renderPreviewSample(sample) {
+  const sampleBody = document.querySelector('#preview-sample');
+  sampleBody.replaceChildren();
+  for (const customer of sample) {
+    const tr = document.createElement('tr');
+    tr.append(
+      cell(customer.id, 'customer-id'),
+      cell(customer.name),
+      cell(customer.company),
+      cell(customer.email),
+      cell(customer.status),
+      cell(customer.segment, 'segment'),
+      cell(customer.notes)
+    );
+    sampleBody.append(tr);
+  }
+}
+
+function renderPreview(result, query) {
+  previewQuery = query;
+  document.querySelector('#preview-count').textContent = `${result.total} matching customers will be included in the full CSV download.`;
+  document.querySelector('#preview-scope').textContent = filterScopeText();
+  document.querySelector('#preview-columns').textContent = `Exported columns: ${result.columns.join(', ')}.`;
+  document.querySelector('#preview-empty').hidden = result.total !== 0;
+  document.querySelector('#preview-sample-wrap').hidden = result.total === 0;
+  renderPreviewSample(result.sample);
+  document.querySelector('#preview-download').disabled = false;
+  preview.hidden = false;
+}
+
+async function openPreview() {
+  const query = exportParams().toString();
+  previewQuery = '';
+  document.querySelector('#preview-download').disabled = true;
+  document.querySelector('#preview-count').textContent = 'Loading export preview...';
+  document.querySelector('#preview-scope').textContent = filterScopeText();
+  document.querySelector('#preview-columns').textContent = '';
+  document.querySelector('#preview-empty').hidden = true;
+  document.querySelector('#preview-sample-wrap').hidden = true;
+  preview.hidden = false;
+  try {
+    const response = await fetch(`/api/export-preview?${query}`);
+    if (!response.ok) throw new Error('Could not load export preview. Please try again.');
+    const result = await response.json();
+    if (query !== exportParams().toString()) {
+      closePreview();
+      return;
+    }
+    renderPreview(result, query);
+    document.querySelector('#error').hidden = true;
+  } catch (error) {
+    closePreview();
+    document.querySelector('#error').textContent = error.message;
+    document.querySelector('#error').hidden = false;
+  }
+}
+
+async function refresh() {
+  const currentRequest = ++requestNumber;
+  const params = listingParams();
   try {
     const response = await fetch(`/api/customers?${params}`);
     if (!response.ok) throw new Error('Could not load customers. Please try again.');
@@ -51,7 +141,6 @@ async function refresh() {
     document.querySelector('#page-label').textContent = `${page} / ${Math.max(1, Math.ceil(result.total / 25))}`;
     document.querySelector('#previous').disabled = page <= 1;
     document.querySelector('#next').disabled = page * 25 >= result.total;
-    document.querySelector('#export').href = `/api/export?${params}`;
     document.querySelector('#export-scope').textContent = `Export includes all ${result.total} matching customers, across every page.`;
     document.querySelector('#error').hidden = true;
   } catch (error) {
@@ -62,9 +151,19 @@ async function refresh() {
 }
 
 form.addEventListener('submit', event => event.preventDefault());
-form.addEventListener('input', () => { page = 1; refresh(); });
+form.addEventListener('input', () => { page = 1; closePreview(); refresh(); });
 document.querySelector('#previous').addEventListener('click', () => { page -= 1; refresh(); });
 document.querySelector('#next').addEventListener('click', () => { page += 1; refresh(); });
+document.querySelector('#export').addEventListener('click', openPreview);
+document.querySelector('#preview-cancel').addEventListener('click', closePreview);
+document.querySelector('#preview-close').addEventListener('click', closePreview);
+document.querySelector('#preview-download').addEventListener('click', () => {
+  if (!previewQuery || previewQuery !== exportParams().toString()) {
+    closePreview();
+    return;
+  }
+  window.location.href = `/api/export?${previewQuery}`;
+});
 fetch('/api/stats').then(response => response.json()).then(stats => {
   for (const name of ['total', 'active', 'enterprise']) document.querySelector(`#${name}`).textContent = stats[name];
 }).catch(() => {});

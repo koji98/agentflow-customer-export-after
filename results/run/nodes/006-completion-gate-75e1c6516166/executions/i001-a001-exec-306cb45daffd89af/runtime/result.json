@@ -1,0 +1,18 @@
+{
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "timed_out": false,
+  "canceled": false,
+  "force_killed": false,
+  "passed": true,
+  "summary": "Completion criteria passed.",
+  "verification_json": {
+    "passed": true,
+    "score": 1,
+    "summary": "Completion criteria passed.",
+    "issues": [],
+    "check_kind": "deterministic",
+    "exit_code": 0
+  }
+}

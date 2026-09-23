@@ -1,0 +1,75 @@
+{
+  "version": "1",
+  "prompt_kind": "agent",
+  "renderer": "renderHarnessPrompt",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "harness": "codex-cli",
+  "model": "auto",
+  "reasoning_effort": "medium",
+  "sandbox": "workspace-write",
+  "total_chars": 11781,
+  "sections": [
+    {
+      "name": "Role",
+      "chars": 254
+    },
+    {
+      "name": "Success Contract",
+      "chars": 809
+    },
+    {
+      "name": "Phase Brief",
+      "chars": 6494
+    },
+    {
+      "name": "Workspace",
+      "chars": 139
+    },
+    {
+      "name": "Graph Context",
+      "chars": 808
+    },
+    {
+      "name": "Context",
+      "chars": 133
+    },
+    {
+      "name": "Pointers",
+      "chars": 1425
+    },
+    {
+      "name": "Declared Artifacts",
+      "chars": 449
+    },
+    {
+      "name": "Operating Brief",
+      "chars": 1270
+    }
+  ],
+  "context_pointer_count": 4,
+  "context_pointer_kinds": [
+    "artifact",
+    "workspace_file"
+  ],
+  "context_priority_bucket_counts": {
+    "read_first": 0,
+    "current_work": 0,
+    "task_context": 4,
+    "progress_state": 0,
+    "reference_set": 0
+  },
+  "context_read_first_count": 0,
+  "context_glob_set_count": 0,
+  "context_glob_match_count": 0,
+  "context_glob_included_count": 0,
+  "context_limited_glob_count": 0,
+  "context_uses_flat_glob_expansion": false,
+  "tool_count": 0,
+  "skill_count": 0,
+  "cli_hint_count": 0,
+  "declared_artifact_count": 2,
+  "has_supervisor_recovery": false,
+  "orient_required_by_prompt": true,
+  "complete_check_required_by_prompt": true,
+  "warnings": []
+}

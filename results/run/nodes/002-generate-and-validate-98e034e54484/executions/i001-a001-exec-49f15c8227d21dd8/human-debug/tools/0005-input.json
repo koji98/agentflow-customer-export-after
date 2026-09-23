@@ -1,0 +1,18 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "log",
+    "m1",
+    "--kind",
+    "validation",
+    "--command",
+    "node --test test/query.test.mjs test/server.test.mjs",
+    "--result",
+    "pass",
+    "--summary",
+    "Focused regression tests passed after implementing shared matching, CSV escaping, and preview API/UI source coverage: 12 tests passed."
+  ],
+  "cwd": "."
+}

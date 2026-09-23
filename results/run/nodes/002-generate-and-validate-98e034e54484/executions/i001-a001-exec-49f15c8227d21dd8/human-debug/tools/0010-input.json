@@ -1,0 +1,12 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "complete",
+    "m1",
+    "--evidence",
+    "Implemented scoped export repair and preview; published work_notes and draft_summary; required combined validation passed with npm test 12/12 and independent checker passed=true with 24/24 export/listing checks plus all preview checks."
+  ],
+  "cwd": "."
+}

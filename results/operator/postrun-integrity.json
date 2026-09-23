@@ -1,0 +1,37 @@
+{
+  "v2/export-readiness.graph.json": {
+    "expected": "3b11a3a224e8068b4869a1cac4064a24e13ffed8dd0eb478f1b390b1eeb4ee81",
+    "actual": "3b11a3a224e8068b4869a1cac4064a24e13ffed8dd0eb478f1b390b1eeb4ee81",
+    "unchanged": true
+  },
+  "v2/workspace/EXPORT_PREVIEW.md": {
+    "expected": "9ac4c53a7d391943a06bd13187d949a4f2d889ca1da460dbdbabdb18cae41ac3",
+    "actual": "9ac4c53a7d391943a06bd13187d949a4f2d889ca1da460dbdbabdb18cae41ac3",
+    "unchanged": true
+  },
+  "v2/acceptance/check_preview.py": {
+    "expected": "3db4d7233a1319f3dbd0ebed1a876f739e08173f1512de85fec3a79751cdd8c5",
+    "actual": "3db4d7233a1319f3dbd0ebed1a876f739e08173f1512de85fec3a79751cdd8c5",
+    "unchanged": true
+  },
+  "v2/acceptance/preview-contract.sha256": {
+    "expected": "25867a3045d932b7b01639b861b8252499a96fc51e634c39f9d1425f1add6e4e",
+    "actual": "25867a3045d932b7b01639b861b8252499a96fc51e634c39f9d1425f1add6e4e",
+    "unchanged": true
+  },
+  "acceptance/check_export.py": {
+    "expected": "527d92e6509b694dc3c46deba53d9721e263e8ded0179022c81f483a4a808972",
+    "actual": "527d92e6509b694dc3c46deba53d9721e263e8ded0179022c81f483a4a808972",
+    "unchanged": true
+  },
+  "acceptance/customers.json": {
+    "expected": "a8509c22a32c54c78eafa0efd6f93364b99400292f26f93378a8d43b19add226",
+    "actual": "a8509c22a32c54c78eafa0efd6f93364b99400292f26f93378a8d43b19add226",
+    "unchanged": true
+  },
+  "acceptance/protected-files.json": {
+    "expected": "4b15de8bf43debbcfcac70470f8f0c6efcae2ef997cbf4eeaa550db27745ac06",
+    "actual": "4b15de8bf43debbcfcac70470f8f0c6efcae2ef997cbf4eeaa550db27745ac06",
+    "unchanged": true
+  }
+}

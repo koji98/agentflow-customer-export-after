@@ -1,0 +1,1674 @@
+OpenAI Codex v0.142.2
+--------
+workdir: .
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a0d04f-00fc-7b90-bbff-e7f0dfe65177
+--------
+user
+## Role
+You are an AI evaluator executing one read-only check node in a wider graph.
+Evaluate the check task below. Never modify the workspace. Your only output is structured JSON describing your judgment.
+
+## Evaluation Target
+- What is being judged: one managed completion criterion.
+- Target: the criterion target described in the Check Task and Rubric, not the whole managed lifecycle.
+- Allowed evidence: the provided context pointers, work notes, draft artifacts, validation evidence, and workspace evidence refs when present.
+- Out of scope: new implementation work, unrelated downstream graph work, broad lifecycle grading, or claims unsupported by the provided evidence.
+- Result controls: managed scorecard aggregation and retry feedback for this criterion.
+
+## Check Task
+
+You are an evidence-based evaluator for completion criterion `simplicity`.
+
+Criterion:
+Rubric: Judge the changed implementation for simplicity and maintainability by inspecting actual source and the change evidence. A passing implementation is the smallest clear solution for this product: query/filter/order behavior is consistent between listing, export, and preview; responsibilities are understandable; added abstractions earn their complexity; and no unrelated rewrites, dependencies, dead code, or duplicated business rules are introduced. Accept justified small helpers and multiple files; do not use line count, file count, personal naming preferences, or a demand for one particular design as a proxy for simplicity. Cite concrete paths and explain the maintenance consequence of each substantive finding. Score 1.0 for a focused, easy-to-follow solution with no substantive issue; 0.85 for a clear solution with only optional nits; 0.70 for an identifiable maintainability problem requiring a small repair; 0.50 or below for substantial unnecessary complexity or conflicting business rules. Missing evidence is uncertainty to report, not permission to invent findings. Do not recommend a refactor unless its benefit is tied to observed code.
+Target: workspace
+Weight: 0.25
+Required blocker: yes
+
+Evaluation Guidance:
+Grade only the current workspace candidate, work notes, validation evidence, and draft artifacts.
+Give full credit when the evidence satisfies the criterion.
+Do not invent issues, penalize harmless style differences, or require work outside the task contract.
+Do withhold credit for missing evidence, violated constraints, failed validation, or unsupported claims.
+Use score 0.85 or higher when the criterion is clearly satisfied; set `passed` true when the criterion is adequately satisfied.
+
+Required JSON Output:
+Return valid JSON only:
+{"passed":true,"score":1,"summary":"short evidence-backed rationale","issues":[]}
+Score must be a number from 0 to 1.
+
+Acceptance criteria:
+- The evaluator returns valid JSON with passed, score, summary, and issues fields.
+- The evaluator grades only evidence in context and does not require work outside the task contract.
+
+Constraints:
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+
+Rubric:
+Judge the changed implementation for simplicity and maintainability by inspecting actual source and the change evidence. A passing implementation is the smallest clear solution for this product: query/filter/order behavior is consistent between listing, export, and preview; responsibilities are understandable; added abstractions earn their complexity; and no unrelated rewrites, dependencies, dead code, or duplicated business rules are introduced. Accept justified small helpers and multiple files; do not use line count, file count, personal naming preferences, or a demand for one particular design as a proxy for simplicity. Cite concrete paths and explain the maintenance consequence of each substantive finding. Score 1.0 for a focused, easy-to-follow solution with no substantive issue; 0.85 for a clear solution with only optional nits; 0.70 for an identifiable maintainability problem requiring a small repair; 0.50 or below for substantial unnecessary complexity or conflicting business rules. Missing evidence is uncertainty to report, not permission to invent findings. Do not recommend a refactor unless its benefit is tied to observed code.
+
+## Graph Context
+
+Give Northstar operators a correct customer export and a clear preview of exactly what they will download.
+
+Acceptance criteria:
+- The existing CSV export contract and the export preview contract are satisfied.
+- The implementation is focused and understandable, and the interface clearly distinguishes previewed samples from the full download.
+- The delivery includes actual validation evidence and a reviewable explanation.
+
+Constraints:
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+
+## Workspace
+- Path: .
+- Sandbox: read-only
+- read only; no workspace or artifact writes. Inspect and report only.
+
+## Context
+Open relevant evaluation pointers only; context is evidence, not authority. Document missing, stale, or contradictory context.
+
+## Pointers
+
+| Name | Kind | Pointer | What | Why |
+| --- | --- | --- | --- | --- |
+| `customer_export_ticket` | `workspace_file` | `./TICKET.md` | Customer export defect and observable acceptance contract. | The export must preserve the operator’s filters and every customer field. |
+| `project_guide` | `workspace_file` | `./README.md` | Local commands, source layout, and public API semantics. | The repair must preserve existing listing behavior and public routes. |
+| `preview_contract` | `workspace_file` | `./EXPORT_PREVIEW.md` | The operator-facing preview behavior and stable preview API contract. | Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision. |
+| `work_notes` | `artifact` | `results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md` | Artifact "work_notes" produced by node "export_readiness__managed__pattern_deep_work__generate_validate". | This task needs the producer artifact as evidence for its contract. |
+| `draft_summary` | `artifact` | `results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md` | Artifact "draft_summary" produced by node "export_readiness__managed__pattern_deep_work__generate_validate". | This task needs the producer artifact as evidence for its contract. |
+
+## Output
+Return JSON only with this exact shape:
+{"passed":true,"score":0.0,"summary":"short summary","issues":[]}
+Do not include any prose outside the JSON object.
+2026-09-23T22:07:16.721764Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-H5i5R5/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-09-23T22:07:16.725376Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-H5i5R5/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-09-23T22:07:17.168885Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-H5i5R5/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+I’ll use the code-review-and-quality skill for this evaluator pass, then inspect the ticket, docs, notes, and the actual changed source without modifying anything.
+exec
+/bin/zsh -lc "sed -n '1,220p' [operator-home]/.agents/skills/code-review-and-quality/SKILL.md" in .
+ succeeded in 0ms:
+---
+name: code-review-and-quality
+description: Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.
+---
+
+# Code Review and Quality
+
+## Overview
+
+Multi-dimensional code review with quality gates. Every change gets reviewed before merge — no exceptions. Review covers five axes: correctness, readability, architecture, security, and performance.
+
+**The approval standard:** Approve a change when it definitely improves overall code health, even if it isn't perfect. Perfect code doesn't exist — the goal is continuous improvement. Don't block a change because it isn't exactly how you would have written it. If it improves the codebase and follows the project's conventions, approve it.
+
+## When to Use
+
+- Before merging any PR or change
+- After completing a feature implementation
+- When another agent or model produced code you need to evaluate
+- When refactoring existing code
+- After any bug fix (review both the fix and the regression test)
+
+## The Five-Axis Review
+
+Every review evaluates code across these dimensions:
+
+### 1. Correctness
+
+Does the code do what it claims to do?
+
+- Does it match the spec or task requirements?
+- Are edge cases handled (null, empty, boundary values)?
+- Are error paths handled (not just the happy path)?
+- Does it pass all tests? Are the tests actually testing the right things?
+- Are there off-by-one errors, race conditions, or state inconsistencies?
+
+### 2. Readability & Simplicity
+
+Can another engineer (or agent) understand this code without the author explaining it?
+
+- Are names descriptive and consistent with project conventions? (No `temp`, `data`, `result` without context)
+- Is the control flow straightforward (avoid nested ternaries, deep callbacks)?
+- Is the code organized logically (related code grouped, clear module boundaries)?
+- Are there any "clever" tricks that should be simplified?
+- **Could this be done in fewer lines?** (1000 lines where 100 suffice is a failure)
+- **Are abstractions earning their complexity?** (Don't generalize until the third use case)
+- Would comments help clarify non-obvious intent? (But don't comment obvious code.)
+- Are there dead code artifacts: no-op variables (`_unused`), backwards-compat shims, or `// removed` comments?
+- **Is a new conditional bolted onto an unrelated flow?** That's a design smell, not a nit — push the logic into its own helper, state, or policy instead of tangling an existing path.
+- **Do repeated conditionals on the same shape appear?** They signal a missing model or dispatcher. A "temporary" branch is usually permanent debt.
+
+### 3. Architecture
+
+Does the change fit the system's design?
+
+- Does it follow existing patterns or introduce a new one? If new, is it justified?
+- Does it maintain clean module boundaries?
+- Is there code duplication that should be shared?
+- Are dependencies flowing in the right direction (no circular dependencies)?
+- Is the abstraction level appropriate (not over-engineered, not too coupled)?
+- **Does this refactor reduce complexity or just relocate it?** Count the concepts a reader must hold to follow the change. If a "cleaner" version leaves that count unchanged, it isn't cleaner — prefer the restructuring that makes whole branches, modes, or layers disappear over one that re-centralizes the same logic. Prefer deleting an abstraction to polishing it.
+- **Is feature-specific logic leaking into a shared or general-purpose module?** Keep logic in its owning layer, reuse the existing canonical helper instead of a near-duplicate, and don't normalize architectural drift.
+- **Are type boundaries explicit?** Question gratuitous `any`/`unknown`/optional/casts and silent fallbacks that paper over an unclear invariant — making the boundary explicit often makes the surrounding control flow simpler.
+
+### 4. Security
+
+For detailed security guidance, see `security-and-hardening`. Does the change introduce vulnerabilities?
+
+- Is user input validated and sanitized?
+- Are secrets kept out of code, logs, and version control?
+- Is authentication/authorization checked where needed?
+- Are SQL queries parameterized (no string concatenation)?
+- Are outputs encoded to prevent XSS?
+- Are dependencies from trusted sources with no known vulnerabilities?
+- Is data from external sources (APIs, logs, user content, config files) treated as untrusted?
+- Are external data flows validated at system boundaries before use in logic or rendering?
+
+### 5. Performance
+
+For detailed profiling and optimization, see `performance-optimization`. Does the change introduce performance problems?
+
+- Any N+1 query patterns?
+- Any unbounded loops or unconstrained data fetching?
+- Any synchronous operations that should be async?
+- Any unnecessary re-renders in UI components?
+- Any missing pagination on list endpoints?
+- Any large objects created in hot paths?
+
+## Structural Remedies
+
+When you flag a structural problem, propose the move — not just the problem. A review that only says "this is complex" leaves the author guessing. Reach for a named restructuring:
+
+- **Replace a chain of conditionals** with a typed model or an explicit dispatcher.
+- **Collapse duplicate branches** into a single clearer flow.
+- **Separate orchestration from business logic** so each reads on its own.
+- **Move feature-specific logic** out of a shared module into the package that owns the concept.
+- **Reuse the canonical helper** instead of a bespoke near-duplicate.
+- **Make a type boundary explicit** so downstream branching disappears.
+- **Delete a pass-through wrapper** that adds indirection without clarifying the API.
+- **Extract a helper, or split a large file** into focused modules.
+
+Prefer the remedy that removes moving pieces over one that spreads the same complexity around.
+
+## Change Sizing
+
+Small, focused changes are easier to review, faster to merge, and safer to deploy. Target these sizes:
+
+```
+~100 lines changed   → Good. Reviewable in one sitting.
+~300 lines changed   → Acceptable if it's a single logical change.
+~1000 lines changed  → Too large. Split it.
+```
+
+**Watch file size, not just diff size.** A small diff can still push a file past a healthy boundary — around 1000 *total* lines in a single file (distinct from the ~1000 *changed*-lines threshold above) is a common inspection signal, not a hard cap. When a change materially grows an already-large file, ask whether to extract helpers, subcomponents, or modules *first*, before piling more on. Decompose, then add.
+
+**What counts as "one change":** A single self-contained modification that addresses one thing, includes related tests, and keeps the system functional after submission. One part of a feature — not the whole feature.
+
+**Splitting strategies when a change is too large:**
+
+| Strategy | How | When |
+|----------|-----|------|
+| **Stack** | Submit a small change, start the next one based on it | Sequential dependencies |
+| **By file group** | Separate changes for groups needing different reviewers | Cross-cutting concerns |
+| **Horizontal** | Create shared code/stubs first, then consumers | Layered architecture |
+| **Vertical** | Break into smaller full-stack slices of the feature | Feature work |
+
+**When large changes are acceptable:** Complete file deletions and automated refactoring where the reviewer only needs to verify intent, not every line.
+
+**Separate refactoring from feature work.** A change that refactors existing code and adds new behavior is two changes — submit them separately. Small cleanups (variable renaming) can be included at reviewer discretion.
+
+## Change Descriptions
+
+Every change needs a description that stands alone in version control history.
+
+**First line:** Short, imperative, standalone. "Delete the FizzBuzz RPC" not "Deleting the FizzBuzz RPC." Must be informative enough that someone searching history can understand the change without reading the diff.
+
+**Body:** What is changing and why. Include context, decisions, and reasoning not visible in the code itself. Link to bug numbers, benchmark results, or design docs where relevant. Acknowledge approach shortcomings when they exist.
+
+**Anti-patterns:** "Fix bug," "Fix build," "Add patch," "Moving code from A to B," "Phase 1," "Add convenience functions."
+
+## Review Process
+
+### Step 1: Understand the Context
+
+Before looking at code, understand the intent:
+
+```
+- What is this change trying to accomplish?
+- What spec or task does it implement?
+- What is the expected behavior change?
+```
+
+### Step 2: Review the Tests First
+
+Tests reveal intent and coverage:
+
+```
+- Do tests exist for the change?
+- Do they test behavior (not implementation details)?
+- Are edge cases covered?
+- Do tests have descriptive names?
+- Would the tests catch a regression if the code changed?
+```
+
+### Step 3: Review the Implementation
+
+Walk through the code with the five axes in mind:
+
+```
+For each file changed:
+1. Correctness: Does this code do what the test says it should?
+2. Readability: Can I understand this without help?
+3. Architecture: Does this fit the system?
+4. Security: Any vulnerabilities?
+5. Performance: Any bottlenecks?
+```
+
+### Step 4: Categorize Findings
+
+Label every comment with its severity so the author knows what's required vs optional:
+
+| Prefix | Meaning | Author Action |
+|--------|---------|---------------|
+| *(no prefix)* | Required change | Must address before merge |
+| **Critical:** | Blocks merge | Security vulnerability, data loss, broken functionality |
+| **Nit:** | Minor, optional | Author may ignore — formatting, style preferences |
+| **Optional:** / **Consider:** | Suggestion | Worth considering but not required |
+| **FYI** | Informational only | No action needed — context for future reference |
+
+This prevents authors from treating all feedback as mandatory and wasting time on optional suggestions.
+
+**Lead with what matters.** Order findings by leverage: correctness and security first, then structural regressions and missed simplifications, then everything else. Don't bury a real issue under cosmetic nits — a few high-conviction comments beat a long list. If you have one structural problem and ten nits, the structural problem *is* the review.
+
+### Step 5: Verify the Verification
+
+Check the author's verification story:
+
+```
+- What tests were run?
+- Did the build pass?
+- Was the change tested manually?
+- Are there screenshots for UI changes?
+- Is there a before/after comparison?
+```
+
+## Multi-Model Review Pattern
+
+Use different models for different review perspectives:
+
+```
+Model A writes the code
+    │
+    ▼
+Model B reviews for correctness and architecture
+    │
+    ▼
+Model A addresses the feedback
+    │
+    ▼
+Human makes the final call
+```
+
+2026-09-23T22:07:22.024139Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-H5i5R5/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+I’m gathering the contract and the implementation shape first, then I’ll compare whether the solution keeps the export/list/preview logic understandable and aligned.
+exec
+/bin/zsh -lc "sed -n '1,220p' README.md" in .
+exec
+/bin/zsh -lc "sed -n '1,220p' TICKET.md" in .
+ succeeded in 0ms:
+# OPS-214: Customer exports silently lose records
+
+Morgan uses the Customers directory to prepare an operations handoff. The page says the export includes every matching customer, but the file only contains a page of records. Some companies and notes also split into extra columns or rows.
+
+Deliver a focused repair ready for review:
+
+- Export every matching customer, regardless of the page and page size currently displayed.
+- Preserve the active search, status, segment, and ID sort order.
+- Preserve all seven fields (`id`, `name`, `company`, `email`, `status`, `segment`, `notes`) exactly, including commas, quotes, LF, CRLF, empty text, and Unicode.
+- A query with zero matches downloads a header-only CSV.
+- Customer listing, pagination, and filter controls remain correct.
+- Leave the existing fixture and acceptance expectations unchanged. Add focused regression tests.
+- Publish a concise change summary with the cause, repaired behavior, changed files, actual test evidence, and remaining limitations.
+
+Scope is local source and focused tests. No dependencies, external services, data edits, unrelated redesign, or modifications to this ticket. This is a synthetic rehearsal product, not a production service.
+
+The independent acceptance suite is supplied by the operator outside this repository. Read its result as evidence; do not replace or weaken it. If a local command cannot run, report the exact limitation rather than treating it as a pass.
+
+ succeeded in 0ms:
+# Northstar customer operations
+
+A small local customer dashboard with synthetic data. Node 24; no dependencies.
+
+```sh
+npm start
+npm test
+```
+
+Open http://127.0.0.1:4317. Override `PORT` to run a second copy.
+
+The existing smoke tests exercise listing, filters, pagination, HTTP responses, and a simple export. The open product defect is described in `TICKET.md`. Passing the existing suite alone does not resolve that ticket.
+
+The implementation lives in `src/`; the interface is in `public/`; the canonical 137-customer fixture is in `data/customers.json`.
+
+API: `GET /api/customers` and `GET /api/export` accept `q`, `status` (`all`, `active`, `inactive`), `segment` (`all`, `starter`, `growth`, `enterprise`), `sort` (`id_asc`, `id_desc`), `page`, and `pageSize`. Search matches ID, name, company, or email case-insensitively. The export contract ignores pagination but preserves all other query semantics. `GET /api/stats` returns workspace totals.
+
+exec
+/bin/zsh -lc "sed -n '1,240p' results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md" in .
+exec
+/bin/zsh -lc "sed -n '1,240p' results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md" in .
+ succeeded in 0ms:
+# Draft Summary
+
+## Summary
+Repaired the customer CSV export and added an export preview for operators. The root cause was that `src/export.mjs` reused paginated listing rows from `queryCustomers` and serialized CSV by raw comma joins. The fix adds shared unpaginated matching in `src/customers.mjs:6-28`, keeps listing pagination in `src/customers.mjs:31-36`, uses the full matching set plus CSV escaping in `src/export.mjs:5-17`, and exposes the stable preview payload from `src/export.mjs:19-21` through `/api/export-preview` in `src/server.mjs:33-35`.
+
+## Changed Files
+- `src/customers.mjs`: shared search/status/segment/sort matching helper; paginated listing preserved.
+- `src/export.mjs`: unpaginated export, seven-column CSV escaping, and preview payload helper.
+- `src/server.mjs`: new `GET /api/export-preview` route.
+- `public/index.html`: preview panel, sample table, no-match copy, download and cancel/close controls.
+- `public/app.js`: separate listing vs export queries, preview fetch/render flow, stored-query download, stale preview protection.
+- `public/styles.css`: focused preview styles.
+- `test/query.test.mjs`: unpaginated matching regression test.
+- `test/server.test.mjs`: full export scope, CSV escaping, header-only export, and preview API regression tests.
+
+## Validation Evidence
+- `node --test test/query.test.mjs test/server.test.mjs`: passed, 12 tests / 12 pass / 0 fail.
+- `npm test && python3 showcase/acceptance/check_preview.py`: passed.
+  - `npm test`: 12 tests / 12 pass / 0 fail.
+  - Independent checker: `passed: true`, 24/24 export and listing checks passed, plus all preview checks passed.
+
+## User-Visible States
+- Export entry point: `Preview export` (`public/index.html:8`).
+- Preview heading and actions: `Review customer export`, `Cancel`, `Download this CSV`, `Close preview` (`public/index.html:17-22`).
+- Full download count: `${result.total} matching customers will be included in the full CSV download.` (`public/app.js:68`).
+- Active filter scope: `Matching ...` built from current search/status/segment/sort (`public/app.js:31-39`) and rendered in the preview (`public/app.js:69`).
+- Exported columns: `Exported columns: ...` from the preview API response (`public/app.js:70`).
+- Sample label and fields: `First 5 matching customers sample` with ID, name, company, email, status, segment, notes (`public/index.html:21`; rows rendered in `public/app.js:48-63`).
+- No-match state: `No customers match these filters. Downloading now will create a CSV with column headers only.` (`public/index.html:20`).
+- Stale preview protection: closes on filter changes (`public/app.js:153-154`), discards preview responses for changed queries (`public/app.js:89-95`), and blocks download if the stored preview query differs from the current export query (`public/app.js:160-165`).
+
+## Limitations
+- Browser rendering and manual interaction were not observed; UI claims are based on source inspection and automated validation.
+- `EXPORT_PREVIEW.md` is still untracked task context and was not edited.
+- No known remaining gap after the required validation passed.
+
+ succeeded in 0ms:
+# Work Notes
+
+## What changed
+- `src/customers.mjs:6-36`: added shared `matchingCustomers` query path for search/status/segment/sort, and kept `queryCustomers` paginated only after matching. This preserves `/api/customers` listing pagination while giving export/preview the full matching set.
+- `src/export.mjs:3-21`: kept the seven export columns as the single column list; changed CSV export to use all matching customers; added RFC-style CSV field escaping for commas, quotes, LF, CRLF, empty text, and Unicode; added `previewExport` returning `{ total, columns, sample }` with the first five full customer objects.
+- `src/server.mjs:27-35`: kept `/api/export` and added `GET /api/export-preview` JSON using the same `url.searchParams` query semantics.
+- `public/index.html:8,16-22` and `public/app.js:15-165`: changed the export action to open a preview, added active filter scope, total count, exported columns, first-five sample table with all seven fields, no-match copy, cancel/close actions, and download action.
+- `public/app.js:22-23,66-95,153-165`: listing uses `listingParams()` with page/pageSize; preview and download use `exportParams()` without pagination. The download uses `previewQuery`, the exact stored query that produced the preview, and closes rather than downloading if current filters differ.
+- `public/styles.css`: added focused preview panel/button styles only.
+- `test/query.test.mjs:22-26`: added regression coverage that unpaginated matching ignores page/pageSize while preserving filter and sort.
+- `test/server.test.mjs:77-128`: added regression coverage for unpaginated export counts/order, CSV escaping/round-trip, header-only no-match export, preview API shape/sample, and no-match preview.
+
+## Plan deviations
+- No material deviation from `plan.md`. One late clarity adjustment was added after source review: the preview sample table now displays all seven exported columns (`public/index.html:21`, `public/app.js:53-60`) rather than a reduced five-column table, so the sample better represents the complete CSV.
+
+## Validation evidence
+- Focused red evidence before implementation: `node --test test/query.test.mjs test/server.test.mjs` failed because `matchingCustomers` was missing, exports were paginated, CSV values were not preserved, and `/api/export-preview` returned 404.
+- Focused post-change validation: `node --test test/query.test.mjs test/server.test.mjs` passed with 12 tests, 12 pass, 0 fail.
+- Required full validation command: `npm test && python3 showcase/acceptance/check_preview.py` passed.
+  - `npm test`: 12 tests, 12 pass, 0 fail.
+  - Independent checker: `passed: true`, 24/24 export/listing checks passed, preview checks passed for all matching customers, active customers from page two, combined filters descending, search with commas and line breaks, and no results.
+
+## Source evidence for operator clarity
+- Preview entry point is labeled `Preview export` in `public/index.html:8`.
+- Preview title and actions are explicit: `Review customer export`, `Cancel`, `Download this CSV`, and `Close preview` in `public/index.html:17-22`.
+- Count text distinguishes full download scope: `${result.total} matching customers will be included in the full CSV download.` in `public/app.js:68`.
+- Active filter scope is generated from current search/status/segment/sort in `public/app.js:31-39` and rendered at `public/app.js:69`.
+- Exported columns are shown from the API response in `public/app.js:70`.
+- Sample is labeled `First 5 matching customers sample` and shows ID, name, company, email, status, segment, and notes in `public/index.html:21`; rows are populated from full preview sample objects in `public/app.js:48-63`.
+- No-match state says `No customers match these filters. Downloading now will create a CSV with column headers only.` in `public/index.html:20`.
+- Stale preview protection closes/clears previews on filter input (`public/app.js:153-154`), discards async preview responses when filters changed (`public/app.js:89-95`), and refuses download if the stored preview query differs from the current export query (`public/app.js:160-165`).
+
+## Simplicity and maintainability review
+- Query/filter/order behavior has one source of truth in `src/customers.mjs:6-28`; listing, export, and preview consume it instead of duplicating business rules.
+- CSV and preview responsibilities stay in `src/export.mjs:3-21`; the server only routes requests in `src/server.mjs:24-35`.
+- No dependencies, remote services, fixture edits, contract edits, route removals, or unrelated rewrites were added.
+- Existing tests were kept and strengthened; none were skipped or weakened.
+
+## Remaining risks and limitations
+- I did not run a browser rendering/manual UI interaction check. UI claims above are based on implemented source and automated API/product validation, not observed browser layout.
+- `EXPORT_PREVIEW.md` remains untracked in `git status --short`, as it was supplied as task context and was not edited.
+- No known product gap remains after the passing required validation command.
+
+exec
+/bin/zsh -lc "sed -n '1,240p' EXPORT_PREVIEW.md" in .
+ succeeded in 0ms:
+# OPS-215: Let operators inspect an export before downloading
+
+Resolve OPS-214 in TICKET.md and add a small export preview to the existing Customers dashboard. Morgan should be able to check what a file will contain before downloading it.
+
+## User outcome
+
+The export action opens a preview containing:
+
+- The total number of customers matching the current search, status, segment, and sort, across all pages.
+- A plain-language summary of the active filters and exported columns.
+- The first five matching records, clearly labeled as a sample rather than the full export.
+- An unambiguous download action and a cancel/close action that does not download anything.
+- A useful no-match state explaining that a download will contain only column headers.
+
+The preview and subsequent download must use the same query. Opening a preview on page two must still show the full matching count and the first five matching records. Prevent stale preview information from being used for a different query. Keep the existing dashboard design and listing behavior.
+
+## Stable HTTP contract for independent checks
+
+`GET /api/export-preview` takes the same query parameters as `/api/export`. It returns JSON:
+
+```json
+{
+  "total": 103,
+  "columns": ["id", "name", "company", "email", "status", "segment", "notes"],
+  "sample": []
+}
+```
+
+`total` is the full matching count. `sample` contains the first `min(5, total)` full customer objects in the requested order, retaining exact field values. Both ignore page and pageSize. No matches returns total=0 and sample=[], with columns unchanged. The example count is illustrative; compute from the real fixture and query.
+
+The existing export contract remains authoritative for actual CSV output. The new preview is an additional feature, not a replacement for a correct download.
+
+## Quality bar
+
+Prefer the smallest clear change consistent with the current code. Share filtering/ordering semantics where appropriate; do not add a framework, generic export platform, dependencies, or unnecessary indirection. The preview copy should help an operations user distinguish matching count, sample size, and downloaded records without reading technical documentation.
+
+Publish a concise summary of the repair and preview with validation evidence, source references for the user-visible states, and limitations. Do not claim browser behavior or visual quality was checked unless it was actually observed. Do not edit this contract, TICKET.md, AGENTS.md, or the canonical customer data.
+
+exec
+/bin/zsh -lc 'git status --short && git diff --stat && git diff --name-only' in .
+2026-09-23T22:07:44.529464Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-H5i5R5/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ succeeded in 8770ms:
+2026-09-23 18:07:36.843 xcodebuild[78500:3034169]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:07:37.140 xcodebuild[78500:3034168] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+git: warning: confstr() failed with code 5: couldn't get path of DARWIN_USER_TEMP_DIR; using /tmp instead
+git: error: couldn't create cache file '/tmp/xcrun_db-cQBgPnye' (errno=Operation not permitted)
+2026-09-23 18:07:38.396 xcodebuild[78502:3034189]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:07:38.557 xcodebuild[78502:3034188] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+ M public/app.js
+ M public/index.html
+ M public/styles.css
+ M src/customers.mjs
+ M src/export.mjs
+ M src/server.mjs
+ M test/query.test.mjs
+ M test/server.test.mjs
+?? EXPORT_PREVIEW.md
+git: warning: confstr() failed with code 5: couldn't get path of DARWIN_USER_TEMP_DIR; using /tmp instead
+git: error: couldn't create cache file '/tmp/xcrun_db-quQ5vqAl' (errno=Operation not permitted)
+2026-09-23 18:07:40.012 xcodebuild[78507:3034217]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:07:40.176 xcodebuild[78507:3034216] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+git: warning: confstr() failed with code 5: couldn't get path of DARWIN_USER_TEMP_DIR; using /tmp instead
+git: error: couldn't create cache file '/tmp/xcrun_db-bODrCilp' (errno=Operation not permitted)
+2026-09-23 18:07:40.833 xcodebuild[78524:3034272]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:07:40.982 xcodebuild[78524:3034271] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+ public/app.js        | 107 +++++++++++++++++++++++++++++++++++++++++++++++++--
+ public/index.html    |  13 ++++++-
+ public/styles.css    |   1 +
+ src/customers.mjs    |  36 ++++++++++++-----
+ src/export.mjs       |  20 ++++++++--
+ src/server.mjs       |   5 ++-
+ test/query.test.mjs  |  14 +++++--
+ test/server.test.mjs |  95 +++++++++++++++++++++++++++++++++++++++++++++
+ 8 files changed, 267 insertions(+), 24 deletions(-)
+git: warning: confstr() failed with code 5: couldn't get path of DARWIN_USER_TEMP_DIR; using /tmp instead
+git: error: couldn't create cache file '/tmp/xcrun_db-NEFYsFmS' (errno=Operation not permitted)
+2026-09-23 18:07:42.412 xcodebuild[78531:3034301]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:07:42.562 xcodebuild[78531:3034300] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+git: warning: confstr() failed with code 5: couldn't get path of DARWIN_USER_TEMP_DIR; using /tmp instead
+git: error: couldn't create cache file '/tmp/xcrun_db-J9RzaTqT' (errno=Operation not permitted)
+2026-09-23 18:07:43.221 xcodebuild[78533:3034309]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:07:43.367 xcodebuild[78533:3034308] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+public/app.js
+public/index.html
+public/styles.css
+src/customers.mjs
+src/export.mjs
+src/server.mjs
+test/query.test.mjs
+test/server.test.mjs
+
+codex
+The evidence says the change is concentrated in the expected files. I’m reading those now to verify whether the shared query/export pieces are genuinely simple rather than just described that way.
+exec
+/bin/zsh -lc "nl -ba src/customers.mjs | sed -n '1,220p'" in .
+exec
+/bin/zsh -lc "nl -ba src/export.mjs | sed -n '1,220p'" in .
+ succeeded in 0ms:
+     1	import { matchingCustomers } from './customers.mjs';
+     2	
+     3	export const columns = ['id', 'name', 'company', 'email', 'status', 'segment', 'notes'];
+     4	
+     5	function csvField(value) {
+     6	  const text = String(value ?? '');
+     7	  return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+     8	}
+     9	
+    10	function csvRow(customer) {
+    11	  return columns.map(column => csvField(customer[column])).join(',');
+    12	}
+    13	
+    14	export function exportCustomers(customers, params) {
+    15	  const rows = matchingCustomers(customers, params);
+    16	  return [columns.join(','), ...rows.map(csvRow)].join('\r\n') + '\r\n';
+    17	}
+    18	
+    19	export function previewExport(customers, params) {
+    20	  const rows = matchingCustomers(customers, params);
+    21	  return { total: rows.length, columns, sample: rows.slice(0, 5) };
+    22	}
+
+ succeeded in 0ms:
+     1	function positiveInteger(value, fallback, maximum) {
+     2	  const parsed = Number(value);
+     3	  return Number.isSafeInteger(parsed) && parsed > 0 ? Math.min(parsed, maximum) : fallback;
+     4	}
+     5	
+     6	function queryScope(params) {
+     7	  return {
+     8	    search: (params.get('q') || '').trim().toLowerCase(),
+     9	    status: params.get('status') || 'all',
+    10	    segment: params.get('segment') || 'all',
+    11	    sort: params.get('sort') || 'id_asc'
+    12	  };
+    13	}
+    14	
+    15	function customerMatches(customer, scope) {
+    16	  const haystack = [customer.id, customer.name, customer.company, customer.email].join(' ').toLowerCase();
+    17	  return (!scope.search || haystack.includes(scope.search))
+    18	    && (scope.status === 'all' || customer.status === scope.status)
+    19	    && (scope.segment === 'all' || customer.segment === scope.segment);
+    20	}
+    21	
+    22	function compareCustomers(scope) {
+    23	  return (a, b) => scope.sort === 'id_desc' ? b.id.localeCompare(a.id) : a.id.localeCompare(b.id);
+    24	}
+    25	
+    26	export function matchingCustomers(customers, params) {
+    27	  const scope = queryScope(params);
+    28	  return customers.filter(customer => customerMatches(customer, scope)).sort(compareCustomers(scope));
+    29	}
+    30	
+    31	export function queryCustomers(customers, params) {
+    32	  const page = positiveInteger(params.get('page'), 1, 100000);
+    33	  const pageSize = positiveInteger(params.get('pageSize'), 25, 100);
+    34	  const matches = matchingCustomers(customers, params);
+    35	  const start = (page - 1) * pageSize;
+    36	  return { rows: matches.slice(start, start + pageSize), total: matches.length, page, pageSize };
+    37	}
+
+exec
+/bin/zsh -lc "nl -ba src/server.mjs | sed -n '1,220p'" in .
+ succeeded in 0ms:
+     1	import { createServer } from 'node:http';
+     2	import { readFileSync } from 'node:fs';
+     3	import { fileURLToPath } from 'node:url';
+     4	import { resolve } from 'node:path';
+     5	import { queryCustomers } from './customers.mjs';
+     6	import { exportCustomers, previewExport } from './export.mjs';
+     7	
+     8	const customers = JSON.parse(readFileSync(new URL('../data/customers.json', import.meta.url), 'utf8'));
+     9	const assets = new Map([
+    10	  ['/', ['index.html', 'text/html; charset=utf-8']],
+    11	  ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
+    12	  ['/styles.css', ['styles.css', 'text/css; charset=utf-8']]
+    13	]);
+    14	
+    15	export function createApp() {
+    16	  return createServer((request, response) => {
+    17	    response.setHeader('Cache-Control', 'no-store');
+    18	    response.setHeader('X-Content-Type-Options', 'nosniff');
+    19	    if (request.method !== 'GET') {
+    20	      response.writeHead(405, { Allow: 'GET' }).end('Method not allowed');
+    21	      return;
+    22	    }
+    23	    const url = new URL(request.url, 'http://localhost');
+    24	    if (url.pathname === '/api/customers') {
+    25	      response.writeHead(200, { 'Content-Type': 'application/json' });
+    26	      response.end(JSON.stringify(queryCustomers(customers, url.searchParams)));
+    27	    } else if (url.pathname === '/api/export') {
+    28	      response.writeHead(200, {
+    29	        'Content-Type': 'text/csv; charset=utf-8',
+    30	        'Content-Disposition': 'attachment; filename="customers.csv"'
+    31	      });
+    32	      response.end(exportCustomers(customers, url.searchParams));
+    33	    } else if (url.pathname === '/api/export-preview') {
+    34	      response.writeHead(200, { 'Content-Type': 'application/json' });
+    35	      response.end(JSON.stringify(previewExport(customers, url.searchParams)));
+    36	    } else if (url.pathname === '/api/stats') {
+    37	      response.writeHead(200, { 'Content-Type': 'application/json' });
+    38	      response.end(JSON.stringify({ total: customers.length, active: customers.filter(row => row.status === 'active').length, enterprise: customers.filter(row => row.segment === 'enterprise').length }));
+    39	    } else if (assets.has(url.pathname)) {
+    40	      const [filename, contentType] = assets.get(url.pathname);
+    41	      response.writeHead(200, { 'Content-Type': contentType });
+    42	      response.end(readFileSync(new URL(`../public/${filename}`, import.meta.url)));
+    43	    } else {
+    44	      response.writeHead(404).end('Not found');
+    45	    }
+    46	  });
+    47	}
+    48	
+    49	if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+    50	  const server = createApp();
+    51	  server.listen(Number(process.env.PORT || 4317), '127.0.0.1', () => {
+    52	    console.log(`Northstar ready at http://127.0.0.1:${server.address().port}`);
+    53	  });
+    54	  process.on('SIGTERM', () => server.close());
+    55	  process.on('SIGINT', () => server.close());
+    56	}
+
+exec
+/bin/zsh -lc "nl -ba public/index.html | sed -n '1,220p'" in .
+ succeeded in 0ms:
+     1	<!doctype html>
+     2	<html lang="en">
+     3	<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Northstar · Customers</title><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head>
+     4	<body>
+     5	  <aside class="sidebar"><a class="brand" href="/" aria-label="Northstar home"><span class="brand-mark">N</span>northstar<span class="brand-dot">.</span></a><div class="workspace"><span class="workspace-icon">N</span><div>Northstar workspace<small>Customer operations</small></div></div><p class="nav-label">WORKSPACE</p><div class="nav-item selected"><span>◉</span> Customers <span class="nav-count">137</span></div><div class="sidebar-bottom"><span class="avatar">MC</span><div>Morgan Carter<small>Operations lead</small></div><span class="online"></span></div></aside>
+     6	  <main>
+     7	    <div class="topbar"><span>Workspace <span class="slash">/</span> <strong>Customers</strong></span><span class="demo-label"><span></span> Synthetic demo data</span></div>
+     8	    <header><div><p class="eyebrow">CUSTOMER OPERATIONS</p><h1>Customers</h1><p class="subtitle">One place to find your customers and take your data with you.</p></div><button id="export" class="primary-button" type="button"><span aria-hidden="true">↓</span> Preview export</button></header>
+     9	    <section class="metrics" aria-label="Customer summary"><article><span>Total customers</span><strong id="total">—</strong><small>Across your workspace</small></article><article><span>Active customers</span><strong id="active">—</strong><small><i class="status-dot"></i> Currently active</small></article><article><span>Enterprise accounts</span><strong id="enterprise">—</strong><small>Your largest customer segment</small></article></section>
+    10	    <section class="directory"><div class="directory-heading"><div><h2>Customer directory <span id="matching-count"></span></h2><p>Search, filter, and export your customer list.</p></div><span class="read-only-label">Local workspace</span></div>
+    11	      <form id="filters" class="filters"><label class="search"><span aria-hidden="true">⌕</span><input id="search" name="q" type="search" placeholder="Search name, company, or email" aria-label="Search customers"></label><label><span class="sr-only">Status</span><select id="status" name="status"><option value="all">All statuses</option><option value="active">Active</option><option value="inactive">Inactive</option></select></label><label><span class="sr-only">Segment</span><select id="segment" name="segment"><option value="all">All segments</option><option value="starter">Starter</option><option value="growth">Growth</option><option value="enterprise">Enterprise</option></select></label><label><span class="sr-only">Sort customers</span><select id="sort" name="sort"><option value="id_asc">ID: ascending</option><option value="id_desc">ID: descending</option></select></label></form>
+    12	      <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Company</th><th>Status</th><th>Segment</th><th>Customer ID</th></tr></thead><tbody id="customers"></tbody></table><p id="empty" hidden>No customers match these filters.</p></div>
+    13	      <footer class="pagination"><span id="range" aria-live="polite"></span><div><button id="previous" type="button">← Previous</button><span id="page-label"></span><button id="next" type="button">Next →</button></div></footer>
+    14	    </section>
+    15	    <p id="export-scope" class="export-scope" aria-live="polite"></p>
+    16	    <section id="export-preview" class="export-preview" aria-live="polite" hidden>
+    17	      <div class="preview-heading"><div><p class="eyebrow">EXPORT PREVIEW</p><h2 id="preview-title">Review customer export</h2><p id="preview-scope"></p></div><button id="preview-cancel" class="secondary-button" type="button">Cancel</button></div>
+    18	      <p id="preview-count" class="preview-count"></p>
+    19	      <p id="preview-columns" class="preview-meta"></p>
+    20	      <p id="preview-empty" class="preview-empty" hidden>No customers match these filters. Downloading now will create a CSV with column headers only.</p>
+    21	      <div id="preview-sample-wrap" class="preview-sample-wrap"><h3>First 5 matching customers sample</h3><table><thead><tr><th>ID</th><th>Name</th><th>Company</th><th>Email</th><th>Status</th><th>Segment</th><th>Notes</th></tr></thead><tbody id="preview-sample"></tbody></table></div>
+    22	      <div class="preview-actions"><button id="preview-download" class="primary-button" type="button">Download this CSV</button><button id="preview-close" class="secondary-button" type="button">Close preview</button></div>
+    23	    </section>
+    24	    <p id="error" role="alert" hidden></p>
+    25	  </main>
+    26	</body></html>
+
+exec
+/bin/zsh -lc "nl -ba public/app.js | sed -n '1,240p'" in .
+ succeeded in 0ms:
+     1	const form = document.querySelector('#filters');
+     2	const body = document.querySelector('#customers');
+     3	const preview = document.querySelector('#export-preview');
+     4	let page = 1;
+     5	let requestNumber = 0;
+     6	let previewQuery = '';
+     7	
+     8	function cell(value, className = '') {
+     9	  const td = document.createElement('td');
+    10	  td.textContent = value;
+    11	  if (className) td.className = className;
+    12	  return td;
+    13	}
+    14	
+    15	function listingParams() {
+    16	  const params = new URLSearchParams(new FormData(form));
+    17	  params.set('page', page);
+    18	  params.set('pageSize', '25');
+    19	  return params;
+    20	}
+    21	
+    22	function exportParams() {
+    23	  return new URLSearchParams(new FormData(form));
+    24	}
+    25	
+    26	function selectedText(name) {
+    27	  const field = form.elements[name];
+    28	  return field.options[field.selectedIndex].textContent;
+    29	}
+    30	
+    31	function filterScopeText() {
+    32	  const search = form.elements.q.value.trim();
+    33	  const parts = [
+    34	    search ? `search "${search}"` : 'any search text',
+    35	    selectedText('status').toLowerCase(),
+    36	    selectedText('segment').toLowerCase(),
+    37	    selectedText('sort').toLowerCase()
+    38	  ];
+    39	  return `Matching ${parts.join(', ')}.`;
+    40	}
+    41	
+    42	function closePreview() {
+    43	  preview.hidden = true;
+    44	  previewQuery = '';
+    45	  document.querySelector('#preview-sample').replaceChildren();
+    46	}
+    47	
+    48	function renderPreviewSample(sample) {
+    49	  const sampleBody = document.querySelector('#preview-sample');
+    50	  sampleBody.replaceChildren();
+    51	  for (const customer of sample) {
+    52	    const tr = document.createElement('tr');
+    53	    tr.append(
+    54	      cell(customer.id, 'customer-id'),
+    55	      cell(customer.name),
+    56	      cell(customer.company),
+    57	      cell(customer.email),
+    58	      cell(customer.status),
+    59	      cell(customer.segment, 'segment'),
+    60	      cell(customer.notes)
+    61	    );
+    62	    sampleBody.append(tr);
+    63	  }
+    64	}
+    65	
+    66	function renderPreview(result, query) {
+    67	  previewQuery = query;
+    68	  document.querySelector('#preview-count').textContent = `${result.total} matching customers will be included in the full CSV download.`;
+    69	  document.querySelector('#preview-scope').textContent = filterScopeText();
+    70	  document.querySelector('#preview-columns').textContent = `Exported columns: ${result.columns.join(', ')}.`;
+    71	  document.querySelector('#preview-empty').hidden = result.total !== 0;
+    72	  document.querySelector('#preview-sample-wrap').hidden = result.total === 0;
+    73	  renderPreviewSample(result.sample);
+    74	  document.querySelector('#preview-download').disabled = false;
+    75	  preview.hidden = false;
+    76	}
+    77	
+    78	async function openPreview() {
+    79	  const query = exportParams().toString();
+    80	  previewQuery = '';
+    81	  document.querySelector('#preview-download').disabled = true;
+    82	  document.querySelector('#preview-count').textContent = 'Loading export preview...';
+    83	  document.querySelector('#preview-scope').textContent = filterScopeText();
+    84	  document.querySelector('#preview-columns').textContent = '';
+    85	  document.querySelector('#preview-empty').hidden = true;
+    86	  document.querySelector('#preview-sample-wrap').hidden = true;
+    87	  preview.hidden = false;
+    88	  try {
+    89	    const response = await fetch(`/api/export-preview?${query}`);
+    90	    if (!response.ok) throw new Error('Could not load export preview. Please try again.');
+    91	    const result = await response.json();
+    92	    if (query !== exportParams().toString()) {
+    93	      closePreview();
+    94	      return;
+    95	    }
+    96	    renderPreview(result, query);
+    97	    document.querySelector('#error').hidden = true;
+    98	  } catch (error) {
+    99	    closePreview();
+   100	    document.querySelector('#error').textContent = error.message;
+   101	    document.querySelector('#error').hidden = false;
+   102	  }
+   103	}
+   104	
+   105	async function refresh() {
+   106	  const currentRequest = ++requestNumber;
+   107	  const params = listingParams();
+   108	  try {
+   109	    const response = await fetch(`/api/customers?${params}`);
+   110	    if (!response.ok) throw new Error('Could not load customers. Please try again.');
+   111	    const result = await response.json();
+   112	    if (currentRequest !== requestNumber) return;
+   113	    body.replaceChildren();
+   114	    for (const customer of result.rows) {
+   115	      const tr = document.createElement('tr');
+   116	      const identity = cell('');
+   117	      const person = document.createElement('div');
+   118	      person.className = 'person';
+   119	      const avatar = document.createElement('span');
+   120	      avatar.className = `person-avatar tone-${Number(customer.id.slice(1)) % 4}`;
+   121	      avatar.textContent = customer.name.split(' ').map(part => part[0]).slice(0, 2).join('');
+   122	      const name = document.createElement('span');
+   123	      name.textContent = customer.name;
+   124	      const email = document.createElement('small');
+   125	      email.textContent = customer.email;
+   126	      name.append(email);
+   127	      person.append(avatar, name);
+   128	      identity.append(person);
+   129	      const status = cell('');
+   130	      const badge = document.createElement('span');
+   131	      badge.className = `badge ${customer.status}`;
+   132	      badge.textContent = customer.status;
+   133	      status.append(badge);
+   134	      tr.append(identity, cell(customer.company), status, cell(customer.segment, 'segment'), cell(customer.id, 'customer-id'));
+   135	      body.append(tr);
+   136	    }
+   137	    document.querySelector('#matching-count').textContent = result.total;
+   138	    document.querySelector('#empty').hidden = result.total !== 0;
+   139	    const start = result.total ? (page - 1) * 25 + 1 : 0;
+   140	    document.querySelector('#range').textContent = `Showing ${start}–${Math.min(page * 25, result.total)} of ${result.total} customers`;
+   141	    document.querySelector('#page-label').textContent = `${page} / ${Math.max(1, Math.ceil(result.total / 25))}`;
+   142	    document.querySelector('#previous').disabled = page <= 1;
+   143	    document.querySelector('#next').disabled = page * 25 >= result.total;
+   144	    document.querySelector('#export-scope').textContent = `Export includes all ${result.total} matching customers, across every page.`;
+   145	    document.querySelector('#error').hidden = true;
+   146	  } catch (error) {
+   147	    if (currentRequest !== requestNumber) return;
+   148	    document.querySelector('#error').textContent = error.message;
+   149	    document.querySelector('#error').hidden = false;
+   150	  }
+   151	}
+   152	
+   153	form.addEventListener('submit', event => event.preventDefault());
+   154	form.addEventListener('input', () => { page = 1; closePreview(); refresh(); });
+   155	document.querySelector('#previous').addEventListener('click', () => { page -= 1; refresh(); });
+   156	document.querySelector('#next').addEventListener('click', () => { page += 1; refresh(); });
+   157	document.querySelector('#export').addEventListener('click', openPreview);
+   158	document.querySelector('#preview-cancel').addEventListener('click', closePreview);
+   159	document.querySelector('#preview-close').addEventListener('click', closePreview);
+   160	document.querySelector('#preview-download').addEventListener('click', () => {
+   161	  if (!previewQuery || previewQuery !== exportParams().toString()) {
+   162	    closePreview();
+   163	    return;
+   164	  }
+   165	  window.location.href = `/api/export?${previewQuery}`;
+   166	});
+   167	fetch('/api/stats').then(response => response.json()).then(stats => {
+   168	  for (const name of ['total', 'active', 'enterprise']) document.querySelector(`#${name}`).textContent = stats[name];
+   169	}).catch(() => {});
+   170	refresh();
+
+exec
+/bin/zsh -lc "nl -ba test/query.test.mjs | sed -n '1,220p'; nl -ba test/server.test.mjs | sed -n '1,240p'" in .
+ succeeded in 0ms:
+     1	import test from 'node:test';
+     2	import assert from 'node:assert/strict';
+     3	import { matchingCustomers, queryCustomers } from '../src/customers.mjs';
+     4	
+     5	const customers = [
+     6	  { id: 'C001', name: 'Maya Chen', company: 'Acme, Inc.', email: 'maya@example.test', status: 'active', segment: 'growth', notes: 'Uses CSV, often' },
+     7	  { id: 'C002', name: 'Jon Bell', company: 'Birch', email: 'jon@example.test', status: 'inactive', segment: 'starter', notes: 'Paused' },
+     8	  { id: 'C003', name: 'Amara Okafor', company: 'Acme, Inc.', email: 'amara@example.test', status: 'active', segment: 'growth', notes: 'Ready' }
+     9	];
+    10	
+    11	test('listing paginates after filtering and preserves total', () => {
+    12	  const result = queryCustomers(customers, new URLSearchParams('status=active&page=2&pageSize=1'));
+    13	  assert.equal(result.total, 2);
+    14	  assert.deepEqual(result.rows.map(row => row.id), ['C003']);
+    15	});
+    16	
+    17	test('search and segment combine, with descending ID order', () => {
+    18	  const result = queryCustomers(customers, new URLSearchParams('q=ACME&segment=growth&sort=id_desc'));
+    19	  assert.deepEqual(result.rows.map(row => row.id), ['C003', 'C001']);
+    20	});
+    21	
+    22	test('matching customers ignore pagination while preserving filters and sort', () => {
+    23	  const result = matchingCustomers(customers, new URLSearchParams('q=ACME&segment=growth&sort=id_desc&page=2&pageSize=1'));
+    24	  assert.deepEqual(result.map(row => row.id), ['C003', 'C001']);
+    25	  assert.equal(result[1].notes, 'Uses CSV, often');
+    26	});
+    27	
+    28	test('zero matches and invalid pagination have safe defaults', () => {
+    29	  const result = queryCustomers(customers, new URLSearchParams('q=missing&page=-2&pageSize=no'));
+    30	  assert.equal(result.total, 0);
+    31	  assert.deepEqual(result.rows, []);
+    32	  assert.equal(result.page, 1);
+    33	  assert.equal(result.pageSize, 25);
+    34	});
+     1	import test, { before, after } from 'node:test';
+     2	import assert from 'node:assert/strict';
+     3	import { once } from 'node:events';
+     4	import { readFileSync } from 'node:fs';
+     5	import { createApp } from '../src/server.mjs';
+     6	import { columns, exportCustomers } from '../src/export.mjs';
+     7	
+     8	const customers = JSON.parse(readFileSync(new URL('../data/customers.json', import.meta.url), 'utf8'));
+     9	
+    10	function parseCsv(text) {
+    11	  const rows = [];
+    12	  let row = [];
+    13	  let field = '';
+    14	  let quoted = false;
+    15	  for (let index = 0; index < text.length; index += 1) {
+    16	    const character = text[index];
+    17	    if (quoted) {
+    18	      if (character === '"' && text[index + 1] === '"') {
+    19	        field += '"';
+    20	        index += 1;
+    21	      } else if (character === '"') {
+    22	        quoted = false;
+    23	      } else {
+    24	        field += character;
+    25	      }
+    26	    } else if (character === '"') {
+    27	      quoted = true;
+    28	    } else if (character === ',') {
+    29	      row.push(field);
+    30	      field = '';
+    31	    } else if (character === '\r' && text[index + 1] === '\n') {
+    32	      row.push(field);
+    33	      rows.push(row);
+    34	      row = [];
+    35	      field = '';
+    36	      index += 1;
+    37	    } else {
+    38	      field += character;
+    39	    }
+    40	  }
+    41	  if (field || row.length) {
+    42	    row.push(field);
+    43	    rows.push(row);
+    44	  }
+    45	  return rows;
+    46	}
+    47	
+    48	let server;
+    49	let base;
+    50	before(async () => {
+    51	  server = createApp();
+    52	  server.listen(0, '127.0.0.1');
+    53	  await once(server, 'listening');
+    54	  base = `http://127.0.0.1:${server.address().port}`;
+    55	});
+    56	after(() => new Promise(resolve => server.close(resolve)));
+    57	
+    58	test('customer API returns a paginated synthetic dataset', async () => {
+    59	  const response = await fetch(`${base}/api/customers`);
+    60	  const data = await response.json();
+    61	  assert.equal(response.status, 200);
+    62	  assert.equal(data.total, 137);
+    63	  assert.equal(data.rows.length, 25);
+    64	  assert.equal(data.rows[0].id, 'C001');
+    65	});
+    66	
+    67	test('dashboard and CSV download are served with appropriate content types', async () => {
+    68	  const dashboard = await fetch(base);
+    69	  assert.match(dashboard.headers.get('content-type'), /text\/html/);
+    70	  assert.match(await dashboard.text(), /Customers/);
+    71	  const csv = await fetch(`${base}/api/export?q=C010`);
+    72	  assert.match(csv.headers.get('content-type'), /text\/csv/);
+    73	  assert.match(csv.headers.get('content-disposition'), /attachment/);
+    74	  assert.match(await csv.text(), /C010/);
+    75	});
+    76	
+    77	test('CSV export includes all filtered records and ignores pagination', async () => {
+    78	  const response = await fetch(`${base}/api/export?status=active&segment=growth&sort=id_desc&page=2&pageSize=1`);
+    79	  const rows = parseCsv(await response.text());
+    80	  const expected = customers
+    81	    .filter(customer => customer.status === 'active' && customer.segment === 'growth')
+    82	    .sort((a, b) => b.id.localeCompare(a.id));
+    83	
+    84	  assert.deepEqual(rows[0], columns);
+    85	  assert.equal(rows.length - 1, expected.length);
+    86	  assert.deepEqual(rows.slice(1).map(row => row[0]), expected.map(customer => customer.id));
+    87	});
+    88	
+    89	test('CSV export preserves commas, quotes, line breaks, empty text, and Unicode', () => {
+    90	  const fixture = [
+    91	    { id: 'C900', name: 'Zoë Ray', company: 'Comma, Quote "Works"', email: 'zoe@example.test', status: 'active', segment: 'growth', notes: 'First line\nSecond line\r\nUnicode snowman ☃' },
+    92	    { id: 'C901', name: 'Empty Notes', company: '', email: 'empty@example.test', status: 'inactive', segment: 'starter', notes: '' }
+    93	  ];
+    94	
+    95	  const rows = parseCsv(exportCustomers(fixture, new URLSearchParams('page=2&pageSize=1')));
+    96	
+    97	  assert.deepEqual(rows, [
+    98	    columns,
+    99	    columns.map(column => fixture[0][column]),
+   100	    columns.map(column => fixture[1][column])
+   101	  ]);
+   102	});
+   103	
+   104	test('CSV export returns headers only when filters match no customers', async () => {
+   105	  const response = await fetch(`${base}/api/export?q=no-such-customer`);
+   106	  assert.deepEqual(parseCsv(await response.text()), [columns]);
+   107	});
+   108	
+   109	test('export preview returns count, columns, and first five matching records', async () => {
+   110	  const response = await fetch(`${base}/api/export-preview?status=active&segment=growth&sort=id_desc&page=2&pageSize=1`);
+   111	  const preview = await response.json();
+   112	  const expected = customers
+   113	    .filter(customer => customer.status === 'active' && customer.segment === 'growth')
+   114	    .sort((a, b) => b.id.localeCompare(a.id));
+   115	
+   116	  assert.equal(response.status, 200);
+   117	  assert.equal(preview.total, expected.length);
+   118	  assert.deepEqual(preview.columns, columns);
+   119	  assert.deepEqual(preview.sample, expected.slice(0, 5));
+   120	});
+   121	
+   122	test('export preview returns unchanged columns and empty sample for no matches', async () => {
+   123	  const response = await fetch(`${base}/api/export-preview?q=no-such-customer`);
+   124	  const preview = await response.json();
+   125	
+   126	  assert.equal(response.status, 200);
+   127	  assert.deepEqual(preview, { total: 0, columns, sample: [] });
+   128	});
+   129	
+   130	test('unknown paths and mutation requests are rejected', async () => {
+   131	  assert.equal((await fetch(`${base}/missing`)).status, 404);
+   132	  assert.equal((await fetch(`${base}/api/customers`, { method: 'POST' })).status, 405);
+   133	});
+
+2026-09-23T22:07:55.790587Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-H5i5R5/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+So far the backend is nicely small: one matching helper, listing adds pagination, export and preview share it. I’m checking the UI/styling and test evidence for any hidden duplication or unrelated churn before scoring.
+exec
+/bin/zsh -lc "nl -ba public/styles.css | sed -n '1,260p'" in .
+exec
+/bin/zsh -lc 'cat package.json' in .
+ succeeded in 0ms:
+{
+  "name": "agentflow-customer-dashboard-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": { "start": "node src/server.mjs", "test": "node --test" }
+}
+
+ succeeded in 0ms:
+     1	:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202735;background:#f7f8fb;font-synthesis:none}*{box-sizing:border-box}body{margin:0;font-size:14px}.sidebar{position:fixed;inset:0 auto 0 0;width:236px;background:#111b2d;color:#a8b3c7;padding:29px 18px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;color:white;font-size:25px;font-weight:700;letter-spacing:-1.2px;text-decoration:none;margin:0 10px 38px}.brand-mark{background:#5674ff;color:#fff;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:18px;letter-spacing:0;margin-right:9px}.brand-dot{color:#6984ff}.workspace{border:1px solid #2b3649;border-radius:9px;padding:13px 10px;display:flex;align-items:center;gap:10px;font-size:12px;color:#e1e6ef}.workspace small,.sidebar-bottom small{display:block;color:#7f8ca5;font-size:11px;margin-top:4px}.workspace-icon{border-radius:7px;background:#29354c;padding:9px;color:#afc1f7;font-weight:700}.nav-label{font-size:10px;letter-spacing:1.8px;margin:30px 12px 13px;color:#67758e}.nav-item{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:7px}.selected{background:#253653;color:#fff}.nav-count{margin-left:auto;font-size:11px;background:#384b6c;padding:3px 7px;border-radius:5px}.sidebar-bottom{display:flex;align-items:center;gap:10px;margin-top:auto;border-top:1px solid #2b3649;padding:22px 5px 0;color:#e1e6ef;font-size:12px}.avatar{background:#34495c;border-radius:50%;padding:10px;font-size:11px}.online{width:7px;height:7px;border-radius:50%;background:#66bd9f;margin-left:auto}main{margin-left:236px;padding:0 42px 25px;max-width:1720px}.topbar{height:73px;border-bottom:1px solid #e3e6ee;display:flex;align-items:center;justify-content:space-between;color:#7e8798;font-size:12px}.topbar strong{color:#3c4555;font-weight:500}.slash{margin:0 13px;color:#c7ccd6}.demo-label{display:flex;align-items:center;gap:7px;font-size:11px}.demo-label span{height:6px;width:6px;background:#56a58c;border-radius:50%}header{display:flex;align-items:center;justify-content:space-between;margin:38px 0 28px;gap:20px}.eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:650;color:#7b86a0;margin:0 0 11px}h1{font-size:32px;letter-spacing:-1px;font-weight:650;margin:0}.subtitle{font-size:13px;color:#7a8495;margin:9px 0 0}.primary-button{display:inline-flex;align-items:center;gap:11px;white-space:nowrap;text-decoration:none;color:#fff;background:#4864e9;padding:12px 17px;border-radius:7px;font-size:12px;font-weight:600;box-shadow:0 3px 6px #2435781a}.primary-button:hover{background:#3953d3}.primary-button span{font-size:19px;line-height:1}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}.metrics article{background:white;border:1px solid #e5e8ef;border-radius:10px;padding:23px 24px;box-shadow:0 2px 3px #29334b03}.metrics article>span{font-size:12px;color:#747f90;display:block}.metrics strong{display:block;font-size:30px;letter-spacing:-.8px;font-weight:600;margin:12px 0 8px}.metrics small{font-size:11px;color:#919aaa}.status-dot{display:inline-block;width:6px;height:6px;background:#43a580;border-radius:50%;margin-right:4px}.directory{border:1px solid #e2e6ed;border-radius:11px;background:#fff;overflow:hidden;box-shadow:0 3px 6px #29334b03}.directory-heading{padding:24px 25px 20px;display:flex;align-items:center;justify-content:space-between}h2{font-size:15px;font-weight:600;margin:0;display:flex;align-items:center;gap:10px}#matching-count{background:#eef1fb;color:#576ba9;border-radius:5px;padding:3px 7px;font-size:10px}.directory-heading p{font-size:11px;color:#929bad;margin:7px 0 0}.read-only-label{font-size:10px;color:#919aad;border:1px solid #e8ebf2;border-radius:4px;padding:6px 8px}.filters{display:flex;gap:10px;padding:0 25px 22px}.search{border:1px solid #dfe4ed;border-radius:6px;display:flex;align-items:center;gap:8px;flex:1;min-width:100px;padding:0 11px;color:#919db1}.search span{font-size:23px}.search input{width:100%;border:0;outline:none;font:inherit;font-size:11px;height:36px;color:#404e64;background:transparent}.search:focus-within{outline:2px solid #a7b6ff}select{height:38px;border:1px solid #dfe4ed;border-radius:6px;background:#fff;color:#667286;padding:0 28px 0 10px;font:inherit;font-size:11px;max-width:160px}.table-wrap{overflow:auto;max-height:470px}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{background:#f8f9fc;color:#8a94a6;font-size:10px;letter-spacing:.25px;font-weight:500;padding:13px 24px;border-top:1px solid #edf0f5;border-bottom:1px solid #edf0f5;position:sticky;top:0;z-index:1}td{border-bottom:1px solid #f0f2f6;padding:14px 24px;font-size:11px;color:#6d778a}tr:last-child td{border:0}.person{display:flex;align-items:center;gap:11px;color:#3e485a;font-size:12px;font-weight:550}.person small{display:block;color:#9aA2b1;font-size:10px;font-weight:400;margin-top:4px}.person-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:600}.tone-0{background:#e9edf8;color:#7386b1}.tone-1{background:#f4e9e4;color:#b88567}.tone-2{background:#e7f1ed;color:#5d9584}.tone-3{background:#f0eaf9;color:#9980b3}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:4px 8px;font-size:9px;text-transform:capitalize}.badge:before{content:"";width:4px;height:4px;border-radius:50%;background:currentColor}.badge.active{background:#eaf6f0;color:#42916e}.badge.inactive{background:#f1f2f5;color:#929aab}.segment{text-transform:capitalize}.customer-id{font-family:ui-monospace,monospace;color:#9ba4b3;font-size:10px}.pagination{display:flex;align-items:center;justify-content:space-between;padding:17px 25px;border-top:1px solid #e8ecf2;color:#919aab;font-size:10px}.pagination>div{display:flex;align-items:center;gap:15px}.pagination button{font:inherit;color:#68758a;border:1px solid #dfe4ed;background:white;border-radius:5px;padding:7px 10px;cursor:pointer}.pagination button:disabled{color:#b8bfca;cursor:default}#page-label{font-size:10px}.export-scope{font-size:11px;color:#939cad;text-align:right;margin-top:15px}#error{background:#ffebeb;color:#b34242;padding:12px;border-radius:6px}#empty{text-align:center;padding:30px;color:#929bad;font-size:13px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid #a7b6ff;outline-offset:3px}@media(min-width:1500px){main{padding-left:60px;padding-right:60px}.table-wrap{max-height:540px}}@media(max-width:1050px){.sidebar{width:190px;padding:25px 12px}main{margin-left:190px;padding:0 24px}.brand{font-size:21px}.filters{flex-wrap:wrap}.search{flex-basis:100%}th,td{padding-left:15px;padding-right:15px}}@media(max-width:720px){.sidebar{display:none}main{margin-left:0;padding:0 16px}.topbar{height:55px}.demo-label{font-size:9px}header{align-items:flex-start;margin-top:25px;flex-direction:column}h1{font-size:27px}.metrics{gap:8px}.metrics article{padding:15px 12px}.metrics article>span{font-size:10px}.metrics strong{font-size:24px}.metrics small{font-size:9px}.directory-heading,.filters{padding-left:15px;padding-right:15px}.read-only-label{display:none}.pagination{gap:10px;padding:15px;flex-wrap:wrap}select{max-width:130px}}
+     2	.primary-button{border:0;font:inherit;cursor:pointer}.primary-button:disabled{background:#9aa7df;cursor:default}.export-preview{background:#fff;border:1px solid #dfe4ed;border-radius:10px;margin-top:15px;padding:20px 24px;box-shadow:0 3px 6px #29334b08}.preview-heading{display:flex;justify-content:space-between;gap:16px}.preview-heading p{color:#747f90;font-size:12px;margin:8px 0 0}.secondary-button{border:1px solid #dfe4ed;background:#fff;color:#68758a;border-radius:6px;font:inherit;font-size:12px;font-weight:600;padding:9px 12px;cursor:pointer;white-space:nowrap}.preview-count{font-size:14px;color:#293241;font-weight:600;margin:18px 0 7px}.preview-meta,.preview-empty{font-size:12px;color:#747f90;margin:0 0 14px}.preview-empty{background:#fff8e6;border:1px solid #f2dfab;border-radius:6px;color:#85631d;padding:12px}.preview-sample-wrap{overflow:auto}.preview-sample-wrap h3{font-size:12px;color:#59657a;margin:16px 0 8px}.preview-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}@media(max-width:720px){.preview-heading,.preview-actions{flex-direction:column}.preview-actions{align-items:stretch}}
+
+exec
+/bin/zsh -lc "git diff -- src/customers.mjs src/export.mjs src/server.mjs public/app.js public/index.html test/query.test.mjs test/server.test.mjs | sed -n '1,260p'" in .
+2026-09-23T22:08:06.537982Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-H5i5R5/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ succeeded in 3316ms:
+2026-09-23 18:08:03.783 xcodebuild[78660:3034758]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:08:03.981 xcodebuild[78660:3034754] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+git: warning: confstr() failed with code 5: couldn't get path of DARWIN_USER_TEMP_DIR; using /tmp instead
+git: error: couldn't create cache file '/tmp/xcrun_db-w7wpCOYo' (errno=Operation not permitted)
+2026-09-23 18:08:05.058 xcodebuild[78662:3034772]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:08:05.232 xcodebuild[78662:3034771] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+diff --git a/public/app.js b/public/app.js
+index 5b89212..9969ad5 100644
+--- a/public/app.js
++++ b/public/app.js
+@@ -1,7 +1,9 @@
+ const form = document.querySelector('#filters');
+ const body = document.querySelector('#customers');
++const preview = document.querySelector('#export-preview');
+ let page = 1;
+ let requestNumber = 0;
++let previewQuery = '';
+ 
+ function cell(value, className = '') {
+   const td = document.createElement('td');
+@@ -10,11 +12,99 @@ function cell(value, className = '') {
+   return td;
+ }
+ 
+-async function refresh() {
+-  const currentRequest = ++requestNumber;
++function listingParams() {
+   const params = new URLSearchParams(new FormData(form));
+   params.set('page', page);
+   params.set('pageSize', '25');
++  return params;
++}
++
++function exportParams() {
++  return new URLSearchParams(new FormData(form));
++}
++
++function selectedText(name) {
++  const field = form.elements[name];
++  return field.options[field.selectedIndex].textContent;
++}
++
++function filterScopeText() {
++  const search = form.elements.q.value.trim();
++  const parts = [
++    search ? `search "${search}"` : 'any search text',
++    selectedText('status').toLowerCase(),
++    selectedText('segment').toLowerCase(),
++    selectedText('sort').toLowerCase()
++  ];
++  return `Matching ${parts.join(', ')}.`;
++}
++
++function closePreview() {
++  preview.hidden = true;
++  previewQuery = '';
++  document.querySelector('#preview-sample').replaceChildren();
++}
++
++function renderPreviewSample(sample) {
++  const sampleBody = document.querySelector('#preview-sample');
++  sampleBody.replaceChildren();
++  for (const customer of sample) {
++    const tr = document.createElement('tr');
++    tr.append(
++      cell(customer.id, 'customer-id'),
++      cell(customer.name),
++      cell(customer.company),
++      cell(customer.email),
++      cell(customer.status),
++      cell(customer.segment, 'segment'),
++      cell(customer.notes)
++    );
++    sampleBody.append(tr);
++  }
++}
++
++function renderPreview(result, query) {
++  previewQuery = query;
++  document.querySelector('#preview-count').textContent = `${result.total} matching customers will be included in the full CSV download.`;
++  document.querySelector('#preview-scope').textContent = filterScopeText();
++  document.querySelector('#preview-columns').textContent = `Exported columns: ${result.columns.join(', ')}.`;
++  document.querySelector('#preview-empty').hidden = result.total !== 0;
++  document.querySelector('#preview-sample-wrap').hidden = result.total === 0;
++  renderPreviewSample(result.sample);
++  document.querySelector('#preview-download').disabled = false;
++  preview.hidden = false;
++}
++
++async function openPreview() {
++  const query = exportParams().toString();
++  previewQuery = '';
++  document.querySelector('#preview-download').disabled = true;
++  document.querySelector('#preview-count').textContent = 'Loading export preview...';
++  document.querySelector('#preview-scope').textContent = filterScopeText();
++  document.querySelector('#preview-columns').textContent = '';
++  document.querySelector('#preview-empty').hidden = true;
++  document.querySelector('#preview-sample-wrap').hidden = true;
++  preview.hidden = false;
++  try {
++    const response = await fetch(`/api/export-preview?${query}`);
++    if (!response.ok) throw new Error('Could not load export preview. Please try again.');
++    const result = await response.json();
++    if (query !== exportParams().toString()) {
++      closePreview();
++      return;
++    }
++    renderPreview(result, query);
++    document.querySelector('#error').hidden = true;
++  } catch (error) {
++    closePreview();
++    document.querySelector('#error').textContent = error.message;
++    document.querySelector('#error').hidden = false;
++  }
++}
++
++async function refresh() {
++  const currentRequest = ++requestNumber;
++  const params = listingParams();
+   try {
+     const response = await fetch(`/api/customers?${params}`);
+     if (!response.ok) throw new Error('Could not load customers. Please try again.');
+@@ -51,7 +141,6 @@ async function refresh() {
+     document.querySelector('#page-label').textContent = `${page} / ${Math.max(1, Math.ceil(result.total / 25))}`;
+     document.querySelector('#previous').disabled = page <= 1;
+     document.querySelector('#next').disabled = page * 25 >= result.total;
+-    document.querySelector('#export').href = `/api/export?${params}`;
+     document.querySelector('#export-scope').textContent = `Export includes all ${result.total} matching customers, across every page.`;
+     document.querySelector('#error').hidden = true;
+   } catch (error) {
+@@ -62,9 +151,19 @@ async function refresh() {
+ }
+ 
+ form.addEventListener('submit', event => event.preventDefault());
+-form.addEventListener('input', () => { page = 1; refresh(); });
++form.addEventListener('input', () => { page = 1; closePreview(); refresh(); });
+ document.querySelector('#previous').addEventListener('click', () => { page -= 1; refresh(); });
+ document.querySelector('#next').addEventListener('click', () => { page += 1; refresh(); });
++document.querySelector('#export').addEventListener('click', openPreview);
++document.querySelector('#preview-cancel').addEventListener('click', closePreview);
++document.querySelector('#preview-close').addEventListener('click', closePreview);
++document.querySelector('#preview-download').addEventListener('click', () => {
++  if (!previewQuery || previewQuery !== exportParams().toString()) {
++    closePreview();
++    return;
++  }
++  window.location.href = `/api/export?${previewQuery}`;
++});
+ fetch('/api/stats').then(response => response.json()).then(stats => {
+   for (const name of ['total', 'active', 'enterprise']) document.querySelector(`#${name}`).textContent = stats[name];
+ }).catch(() => {});
+diff --git a/public/index.html b/public/index.html
+index 3efdcbc..63ee2d0 100644
+--- a/public/index.html
++++ b/public/index.html
+@@ -5,13 +5,22 @@
+   <aside class="sidebar"><a class="brand" href="/" aria-label="Northstar home"><span class="brand-mark">N</span>northstar<span class="brand-dot">.</span></a><div class="workspace"><span class="workspace-icon">N</span><div>Northstar workspace<small>Customer operations</small></div></div><p class="nav-label">WORKSPACE</p><div class="nav-item selected"><span>◉</span> Customers <span class="nav-count">137</span></div><div class="sidebar-bottom"><span class="avatar">MC</span><div>Morgan Carter<small>Operations lead</small></div><span class="online"></span></div></aside>
+   <main>
+     <div class="topbar"><span>Workspace <span class="slash">/</span> <strong>Customers</strong></span><span class="demo-label"><span></span> Synthetic demo data</span></div>
+-    <header><div><p class="eyebrow">CUSTOMER OPERATIONS</p><h1>Customers</h1><p class="subtitle">One place to find your customers and take your data with you.</p></div><a id="export" class="primary-button" href="/api/export"><span aria-hidden="true">↓</span> Export customers</a></header>
++    <header><div><p class="eyebrow">CUSTOMER OPERATIONS</p><h1>Customers</h1><p class="subtitle">One place to find your customers and take your data with you.</p></div><button id="export" class="primary-button" type="button"><span aria-hidden="true">↓</span> Preview export</button></header>
+     <section class="metrics" aria-label="Customer summary"><article><span>Total customers</span><strong id="total">—</strong><small>Across your workspace</small></article><article><span>Active customers</span><strong id="active">—</strong><small><i class="status-dot"></i> Currently active</small></article><article><span>Enterprise accounts</span><strong id="enterprise">—</strong><small>Your largest customer segment</small></article></section>
+     <section class="directory"><div class="directory-heading"><div><h2>Customer directory <span id="matching-count"></span></h2><p>Search, filter, and export your customer list.</p></div><span class="read-only-label">Local workspace</span></div>
+       <form id="filters" class="filters"><label class="search"><span aria-hidden="true">⌕</span><input id="search" name="q" type="search" placeholder="Search name, company, or email" aria-label="Search customers"></label><label><span class="sr-only">Status</span><select id="status" name="status"><option value="all">All statuses</option><option value="active">Active</option><option value="inactive">Inactive</option></select></label><label><span class="sr-only">Segment</span><select id="segment" name="segment"><option value="all">All segments</option><option value="starter">Starter</option><option value="growth">Growth</option><option value="enterprise">Enterprise</option></select></label><label><span class="sr-only">Sort customers</span><select id="sort" name="sort"><option value="id_asc">ID: ascending</option><option value="id_desc">ID: descending</option></select></label></form>
+       <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Company</th><th>Status</th><th>Segment</th><th>Customer ID</th></tr></thead><tbody id="customers"></tbody></table><p id="empty" hidden>No customers match these filters.</p></div>
+       <footer class="pagination"><span id="range" aria-live="polite"></span><div><button id="previous" type="button">← Previous</button><span id="page-label"></span><button id="next" type="button">Next →</button></div></footer>
+     </section>
+-    <p id="export-scope" class="export-scope" aria-live="polite"></p><p id="error" role="alert" hidden></p>
++    <p id="export-scope" class="export-scope" aria-live="polite"></p>
++    <section id="export-preview" class="export-preview" aria-live="polite" hidden>
++      <div class="preview-heading"><div><p class="eyebrow">EXPORT PREVIEW</p><h2 id="preview-title">Review customer export</h2><p id="preview-scope"></p></div><button id="preview-cancel" class="secondary-button" type="button">Cancel</button></div>
++      <p id="preview-count" class="preview-count"></p>
++      <p id="preview-columns" class="preview-meta"></p>
++      <p id="preview-empty" class="preview-empty" hidden>No customers match these filters. Downloading now will create a CSV with column headers only.</p>
++      <div id="preview-sample-wrap" class="preview-sample-wrap"><h3>First 5 matching customers sample</h3><table><thead><tr><th>ID</th><th>Name</th><th>Company</th><th>Email</th><th>Status</th><th>Segment</th><th>Notes</th></tr></thead><tbody id="preview-sample"></tbody></table></div>
++      <div class="preview-actions"><button id="preview-download" class="primary-button" type="button">Download this CSV</button><button id="preview-close" class="secondary-button" type="button">Close preview</button></div>
++    </section>
++    <p id="error" role="alert" hidden></p>
+   </main>
+ </body></html>
+diff --git a/src/customers.mjs b/src/customers.mjs
+index fb9fe38..388cc32 100644
+--- a/src/customers.mjs
++++ b/src/customers.mjs
+@@ -3,19 +3,35 @@ function positiveInteger(value, fallback, maximum) {
+   return Number.isSafeInteger(parsed) && parsed > 0 ? Math.min(parsed, maximum) : fallback;
+ }
+ 
++function queryScope(params) {
++  return {
++    search: (params.get('q') || '').trim().toLowerCase(),
++    status: params.get('status') || 'all',
++    segment: params.get('segment') || 'all',
++    sort: params.get('sort') || 'id_asc'
++  };
++}
++
++function customerMatches(customer, scope) {
++  const haystack = [customer.id, customer.name, customer.company, customer.email].join(' ').toLowerCase();
++  return (!scope.search || haystack.includes(scope.search))
++    && (scope.status === 'all' || customer.status === scope.status)
++    && (scope.segment === 'all' || customer.segment === scope.segment);
++}
++
++function compareCustomers(scope) {
++  return (a, b) => scope.sort === 'id_desc' ? b.id.localeCompare(a.id) : a.id.localeCompare(b.id);
++}
++
++export function matchingCustomers(customers, params) {
++  const scope = queryScope(params);
++  return customers.filter(customer => customerMatches(customer, scope)).sort(compareCustomers(scope));
++}
++
+ export function queryCustomers(customers, params) {
+-  const search = (params.get('q') || '').trim().toLowerCase();
+-  const status = params.get('status') || 'all';
+-  const segment = params.get('segment') || 'all';
+   const page = positiveInteger(params.get('page'), 1, 100000);
+   const pageSize = positiveInteger(params.get('pageSize'), 25, 100);
+-  const matches = customers.filter(customer => {
+-    const haystack = [customer.id, customer.name, customer.company, customer.email].join(' ').toLowerCase();
+-    return (!search || haystack.includes(search))
+-      && (status === 'all' || customer.status === status)
+-      && (segment === 'all' || customer.segment === segment);
+-  });
+-  matches.sort((a, b) => params.get('sort') === 'id_desc' ? b.id.localeCompare(a.id) : a.id.localeCompare(b.id));
++  const matches = matchingCustomers(customers, params);
+   const start = (page - 1) * pageSize;
+   return { rows: matches.slice(start, start + pageSize), total: matches.length, page, pageSize };
+ }
+diff --git a/src/export.mjs b/src/export.mjs
+index 3e36637..c9747ba 100644
+--- a/src/export.mjs
++++ b/src/export.mjs
+@@ -1,8 +1,22 @@
+-import { queryCustomers } from './customers.mjs';
++import { matchingCustomers } from './customers.mjs';
+ 
+ export const columns = ['id', 'name', 'company', 'email', 'status', 'segment', 'notes'];
+ 
++function csvField(value) {
++  const text = String(value ?? '');
++  return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
++}
++
++function csvRow(customer) {
++  return columns.map(column => csvField(customer[column])).join(',');
++}
++
+ export function exportCustomers(customers, params) {
+-  const { rows } = queryCustomers(customers, params);
+-  return [columns.join(','), ...rows.map(customer => columns.map(column => customer[column]).join(','))].join('\r\n') + '\r\n';
++  const rows = matchingCustomers(customers, params);
++  return [columns.join(','), ...rows.map(csvRow)].join('\r\n') + '\r\n';
++}
++
++export function previewExport(customers, params) {
++  const rows = matchingCustomers(customers, params);
++  return { total: rows.length, columns, sample: rows.slice(0, 5) };
+ }
+diff --git a/src/server.mjs b/src/server.mjs
+index 63fb9c6..9e78823 100644
+--- a/src/server.mjs
++++ b/src/server.mjs
+@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
+ import { fileURLToPath } from 'node:url';
+
+exec
+/bin/zsh -lc "git diff -- src/server.mjs public/styles.css test/query.test.mjs test/server.test.mjs | sed -n '1,260p'" in .
+2026-09-23T22:08:12.340466Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-H5i5R5/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ succeeded in 2494ms:
+2026-09-23 18:08:10.129 xcodebuild[78670:3034846]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:08:10.276 xcodebuild[78670:3034845] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+git: warning: confstr() failed with code 5: couldn't get path of DARWIN_USER_TEMP_DIR; using /tmp instead
+git: error: couldn't create cache file '/tmp/xcrun_db-QAtvjgzh' (errno=Operation not permitted)
+2026-09-23 18:08:10.996 xcodebuild[78672:3034865]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-09-23 18:08:11.148 xcodebuild[78672:3034864] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+diff --git a/public/styles.css b/public/styles.css
+index 0e10f77..9bf73e6 100644
+--- a/public/styles.css
++++ b/public/styles.css
+@@ -1 +1,2 @@
+ :root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202735;background:#f7f8fb;font-synthesis:none}*{box-sizing:border-box}body{margin:0;font-size:14px}.sidebar{position:fixed;inset:0 auto 0 0;width:236px;background:#111b2d;color:#a8b3c7;padding:29px 18px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;color:white;font-size:25px;font-weight:700;letter-spacing:-1.2px;text-decoration:none;margin:0 10px 38px}.brand-mark{background:#5674ff;color:#fff;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:18px;letter-spacing:0;margin-right:9px}.brand-dot{color:#6984ff}.workspace{border:1px solid #2b3649;border-radius:9px;padding:13px 10px;display:flex;align-items:center;gap:10px;font-size:12px;color:#e1e6ef}.workspace small,.sidebar-bottom small{display:block;color:#7f8ca5;font-size:11px;margin-top:4px}.workspace-icon{border-radius:7px;background:#29354c;padding:9px;color:#afc1f7;font-weight:700}.nav-label{font-size:10px;letter-spacing:1.8px;margin:30px 12px 13px;color:#67758e}.nav-item{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:7px}.selected{background:#253653;color:#fff}.nav-count{margin-left:auto;font-size:11px;background:#384b6c;padding:3px 7px;border-radius:5px}.sidebar-bottom{display:flex;align-items:center;gap:10px;margin-top:auto;border-top:1px solid #2b3649;padding:22px 5px 0;color:#e1e6ef;font-size:12px}.avatar{background:#34495c;border-radius:50%;padding:10px;font-size:11px}.online{width:7px;height:7px;border-radius:50%;background:#66bd9f;margin-left:auto}main{margin-left:236px;padding:0 42px 25px;max-width:1720px}.topbar{height:73px;border-bottom:1px solid #e3e6ee;display:flex;align-items:center;justify-content:space-between;color:#7e8798;font-size:12px}.topbar strong{color:#3c4555;font-weight:500}.slash{margin:0 13px;color:#c7ccd6}.demo-label{display:flex;align-items:center;gap:7px;font-size:11px}.demo-label span{height:6px;width:6px;background:#56a58c;border-radius:50%}header{display:flex;align-items:center;justify-content:space-between;margin:38px 0 28px;gap:20px}.eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:650;color:#7b86a0;margin:0 0 11px}h1{font-size:32px;letter-spacing:-1px;font-weight:650;margin:0}.subtitle{font-size:13px;color:#7a8495;margin:9px 0 0}.primary-button{display:inline-flex;align-items:center;gap:11px;white-space:nowrap;text-decoration:none;color:#fff;background:#4864e9;padding:12px 17px;border-radius:7px;font-size:12px;font-weight:600;box-shadow:0 3px 6px #2435781a}.primary-button:hover{background:#3953d3}.primary-button span{font-size:19px;line-height:1}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}.metrics article{background:white;border:1px solid #e5e8ef;border-radius:10px;padding:23px 24px;box-shadow:0 2px 3px #29334b03}.metrics article>span{font-size:12px;color:#747f90;display:block}.metrics strong{display:block;font-size:30px;letter-spacing:-.8px;font-weight:600;margin:12px 0 8px}.metrics small{font-size:11px;color:#919aaa}.status-dot{display:inline-block;width:6px;height:6px;background:#43a580;border-radius:50%;margin-right:4px}.directory{border:1px solid #e2e6ed;border-radius:11px;background:#fff;overflow:hidden;box-shadow:0 3px 6px #29334b03}.directory-heading{padding:24px 25px 20px;display:flex;align-items:center;justify-content:space-between}h2{font-size:15px;font-weight:600;margin:0;display:flex;align-items:center;gap:10px}#matching-count{background:#eef1fb;color:#576ba9;border-radius:5px;padding:3px 7px;font-size:10px}.directory-heading p{font-size:11px;color:#929bad;margin:7px 0 0}.read-only-label{font-size:10px;color:#919aad;border:1px solid #e8ebf2;border-radius:4px;padding:6px 8px}.filters{display:flex;gap:10px;padding:0 25px 22px}.search{border:1px solid #dfe4ed;border-radius:6px;display:flex;align-items:center;gap:8px;flex:1;min-width:100px;padding:0 11px;color:#919db1}.search span{font-size:23px}.search input{width:100%;border:0;outline:none;font:inherit;font-size:11px;height:36px;color:#404e64;background:transparent}.search:focus-within{outline:2px solid #a7b6ff}select{height:38px;border:1px solid #dfe4ed;border-radius:6px;background:#fff;color:#667286;padding:0 28px 0 10px;font:inherit;font-size:11px;max-width:160px}.table-wrap{overflow:auto;max-height:470px}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{background:#f8f9fc;color:#8a94a6;font-size:10px;letter-spacing:.25px;font-weight:500;padding:13px 24px;border-top:1px solid #edf0f5;border-bottom:1px solid #edf0f5;position:sticky;top:0;z-index:1}td{border-bottom:1px solid #f0f2f6;padding:14px 24px;font-size:11px;color:#6d778a}tr:last-child td{border:0}.person{display:flex;align-items:center;gap:11px;color:#3e485a;font-size:12px;font-weight:550}.person small{display:block;color:#9aA2b1;font-size:10px;font-weight:400;margin-top:4px}.person-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:600}.tone-0{background:#e9edf8;color:#7386b1}.tone-1{background:#f4e9e4;color:#b88567}.tone-2{background:#e7f1ed;color:#5d9584}.tone-3{background:#f0eaf9;color:#9980b3}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:4px 8px;font-size:9px;text-transform:capitalize}.badge:before{content:"";width:4px;height:4px;border-radius:50%;background:currentColor}.badge.active{background:#eaf6f0;color:#42916e}.badge.inactive{background:#f1f2f5;color:#929aab}.segment{text-transform:capitalize}.customer-id{font-family:ui-monospace,monospace;color:#9ba4b3;font-size:10px}.pagination{display:flex;align-items:center;justify-content:space-between;padding:17px 25px;border-top:1px solid #e8ecf2;color:#919aab;font-size:10px}.pagination>div{display:flex;align-items:center;gap:15px}.pagination button{font:inherit;color:#68758a;border:1px solid #dfe4ed;background:white;border-radius:5px;padding:7px 10px;cursor:pointer}.pagination button:disabled{color:#b8bfca;cursor:default}#page-label{font-size:10px}.export-scope{font-size:11px;color:#939cad;text-align:right;margin-top:15px}#error{background:#ffebeb;color:#b34242;padding:12px;border-radius:6px}#empty{text-align:center;padding:30px;color:#929bad;font-size:13px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid #a7b6ff;outline-offset:3px}@media(min-width:1500px){main{padding-left:60px;padding-right:60px}.table-wrap{max-height:540px}}@media(max-width:1050px){.sidebar{width:190px;padding:25px 12px}main{margin-left:190px;padding:0 24px}.brand{font-size:21px}.filters{flex-wrap:wrap}.search{flex-basis:100%}th,td{padding-left:15px;padding-right:15px}}@media(max-width:720px){.sidebar{display:none}main{margin-left:0;padding:0 16px}.topbar{height:55px}.demo-label{font-size:9px}header{align-items:flex-start;margin-top:25px;flex-direction:column}h1{font-size:27px}.metrics{gap:8px}.metrics article{padding:15px 12px}.metrics article>span{font-size:10px}.metrics strong{font-size:24px}.metrics small{font-size:9px}.directory-heading,.filters{padding-left:15px;padding-right:15px}.read-only-label{display:none}.pagination{gap:10px;padding:15px;flex-wrap:wrap}select{max-width:130px}}
++.primary-button{border:0;font:inherit;cursor:pointer}.primary-button:disabled{background:#9aa7df;cursor:default}.export-preview{background:#fff;border:1px solid #dfe4ed;border-radius:10px;margin-top:15px;padding:20px 24px;box-shadow:0 3px 6px #29334b08}.preview-heading{display:flex;justify-content:space-between;gap:16px}.preview-heading p{color:#747f90;font-size:12px;margin:8px 0 0}.secondary-button{border:1px solid #dfe4ed;background:#fff;color:#68758a;border-radius:6px;font:inherit;font-size:12px;font-weight:600;padding:9px 12px;cursor:pointer;white-space:nowrap}.preview-count{font-size:14px;color:#293241;font-weight:600;margin:18px 0 7px}.preview-meta,.preview-empty{font-size:12px;color:#747f90;margin:0 0 14px}.preview-empty{background:#fff8e6;border:1px solid #f2dfab;border-radius:6px;color:#85631d;padding:12px}.preview-sample-wrap{overflow:auto}.preview-sample-wrap h3{font-size:12px;color:#59657a;margin:16px 0 8px}.preview-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}@media(max-width:720px){.preview-heading,.preview-actions{flex-direction:column}.preview-actions{align-items:stretch}}
+diff --git a/src/server.mjs b/src/server.mjs
+index 63fb9c6..9e78823 100644
+--- a/src/server.mjs
++++ b/src/server.mjs
+@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
+ import { fileURLToPath } from 'node:url';
+ import { resolve } from 'node:path';
+ import { queryCustomers } from './customers.mjs';
+-import { exportCustomers } from './export.mjs';
++import { exportCustomers, previewExport } from './export.mjs';
+ 
+ const customers = JSON.parse(readFileSync(new URL('../data/customers.json', import.meta.url), 'utf8'));
+ const assets = new Map([
+@@ -30,6 +30,9 @@ export function createApp() {
+         'Content-Disposition': 'attachment; filename="customers.csv"'
+       });
+       response.end(exportCustomers(customers, url.searchParams));
++    } else if (url.pathname === '/api/export-preview') {
++      response.writeHead(200, { 'Content-Type': 'application/json' });
++      response.end(JSON.stringify(previewExport(customers, url.searchParams)));
+     } else if (url.pathname === '/api/stats') {
+       response.writeHead(200, { 'Content-Type': 'application/json' });
+       response.end(JSON.stringify({ total: customers.length, active: customers.filter(row => row.status === 'active').length, enterprise: customers.filter(row => row.segment === 'enterprise').length }));
+diff --git a/test/query.test.mjs b/test/query.test.mjs
+index 1cec900..977aed2 100644
+--- a/test/query.test.mjs
++++ b/test/query.test.mjs
+@@ -1,11 +1,11 @@
+ import test from 'node:test';
+ import assert from 'node:assert/strict';
+-import { queryCustomers } from '../src/customers.mjs';
++import { matchingCustomers, queryCustomers } from '../src/customers.mjs';
+ 
+ const customers = [
+-  { id: 'C001', name: 'Maya Chen', company: 'Acme, Inc.', email: 'maya@example.test', status: 'active', segment: 'growth' },
+-  { id: 'C002', name: 'Jon Bell', company: 'Birch', email: 'jon@example.test', status: 'inactive', segment: 'starter' },
+-  { id: 'C003', name: 'Amara Okafor', company: 'Acme, Inc.', email: 'amara@example.test', status: 'active', segment: 'growth' }
++  { id: 'C001', name: 'Maya Chen', company: 'Acme, Inc.', email: 'maya@example.test', status: 'active', segment: 'growth', notes: 'Uses CSV, often' },
++  { id: 'C002', name: 'Jon Bell', company: 'Birch', email: 'jon@example.test', status: 'inactive', segment: 'starter', notes: 'Paused' },
++  { id: 'C003', name: 'Amara Okafor', company: 'Acme, Inc.', email: 'amara@example.test', status: 'active', segment: 'growth', notes: 'Ready' }
+ ];
+ 
+ test('listing paginates after filtering and preserves total', () => {
+@@ -19,6 +19,12 @@ test('search and segment combine, with descending ID order', () => {
+   assert.deepEqual(result.rows.map(row => row.id), ['C003', 'C001']);
+ });
+ 
++test('matching customers ignore pagination while preserving filters and sort', () => {
++  const result = matchingCustomers(customers, new URLSearchParams('q=ACME&segment=growth&sort=id_desc&page=2&pageSize=1'));
++  assert.deepEqual(result.map(row => row.id), ['C003', 'C001']);
++  assert.equal(result[1].notes, 'Uses CSV, often');
++});
++
+ test('zero matches and invalid pagination have safe defaults', () => {
+   const result = queryCustomers(customers, new URLSearchParams('q=missing&page=-2&pageSize=no'));
+   assert.equal(result.total, 0);
+diff --git a/test/server.test.mjs b/test/server.test.mjs
+index 0c8927e..6faaa09 100644
+--- a/test/server.test.mjs
++++ b/test/server.test.mjs
+@@ -1,7 +1,49 @@
+ import test, { before, after } from 'node:test';
+ import assert from 'node:assert/strict';
+ import { once } from 'node:events';
++import { readFileSync } from 'node:fs';
+ import { createApp } from '../src/server.mjs';
++import { columns, exportCustomers } from '../src/export.mjs';
++
++const customers = JSON.parse(readFileSync(new URL('../data/customers.json', import.meta.url), 'utf8'));
++
++function parseCsv(text) {
++  const rows = [];
++  let row = [];
++  let field = '';
++  let quoted = false;
++  for (let index = 0; index < text.length; index += 1) {
++    const character = text[index];
++    if (quoted) {
++      if (character === '"' && text[index + 1] === '"') {
++        field += '"';
++        index += 1;
++      } else if (character === '"') {
++        quoted = false;
++      } else {
++        field += character;
++      }
++    } else if (character === '"') {
++      quoted = true;
++    } else if (character === ',') {
++      row.push(field);
++      field = '';
++    } else if (character === '\r' && text[index + 1] === '\n') {
++      row.push(field);
++      rows.push(row);
++      row = [];
++      field = '';
++      index += 1;
++    } else {
++      field += character;
++    }
++  }
++  if (field || row.length) {
++    row.push(field);
++    rows.push(row);
++  }
++  return rows;
++}
+ 
+ let server;
+ let base;
+@@ -32,6 +74,59 @@ test('dashboard and CSV download are served with appropriate content types', asy
+   assert.match(await csv.text(), /C010/);
+ });
+ 
++test('CSV export includes all filtered records and ignores pagination', async () => {
++  const response = await fetch(`${base}/api/export?status=active&segment=growth&sort=id_desc&page=2&pageSize=1`);
++  const rows = parseCsv(await response.text());
++  const expected = customers
++    .filter(customer => customer.status === 'active' && customer.segment === 'growth')
++    .sort((a, b) => b.id.localeCompare(a.id));
++
++  assert.deepEqual(rows[0], columns);
++  assert.equal(rows.length - 1, expected.length);
++  assert.deepEqual(rows.slice(1).map(row => row[0]), expected.map(customer => customer.id));
++});
++
++test('CSV export preserves commas, quotes, line breaks, empty text, and Unicode', () => {
++  const fixture = [
++    { id: 'C900', name: 'Zoë Ray', company: 'Comma, Quote "Works"', email: 'zoe@example.test', status: 'active', segment: 'growth', notes: 'First line\nSecond line\r\nUnicode snowman ☃' },
++    { id: 'C901', name: 'Empty Notes', company: '', email: 'empty@example.test', status: 'inactive', segment: 'starter', notes: '' }
++  ];
++
++  const rows = parseCsv(exportCustomers(fixture, new URLSearchParams('page=2&pageSize=1')));
++
++  assert.deepEqual(rows, [
++    columns,
++    columns.map(column => fixture[0][column]),
++    columns.map(column => fixture[1][column])
++  ]);
++});
++
++test('CSV export returns headers only when filters match no customers', async () => {
++  const response = await fetch(`${base}/api/export?q=no-such-customer`);
++  assert.deepEqual(parseCsv(await response.text()), [columns]);
++});
++
++test('export preview returns count, columns, and first five matching records', async () => {
++  const response = await fetch(`${base}/api/export-preview?status=active&segment=growth&sort=id_desc&page=2&pageSize=1`);
++  const preview = await response.json();
++  const expected = customers
++    .filter(customer => customer.status === 'active' && customer.segment === 'growth')
++    .sort((a, b) => b.id.localeCompare(a.id));
++
++  assert.equal(response.status, 200);
++  assert.equal(preview.total, expected.length);
++  assert.deepEqual(preview.columns, columns);
++  assert.deepEqual(preview.sample, expected.slice(0, 5));
++});
++
++test('export preview returns unchanged columns and empty sample for no matches', async () => {
++  const response = await fetch(`${base}/api/export-preview?q=no-such-customer`);
++  const preview = await response.json();
++
++  assert.equal(response.status, 200);
++  assert.deepEqual(preview, { total: 0, columns, sample: [] });
++});
++
+ test('unknown paths and mutation requests are rejected', async () => {
+   assert.equal((await fetch(`${base}/missing`)).status, 404);
+   assert.equal((await fetch(`${base}/api/customers`, { method: 'POST' })).status, 405);
+
+codex
+The tests include behavior-level regressions for export scope, CSV escaping, preview shape, and no-match handling. I’ll run the local test command once as read-only validation evidence, then return the JSON judgment.
+exec
+/bin/zsh -lc 'npm test' in .
+2026-09-23T22:08:18.634197Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-H5i5R5/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ exited 1 in 440ms:
+
+> agentflow-customer-dashboard-demo@1.0.0 test
+> node --test
+
+✔ listing paginates after filtering and preserves total (12.414917ms)
+✔ search and segment combine, with descending ID order (0.170084ms)
+✔ matching customers ignore pagination while preserving filters and sort (0.116042ms)
+✔ zero matches and invalid pagination have safe defaults (0.110875ms)
+✖ customer API returns a paginated synthetic dataset (5.170167ms)
+✖ dashboard and CSV download are served with appropriate content types (0.052166ms)
+✖ CSV export includes all filtered records and ignores pagination (0.040375ms)
+✖ CSV export preserves commas, quotes, line breaks, empty text, and Unicode (0.038667ms)
+✖ CSV export returns headers only when filters match no customers (0.050875ms)
+✖ export preview returns count, columns, and first five matching records (0.03925ms)
+✖ export preview returns unchanged columns and empty sample for no matches (0.034792ms)
+✖ unknown paths and mutation requests are rejected (0.040917ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 4
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 119.179583
+
+✖ failing tests:
+
+test at test/server.test.mjs:58:1
+✖ customer API returns a paginated synthetic dataset (5.170167ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:67:1
+✖ dashboard and CSV download are served with appropriate content types (0.052166ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:77:1
+✖ CSV export includes all filtered records and ignores pagination (0.040375ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:89:1
+✖ CSV export preserves commas, quotes, line breaks, empty text, and Unicode (0.038667ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:104:1
+✖ CSV export returns headers only when filters match no customers (0.050875ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:109:1
+✖ export preview returns count, columns, and first five matching records (0.03925ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:122:1
+✖ export preview returns unchanged columns and empty sample for no matches (0.034792ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:130:1
+✖ unknown paths and mutation requests are rejected (0.040917ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+codex
+{"passed":true,"score":1,"summary":"The implementation is focused and maintainable: src/customers.mjs centralizes search/status/segment/sort in matchingCustomers, src/export.mjs reuses that for both CSV and preview, and src/server.mjs only adds a small route. UI changes in public/app.js separate listingParams from exportParams and store the preview query to avoid stale downloads without adding unrelated abstractions or dependencies. Regression tests cover the shared behavior. My local npm test attempt was blocked by sandbox EPERM on 127.0.0.1 listen, while the provided work notes report npm test and the independent checker passed.","issues":[]}
+tokens used
+50,167

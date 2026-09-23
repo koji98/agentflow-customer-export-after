@@ -1,0 +1,25 @@
+{
+  "before_product_tests": 6,
+  "before_independent_checks_passed": 16,
+  "before_independent_checks_total": 29,
+  "after_product_tests": 12,
+  "after_independent_checks_passed": 29,
+  "after_independent_checks_total": 29,
+  "both_portable_graphs_preflight": "passed with managed artifact-handoff warnings",
+  "archived_run_files": 202,
+  "archived_operator_files": 28,
+  "source_run_files_omitted": 0,
+  "source_application_matches_recorded_workspace": true,
+  "original_and_exported_hashes_verified": true,
+  "scorecard_matches_recorded_run": true,
+  "credential_pattern_scan": "passed",
+  "home_path_scan": "passed",
+  "json_and_jsonl_parse": "passed",
+  "document_links_checked": 92,
+  "known_original_optional_missing_links": [
+    [
+      "results/run/delivery/03-audit-index.md",
+      "../runtime/observations.jsonl"
+    ]
+  ]
+}

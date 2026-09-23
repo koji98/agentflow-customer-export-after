@@ -1,0 +1,51 @@
+{
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+  "authored_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+  "kind": "check",
+  "repo_alias": "main",
+  "execution_dir": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45",
+  "attempt_index": 1,
+  "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+  "iteration_index": 1,
+  "iteration_attempt_index": 1,
+  "status": "passed",
+  "started_at": "2026-09-23T22:07:12.977Z",
+  "artifacts": {
+    "verification_json": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/artifacts/verification.json"
+  },
+  "metadata": {
+    "completion": {
+      "completion_status": "ready_for_verification",
+      "ready_for_verification": true,
+      "blocking_reasons": [],
+      "packet_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/runtime/completion-packet.json"
+    },
+    "verification": {
+      "verifier_kind": "check",
+      "passed": true,
+      "summary": "Source clearly satisfies operator clarity: public/index.html labels the entry and actions as \"Preview export\", \"Review customer export\", \"Cancel\", \"Download this CSV\", and \"Close preview\"; public/app.js renders \"${result.total} matching customers will be included in the full CSV download.\", active scope via \"Matching ...\", and \"Exported columns: ...\". The sample is explicitly labeled \"First 5 matching customers sample\" with all seven columns, no-match copy says the CSV will contain \"column headers only\", and stale previews are cleared or blocked when queries differ. I did not rely on unobserved browser layout; npm test could not complete in this sandbox because server listen on 127.0.0.1 returned EPERM, while work notes report prior passing validation.",
+      "check_kind": "ai"
+    },
+    "node_workspace_changes": {
+      "baseline_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/baseline.json",
+      "after_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/after.json",
+      "status_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/status.txt",
+      "diff_patch_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/diff.patch",
+      "changed_files_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/changed-files.json",
+      "changed_file_count": 8,
+      "status": "captured"
+    }
+  },
+  "prompt_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/agent/prompt.md",
+  "prompt_sha256": "a160f61165632bb66b49b61ab458c5573d39a9c295b4fca8f106d323e8f8ac69",
+  "ended_at": "2026-09-23T22:08:01.915Z",
+  "duration_ms": 48938,
+  "outcome": "passed",
+  "stdout_log_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/harness/stdout.log",
+  "stderr_log_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/harness/stderr.log",
+  "result_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/runtime/result.json",
+  "context_packet_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/runtime/context.json",
+  "context_manifest_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/agent/context.md",
+  "context_provenance_path": "results/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/context-provenance.json"
+}

@@ -1,44 +1,39 @@
-# Agentflow customer export — before
+# Agentflow customer export — after
 
-A runnable, intentionally broken customer dashboard, with the Agentflow graph and all task inputs committed. This is the starting environment for the showcase. It contains no completed implementation or recorded judge answers.
+The actual application produced by the expanded Agentflow rehearsal, together with the full run history and real scorecards. The app source is preserved as generated, including the known preview-visibility issue.
 
-## Try the dashboard
+**Result:** 12/12 product tests, 29/29 independent checks, simplicity 1.00, operator clarity 1.00. One cycle, zero supervisor interventions. Graph and delivery passed in 13m 13s total.
 
-Requires Node 24 and Python 3. There are no npm dependencies to install.
+Start with the [results walkthrough](results/README.md), [scorecard](results/operator/scorecard.json), or [original review brief](results/run/delivery/01-review-brief.md).
+
+## Run the resulting dashboard
+
+Requires Node 24 and Python 3; no npm dependencies.
 
 ```sh
-npm start
+PORT=4318 npm start
 ```
 
-Open http://127.0.0.1:4317. The fixture has 137 synthetic customers. Select Active and page two: there are 103 matching customers, but the broken CSV exports only the current page. Commas, quotes, and line breaks expose additional CSV defects. The requested preview is absent.
+Open http://127.0.0.1:4318. Select Active, move to page two, and choose Preview export. It describes all 103 matching customers, shows a five-record sample, and exports the complete result. The preview opens below the directory without scrolling into view; scroll down to inspect it. See the [browser finding](results/operator/browser-review.md).
 
-## Validate the starting state
-
-Run from this repository root:
+## Verify the result
 
 ```sh
 npm test
 python3 showcase/acceptance/check_preview.py
+git diff before-agentflow..HEAD -- src public test
 ```
 
-Expected: the six existing product tests pass; the independent checker exits 1, with 16/24 export/listing cases passing and all five preview cases failing. These failures are intentional.
+The tests and checker should all pass. The comparison isolates the generated application changes from the added documentation and evidence.
 
-## Run Agentflow
+## Repository contents
 
-Use an authenticated Codex CLI and the Agentflow CLI described in [runtime provenance](showcase/PROVENANCE.md). Start from a fresh clone so repeated demonstrations have the same baseline.
+- src/, public/, test/, and data/: the exact recorded resulting application.
+- agentflow.graph.json: the portable workflow also committed in the before repository.
+- TICKET.md, EXPORT_PREVIEW.md, APP_GUIDE.md: original task inputs.
+- showcase/: portable acceptance tools and graph authoring/provenance notes.
+- results/run/: the complete recorded run, including prompts, responses, events, attempts, checks, artifacts, delivery, and diffs.
+- results/operator/: saved scorecard, test output, baseline checks, preflight, integrity evidence, timing, and independent browser review.
+- results/archive-manifest.json: original and exported hashes for every archived source file.
 
-```sh
-agentflow validate --graph agentflow.graph.json --strict
-agentflow run --graph agentflow.graph.json --label customer-export-demo
-```
-
-The graph uses an inplace workspace: it will edit this checkout. Its managed work loop implements the task, runs a deterministic criterion and two read-only LLM judges in parallel, and evaluates their scorecard. All three criteria are required; each rubric must reach 0.85. Up to three cycles are allowed. The preview rubric reviews source and wording; it does not establish rendered browser usability.
-
-## What is committed
-
-- [Graph](agentflow.graph.json) and [authoring rationale](showcase/AUTHORING.md).
-- [Export repair ticket](TICKET.md), [preview contract](EXPORT_PREVIEW.md), and [application guide](APP_GUIDE.md).
-- Independent checks and canonical fixture in showcase/acceptance/.
-- Broken app in src/, public/, and data/; baseline tests in test/.
-
-The separate `agentflow-customer-export-after` repository preserves the actual first expanded run, its application changes, scores, and trace. Both repositories share the `before-agentflow` commit so the generated result can be compared directly.
+The recorded run used the original graph and paths; packaging made paths portable and committed pre-existing task context. [Evidence provenance](results/PROVENANCE.md) documents these changes. Archived runtime files are an audit record, not a relocated resumable run. Use the separate `agentflow-customer-export-before` repository for a fresh execution. Both repos share the `before-agentflow` commit; this repository adds the actual outcome in a second commit.

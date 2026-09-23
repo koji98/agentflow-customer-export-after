@@ -1,0 +1,38 @@
+[
+  {
+    "authored_id": "export_readiness",
+    "managed_kind": "pattern_deep_work",
+    "lowered_to": "sequence",
+    "ordered_internal_step_ids": [
+      "export_readiness__managed__pattern_deep_work__plan",
+      "export_readiness__managed__pattern_deep_work__generate_validate",
+      "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "export_readiness__managed__pattern_deep_work__completion_gate"
+    ],
+    "internal_hard_gates": [
+      "export_readiness__managed__pattern_deep_work__completion_gate"
+    ],
+    "repeat_loops": [
+      {
+        "authored_id": "export_readiness__managed__pattern_deep_work__work_loop",
+        "until": "export_readiness__managed__pattern_deep_work__completion_gate",
+        "max_attempts": 3
+      }
+    ],
+    "published_artifacts": {
+      "packet": {
+        "from": "output_dir",
+        "path": "packet.json",
+        "description": "Machine-readable final evidence packet."
+      },
+      "summary": {
+        "from": "output_dir",
+        "path": "summary.md",
+        "description": "Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations.",
+        "content_type": "text/markdown"
+      }
+    }
+  }
+]

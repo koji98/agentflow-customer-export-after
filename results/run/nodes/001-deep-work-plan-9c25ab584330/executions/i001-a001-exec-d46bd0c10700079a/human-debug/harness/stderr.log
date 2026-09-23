@@ -1,0 +1,988 @@
+OpenAI Codex v0.142.2
+--------
+workdir: .
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a, results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts, results/run/runtime] (network access enabled)
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a0d046-a4e7-77f3-ba31-a8cf4313b4f5
+--------
+user
+## Role
+You are working one graph node as part of a larger mission.
+The node success contract controls; graph context explains the larger mission and is not permission to expand scope.
+The runner and CLI support your work; they are not the work target.
+
+## Success Contract
+
+Plan the execution work needed to satisfy the full deep-work task from the current state. Do not edit files in this planning phase.
+
+Acceptance criteria:
+- The plan addresses the task contract and any prior failed completion criteria.
+- The plan identifies focused validation the execution agent should run when feasible.
+- The plan does not edit the workspace.
+
+Constraints:
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+
+## Phase Brief
+- Phase: plan
+- Task: Plan execution work needed to satisfy the full task from the current state.
+
+### Task
+You are planning execution work to satisfy the full task from the current state. Do not edit files in this phase. Preserve the task intent, inspect the available evidence, and give the execution agent a plan that aims to complete the task now when feasible.
+
+### Task Contract
+Goal: Repair customer exports and add a preview that helps an operations user understand and confirm the complete download.
+Acceptance criteria
+- CSV exports preserve all matching records and field values while customer listing remains paginated.
+- The preview API satisfies EXPORT_PREVIEW.md for count, columns, and first-five matching sample records.
+- The dashboard exposes a preview with active filter scope, sample labeling, download and cancel actions, and a useful no-match state.
+- The preview and download use the same query, and stale preview information cannot silently describe a different download.
+- Focused regression tests and the full product test suite pass.
+- The summary documents changed files, actual validation evidence, user-visible states with source references, and limitations.
+Constraints
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+
+### Completion Model
+Maximum cycles: 3
+Pass threshold: 0.85
+- behavior (required, weight 0.6): command `npm test && python3 showcase/acceptance/check_preview.py`
+- simplicity (required, weight 0.25, target workspace): Judge the changed implementation for simplicity and maintainability by inspecting actual source and the change evidence. A passing implementation is the smallest clear solution for this product: query/filter/order behavior is consistent between listing, export, and preview; responsibilities are understandable; added abstractions earn their complexity; and no unrelated rewrites, dependencies, dead code, or duplicated business rules are introduced. Accept justified small helpers and multiple files; do not use line count, file count, personal naming preferences, or a demand for one particular design as a proxy for simplicity. Cite concrete paths and explain the maintenance consequence of each substantive finding. Score 1.0 for a focused, easy-to-follow solution with no substantive issue; 0.85 for a clear solution with only optional nits; 0.70 for an identifiable maintainability problem requiring a small repair; 0.50 or below for substantial unnecessary complexity or conflicting business rules. Missing evidence is uncertainty to report, not permission to invent findings. Do not recommend a refactor unless its benefit is tied to observed code.
+- operator_clarity (required, weight 0.15, target workspace): Judge the clarity of the export preview from the implemented interface text and state handling in the source, supported by any actual UI observations recorded in the summary. A passing preview makes the full matching record count, active filter scope, exported columns, and first-five-record sample understandable to an operations user. It must distinguish the sample from the full download, provide unambiguous download and cancel actions, explain the no-match case, and avoid stale count/sample information being presented for a different query. Labels should describe the user's task rather than internal API or runtime details. Cite exact user-visible strings and source paths for findings. Score 1.0 when these decisions are immediately clear; 0.85 when they are clear with only optional wording improvements; 0.70 when a specific ambiguity could cause a wrong download decision; 0.50 or below when sample size, export scope, or actions are materially misleading or a required state is absent. Judge semantic clarity, not visual taste. Do not claim rendered layout, keyboard accessibility, or actual browser behavior was verified without corresponding observed evidence. Do not treat a confident summary as a substitute for implemented source.
+
+### Planning Task
+Use the provided context pointers for the planning phase.
+Read the task context, any prior failed scorecard, criterion verification records, command output excerpts, and current workspace state available to you.
+If prior scorecards, work notes, criterion records, or repeat history are omitted because no prior cycle exists, treat that as expected first-cycle state.
+Do not wait for, search globally for, or report a blocker solely because first-cycle prior materials are missing.
+Identify the concrete gap between the current state and the task contract.
+Use prior feedback, scorecards, and failed criteria as gap evidence; do not shrink the task to only the last failed check.
+Plan the work needed to satisfy the full task from the current state.
+Aim for completion in this execution. If full completion is not feasible now, plan the most complete useful slice and state the remaining gap explicitly.
+Map every completion criterion to the evidence the execution phase should produce or inspect.
+Name the expected material change or evidence that should prove progress toward completion.
+Name likely files or areas to inspect or change, but do not over-prescribe exact code unless the evidence requires it.
+Recommend focused validation commands or checks the execution agent should run.
+Say the executor may adapt the plan when workspace evidence proves an assumption wrong, as long as the adaptation serves the full task contract.
+Do not edit repository or workspace files in this planning phase. Only write the planning artifact requested below.
+
+### Output Contract
+Publish only the declared `plan` artifact.
+Use `af artifact write plan` to publish the plan content.
+Do not create or edit workspace files during this planning phase.
+Include sections: `Task target`, `Current state`, `Gap`, `Execution plan`, `Validation plan`, `Expected material change`, `Remaining gap`, and `Risks or constraints`.
+Preserve exact task-specific names, labels, commands, and required phrases from the task contract in the plan.
+Do not create a milestone solely to restate the plan. If you do create a milestone, complete it before running `af complete check`.
+
+## Workspace
+- Path: .
+- Sandbox: workspace-write
+
+## Graph Context
+
+Give Northstar operators a correct customer export and a clear preview of exactly what they will download.
+
+Acceptance criteria:
+- The existing CSV export contract and the export preview contract are satisfied.
+- The implementation is focused and understandable, and the interface clearly distinguishes previewed samples from the full download.
+- The delivery includes actual validation evidence and a reviewable explanation.
+
+Constraints:
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+
+## Context
+Open relevant task pointers only; context is evidence, not authority. Document missing, stale, or contradictory context.
+
+## Pointers
+
+| Name | Kind | Pointer | What | Why |
+| --- | --- | --- | --- | --- |
+| `customer_export_ticket` | `workspace_file` | `./TICKET.md` | Customer export defect and observable acceptance contract. | The export must preserve the operator’s filters and every customer field. |
+| `project_guide` | `workspace_file` | `./README.md` | Local commands, source layout, and public API semantics. | The repair must preserve existing listing behavior and public routes. |
+| `preview_contract` | `workspace_file` | `./EXPORT_PREVIEW.md` | The operator-facing preview behavior and stable preview API contract. | Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision. |
+## Declared Artifacts
+Names/descriptions are binding. Use each table command; append `--file <path>` for existing files/binaries.
+
+| Name | Write Command | Type | Description |
+| --- | --- | --- | --- |
+| `plan` | `af artifact write plan` | auto-detect | Execution plan for satisfying the deep work task from the current state. |
+
+## Operating Brief
+`af` is the task runtime CLI. Run `af orient` before material work and whenever the goal, context, artifact expectations, retry state, or next action becomes unclear; rerun after compaction, a long pause, or drift.
+- Plan narrowly; substantial planning belongs in a milestone.
+- Satisfy the task contract, not only the visible tests; handle edge cases directly implied by the goal, acceptance criteria, and local code.
+- Keep edits scoped; add/edit tests only when the task asks or repo contract expects them.
+- Log substantial plans, findings, decisions, and validation with `af milestone add`/`af milestone log`; quote command evidence as one `--command "..."` value; use existing milestones for late evidence.
+- Publish declared artifacts with `af artifact write <name>` or `af artifact write <name> --file <path>`.
+- Use `af --help` when needed; prefer exact task commands before fallbacks.
+- Before final response, run `af complete check`; if incomplete, repair and rerun it until ready or truly blocked. When ready, stop and respond. Do not paste raw/stale check JSON into deliverables.
+- If the same tactic fails twice with the same symptom, change strategy. Stop early only for a concrete blocker and block the active milestone with evidence.
+2026-09-23T21:58:08.942448Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-09-23T21:58:08.944713Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+I’ll keep this strictly in planning mode: inspect the repo evidence and publish only the declared `plan` artifact, with no workspace edits. I’m using the Agentflow operations skill because this is a graph-node artifact workflow.
+exec
+/bin/zsh -lc "sed -n '1,220p' [operator-home]/.agents/skills/agentflow-operations/SKILL.md && af orient" in .
+2026-09-23T21:58:14.562930Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ succeeded in 748ms:
+# Task Orientation
+
+Orientation mode: `startup_restore`
+
+No recovery, blockers, or prior progress are active.
+
+Do the task from the prompt. Record real progress and validation as you work, then run `af complete check` before final response.
+
+codex
+I’ve got the runtime orientation: no prior progress or blocker is active, so this is a first-cycle plan from the current checkout. Next I’m reading the contract docs and the existing source/tests enough to name concrete gaps without changing anything.
+exec
+/bin/zsh -lc "sed -n '1,240p' EXPORT_PREVIEW.md" in .
+ succeeded in 0ms:
+# OPS-215: Let operators inspect an export before downloading
+
+Resolve OPS-214 in TICKET.md and add a small export preview to the existing Customers dashboard. Morgan should be able to check what a file will contain before downloading it.
+
+## User outcome
+
+The export action opens a preview containing:
+
+- The total number of customers matching the current search, status, segment, and sort, across all pages.
+- A plain-language summary of the active filters and exported columns.
+- The first five matching records, clearly labeled as a sample rather than the full export.
+- An unambiguous download action and a cancel/close action that does not download anything.
+- A useful no-match state explaining that a download will contain only column headers.
+
+The preview and subsequent download must use the same query. Opening a preview on page two must still show the full matching count and the first five matching records. Prevent stale preview information from being used for a different query. Keep the existing dashboard design and listing behavior.
+
+## Stable HTTP contract for independent checks
+
+`GET /api/export-preview` takes the same query parameters as `/api/export`. It returns JSON:
+
+```json
+{
+  "total": 103,
+  "columns": ["id", "name", "company", "email", "status", "segment", "notes"],
+  "sample": []
+}
+```
+
+`total` is the full matching count. `sample` contains the first `min(5, total)` full customer objects in the requested order, retaining exact field values. Both ignore page and pageSize. No matches returns total=0 and sample=[], with columns unchanged. The example count is illustrative; compute from the real fixture and query.
+
+The existing export contract remains authoritative for actual CSV output. The new preview is an additional feature, not a replacement for a correct download.
+
+## Quality bar
+
+Prefer the smallest clear change consistent with the current code. Share filtering/ordering semantics where appropriate; do not add a framework, generic export platform, dependencies, or unnecessary indirection. The preview copy should help an operations user distinguish matching count, sample size, and downloaded records without reading technical documentation.
+
+Publish a concise summary of the repair and preview with validation evidence, source references for the user-visible states, and limitations. Do not claim browser behavior or visual quality was checked unless it was actually observed. Do not edit this contract, TICKET.md, AGENTS.md, or the canonical customer data.
+
+exec
+/bin/zsh -lc "sed -n '1,240p' README.md" in .
+ succeeded in 0ms:
+# Northstar customer operations
+
+A small local customer dashboard with synthetic data. Node 24; no dependencies.
+
+```sh
+npm start
+npm test
+```
+
+Open http://127.0.0.1:4317. Override `PORT` to run a second copy.
+
+The existing smoke tests exercise listing, filters, pagination, HTTP responses, and a simple export. The open product defect is described in `TICKET.md`. Passing the existing suite alone does not resolve that ticket.
+
+The implementation lives in `src/`; the interface is in `public/`; the canonical 137-customer fixture is in `data/customers.json`.
+
+API: `GET /api/customers` and `GET /api/export` accept `q`, `status` (`all`, `active`, `inactive`), `segment` (`all`, `starter`, `growth`, `enterprise`), `sort` (`id_asc`, `id_desc`), `page`, and `pageSize`. Search matches ID, name, company, or email case-insensitively. The export contract ignores pagination but preserves all other query semantics. `GET /api/stats` returns workspace totals.
+
+exec
+/bin/zsh -lc "sed -n '1,240p' TICKET.md" in .
+ succeeded in 0ms:
+# OPS-214: Customer exports silently lose records
+
+Morgan uses the Customers directory to prepare an operations handoff. The page says the export includes every matching customer, but the file only contains a page of records. Some companies and notes also split into extra columns or rows.
+
+Deliver a focused repair ready for review:
+
+- Export every matching customer, regardless of the page and page size currently displayed.
+- Preserve the active search, status, segment, and ID sort order.
+- Preserve all seven fields (`id`, `name`, `company`, `email`, `status`, `segment`, `notes`) exactly, including commas, quotes, LF, CRLF, empty text, and Unicode.
+- A query with zero matches downloads a header-only CSV.
+- Customer listing, pagination, and filter controls remain correct.
+- Leave the existing fixture and acceptance expectations unchanged. Add focused regression tests.
+- Publish a concise change summary with the cause, repaired behavior, changed files, actual test evidence, and remaining limitations.
+
+Scope is local source and focused tests. No dependencies, external services, data edits, unrelated redesign, or modifications to this ticket. This is a synthetic rehearsal product, not a production service.
+
+The independent acceptance suite is supplied by the operator outside this repository. Read its result as evidence; do not replace or weaken it. If a local command cannot run, report the exact limitation rather than treating it as a pass.
+
+exec
+/bin/zsh -lc 'rg --files' in .
+ succeeded in 0ms:
+src/export.mjs
+src/server.mjs
+src/customers.mjs
+data/customers.json
+AGENTS.md
+TICKET.md
+package.json
+public/app.js
+public/styles.css
+public/index.html
+README.md
+test/server.test.mjs
+test/query.test.mjs
+EXPORT_PREVIEW.md
+
+2026-09-23T21:58:22.475044Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+The docs point to a tight Node app: source in `src/`, UI in `public/`, tests in `test/`, and a new `/api/export-preview` contract. I’m checking the current implementation now so the plan can name real target files and validation evidence rather than hand-waving.
+exec
+/bin/zsh -lc "sed -n '1,260p' src/customers.mjs" in .
+exec
+/bin/zsh -lc "sed -n '1,320p' src/server.mjs" in .
+ succeeded in 0ms:
+function positiveInteger(value, fallback, maximum) {
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) && parsed > 0 ? Math.min(parsed, maximum) : fallback;
+}
+
+export function queryCustomers(customers, params) {
+  const search = (params.get('q') || '').trim().toLowerCase();
+  const status = params.get('status') || 'all';
+  const segment = params.get('segment') || 'all';
+  const page = positiveInteger(params.get('page'), 1, 100000);
+  const pageSize = positiveInteger(params.get('pageSize'), 25, 100);
+  const matches = customers.filter(customer => {
+    const haystack = [customer.id, customer.name, customer.company, customer.email].join(' ').toLowerCase();
+    return (!search || haystack.includes(search))
+      && (status === 'all' || customer.status === status)
+      && (segment === 'all' || customer.segment === segment);
+  });
+  matches.sort((a, b) => params.get('sort') === 'id_desc' ? b.id.localeCompare(a.id) : a.id.localeCompare(b.id));
+  const start = (page - 1) * pageSize;
+  return { rows: matches.slice(start, start + pageSize), total: matches.length, page, pageSize };
+}
+
+ succeeded in 0ms:
+import { createServer } from 'node:http';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
+import { queryCustomers } from './customers.mjs';
+import { exportCustomers } from './export.mjs';
+
+const customers = JSON.parse(readFileSync(new URL('../data/customers.json', import.meta.url), 'utf8'));
+const assets = new Map([
+  ['/', ['index.html', 'text/html; charset=utf-8']],
+  ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
+  ['/styles.css', ['styles.css', 'text/css; charset=utf-8']]
+]);
+
+export function createApp() {
+  return createServer((request, response) => {
+    response.setHeader('Cache-Control', 'no-store');
+    response.setHeader('X-Content-Type-Options', 'nosniff');
+    if (request.method !== 'GET') {
+      response.writeHead(405, { Allow: 'GET' }).end('Method not allowed');
+      return;
+    }
+    const url = new URL(request.url, 'http://localhost');
+    if (url.pathname === '/api/customers') {
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(JSON.stringify(queryCustomers(customers, url.searchParams)));
+    } else if (url.pathname === '/api/export') {
+      response.writeHead(200, {
+        'Content-Type': 'text/csv; charset=utf-8',
+        'Content-Disposition': 'attachment; filename="customers.csv"'
+      });
+      response.end(exportCustomers(customers, url.searchParams));
+    } else if (url.pathname === '/api/stats') {
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(JSON.stringify({ total: customers.length, active: customers.filter(row => row.status === 'active').length, enterprise: customers.filter(row => row.segment === 'enterprise').length }));
+    } else if (assets.has(url.pathname)) {
+      const [filename, contentType] = assets.get(url.pathname);
+      response.writeHead(200, { 'Content-Type': contentType });
+      response.end(readFileSync(new URL(`../public/${filename}`, import.meta.url)));
+    } else {
+      response.writeHead(404).end('Not found');
+    }
+  });
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const server = createApp();
+  server.listen(Number(process.env.PORT || 4317), '127.0.0.1', () => {
+    console.log(`Northstar ready at http://127.0.0.1:${server.address().port}`);
+  });
+  process.on('SIGTERM', () => server.close());
+  process.on('SIGINT', () => server.close());
+}
+
+exec
+/bin/zsh -lc "sed -n '1,260p' src/export.mjs" in .
+ succeeded in 0ms:
+import { queryCustomers } from './customers.mjs';
+
+export const columns = ['id', 'name', 'company', 'email', 'status', 'segment', 'notes'];
+
+export function exportCustomers(customers, params) {
+  const { rows } = queryCustomers(customers, params);
+  return [columns.join(','), ...rows.map(customer => columns.map(column => customer[column]).join(','))].join('\r\n') + '\r\n';
+}
+
+exec
+/bin/zsh -lc "sed -n '1,360p' public/app.js" in .
+ succeeded in 0ms:
+const form = document.querySelector('#filters');
+const body = document.querySelector('#customers');
+let page = 1;
+let requestNumber = 0;
+
+function cell(value, className = '') {
+  const td = document.createElement('td');
+  td.textContent = value;
+  if (className) td.className = className;
+  return td;
+}
+
+async function refresh() {
+  const currentRequest = ++requestNumber;
+  const params = new URLSearchParams(new FormData(form));
+  params.set('page', page);
+  params.set('pageSize', '25');
+  try {
+    const response = await fetch(`/api/customers?${params}`);
+    if (!response.ok) throw new Error('Could not load customers. Please try again.');
+    const result = await response.json();
+    if (currentRequest !== requestNumber) return;
+    body.replaceChildren();
+    for (const customer of result.rows) {
+      const tr = document.createElement('tr');
+      const identity = cell('');
+      const person = document.createElement('div');
+      person.className = 'person';
+      const avatar = document.createElement('span');
+      avatar.className = `person-avatar tone-${Number(customer.id.slice(1)) % 4}`;
+      avatar.textContent = customer.name.split(' ').map(part => part[0]).slice(0, 2).join('');
+      const name = document.createElement('span');
+      name.textContent = customer.name;
+      const email = document.createElement('small');
+      email.textContent = customer.email;
+      name.append(email);
+      person.append(avatar, name);
+      identity.append(person);
+      const status = cell('');
+      const badge = document.createElement('span');
+      badge.className = `badge ${customer.status}`;
+      badge.textContent = customer.status;
+      status.append(badge);
+      tr.append(identity, cell(customer.company), status, cell(customer.segment, 'segment'), cell(customer.id, 'customer-id'));
+      body.append(tr);
+    }
+    document.querySelector('#matching-count').textContent = result.total;
+    document.querySelector('#empty').hidden = result.total !== 0;
+    const start = result.total ? (page - 1) * 25 + 1 : 0;
+    document.querySelector('#range').textContent = `Showing ${start}–${Math.min(page * 25, result.total)} of ${result.total} customers`;
+    document.querySelector('#page-label').textContent = `${page} / ${Math.max(1, Math.ceil(result.total / 25))}`;
+    document.querySelector('#previous').disabled = page <= 1;
+    document.querySelector('#next').disabled = page * 25 >= result.total;
+    document.querySelector('#export').href = `/api/export?${params}`;
+    document.querySelector('#export-scope').textContent = `Export includes all ${result.total} matching customers, across every page.`;
+    document.querySelector('#error').hidden = true;
+  } catch (error) {
+    if (currentRequest !== requestNumber) return;
+    document.querySelector('#error').textContent = error.message;
+    document.querySelector('#error').hidden = false;
+  }
+}
+
+form.addEventListener('submit', event => event.preventDefault());
+form.addEventListener('input', () => { page = 1; refresh(); });
+document.querySelector('#previous').addEventListener('click', () => { page -= 1; refresh(); });
+document.querySelector('#next').addEventListener('click', () => { page += 1; refresh(); });
+fetch('/api/stats').then(response => response.json()).then(stats => {
+  for (const name of ['total', 'active', 'enterprise']) document.querySelector(`#${name}`).textContent = stats[name];
+}).catch(() => {});
+refresh();
+
+exec
+/bin/zsh -lc "sed -n '1,360p' test/server.test.mjs" in .
+ succeeded in 0ms:
+import test, { before, after } from 'node:test';
+import assert from 'node:assert/strict';
+import { once } from 'node:events';
+import { createApp } from '../src/server.mjs';
+
+let server;
+let base;
+before(async () => {
+  server = createApp();
+  server.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  base = `http://127.0.0.1:${server.address().port}`;
+});
+after(() => new Promise(resolve => server.close(resolve)));
+
+test('customer API returns a paginated synthetic dataset', async () => {
+  const response = await fetch(`${base}/api/customers`);
+  const data = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(data.total, 137);
+  assert.equal(data.rows.length, 25);
+  assert.equal(data.rows[0].id, 'C001');
+});
+
+test('dashboard and CSV download are served with appropriate content types', async () => {
+  const dashboard = await fetch(base);
+  assert.match(dashboard.headers.get('content-type'), /text\/html/);
+  assert.match(await dashboard.text(), /Customers/);
+  const csv = await fetch(`${base}/api/export?q=C010`);
+  assert.match(csv.headers.get('content-type'), /text\/csv/);
+  assert.match(csv.headers.get('content-disposition'), /attachment/);
+  assert.match(await csv.text(), /C010/);
+});
+
+test('unknown paths and mutation requests are rejected', async () => {
+  assert.equal((await fetch(`${base}/missing`)).status, 404);
+  assert.equal((await fetch(`${base}/api/customers`, { method: 'POST' })).status, 405);
+});
+
+exec
+/bin/zsh -lc "sed -n '1,320p' test/query.test.mjs" in .
+ succeeded in 0ms:
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { queryCustomers } from '../src/customers.mjs';
+
+const customers = [
+  { id: 'C001', name: 'Maya Chen', company: 'Acme, Inc.', email: 'maya@example.test', status: 'active', segment: 'growth' },
+  { id: 'C002', name: 'Jon Bell', company: 'Birch', email: 'jon@example.test', status: 'inactive', segment: 'starter' },
+  { id: 'C003', name: 'Amara Okafor', company: 'Acme, Inc.', email: 'amara@example.test', status: 'active', segment: 'growth' }
+];
+
+test('listing paginates after filtering and preserves total', () => {
+  const result = queryCustomers(customers, new URLSearchParams('status=active&page=2&pageSize=1'));
+  assert.equal(result.total, 2);
+  assert.deepEqual(result.rows.map(row => row.id), ['C003']);
+});
+
+test('search and segment combine, with descending ID order', () => {
+  const result = queryCustomers(customers, new URLSearchParams('q=ACME&segment=growth&sort=id_desc'));
+  assert.deepEqual(result.rows.map(row => row.id), ['C003', 'C001']);
+});
+
+test('zero matches and invalid pagination have safe defaults', () => {
+  const result = queryCustomers(customers, new URLSearchParams('q=missing&page=-2&pageSize=no'));
+  assert.equal(result.total, 0);
+  assert.deepEqual(result.rows, []);
+  assert.equal(result.page, 1);
+  assert.equal(result.pageSize, 25);
+});
+
+exec
+/bin/zsh -lc 'cat package.json' in .
+ succeeded in 0ms:
+{
+  "name": "agentflow-customer-dashboard-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": { "start": "node src/server.mjs", "test": "node --test" }
+}
+
+exec
+/bin/zsh -lc 'git status --short' in .
+ succeeded in 0ms:
+?? EXPORT_PREVIEW.md
+
+2026-09-23T21:58:35.849329Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+The implementation currently exports through `queryCustomers`, so it inherits pagination, and CSV fields are joined raw; there is no preview endpoint yet. I’m peeking at the HTML/CSS surface so the execution plan can keep the UI change small and aligned with the existing dashboard.
+exec
+/bin/zsh -lc "sed -n '1,320p' public/index.html" in .
+exec
+/bin/zsh -lc "sed -n '1,420p' public/styles.css" in .
+ succeeded in 0ms:
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202735;background:#f7f8fb;font-synthesis:none}*{box-sizing:border-box}body{margin:0;font-size:14px}.sidebar{position:fixed;inset:0 auto 0 0;width:236px;background:#111b2d;color:#a8b3c7;padding:29px 18px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;color:white;font-size:25px;font-weight:700;letter-spacing:-1.2px;text-decoration:none;margin:0 10px 38px}.brand-mark{background:#5674ff;color:#fff;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:18px;letter-spacing:0;margin-right:9px}.brand-dot{color:#6984ff}.workspace{border:1px solid #2b3649;border-radius:9px;padding:13px 10px;display:flex;align-items:center;gap:10px;font-size:12px;color:#e1e6ef}.workspace small,.sidebar-bottom small{display:block;color:#7f8ca5;font-size:11px;margin-top:4px}.workspace-icon{border-radius:7px;background:#29354c;padding:9px;color:#afc1f7;font-weight:700}.nav-label{font-size:10px;letter-spacing:1.8px;margin:30px 12px 13px;color:#67758e}.nav-item{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:7px}.selected{background:#253653;color:#fff}.nav-count{margin-left:auto;font-size:11px;background:#384b6c;padding:3px 7px;border-radius:5px}.sidebar-bottom{display:flex;align-items:center;gap:10px;margin-top:auto;border-top:1px solid #2b3649;padding:22px 5px 0;color:#e1e6ef;font-size:12px}.avatar{background:#34495c;border-radius:50%;padding:10px;font-size:11px}.online{width:7px;height:7px;border-radius:50%;background:#66bd9f;margin-left:auto}main{margin-left:236px;padding:0 42px 25px;max-width:1720px}.topbar{height:73px;border-bottom:1px solid #e3e6ee;display:flex;align-items:center;justify-content:space-between;color:#7e8798;font-size:12px}.topbar strong{color:#3c4555;font-weight:500}.slash{margin:0 13px;color:#c7ccd6}.demo-label{display:flex;align-items:center;gap:7px;font-size:11px}.demo-label span{height:6px;width:6px;background:#56a58c;border-radius:50%}header{display:flex;align-items:center;justify-content:space-between;margin:38px 0 28px;gap:20px}.eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:650;color:#7b86a0;margin:0 0 11px}h1{font-size:32px;letter-spacing:-1px;font-weight:650;margin:0}.subtitle{font-size:13px;color:#7a8495;margin:9px 0 0}.primary-button{display:inline-flex;align-items:center;gap:11px;white-space:nowrap;text-decoration:none;color:#fff;background:#4864e9;padding:12px 17px;border-radius:7px;font-size:12px;font-weight:600;box-shadow:0 3px 6px #2435781a}.primary-button:hover{background:#3953d3}.primary-button span{font-size:19px;line-height:1}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}.metrics article{background:white;border:1px solid #e5e8ef;border-radius:10px;padding:23px 24px;box-shadow:0 2px 3px #29334b03}.metrics article>span{font-size:12px;color:#747f90;display:block}.metrics strong{display:block;font-size:30px;letter-spacing:-.8px;font-weight:600;margin:12px 0 8px}.metrics small{font-size:11px;color:#919aaa}.status-dot{display:inline-block;width:6px;height:6px;background:#43a580;border-radius:50%;margin-right:4px}.directory{border:1px solid #e2e6ed;border-radius:11px;background:#fff;overflow:hidden;box-shadow:0 3px 6px #29334b03}.directory-heading{padding:24px 25px 20px;display:flex;align-items:center;justify-content:space-between}h2{font-size:15px;font-weight:600;margin:0;display:flex;align-items:center;gap:10px}#matching-count{background:#eef1fb;color:#576ba9;border-radius:5px;padding:3px 7px;font-size:10px}.directory-heading p{font-size:11px;color:#929bad;margin:7px 0 0}.read-only-label{font-size:10px;color:#919aad;border:1px solid #e8ebf2;border-radius:4px;padding:6px 8px}.filters{display:flex;gap:10px;padding:0 25px 22px}.search{border:1px solid #dfe4ed;border-radius:6px;display:flex;align-items:center;gap:8px;flex:1;min-width:100px;padding:0 11px;color:#919db1}.search span{font-size:23px}.search input{width:100%;border:0;outline:none;font:inherit;font-size:11px;height:36px;color:#404e64;background:transparent}.search:focus-within{outline:2px solid #a7b6ff}select{height:38px;border:1px solid #dfe4ed;border-radius:6px;background:#fff;color:#667286;padding:0 28px 0 10px;font:inherit;font-size:11px;max-width:160px}.table-wrap{overflow:auto;max-height:470px}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{background:#f8f9fc;color:#8a94a6;font-size:10px;letter-spacing:.25px;font-weight:500;padding:13px 24px;border-top:1px solid #edf0f5;border-bottom:1px solid #edf0f5;position:sticky;top:0;z-index:1}td{border-bottom:1px solid #f0f2f6;padding:14px 24px;font-size:11px;color:#6d778a}tr:last-child td{border:0}.person{display:flex;align-items:center;gap:11px;color:#3e485a;font-size:12px;font-weight:550}.person small{display:block;color:#9aA2b1;font-size:10px;font-weight:400;margin-top:4px}.person-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:600}.tone-0{background:#e9edf8;color:#7386b1}.tone-1{background:#f4e9e4;color:#b88567}.tone-2{background:#e7f1ed;color:#5d9584}.tone-3{background:#f0eaf9;color:#9980b3}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:4px 8px;font-size:9px;text-transform:capitalize}.badge:before{content:"";width:4px;height:4px;border-radius:50%;background:currentColor}.badge.active{background:#eaf6f0;color:#42916e}.badge.inactive{background:#f1f2f5;color:#929aab}.segment{text-transform:capitalize}.customer-id{font-family:ui-monospace,monospace;color:#9ba4b3;font-size:10px}.pagination{display:flex;align-items:center;justify-content:space-between;padding:17px 25px;border-top:1px solid #e8ecf2;color:#919aab;font-size:10px}.pagination>div{display:flex;align-items:center;gap:15px}.pagination button{font:inherit;color:#68758a;border:1px solid #dfe4ed;background:white;border-radius:5px;padding:7px 10px;cursor:pointer}.pagination button:disabled{color:#b8bfca;cursor:default}#page-label{font-size:10px}.export-scope{font-size:11px;color:#939cad;text-align:right;margin-top:15px}#error{background:#ffebeb;color:#b34242;padding:12px;border-radius:6px}#empty{text-align:center;padding:30px;color:#929bad;font-size:13px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid #a7b6ff;outline-offset:3px}@media(min-width:1500px){main{padding-left:60px;padding-right:60px}.table-wrap{max-height:540px}}@media(max-width:1050px){.sidebar{width:190px;padding:25px 12px}main{margin-left:190px;padding:0 24px}.brand{font-size:21px}.filters{flex-wrap:wrap}.search{flex-basis:100%}th,td{padding-left:15px;padding-right:15px}}@media(max-width:720px){.sidebar{display:none}main{margin-left:0;padding:0 16px}.topbar{height:55px}.demo-label{font-size:9px}header{align-items:flex-start;margin-top:25px;flex-direction:column}h1{font-size:27px}.metrics{gap:8px}.metrics article{padding:15px 12px}.metrics article>span{font-size:10px}.metrics strong{font-size:24px}.metrics small{font-size:9px}.directory-heading,.filters{padding-left:15px;padding-right:15px}.read-only-label{display:none}.pagination{gap:10px;padding:15px;flex-wrap:wrap}select{max-width:130px}}
+
+ succeeded in 0ms:
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Northstar · Customers</title><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head>
+<body>
+  <aside class="sidebar"><a class="brand" href="/" aria-label="Northstar home"><span class="brand-mark">N</span>northstar<span class="brand-dot">.</span></a><div class="workspace"><span class="workspace-icon">N</span><div>Northstar workspace<small>Customer operations</small></div></div><p class="nav-label">WORKSPACE</p><div class="nav-item selected"><span>◉</span> Customers <span class="nav-count">137</span></div><div class="sidebar-bottom"><span class="avatar">MC</span><div>Morgan Carter<small>Operations lead</small></div><span class="online"></span></div></aside>
+  <main>
+    <div class="topbar"><span>Workspace <span class="slash">/</span> <strong>Customers</strong></span><span class="demo-label"><span></span> Synthetic demo data</span></div>
+    <header><div><p class="eyebrow">CUSTOMER OPERATIONS</p><h1>Customers</h1><p class="subtitle">One place to find your customers and take your data with you.</p></div><a id="export" class="primary-button" href="/api/export"><span aria-hidden="true">↓</span> Export customers</a></header>
+    <section class="metrics" aria-label="Customer summary"><article><span>Total customers</span><strong id="total">—</strong><small>Across your workspace</small></article><article><span>Active customers</span><strong id="active">—</strong><small><i class="status-dot"></i> Currently active</small></article><article><span>Enterprise accounts</span><strong id="enterprise">—</strong><small>Your largest customer segment</small></article></section>
+    <section class="directory"><div class="directory-heading"><div><h2>Customer directory <span id="matching-count"></span></h2><p>Search, filter, and export your customer list.</p></div><span class="read-only-label">Local workspace</span></div>
+      <form id="filters" class="filters"><label class="search"><span aria-hidden="true">⌕</span><input id="search" name="q" type="search" placeholder="Search name, company, or email" aria-label="Search customers"></label><label><span class="sr-only">Status</span><select id="status" name="status"><option value="all">All statuses</option><option value="active">Active</option><option value="inactive">Inactive</option></select></label><label><span class="sr-only">Segment</span><select id="segment" name="segment"><option value="all">All segments</option><option value="starter">Starter</option><option value="growth">Growth</option><option value="enterprise">Enterprise</option></select></label><label><span class="sr-only">Sort customers</span><select id="sort" name="sort"><option value="id_asc">ID: ascending</option><option value="id_desc">ID: descending</option></select></label></form>
+      <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Company</th><th>Status</th><th>Segment</th><th>Customer ID</th></tr></thead><tbody id="customers"></tbody></table><p id="empty" hidden>No customers match these filters.</p></div>
+      <footer class="pagination"><span id="range" aria-live="polite"></span><div><button id="previous" type="button">← Previous</button><span id="page-label"></span><button id="next" type="button">Next →</button></div></footer>
+    </section>
+    <p id="export-scope" class="export-scope" aria-live="polite"></p><p id="error" role="alert" hidden></p>
+  </main>
+</body></html>
+
+exec
+/bin/zsh -lc 'rg -n "export|preview|customers|queryCustomers|columns|pageSize" src public test' in .
+ succeeded in 0ms:
+test/server.test.mjs:17:  const response = await fetch(`${base}/api/customers`);
+test/server.test.mjs:29:  const csv = await fetch(`${base}/api/export?q=C010`);
+test/server.test.mjs:37:  assert.equal((await fetch(`${base}/api/customers`, { method: 'POST' })).status, 405);
+public/index.html:8:    <header><div><p class="eyebrow">CUSTOMER OPERATIONS</p><h1>Customers</h1><p class="subtitle">One place to find your customers and take your data with you.</p></div><a id="export" class="primary-button" href="/api/export"><span aria-hidden="true">↓</span> Export customers</a></header>
+public/index.html:9:    <section class="metrics" aria-label="Customer summary"><article><span>Total customers</span><strong id="total">—</strong><small>Across your workspace</small></article><article><span>Active customers</span><strong id="active">—</strong><small><i class="status-dot"></i> Currently active</small></article><article><span>Enterprise accounts</span><strong id="enterprise">—</strong><small>Your largest customer segment</small></article></section>
+public/index.html:10:    <section class="directory"><div class="directory-heading"><div><h2>Customer directory <span id="matching-count"></span></h2><p>Search, filter, and export your customer list.</p></div><span class="read-only-label">Local workspace</span></div>
+public/index.html:11:      <form id="filters" class="filters"><label class="search"><span aria-hidden="true">⌕</span><input id="search" name="q" type="search" placeholder="Search name, company, or email" aria-label="Search customers"></label><label><span class="sr-only">Status</span><select id="status" name="status"><option value="all">All statuses</option><option value="active">Active</option><option value="inactive">Inactive</option></select></label><label><span class="sr-only">Segment</span><select id="segment" name="segment"><option value="all">All segments</option><option value="starter">Starter</option><option value="growth">Growth</option><option value="enterprise">Enterprise</option></select></label><label><span class="sr-only">Sort customers</span><select id="sort" name="sort"><option value="id_asc">ID: ascending</option><option value="id_desc">ID: descending</option></select></label></form>
+public/index.html:12:      <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Company</th><th>Status</th><th>Segment</th><th>Customer ID</th></tr></thead><tbody id="customers"></tbody></table><p id="empty" hidden>No customers match these filters.</p></div>
+public/index.html:15:    <p id="export-scope" class="export-scope" aria-live="polite"></p><p id="error" role="alert" hidden></p>
+src/customers.mjs:6:export function queryCustomers(customers, params) {
+src/customers.mjs:11:  const pageSize = positiveInteger(params.get('pageSize'), 25, 100);
+src/customers.mjs:12:  const matches = customers.filter(customer => {
+src/customers.mjs:19:  const start = (page - 1) * pageSize;
+src/customers.mjs:20:  return { rows: matches.slice(start, start + pageSize), total: matches.length, page, pageSize };
+public/app.js:2:const body = document.querySelector('#customers');
+public/app.js:17:  params.set('pageSize', '25');
+public/app.js:19:    const response = await fetch(`/api/customers?${params}`);
+public/app.js:20:    if (!response.ok) throw new Error('Could not load customers. Please try again.');
+public/app.js:50:    document.querySelector('#range').textContent = `Showing ${start}–${Math.min(page * 25, result.total)} of ${result.total} customers`;
+public/app.js:54:    document.querySelector('#export').href = `/api/export?${params}`;
+public/app.js:55:    document.querySelector('#export-scope').textContent = `Export includes all ${result.total} matching customers, across every page.`;
+src/server.mjs:5:import { queryCustomers } from './customers.mjs';
+src/server.mjs:6:import { exportCustomers } from './export.mjs';
+src/server.mjs:8:const customers = JSON.parse(readFileSync(new URL('../data/customers.json', import.meta.url), 'utf8'));
+src/server.mjs:15:export function createApp() {
+src/server.mjs:24:    if (url.pathname === '/api/customers') {
+src/server.mjs:26:      response.end(JSON.stringify(queryCustomers(customers, url.searchParams)));
+src/server.mjs:27:    } else if (url.pathname === '/api/export') {
+src/server.mjs:30:        'Content-Disposition': 'attachment; filename="customers.csv"'
+src/server.mjs:32:      response.end(exportCustomers(customers, url.searchParams));
+src/server.mjs:35:      response.end(JSON.stringify({ total: customers.length, active: customers.filter(row => row.status === 'active').length, enterprise: customers.filter(row => row.segment === 'enterprise').length }));
+test/query.test.mjs:3:import { queryCustomers } from '../src/customers.mjs';
+test/query.test.mjs:5:const customers = [
+test/query.test.mjs:12:  const result = queryCustomers(customers, new URLSearchParams('status=active&page=2&pageSize=1'));
+test/query.test.mjs:18:  const result = queryCustomers(customers, new URLSearchParams('q=ACME&segment=growth&sort=id_desc'));
+test/query.test.mjs:23:  const result = queryCustomers(customers, new URLSearchParams('q=missing&page=-2&pageSize=no'));
+test/query.test.mjs:27:  assert.equal(result.pageSize, 25);
+src/export.mjs:1:import { queryCustomers } from './customers.mjs';
+src/export.mjs:3:export const columns = ['id', 'name', 'company', 'email', 'status', 'segment', 'notes'];
+src/export.mjs:5:export function exportCustomers(customers, params) {
+src/export.mjs:6:  const { rows } = queryCustomers(customers, params);
+src/export.mjs:7:  return [columns.join(','), ...rows.map(customer => columns.map(column => customer[column]).join(','))].join('\r\n') + '\r\n';
+public/styles.css:1::root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202735;background:#f7f8fb;font-synthesis:none}*{box-sizing:border-box}body{margin:0;font-size:14px}.sidebar{position:fixed;inset:0 auto 0 0;width:236px;background:#111b2d;color:#a8b3c7;padding:29px 18px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;color:white;font-size:25px;font-weight:700;letter-spacing:-1.2px;text-decoration:none;margin:0 10px 38px}.brand-mark{background:#5674ff;color:#fff;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:18px;letter-spacing:0;margin-right:9px}.brand-dot{color:#6984ff}.workspace{border:1px solid #2b3649;border-radius:9px;padding:13px 10px;display:flex;align-items:center;gap:10px;font-size:12px;color:#e1e6ef}.workspace small,.sidebar-bottom small{display:block;color:#7f8ca5;font-size:11px;margin-top:4px}.workspace-icon{border-radius:7px;background:#29354c;padding:9px;color:#afc1f7;font-weight:700}.nav-label{font-size:10px;letter-spacing:1.8px;margin:30px 12px 13px;color:#67758e}.nav-item{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:7px}.selected{background:#253653;color:#fff}.nav-count{margin-left:auto;font-size:11px;background:#384b6c;padding:3px 7px;border-radius:5px}.sidebar-bottom{display:flex;align-items:center;gap:10px;margin-top:auto;border-top:1px solid #2b3649;padding:22px 5px 0;color:#e1e6ef;font-size:12px}.avatar{background:#34495c;border-radius:50%;padding:10px;font-size:11px}.online{width:7px;height:7px;border-radius:50%;background:#66bd9f;margin-left:auto}main{margin-left:236px;padding:0 42px 25px;max-width:1720px}.topbar{height:73px;border-bottom:1px solid #e3e6ee;display:flex;align-items:center;justify-content:space-between;color:#7e8798;font-size:12px}.topbar strong{color:#3c4555;font-weight:500}.slash{margin:0 13px;color:#c7ccd6}.demo-label{display:flex;align-items:center;gap:7px;font-size:11px}.demo-label span{height:6px;width:6px;background:#56a58c;border-radius:50%}header{display:flex;align-items:center;justify-content:space-between;margin:38px 0 28px;gap:20px}.eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:650;color:#7b86a0;margin:0 0 11px}h1{font-size:32px;letter-spacing:-1px;font-weight:650;margin:0}.subtitle{font-size:13px;color:#7a8495;margin:9px 0 0}.primary-button{display:inline-flex;align-items:center;gap:11px;white-space:nowrap;text-decoration:none;color:#fff;background:#4864e9;padding:12px 17px;border-radius:7px;font-size:12px;font-weight:600;box-shadow:0 3px 6px #2435781a}.primary-button:hover{background:#3953d3}.primary-button span{font-size:19px;line-height:1}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}.metrics article{background:white;border:1px solid #e5e8ef;border-radius:10px;padding:23px 24px;box-shadow:0 2px 3px #29334b03}.metrics article>span{font-size:12px;color:#747f90;display:block}.metrics strong{display:block;font-size:30px;letter-spacing:-.8px;font-weight:600;margin:12px 0 8px}.metrics small{font-size:11px;color:#919aaa}.status-dot{display:inline-block;width:6px;height:6px;background:#43a580;border-radius:50%;margin-right:4px}.directory{border:1px solid #e2e6ed;border-radius:11px;background:#fff;overflow:hidden;box-shadow:0 3px 6px #29334b03}.directory-heading{padding:24px 25px 20px;display:flex;align-items:center;justify-content:space-between}h2{font-size:15px;font-weight:600;margin:0;display:flex;align-items:center;gap:10px}#matching-count{background:#eef1fb;color:#576ba9;border-radius:5px;padding:3px 7px;font-size:10px}.directory-heading p{font-size:11px;color:#929bad;margin:7px 0 0}.read-only-label{font-size:10px;color:#919aad;border:1px solid #e8ebf2;border-radius:4px;padding:6px 8px}.filters{display:flex;gap:10px;padding:0 25px 22px}.search{border:1px solid #dfe4ed;border-radius:6px;display:flex;align-items:center;gap:8px;flex:1;min-width:100px;padding:0 11px;color:#919db1}.search span{font-size:23px}.search input{width:100%;border:0;outline:none;font:inherit;font-size:11px;height:36px;color:#404e64;background:transparent}.search:focus-within{outline:2px solid #a7b6ff}select{height:38px;border:1px solid #dfe4ed;border-radius:6px;background:#fff;color:#667286;padding:0 28px 0 10px;font:inherit;font-size:11px;max-width:160px}.table-wrap{overflow:auto;max-height:470px}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{background:#f8f9fc;color:#8a94a6;font-size:10px;letter-spacing:.25px;font-weight:500;padding:13px 24px;border-top:1px solid #edf0f5;border-bottom:1px solid #edf0f5;position:sticky;top:0;z-index:1}td{border-bottom:1px solid #f0f2f6;padding:14px 24px;font-size:11px;color:#6d778a}tr:last-child td{border:0}.person{display:flex;align-items:center;gap:11px;color:#3e485a;font-size:12px;font-weight:550}.person small{display:block;color:#9aA2b1;font-size:10px;font-weight:400;margin-top:4px}.person-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:600}.tone-0{background:#e9edf8;color:#7386b1}.tone-1{background:#f4e9e4;color:#b88567}.tone-2{background:#e7f1ed;color:#5d9584}.tone-3{background:#f0eaf9;color:#9980b3}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:4px 8px;font-size:9px;text-transform:capitalize}.badge:before{content:"";width:4px;height:4px;border-radius:50%;background:currentColor}.badge.active{background:#eaf6f0;color:#42916e}.badge.inactive{background:#f1f2f5;color:#929aab}.segment{text-transform:capitalize}.customer-id{font-family:ui-monospace,monospace;color:#9ba4b3;font-size:10px}.pagination{display:flex;align-items:center;justify-content:space-between;padding:17px 25px;border-top:1px solid #e8ecf2;color:#919aab;font-size:10px}.pagination>div{display:flex;align-items:center;gap:15px}.pagination button{font:inherit;color:#68758a;border:1px solid #dfe4ed;background:white;border-radius:5px;padding:7px 10px;cursor:pointer}.pagination button:disabled{color:#b8bfca;cursor:default}#page-label{font-size:10px}.export-scope{font-size:11px;color:#939cad;text-align:right;margin-top:15px}#error{background:#ffebeb;color:#b34242;padding:12px;border-radius:6px}#empty{text-align:center;padding:30px;color:#929bad;font-size:13px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid #a7b6ff;outline-offset:3px}@media(min-width:1500px){main{padding-left:60px;padding-right:60px}.table-wrap{max-height:540px}}@media(max-width:1050px){.sidebar{width:190px;padding:25px 12px}main{margin-left:190px;padding:0 24px}.brand{font-size:21px}.filters{flex-wrap:wrap}.search{flex-basis:100%}th,td{padding-left:15px;padding-right:15px}}@media(max-width:720px){.sidebar{display:none}main{margin-left:0;padding:0 16px}.topbar{height:55px}.demo-label{font-size:9px}header{align-items:flex-start;margin-top:25px;flex-direction:column}h1{font-size:27px}.metrics{gap:8px}.metrics article{padding:15px 12px}.metrics article>span{font-size:10px}.metrics strong{font-size:24px}.metrics small{font-size:9px}.directory-heading,.filters{padding-left:15px;padding-right:15px}.read-only-label{display:none}.pagination{gap:10px;padding:15px;flex-wrap:wrap}select{max-width:130px}}
+
+2026-09-23T21:58:43.002245Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+The UI is a compact existing dashboard, so the plan should ask for a modal or inline preview surface near the current export button, not a redesign. I’m going to run the local and independent checks once as baseline evidence; that’s still read-only from the workspace’s point of view.
+exec
+/bin/zsh -lc 'npm test' in .
+2026-09-23T21:58:48.852968Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ succeeded in 399ms:
+
+> agentflow-customer-dashboard-demo@1.0.0 test
+> node --test
+
+✔ listing paginates after filtering and preserves total (11.938458ms)
+✔ search and segment combine, with descending ID order (0.136416ms)
+✔ zero matches and invalid pagination have safe defaults (0.099667ms)
+✔ customer API returns a paginated synthetic dataset (35.622584ms)
+✔ dashboard and CSV download are served with appropriate content types (4.747708ms)
+✔ unknown paths and mutation requests are rejected (4.202833ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 173.34675
+
+exec
+/bin/zsh -lc 'python3 showcase/acceptance/check_preview.py' in .
+2026-09-23T21:58:53.003958Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ exited 1 in 427ms:
+{
+  "passed": false,
+  "checks": 24,
+  "passed_checks": 16,
+  "repo": ".",
+  "results": [
+    {
+      "case": "all 137 customers",
+      "passed": false,
+      "expected_records": 137,
+      "failure": "Expected 137 customer records; parsed 27"
+    },
+    {
+      "case": "page two does not limit export",
+      "passed": false,
+      "expected_records": 137,
+      "failure": "Expected 137 customer records; parsed 7"
+    },
+    {
+      "case": "active customers across pages",
+      "passed": false,
+      "expected_records": 103,
+      "failure": "Expected 103 customer records; parsed 25"
+    },
+    {
+      "case": "active growth descending",
+      "passed": false,
+      "expected_records": 35,
+      "failure": "Expected 35 customer records; parsed 5"
+    },
+    {
+      "case": "combined case-insensitive search",
+      "passed": false,
+      "expected_records": 5,
+      "failure": "Expected 5 customer records; parsed 6"
+    },
+    {
+      "case": "quoted field and LF",
+      "passed": false,
+      "expected_records": 1,
+      "failure": "Expected 1 customer records; parsed 2"
+    },
+    {
+      "case": "Unicode and comma",
+      "passed": false,
+      "expected_records": 1,
+      "failure": "Record 1 differs: expected 7 exact fields; got 8 fields"
+    },
+    {
+      "case": "embedded quotes and CRLF",
+      "passed": false,
+      "expected_records": 1,
+      "failure": "Expected 1 customer records; parsed 2"
+    },
+    {
+      "case": "non-Latin text",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "ordinary record and empty note",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "no matches produces header only",
+      "passed": true,
+      "expected_records": 0
+    },
+    {
+      "case": "inactive enterprise descending",
+      "passed": true,
+      "expected_records": 11
+    },
+    {
+      "case": "listing: all 137 customers",
+      "passed": true,
+      "expected_records": 25
+    },
+    {
+      "case": "listing: page two does not limit export",
+      "passed": true,
+      "expected_records": 7
+    },
+    {
+      "case": "listing: active customers across pages",
+      "passed": true,
+      "expected_records": 25
+    },
+    {
+      "case": "listing: active growth descending",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "listing: combined case-insensitive search",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "listing: quoted field and LF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: Unicode and comma",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: embedded quotes and CRLF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: non-Latin text",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: ordinary record and empty note",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: no matches produces header only",
+      "passed": true,
+      "expected_records": 0
+    },
+    {
+      "case": "listing: inactive enterprise descending",
+      "passed": true,
+      "expected_records": 11
+    }
+  ]
+}
+{
+  "passed": false,
+  "preview_checks": [
+    {
+      "case": "all matching customers",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    },
+    {
+      "case": "active customers from page two",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    },
+    {
+      "case": "combined filters descending",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    },
+    {
+      "case": "search with commas and line breaks",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    },
+    {
+      "case": "no results",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    }
+  ]
+}
+
+codex
+Baseline is useful: `npm test` currently passes 6/6, while the independent preview checker fails because exports are paginated/CSV-unsafe and `/api/export-preview` is 404. I’m publishing the execution plan now with those gaps mapped directly to implementation and validation steps.
+exec
+/bin/zsh -lc "af artifact write plan <<'EOF'
+**Task target**
+
+Repair customer exports and add an export preview for the existing Northstar Customers dashboard. The execution must satisfy OPS-214 in "'`TICKET.md` and OPS-215 in `EXPORT_PREVIEW.md` while preserving the public routes and query semantics from `README.md`: `GET /api/customers` remains paginated, and `GET /api/export` plus new `GET /api/export-preview` honor `q`, `status`, `segment`, and `sort` while ignoring `page` and `pageSize` for export/preview scope.
+
+The finished change must prove:
+- CSV exports preserve all matching records and all seven field values: `id`, `name`, `company`, `email`, `status`, `segment`, `notes`.
+- `GET /api/export-preview` returns JSON with `total`, `columns`, and the first-five matching `sample` records.
+- The dashboard exposes a preview with active filter scope, sample labeling, download and cancel actions, and a useful no-match state.
+- The preview and download use the same query, and stale preview information cannot silently describe a different download.
+- Focused regression tests and the full product test suite pass.
+
+**Current state**
+
+Read evidence:
+- `README.md` defines source layout and current API query semantics. It explicitly says `/api/export` ignores pagination but preserves all other query semantics.
+- `TICKET.md` describes OPS-214: current exports lose records and corrupt fields containing commas, quotes, LF, CRLF, empty text, or Unicode.
+- `EXPORT_PREVIEW.md` describes OPS-215: add `GET /api/export-preview`, first-five sample records, full matching count, exported columns, active filter summary, download/cancel actions, no-match state, and stale-preview protection.
+- Current `src/customers.mjs` has one `queryCustomers(customers, params)` helper that filters, sorts, then slices by `page` and `pageSize`.
+- Current `src/export.mjs` calls `queryCustomers` and writes CSV by raw `join('"',')"'`, so export is currently paginated and CSV-unsafe.
+- Current `src/server.mjs` serves `/api/customers`, `/api/export`, and `/api/stats`; `/api/export-preview` is absent.
+- Current `public/index.html` has a direct `<a id="export" href="/api/export">Export customers</a>` and no preview UI.
+- Current `public/app.js` keeps listing pagination working and updates the direct export link with the same params including `page` and `pageSize`.
+- Current `test/server.test.mjs` and `test/query.test.mjs` cover listing and smoke export only; there are no focused regression tests for full export scope, CSV escaping, or preview.
+- `git status --short` showed `?? EXPORT_PREVIEW.md`. Treat this as an existing task-contract file, not a file to edit.
+
+Baseline validation run from current state:
+- `npm test` passed: 6 tests, 6 pass, 0 fail.
+- `python3 showcase/acceptance/check_preview.py` failed. Export failures include expected 137 records but parsed 27, page two expected 137 but parsed 7, active expected 103 but parsed 25, active growth descending expected 35 but parsed 5, and CSV parsing failures for quoted fields, commas, LF, and CRLF. Preview failures are all `HTTP Error 404: Not Found` for `/api/export-preview` cases.
+
+**Gap**
+
+The concrete gaps from current state to the task contract are:
+- Export uses paginated `rows` from `queryCustomers`, so it does not export every matching customer across pages.
+- Export serializes CSV without quoting/escaping, so notes or company values containing commas, quotes, LF, or CRLF split records or columns.
+- There is no shared unpaginated matching path for export and preview, creating risk that listing/export/preview semantics drift.
+- There is no `/api/export-preview` route returning `total`, `columns`, and `sample` as specified by `EXPORT_PREVIEW.md`.
+- The dashboard export action downloads immediately instead of opening a preview, and it lacks active filter scope, exported columns, first-five sample labeling, no-match copy, cancel/close, and stale-preview protection.
+- Existing tests do not guard the defect or the new preview contract.
+- The final summary still needs changed files, actual validation evidence, user-visible states with source references, and limitations.
+
+**Execution plan**
+
+1. Preserve listing behavior while adding shared query scope.
+   - In `src/customers.mjs`, keep `queryCustomers(customers, params)` returning paginated `{ rows, total, page, pageSize }` for `/api/customers`.
+   - Add or refactor around small named helpers that express the existing semantics once: normalize/search/filter by `q`, `status`, `segment`, and sort by `sort` (`id_asc` default, `id_desc` supported).
+   - Add an unpaginated helper, for example `matchingCustomers(customers, params)`, that returns every matching customer in the requested order while ignoring `page` and `pageSize`.
+   - Use that helper inside `queryCustomers` before slicing, so listing, export, and preview share filter/order behavior without duplicating business rules.
+
+2. Repair CSV export.
+   - In `src/export.mjs`, keep `columns = ['"'id', 'name', 'company', 'email', 'status', 'segment', 'notes']"'` as the authoritative column order.
+   - Change `exportCustomers(customers, params)` to use the unpaginated matching helper, not paginated `rows`.
+   - Add a small CSV field escaping function that preserves exact values and produces valid CSV for commas, quotes, LF, CRLF, empty text, and Unicode. Escape quotes by doubling them and quote fields when needed; preserve line endings inside field values.
+   - Ensure zero matches returns header-only CSV with the expected trailing line ending.
+
+3. Add preview data and route.
+   - Add a small preview function in an appropriate existing module, likely `src/export.mjs`, returning `{ total, columns, sample }` where `total` is the full unpaginated match count and `sample` is the first `min(5, total)` full customer objects in requested order.
+   - In `src/server.mjs`, add `GET /api/export-preview` with `Content-Type: application/json` and return that JSON. Keep `/api/customers`, `/api/export`, `/api/stats`, static assets, 404, and 405 behavior intact.
+
+4. Add focused regression tests without weakening existing tests.
+   - Extend `test/query.test.mjs` or add similarly focused tests for the shared unpaginated matching helper to show it ignores `page`/`pageSize` while preserving filters and sort.
+   - Extend `test/server.test.mjs` and/or add export tests for: full all-customer export not limited to 25 records; page two not limiting export; filtered/sorted export count/order; header-only no-match export; exact CSV parsing/round-trip for commas, quotes, LF, CRLF, empty text, and Unicode.
+   - Add preview API tests for the exact stable HTTP contract: same query parameters as `/api/export`, ignores `page`/`pageSize`, `total`, exact `columns`, `sample.length <= 5`, sample order, no-match `{ total: 0, sample: [] }`, and sample records retaining all fields/values.
+   - Do not remove, skip, weaken, or loosen current tests.
+
+5. Implement the dashboard preview with a small UI change.
+   - In `public/index.html`, change the export trigger from immediate download to a preview-opening control while preserving a clear export affordance. Add a lightweight preview surface such as a dialog or compact panel near the existing dashboard, with elements for count, active filter scope, columns, sample records, no-match text, download action, cancel/close action, loading, and error states.
+   - In `public/app.js`, centralize query construction so listing uses `page`/`pageSize`, while preview/download use the same current filter/sort query excluding pagination.
+   - On export click, fetch `/api/export-preview` with the current preview/download query. Store a stable query token/string with the preview response.
+   - Render user-facing text that clearly distinguishes the sample from the full download, for example count text, `First 5 matching customers`, exported columns, and no-match text explaining the download will contain only column headers.
+   - The preview download action must use the same stored query string that produced the preview. If filters/sort change while the preview is open, close/clear the preview or mark it stale and require a new preview before download, so stale preview information cannot silently describe a different download.
+   - The cancel/close action should close the preview and not download anything.
+   - Keep the existing dashboard design and listing behavior; add only focused CSS in `public/styles.css` for the new preview states.
+
+6. Inspect source for simplicity and operator clarity before finalizing.
+   - Confirm the implementation has one source of truth for filter/order semantics, a small CSV escaping helper, and no dependencies or unrelated abstractions.
+   - Confirm user-visible strings in `public/index.html` and `public/app.js` make the matching count, filter scope, exported columns, first-five sample, download action, cancel action, and no-match state understandable to an operations user.
+   - Confirm the execution summary cites exact source paths for those user-visible states and does not claim rendered browser behavior unless the execution agent actually observes it.
+
+The executor may adapt this plan when workspace evidence proves an assumption wrong, as long as the adaptation serves the full task contract and preserves the constraints.
+
+**Validation plan**
+
+Focused validation to run when feasible:
+- `npm test`
+- `python3 showcase/acceptance/check_preview.py`
+
+Additional useful checks during implementation:
+- Run targeted tests while developing, such as `node --test test/query.test.mjs test/server.test.mjs`, if the full suite is temporarily noisy.
+- Manually inspect representative API responses with the local server or test helpers if needed:
+  - `/api/export?page=2&pageSize=5` should still export all 137 customer records.
+  - `/api/export?status=active&page=2&pageSize=5` should export all active matches, not the displayed page.
+  - `/api/export-preview?status=active&page=2&pageSize=5` should return `total` for all active matches and a five-record `sample` from the beginning of the requested sort order.
+  - `/api/export-preview?q=does-not-exist` should return `total: 0`, unchanged `columns`, and `sample: []`.
+- If UI behavior is observed in a browser, record exactly what was checked; otherwise limit claims to implemented source and automated validation.
+
+Criterion-to-evidence mapping:
+- Behavior: `npm test && python3 showcase/acceptance/check_preview.py` should pass, with local regression tests covering export scope, CSV escaping, preview shape, preview sample, and no-match cases.
+- Simplicity: source inspection should show shared filtering/ordering between listing, export, and preview; no added dependencies; no unrelated rewrites; small named helpers in existing modules.
+- Operator clarity: source inspection should cite exact strings and paths showing full matching count, active filter scope, exported columns, sample label, download/cancel actions, no-match state, and stale-preview protection.
+
+**Expected material change**
+
+Expected changed files are likely:
+- `src/customers.mjs`: shared matching/filter/sort helper plus existing paginated listing preserved.
+- `src/export.mjs`: unpaginated export, CSV escaping, and preview payload helper using the same matching query.
+- `src/server.mjs`: new `/api/export-preview` route.
+- `public/index.html`: preview surface and export/cancel controls.
+- `public/app.js`: preview fetch/render/download flow, shared query construction, stale-preview handling.
+- `public/styles.css`: focused preview styling only.
+- `test/query.test.mjs` and/or `test/server.test.mjs`: focused regression coverage.
+
+Expected proof of progress:
+- Independent checker no longer reports paginated export counts, CSV parsing errors, or `/api/export-preview` 404s.
+- Local tests include meaningful regressions for the repaired failure modes rather than only smoke checks.
+- Final summary documents cause, repaired behavior, changed files, actual command evidence, user-visible states with source references, and limitations.
+
+**Remaining gap**
+
+No intentional remaining product gap is expected after this execution if the implementation and validation above succeed. If browser rendering is not manually observed, the final summary should state that limitation explicitly and rely only on source and automated API/test evidence for UI claims.
+
+**Risks or constraints**
+
+- Do not edit `data/customers.json`, `TICKET.md`, `AGENTS.md`, or `EXPORT_PREVIEW.md`.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, secrets, or unrelated abstractions.
+- Do not introduce unrelated interface redesign; keep the current dashboard design and listing behavior.
+- Preserve the public routes and query semantics exactly: `/api/customers` remains paginated; `/api/export` and `/api/export-preview` preserve `q`, `status`, `segment`, and `sort` while ignoring pagination.
+- Use plain JavaScript, two-space indentation, and small named functions matching current code.
+EOF' in .
+2026-09-23T21:59:54.713722Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ succeeded in 272ms:
+{
+  "command": "af artifact write",
+  "status": "passed",
+  "artifact": "plan"
+}
+
+codex
+The plan artifact is published. I’m running the completion check now to make sure the node sees exactly the declared artifact and no missing handoff pieces.
+exec
+/bin/zsh -lc 'af complete check' in .
+2026-09-23T21:59:58.755956Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-2by6rq/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ succeeded in 200ms:
+{
+  "command": "af complete check",
+  "status": "ready_for_verification",
+  "ready_for_verification": true,
+  "completion_status": "ready_for_verification",
+  "authority_requests": [],
+  "blocking_reasons": [],
+  "expected_artifacts": [
+    {
+      "name": "plan",
+      "required": true,
+      "path": "plan.md",
+      "description": "Execution plan for satisfying the deep work task from the current state.",
+      "status": "present",
+      "current_attempt": true
+    }
+  ],
+  "missing_artifacts": [],
+  "artifact_findings": [],
+  "validation_evidence": [],
+  "orientation": {
+    "orient_called": true,
+    "orient_call_count": 1,
+    "first_orient_at": "2026-09-23T21:58:14.518Z",
+    "last_orient_at": "2026-09-23T21:58:14.518Z",
+    "modes_seen": [
+      "startup_restore"
+    ]
+  },
+  "operator_observations": {
+    "active": 0,
+    "blocking": 0,
+    "latest": []
+  },
+  "active_blockers": [],
+  "supervisor_recovery": {
+    "active": false
+  },
+  "managed": {
+    "active": false
+  },
+  "next_actions": []
+}
+
+codex
+Published the `plan` artifact and ran `af complete check`.
+
+Status: `ready_for_verification`
+
+I did not edit workspace files. Baseline evidence captured in the plan: `npm test` currently passes 6/6, and the independent preview checker currently fails due to paginated/CSV-unsafe export behavior plus missing `/api/export-preview`.
+tokens used
+44,791

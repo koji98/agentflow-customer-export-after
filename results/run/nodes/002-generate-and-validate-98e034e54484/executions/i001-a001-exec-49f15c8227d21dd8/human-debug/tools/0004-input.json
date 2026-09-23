@@ -1,0 +1,13 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "add",
+    "--title",
+    "Implement export repair and preview",
+    "--goal",
+    "Add focused tests and a scoped implementation for unpaginated CSV export, export preview API, and dashboard preview while preserving listing pagination."
+  ],
+  "cwd": "."
+}

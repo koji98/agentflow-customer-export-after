@@ -1,0 +1,19 @@
+Implemented and validated the customer export repair plus preview.
+
+Changed:
+- Shared unpaginated matching in `src/customers.mjs`, while `/api/customers` remains paginated.
+- CSV export now includes all matching records and safely preserves commas, quotes, LF/CRLF, empty text, and Unicode.
+- Added `/api/export-preview`.
+- Added dashboard preview with count, filter scope, exported columns, first-five full-field sample, no-match state, cancel/close, and stored-query download protection.
+- Added focused regression tests.
+
+Validation passed:
+- `npm test`: 12/12 passing.
+- `npm test && python3 showcase/acceptance/check_preview.py`: passed; checker reported 24/24 export/listing checks and all preview checks passing.
+- `af complete check`: `ready_for_verification`.
+
+Published artifacts:
+- `work_notes`
+- `draft_summary`
+
+Limitation recorded: I did not run a browser rendering/manual interaction check; UI claims are based on source inspection and automated validation.

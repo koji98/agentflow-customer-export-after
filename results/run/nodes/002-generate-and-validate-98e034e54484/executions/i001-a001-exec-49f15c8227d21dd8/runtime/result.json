@@ -1,0 +1,34 @@
+{
+  "exit_code": 0,
+  "metadata": {
+    "binary": "codex",
+    "args": [
+      "--cd",
+      ".",
+      "--sandbox",
+      "workspace-write",
+      "--add-dir",
+      "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8",
+      "--add-dir",
+      "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts",
+      "--add-dir",
+      "results/run/runtime",
+      "exec",
+      "--output-last-message",
+      "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/last_message.txt",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "\"sandbox_workspace_write.network_access\"=true",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "-"
+    ],
+    "native_harness": {
+      "harness": "codex-cli",
+      "config_isolation": "isolated"
+    },
+    "timed_out": false,
+    "force_killed": false
+  }
+}

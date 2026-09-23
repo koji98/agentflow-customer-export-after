@@ -1,0 +1,8 @@
+{
+  "head_sha": "e875f94c455716bcd33162b5f95a4224897d33ec",
+  "stash_sha": "59bf1d13551c54e4a5d640500026ef4e854411db",
+  "untracked_files": [
+    "EXPORT_PREVIEW.md"
+  ],
+  "status_text": " M public/app.js\n M public/index.html\n M public/styles.css\n M src/customers.mjs\n M src/export.mjs\n M src/server.mjs\n M test/query.test.mjs\n M test/server.test.mjs\n?? EXPORT_PREVIEW.md\n"
+}

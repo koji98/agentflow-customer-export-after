@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { queryCustomers } from './customers.mjs';
-import { exportCustomers } from './export.mjs';
+import { exportCustomers, previewExport } from './export.mjs';
 
 const customers = JSON.parse(readFileSync(new URL('../data/customers.json', import.meta.url), 'utf8'));
 const assets = new Map([
@@ -30,6 +30,9 @@ export function createApp() {
         'Content-Disposition': 'attachment; filename="customers.csv"'
       });
       response.end(exportCustomers(customers, url.searchParams));
+    } else if (url.pathname === '/api/export-preview') {
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.end(JSON.stringify(previewExport(customers, url.searchParams)));
     } else if (url.pathname === '/api/stats') {
       response.writeHead(200, { 'Content-Type': 'application/json' });
       response.end(JSON.stringify({ total: customers.length, active: customers.filter(row => row.status === 'active').length, enterprise: customers.filter(row => row.segment === 'enterprise').length }));

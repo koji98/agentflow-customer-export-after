@@ -1,0 +1,134 @@
+{
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+  "authored_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+  "repo_alias": "main",
+  "workspace_path": ".",
+  "materials": [
+    {
+      "key": "customer_export_ticket",
+      "source": {
+        "name": "customer_export_ticket",
+        "from": "workspace_file",
+        "path": "TICKET.md",
+        "what": "Customer export defect and observable acceptance contract.",
+        "why": "The export must preserve the operator’s filters and every customer field."
+      },
+      "description": "Customer export defect and observable acceptance contract. Why: The export must preserve the operator’s filters and every customer field.",
+      "pointer_path": "./TICKET.md",
+      "digest": "de976535e33be16ae44e429b2a0621101ef1c9d95ae34f5670cc16788ce5e1bf",
+      "size_bytes": 1460,
+      "priority_bucket": "task_context",
+      "priority_reason": "Authored workspace file context for this task.",
+      "source_authored_order": 0,
+      "binding": {
+        "kind": "live_workspace_input",
+        "requested_path": "TICKET.md",
+        "resolved_path": "./TICKET.md"
+      },
+      "priority_rank": 0
+    },
+    {
+      "key": "project_guide",
+      "source": {
+        "name": "project_guide",
+        "from": "workspace_file",
+        "path": "README.md",
+        "what": "Local commands, source layout, and public API semantics.",
+        "why": "The repair must preserve existing listing behavior and public routes."
+      },
+      "description": "Local commands, source layout, and public API semantics. Why: The repair must preserve existing listing behavior and public routes.",
+      "pointer_path": "./README.md",
+      "digest": "ecc5f051bf1c3ba3a5ce0f4a4a2970879f3b10532168daa195d67cb868ca12ec",
+      "size_bytes": 955,
+      "priority_bucket": "task_context",
+      "priority_reason": "Authored workspace file context for this task.",
+      "source_authored_order": 1,
+      "binding": {
+        "kind": "live_workspace_input",
+        "requested_path": "README.md",
+        "resolved_path": "./README.md"
+      },
+      "priority_rank": 1
+    },
+    {
+      "key": "preview_contract",
+      "source": {
+        "name": "preview_contract",
+        "from": "workspace_file",
+        "path": "EXPORT_PREVIEW.md",
+        "what": "The operator-facing preview behavior and stable preview API contract.",
+        "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+      },
+      "description": "The operator-facing preview behavior and stable preview API contract. Why: Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision.",
+      "pointer_path": "./EXPORT_PREVIEW.md",
+      "digest": "9ac4c53a7d391943a06bd13187d949a4f2d889ca1da460dbdbabdb18cae41ac3",
+      "size_bytes": 2508,
+      "priority_bucket": "task_context",
+      "priority_reason": "Authored workspace file context for this task.",
+      "source_authored_order": 2,
+      "binding": {
+        "kind": "live_workspace_input",
+        "requested_path": "EXPORT_PREVIEW.md",
+        "resolved_path": "./EXPORT_PREVIEW.md"
+      },
+      "priority_rank": 2
+    },
+    {
+      "key": "work_notes",
+      "source": {
+        "ref": "export_readiness__managed__pattern_deep_work__generate_validate.work_notes",
+        "name": "work_notes",
+        "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+        "artifact": "work_notes",
+        "what": "Artifact \"work_notes\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+        "why": "This task needs the producer artifact as evidence for its contract."
+      },
+      "description": "Artifact \"work_notes\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\". Why: This task needs the producer artifact as evidence for its contract. Producer artifact: Notes and validation evidence from the current deep work result.",
+      "pointer_path": "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md",
+      "digest": "37692986174ee1ffbfc873fff69152fe37c327183a42760d556823a2d7271771",
+      "size_bytes": 5122,
+      "priority_bucket": "task_context",
+      "priority_reason": "Declared artifact context for this task.",
+      "source_authored_order": 3,
+      "priority_rank": 3
+    },
+    {
+      "key": "draft_summary",
+      "source": {
+        "ref": "export_readiness__managed__pattern_deep_work__generate_validate.draft_summary",
+        "name": "draft_summary",
+        "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+        "artifact": "draft_summary",
+        "what": "Artifact \"draft_summary\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+        "why": "This task needs the producer artifact as evidence for its contract."
+      },
+      "description": "Artifact \"draft_summary\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\". Why: This task needs the producer artifact as evidence for its contract. Producer artifact: Draft content for final artifact summary.",
+      "pointer_path": "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md",
+      "digest": "374f729af061e24484458f8793b9eaafe02598e7054d3ffb0962f5c10262c3fc",
+      "size_bytes": 3174,
+      "priority_bucket": "task_context",
+      "priority_reason": "Declared artifact context for this task.",
+      "source_authored_order": 4,
+      "priority_rank": 4
+    }
+  ],
+  "omitted": [
+    {
+      "key": "repeat_history",
+      "source": {
+        "name": "repeat_history",
+        "from": "runtime_repeat_history",
+        "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "current_iteration": 1
+      },
+      "description": "Deterministic summary of completed prior iterations in the enclosing repeat scope.",
+      "reason": "No prior repeat iterations have completed.",
+      "if_available": true
+    }
+  ],
+  "totals": {
+    "pointer_count": 5,
+    "file_count": 5
+  }
+}

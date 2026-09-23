@@ -1,0 +1,210 @@
+{
+  "run_id": "2026-09-23t21-58-04-755z-northstar-export-readiness-preview-rehearsal",
+  "graph_id": "northstar-export-readiness",
+  "launch_profile": "worker",
+  "workspace_backend": "inplace",
+  "supervisor_effective_policy": {
+    "profile_name": "supervisor",
+    "harness": "codex-cli",
+    "harness_config": {
+      "isolation": "isolated",
+      "codex": {
+        "config": {
+          "approval_policy": "never",
+          "sandbox_workspace_write.network_access": true
+        }
+      }
+    },
+    "model": "auto",
+    "reasoning_effort": "medium",
+    "sandbox": "workspace-write",
+    "timeout_sec": 21600
+  },
+  "repo_workspaces": {
+    "main": {
+      "repo_alias": "main",
+      "source_path": ".",
+      "workspace_path": ".",
+      "backend": "inplace"
+    }
+  },
+  "nodes": [
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+      "kind": "agent",
+      "repo_alias": "main",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "worker",
+        "workspace_backend": "inplace",
+        "harness": "codex-cli",
+        "harness_config": {
+          "isolation": "isolated",
+          "codex": {
+            "config": {
+              "approval_policy": "never",
+              "sandbox_workspace_write.network_access": true
+            }
+          }
+        },
+        "model": "auto",
+        "reasoning_effort": "medium",
+        "sandbox": "workspace-write",
+        "timeout_sec": 21600,
+        "artifact_repair": {
+          "max_attempts": 1
+        }
+      }
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+      "kind": "agent",
+      "repo_alias": "main",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "worker",
+        "workspace_backend": "inplace",
+        "harness": "codex-cli",
+        "harness_config": {
+          "isolation": "isolated",
+          "codex": {
+            "config": {
+              "approval_policy": "never",
+              "sandbox_workspace_write.network_access": true
+            }
+          }
+        },
+        "model": "auto",
+        "reasoning_effort": "medium",
+        "sandbox": "workspace-write",
+        "timeout_sec": 21600,
+        "artifact_repair": {
+          "max_attempts": 1
+        }
+      }
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "kind": "check",
+      "repo_alias": "main",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "judge",
+        "workspace_backend": "inplace",
+        "timeout_sec": 21600
+      }
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "kind": "check",
+      "repo_alias": "main",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "judge",
+        "workspace_backend": "inplace",
+        "harness": "codex-cli",
+        "harness_config": {
+          "isolation": "isolated",
+          "codex": {
+            "config": {
+              "approval_policy": "never",
+              "sandbox_workspace_write.network_access": true
+            }
+          }
+        },
+        "model": "auto",
+        "reasoning_effort": "medium",
+        "sandbox": "read-only",
+        "timeout_sec": 21600
+      }
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "kind": "check",
+      "repo_alias": "main",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "judge",
+        "workspace_backend": "inplace",
+        "harness": "codex-cli",
+        "harness_config": {
+          "isolation": "isolated",
+          "codex": {
+            "config": {
+              "approval_policy": "never",
+              "sandbox_workspace_write.network_access": true
+            }
+          }
+        },
+        "model": "auto",
+        "reasoning_effort": "medium",
+        "sandbox": "read-only",
+        "timeout_sec": 21600
+      }
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "authored_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "kind": "check",
+      "repo_alias": "main",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "worker",
+        "workspace_backend": "inplace",
+        "timeout_sec": 21600
+      }
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+      "authored_id": "export_readiness",
+      "kind": "exec",
+      "repo_alias": "main",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow"
+      ],
+      "effective_policy": {
+        "profile_name": "worker",
+        "workspace_backend": "inplace",
+        "timeout_sec": 21600
+      }
+    }
+  ]
+}

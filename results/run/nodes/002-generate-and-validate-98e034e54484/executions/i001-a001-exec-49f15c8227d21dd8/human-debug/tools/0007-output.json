@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "af artifact write - publish a declared artifact for downstream nodes.\n\nUsage:\n  af artifact write <name>\n  af artifact write <name> --file <path>\n\nArguments:\n  <name>  Declared artifact name. Required.\n\nOptions:\n  --file <path>  Copy artifact bytes from a workspace or output-dir file instead of stdin.\n  --help  Show this help and exit. Default: false\n\nOutput:\n  JSON object with command, status, and artifact name.\n\nExit codes:\n  0 success\n  1 write failure or undeclared artifact\n\nExamples:\n  af artifact write handoff < handoff.md\n  af artifact write screenshot --file screenshots/settings.png\n  af artifact write handoff <<'EOF'\n  # Handoff\n  EOF\n\nSafety:\n  Reads bytes from stdin or --file and writes only to the declared artifact destination enforced by the task runtime.",
+  "stderr": ""
+}

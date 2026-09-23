@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "score": 1,
+  "summary": "Source clearly satisfies operator clarity: public/index.html labels the entry and actions as \"Preview export\", \"Review customer export\", \"Cancel\", \"Download this CSV\", and \"Close preview\"; public/app.js renders \"${result.total} matching customers will be included in the full CSV download.\", active scope via \"Matching ...\", and \"Exported columns: ...\". The sample is explicitly labeled \"First 5 matching customers sample\" with all seven columns, no-match copy says the CSV will contain \"column headers only\", and stale previews are cleared or blocked when queries differ. I did not rely on unobserved browser layout; npm test could not complete in this sandbox because server listen on 127.0.0.1 returned EPERM, while work notes report prior passing validation.",
+  "issues": [],
+  "check_kind": "ai",
+  "exit_code": 0
+}

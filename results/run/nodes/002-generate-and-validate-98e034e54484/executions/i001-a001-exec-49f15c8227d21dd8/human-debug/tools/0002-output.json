@@ -1,0 +1,6 @@
+{
+  "exit_code": 1,
+  "stdout": "{\n  \"command\": \"af\",\n  \"status\": \"failed\",\n  \"message\": \"af milestone add requires --goal.\"\n}\n",
+  "stderr": "",
+  "error": "af milestone add requires --goal."
+}

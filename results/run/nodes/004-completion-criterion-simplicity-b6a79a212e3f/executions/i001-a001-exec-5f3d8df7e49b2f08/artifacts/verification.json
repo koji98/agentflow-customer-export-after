@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "score": 1,
+  "summary": "The implementation is focused and maintainable: src/customers.mjs centralizes search/status/segment/sort in matchingCustomers, src/export.mjs reuses that for both CSV and preview, and src/server.mjs only adds a small route. UI changes in public/app.js separate listingParams from exportParams and store the preview query to avoid stale downloads without adding unrelated abstractions or dependencies. Regression tests cover the shared behavior. My local npm test attempt was blocked by sandbox EPERM on 127.0.0.1 listen, while the provided work notes report npm test and the independent checker passed.",
+  "issues": [],
+  "check_kind": "ai",
+  "exit_code": 0
+}

@@ -1,0 +1,11 @@
+[
+  "EXPORT_PREVIEW.md",
+  "public/app.js",
+  "public/index.html",
+  "public/styles.css",
+  "src/customers.mjs",
+  "src/export.mjs",
+  "src/server.mjs",
+  "test/query.test.mjs",
+  "test/server.test.mjs"
+]

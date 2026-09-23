@@ -1,0 +1,9 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "complete",
+    "check"
+  ],
+  "cwd": "."
+}

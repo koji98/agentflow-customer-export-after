@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "score": 1,
+  "summary": "Completion criteria passed.",
+  "issues": [],
+  "check_kind": "deterministic",
+  "exit_code": 0
+}

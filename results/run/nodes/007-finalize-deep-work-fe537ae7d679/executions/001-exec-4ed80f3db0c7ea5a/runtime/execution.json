@@ -1,0 +1,41 @@
+{
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__attempt_1",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+  "authored_id": "export_readiness",
+  "kind": "exec",
+  "repo_alias": "main",
+  "execution_dir": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a",
+  "attempt_index": 1,
+  "status": "passed",
+  "started_at": "2026-09-23T22:08:29.553Z",
+  "artifacts": {
+    "packet": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/packet.json",
+    "summary": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/summary.md"
+  },
+  "metadata": {
+    "completion": {
+      "completion_status": "ready_for_verification",
+      "ready_for_verification": true,
+      "blocking_reasons": [],
+      "packet_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/runtime/completion-packet.json"
+    },
+    "node_workspace_changes": {
+      "baseline_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/baseline.json",
+      "after_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/after.json",
+      "status_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/status.txt",
+      "diff_patch_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/diff.patch",
+      "changed_files_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/changed-files.json",
+      "changed_file_count": 0,
+      "status": "captured"
+    }
+  },
+  "ended_at": "2026-09-23T22:08:29.779Z",
+  "duration_ms": 226,
+  "outcome": "passed",
+  "stdout_log_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/human-debug/harness/stdout.log",
+  "stderr_log_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/human-debug/harness/stderr.log",
+  "result_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/runtime/result.json",
+  "context_packet_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/runtime/context.json",
+  "context_manifest_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/agent/context.md",
+  "context_provenance_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/human-debug/context-provenance.json"
+}

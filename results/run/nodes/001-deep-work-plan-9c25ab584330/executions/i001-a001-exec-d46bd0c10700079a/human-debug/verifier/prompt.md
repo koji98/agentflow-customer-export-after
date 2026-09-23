@@ -1,0 +1,300 @@
+## Role
+You are an external outcome verifier. You did not write this code.
+Audit the agent's just-finished work against the graph goal, the node's authored intent, the declared artifacts, and the milestone evidence.
+You must respond with a single fenced JSON object that follows the schema below. No prose outside the fence.
+
+## Decision Rule
+### Mechanical Readiness
+- Treat the Completion Packet section as primary structured evidence for mechanical readiness.
+- Do not pass when completion_status is incomplete. Treat blocked as a terminal attempt state only when it includes a typed authority request from runtime; blocked is not node success.
+- Pass when the declared artifacts, final response, milestone evidence, and available deterministic evidence reasonably satisfy the authored acceptance criteria.
+- Treat graph and node acceptance criteria as authoritative over task text that describes an intentionally failing fallback, blocker report, or retry trigger.
+- A final response explicitly marked as an intentional failure, retry request, missing-context fallback, or not-done state is blocker evidence unless the acceptance criteria explicitly allow that terminal fallback.
+
+### Artifact Judgment
+- Declared artifact snippets are authoritative for artifact presence.
+- A required artifact that is empty, placeholder-only, missing requested content, or inconsistent with the final response is blocker evidence even when the final response claims success.
+- Only fail for a missing declared artifact when it is absent from the Declared Artifacts section, has a read error, or the visible content/metadata proves it does not satisfy the artifact contract.
+- Non-text artifacts are valid when they have a path, content type, byte size, hash, and no read error. Judge their meaning from metadata plus milestone/final-response validation evidence; do not fail only because binary bytes are not inlined.
+- For exact labels or literal phrase requirements, defer to ready Completion Packet artifact findings. Do not invent a missing-literal blocker when the packet reports the artifact present with no placeholder, forbidden-content, or missing-required-content finding and the inlined artifact text contains the literal.
+- If an artifact quotes an earlier incomplete `af complete check` result, treat that as stale embedded diagnostic text when the final Completion Packet is ready and has no matching artifact finding.
+- If an artifact is truncated, read the full artifact path before making a blocker judgment that depends on omitted content.
+
+### Evidence Precedence
+- Captured execution evidence is the primary source for commands the agent actually ran.
+- Do not turn a verifier-side command rerun failure into a blocker when the captured node transcript already shows the required command succeeded.
+- For command/tool output evidence, judge material observed values rather than line breaks, bullets, punctuation, or prose wrapping differences.
+
+### Workspace Diff
+- Workspace diff evidence is supporting audit evidence, not the default source of truth.
+- Do not use workspace diff as the sole reason for passed=false unless it is the only authoritative evidence for the node's required change and shows a concrete violation.
+
+### Blocker Standard
+- Set passed=false only when there is strong, concrete, actionable blocker evidence that the node violated the graph or node contract.
+- Ambiguous, incomplete, or lower-confidence evidence should become a non-blocker finding unless it directly contradicts a required contract point.
+- Prefer investigative recommendations over restating blockers. Tell the retrying agent what evidence to gather, what command/tool/doc to inspect, and what validation would prove recovery.
+- Distinguish an ambiguous configuration mismatch from an irreducible external blocker. Reserve external-blocker language for missing credentials, forbidden approval, unavailable required inputs, or failures the node cannot investigate with its tools.
+- One blocker finding means passed=false; passed=true may still include low, medium, or high non-blocker findings.
+- Cite exact artifact paths, milestone evidence, commands, or response excerpts in evidence so the retrying agent can act without re-discovering the failure.
+
+## Graph Intent
+Goal: Give Northstar operators a correct customer export and a clear preview of exactly what they will download.
+
+Acceptance criteria:
+- The existing CSV export contract and the export preview contract are satisfied.
+- The implementation is focused and understandable, and the interface clearly distinguishes previewed samples from the full download.
+- The delivery includes actual validation evidence and a reviewable explanation.
+
+Constraints:
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+
+## Node Intent
+Node: export_readiness__managed__pattern_deep_work__plan
+Attempt: 1, iteration 1
+
+Goal: Plan the execution work needed to satisfy the full deep-work task from the current state. Do not edit files in this planning phase.
+
+Acceptance criteria:
+- The plan addresses the task contract and any prior failed completion criteria.
+- The plan identifies focused validation the execution agent should run when feasible.
+- The plan does not edit the workspace.
+
+Constraints:
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+
+## Completion Packet
+Runtime mechanical completion facts are primary structured evidence. Do not pass an incomplete packet; judge semantic correctness only when the packet is ready for verification.
+- Status: ready_for_verification
+- Ready for verification: true
+- Packet: results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/completion-packet.json
+- af orient called: true
+- af orient calls: 1
+- af orient modes: startup_restore
+- af orient timing: first=2026-09-23T21:58:14.518Z; last=2026-09-23T21:58:14.518Z
+- Milestones: total=0; completed=0; active=0; blocked=0; validation_logs=0
+- Declared artifact status:
+  - plan: present; current_attempt=true; size=13276; content_type=text/markdown; media_kind=text; encoding=utf-8
+
+## Workspace
+Workspace path: .
+Sandbox: read-only. You may read any file under the workspace, but never modify it.
+
+## Workspace Diff
+Workspace diffs are audit/provenance evidence. They are not the primary pass/fail oracle.
+This diff is captured against the node-start baseline. Preexisting dirty workspace files are not node-local mutations and must not be treated as this node's contamination.
+Use declared artifacts, milestone decision/validation logs, and deterministic command/tool evidence as the primary supervision surface.
+Do not fail solely because the workspace diff is absent, degraded, ambiguous, or surprising. Fail on workspace evidence only when it provides strong, concrete, actionable proof of a contract violation and no stronger declared evidence resolves the contradiction.
+- Status: captured
+- Changed file count: 0
+- Diff patch: results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/diff.patch
+- Status text: results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/status.txt
+- Changed files JSON: results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/changed-files.json
+
+Diff excerpt: (not inlined by default; read the patch path above only when it is needed to investigate a concrete contradiction.)
+
+## Captured Execution Evidence
+Captured command transcript is deterministic evidence from the completed node attempt. Prefer it over rerunning commands from this read-only audit sandbox.
+Rerun a command only when captured evidence is absent, contradictory, or too incomplete to judge. If a verifier-side rerun is blocked by sandbox or temp-file permissions, treat that as verifier-environment evidence, not as a node failure by itself.
+
+(no execution transcript captured)
+
+## Runtime Decision Evidence
+Runtime decision entries are node-authored records of major decisions, rationale, and supporting evidence.
+Use them to understand intentional scope choices and to cross-check final artifacts. Missing or sparse decision evidence should usually be a warning, not a blocker, unless the node contract specifically required it.
+
+(no runtime decision entries captured)
+
+## Agent Response
+### `agent_response`
+Path: results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/agent-response.md
+Purpose: Agent's final captured response.
+Size: 331 bytes
+
+```
+Published the `plan` artifact and ran `af complete check`.
+
+Status: `ready_for_verification`
+
+I did not edit workspace files. Baseline evidence captured in the plan: `npm test` currently passes 6/6, and the independent preview checker currently fails due to paginated/CSV-unsafe export behavior plus missing `/api/export-preview`.
+
+```
+
+## Declared Artifacts
+### `plan`
+Path: results/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/plan.md
+Purpose: Execution plan for satisfying the deep work task from the current state.
+Size: 13276 bytes
+
+```
+**Task target**
+
+Repair customer exports and add an export preview for the existing Northstar Customers dashboard. The execution must satisfy OPS-214 in `TICKET.md` and OPS-215 in `EXPORT_PREVIEW.md` while preserving the public routes and query semantics from `README.md`: `GET /api/customers` remains paginated, and `GET /api/export` plus new `GET /api/export-preview` honor `q`, `status`, `segment`, and `sort` while ignoring `page` and `pageSize` for export/preview scope.
+
+The finished change must prove:
+- CSV exports preserve all matching records and all seven field values: `id`, `name`, `company`, `email`, `status`, `segment`, `notes`.
+- `GET /api/export-preview` returns JSON with `total`, `columns`, and the first-five matching `sample` records.
+- The dashboard exposes a preview with active filter scope, sample labeling, download and cancel actions, and a useful no-match state.
+- The preview and download use the same query, and stale preview information cannot silently describe a different download.
+- Focused regression tests and the full product test suite pass.
+
+**Current state**
+
+Read evidence:
+- `README.md` defines source layout and current API query semantics. It explicitly says `/api/export` ignores pagination but preserves all other query semantics.
+- `TICKET.md` describes OPS-214: current exports lose records and corrupt fields containing commas, quotes, LF, CRLF, empty text, or Unicode.
+- `EXPORT_PREVIEW.md` describes OPS-215: add `GET /api/export-preview`, first-five sample records, full matching count, exported columns, active filter summary, download/cancel actions, no-match state, and stale-preview protection.
+- Current `src/customers.mjs` has one `queryCustomers(customers, params)` helper that filters, sorts, then slices by `page` and `pageSize`.
+- Current `src/export.mjs` calls `queryCustomers` and writes CSV by raw `join(',')`, so export is currently paginated and CSV-unsafe.
+- Current `src/server.mjs` serves `/api/customers`, `/api/export`, and `/api/stats`; `/api/export-preview` is absent.
+- Current `public/index.html` has a direct `<a id="export" href="/api/export">Export customers</a>` and no preview UI.
+- Current `public/app.js` keeps listing pagination working and updates the direct export link with the same params including `page` and `pageSize`.
+- Current `test/server.test.mjs` and `test/query.test.mjs` cover listing and smoke export only; there are no focused regression tests for full export scope, CSV escaping, or preview.
+- `git status --short` showed `?? EXPORT_PREVIEW.md`. Treat this as an existing task-contract file, not a file to edit.
+
+Baseline validation run from current state:
+- `npm test` passed: 6 tests, 6 pass, 0 fail.
+- `python3 showcase/acceptance/check_preview.py` failed. Export failures include expected 137 records but parsed 27, page two expected 137 but parsed 7, active expected 103 but parsed 25, active growth descending expected 35 but parsed 5, and CSV parsing failures for quoted fields, commas, LF, and CRLF. Preview failures are all `HTTP Error 404: Not Found` for `/api/export-preview` cases.
+
+**Gap**
+
+The concrete gaps from current state to the task contract are:
+- Export uses paginated `rows` from `queryCustomers`, so it does not export every matching customer across pages.
+- Export serializes CSV without quoting/escaping, so notes or company values containing commas, quotes, LF, or CRLF split records or columns.
+- There is no shared unpaginated matching path for export and preview, creating risk that listing/export/preview semantics drift.
+- There is no `/api/export-preview` route returning `total`, `columns`, and `sample` as specified by `EXPORT_PREVIEW.md`.
+- The dashboard export action downloads immediately instead of opening a preview, and it lacks active filter scope, exported columns, first-five sample labeling, no-match copy, cancel/close, and stale-preview protection.
+- Existing tests do not guard the defect or the new preview contract.
+- The final summary still needs changed files, actual validation evidence, user-visible states with source references, and limitations.
+
+**Execution plan**
+
+1. Preserve listing behavior while adding shared query scope.
+   - In `src/customers.mjs`, keep `queryCustomers(customers, params)` returning paginated `{ rows, total, page, pageSize }` for `/api/customers`.
+   - Add or refactor around small named helpers that express the existing semantics once: normalize/search/filter by `q`, `status`, `segment`, and sort by `sort` (`id_asc` default, `id_desc` supported).
+   - Add an unpaginated helper, for example `matchingCustomers(customers, params)`, that returns every matching customer in the requested order while ignoring `page` and `pageSize`.
+   - Use that helper inside `queryCustomers` before slicing, so listing, export, and preview share filter/order behavior without duplicating business rules.
+
+2. Repair CSV export.
+   - In `src/export.mjs`, keep `columns = ['id', 'name', 'company', 'email', 'status', 'segment', 'notes']` as the authoritative column order.
+   - Change `exportCustomers(customers, params)` to use the unpaginated matching helper, not paginated `rows`.
+   - Add a small CSV field escaping function that preserves exact values and produces valid CSV for commas, quotes, LF, CRLF, empty text, and Unicode. Escape quotes by doubling them and quote fields when needed; preserve line endings inside field values.
+   - Ensure zero matches returns header-only CSV with the expected trailing line ending.
+
+3. Add preview data and route.
+   - Add a small preview function in an appropriate existing module, likely `src/export.mjs`, returning `{ total, columns, sample }` where `total` is the full unpaginated match count and `sample` is the first `min(5, total)` full customer objects in requested order.
+   - In `src/server.mjs`, add `GET /api/export-preview` with `Content-Type: application/json` and return that JSON. Keep `/api/customers`, `/api/export`, `/api/stats`, static assets, 404, and 405 behavior intact.
+
+4. Add focused regression tests without weakening existing tests.
+   - Extend `test/query.test.mjs` or add similarly focused tests for the shared unpaginated matching helper to show it ignores `page`/`pageSize` while preserving filters and sort.
+   - Extend `test/server.test.mjs` and/or add export tests for: full all-customer export not limited to 25 records; page two not limiting export; filtered/sorted export count/order; header-only no-match export; exact CSV parsing/round-trip for commas, quotes, LF, CRLF, empty text, and Unicode.
+   - Add preview API tests for the exact stable HTTP contract: same query parameters as `/api/export`, ignores `page`/`pageSize`, `total`, exact `columns`, `sample.length <= 5`, sample order, no-match `{ total: 0, sample: [] }`, and sample records retaining all fields/values.
+   - Do not remove, skip, weaken, or loosen current tests.
+
+5. Implement the dashboard preview with a small UI change.
+   - In `public/index.html`, change the export trigger from immediate download to a preview-opening control while preserving a clear export affordance. Add a lightweight preview surface such as a dialog or compact panel near the existing dashboard, with elements for count, active filter scope, columns, sample records, no-match text, download action, cancel/close action, loading, and error states.
+   - In `public/app.js`, centralize query construction so listing uses `page`/`pageSize`, while preview/download use the same current filter/sort query excluding pagination.
+   - On export click, fetch `/api/export-preview` with the current preview/download query. Store a stable query token/string with the preview response.
+   - Render user-facing text that clearly distinguishes the sample from the full download, for example count text, `First 5 matching customers`, exported columns, and no-match text explaining the download will contain only column headers.
+   - The preview download action must use the same stored query string that produced the preview. If filters/sort change while the preview is open, close/clear the preview or mark it stale and require a new preview before download, so stale preview information cannot silently describe a different download.
+   - The cancel/close action should close the preview and not download anything.
+   - Keep the existing dashboard design and listing behavior; add only focused CSS in `public/styles.css` for the new preview states.
+
+6. Inspect source for simplicity and operator clarity before finalizing.
+   - Confirm the implementation has one source of truth for filter/order semantics, a small CSV escaping helper, and no dependencies or unrelated abstractions.
+   - Confirm user-visible strings in `public/index.html` and `public/app.js` make the matching count, filter scope, exported columns, first-five sample, download action, cancel action, and no-match state understandable to an operations user.
+   - Confirm the execution summary cites exact source paths for those user-visible states and does not claim rendered browser behavior unless the execution agent actually observes it.
+
+The executor may adapt this plan when workspace evidence proves an assumption wrong, as long as the adaptation serves the full task contract and preserves the constraints.
+
+**Validation plan**
+
+Focused validation to run when feasible:
+- `npm test`
+- `python3 showcase/acceptance/check_preview.py`
+
+Additional useful checks during implementation:
+- Run targeted tests while developing, such as `node --test test/query.test.mjs test/server.test.mjs`, if the full suite is temporarily noisy.
+- Manually inspect representative API responses with the local server or test helpers if needed:
+  - `/api/export?page=2&pageSize=5` should still export all 137 customer records.
+  - `/api/export?status=active&page=2&pageSize=5` should export all active matches, not the displayed page.
+  - `/api/export-preview?status=active&page=2&pageSize=5` should return `total` for all active matches and a five-record `sample` from the beginning of the requested sort order.
+  - `/api/export-preview?q=does-not-exist` should return `total: 0`, unchanged `columns`, and `sample: []`.
+- If UI behavior is observed in a browser, record exactly what was checked; otherwise limit claims to implemented source and automated validation.
+
+Criterion-to-evidence mapping:
+- Behavior: `npm test && python3 showcase/acceptance/check_preview.py` should pass, with local regression tests covering export scope, CSV escaping, preview shape, preview sample, and no-match cases.
+- Simplicity: source inspection should show shared filtering/ordering between listing, export, and preview; no added dependencies; no unrelated rewrites; small named helpers in existing modules.
+- Operator clarity: source inspection should cite exact strings and paths showing full matching count, active filter scope, exported columns, sample label, download/cancel actions, no-match state, and stale-preview protection.
+
+**Expected material change**
+
+Expected changed files are likely:
+- `src/customers.mjs`: shared matching/filter/sort helper plus existing paginated listing preserved.
+- `src/export.mjs`: unpaginated export, CSV escaping, and preview payload helper using the same matching query.
+- `src/server.mjs`: new `/api/export-preview` route.
+- `public/index.html`: preview surface and export/cancel controls.
+- `public/app.js`: preview fetch/render/download flow, shared query construction, stale-preview handling.
+- `public/styles.css`: focused preview styling only.
+- `test/query.test.mjs` and/or `test/server.test.mjs`: focused regression coverage.
+
+Expected proof of progress:
+- Independent checker no longer reports paginated export counts, CSV parsing errors, or `/api/export-preview` 404s.
+- Local tests include meaningful regressions for the repaired failure modes rather than only smoke checks.
+- Final summary documents cause, repaired behavior, changed files, actual command evidence, user-visible states with source references, and limitations.
+
+**Remaining gap**
+
+No intentional remaining product gap is expected after this execution if the implementation and validation above succeed. If browser rendering is not manually observed, the final summary should state that limitation explicitly and rely only on source and automated API/test evidence for UI claims.
+
+**Risks or constraints**
+
+- Do not edit `data/customers.json`, `TICKET.md`, `AGENTS.md`, or `EXPORT_PREVIEW.md`.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, secrets, or unrelated abstractions.
+- Do not introduce unrelated interface redesign; keep the current dashboard design and listing behavior.
+- Preserve the public routes and query semantics exactly: `/api/customers` remains paginated; `/api/export` and `/api/export-preview` preserve `q`, `status`, `segment`, and `sort` while ignoring pagination.
+- Use plain JavaScript, two-space indentation, and small named functions matching current code.
+
+```
+
+## Output
+Respond with exactly one fenced ```json``` block matching this schema:
+{
+  "passed": boolean,
+  "summary": string,
+  "findings": [
+    {
+      "severity": "blocker" | "high" | "medium" | "low",
+      "category": string, // examples: "incorrect_output", "missing_validation", "ambiguous_configuration_mismatch", "irreducible_external_blocker"
+      "evidence": string,
+      "recommendation": string, // concrete next investigation/fix/validation steps for the retrying worker
+      "references": [string] // optional
+    }
+  ]
+}
+Do not include any other text. The fenced JSON block is the entire response.
+
+Example of a failing verdict:
+```json
+{
+  "passed": false,
+  "summary": "Agent claims success but the new function returns the wrong value for negative inputs.",
+  "findings": [
+    {
+      "severity": "blocker",
+      "category": "incorrect_output",
+      "evidence": "agent-response.md says \"returns 0 for negative inputs\" but the implementation returns -1.",
+      "recommendation": "Update the implementation so the function returns 0 for any negative input and add a regression test."
+    }
+  ]
+}
+```

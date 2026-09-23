@@ -1,0 +1,72 @@
+{
+  "version": "1",
+  "prompt_kind": "ai_check",
+  "renderer": "renderHarnessPrompt",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "harness": "codex-cli",
+  "model": "auto",
+  "reasoning_effort": "medium",
+  "sandbox": "read-only",
+  "ai_evaluator_surface": "managed_criterion",
+  "total_chars": 7774,
+  "sections": [
+    {
+      "name": "Role",
+      "chars": 207
+    },
+    {
+      "name": "Evaluation Target",
+      "chars": 562
+    },
+    {
+      "name": "Check Task",
+      "chars": 3736
+    },
+    {
+      "name": "Graph Context",
+      "chars": 808
+    },
+    {
+      "name": "Workspace",
+      "chars": 204
+    },
+    {
+      "name": "Context",
+      "chars": 139
+    },
+    {
+      "name": "Pointers",
+      "chars": 1952
+    },
+    {
+      "name": "Output",
+      "chars": 166
+    }
+  ],
+  "context_pointer_count": 5,
+  "context_pointer_kinds": [
+    "artifact",
+    "workspace_file"
+  ],
+  "context_priority_bucket_counts": {
+    "read_first": 0,
+    "current_work": 0,
+    "task_context": 5,
+    "progress_state": 0,
+    "reference_set": 0
+  },
+  "context_read_first_count": 0,
+  "context_glob_set_count": 0,
+  "context_glob_match_count": 0,
+  "context_glob_included_count": 0,
+  "context_limited_glob_count": 0,
+  "context_uses_flat_glob_expansion": false,
+  "tool_count": 0,
+  "skill_count": 0,
+  "cli_hint_count": 0,
+  "declared_artifact_count": 0,
+  "has_supervisor_recovery": false,
+  "orient_required_by_prompt": false,
+  "complete_check_required_by_prompt": false,
+  "warnings": []
+}

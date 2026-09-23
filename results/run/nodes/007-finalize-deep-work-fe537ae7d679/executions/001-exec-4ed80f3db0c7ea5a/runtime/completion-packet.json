@@ -1,0 +1,127 @@
+{
+  "version": "1",
+  "attempt_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__attempt_1",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__attempt_1",
+  "execution_dir": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a",
+  "packet_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/runtime/completion-packet.json",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+  "authored_id": "export_readiness",
+  "kind": "exec",
+  "goal": "Finalize the latest passing deep-work result into graph-addressable artifacts without new implementation or unsupported claims.",
+  "acceptance_criteria": [
+    "CSV exports preserve all matching records and field values while customer listing remains paginated.",
+    "The preview API satisfies EXPORT_PREVIEW.md for count, columns, and first-five matching sample records.",
+    "The dashboard exposes a preview with active filter scope, sample labeling, download and cancel actions, and a useful no-match state.",
+    "The preview and download use the same query, and stale preview information cannot silently describe a different download.",
+    "Focused regression tests and the full product test suite pass.",
+    "The summary documents changed files, actual validation evidence, user-visible states with source references, and limitations.",
+    "The runtime-owned packet records the latest passing completion scorecard, work notes, and promoted artifact references.",
+    "User-authored final artifacts are copied from accepted drafts without LLM rewriting."
+  ],
+  "constraints": [
+    "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+    "Do not weaken, remove, or skip existing tests.",
+    "Do not edit files outside this repository or change independent acceptance tools.",
+    "Do not add dependencies, call remote services, or include unrelated refactors.",
+    "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign."
+  ],
+  "authority": {
+    "sandbox": "workspace-write",
+    "repos": [
+      "main"
+    ]
+  },
+  "declared_artifacts": [
+    {
+      "name": "packet",
+      "required": true,
+      "from": "output_dir",
+      "path": "packet.json",
+      "expected_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/packet.json",
+      "description": "Machine-readable final evidence packet.",
+      "status": "present",
+      "current_attempt": true,
+      "content_type": "application/json",
+      "detected_content_type": "application/json",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 4803,
+      "sha256": "afaa8b3de7adebc6723eef1a6263f3ea04fd8e561d81b7780e104213da78031e",
+      "preview": {
+        "kind": "text",
+        "line_count": 62
+      }
+    },
+    {
+      "name": "summary",
+      "required": true,
+      "from": "output_dir",
+      "path": "summary.md",
+      "expected_path": "results/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/summary.md",
+      "description": "Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations.",
+      "status": "present",
+      "current_attempt": true,
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "declared_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 3174,
+      "sha256": "374f729af061e24484458f8793b9eaafe02598e7054d3ffb0962f5c10262c3fc",
+      "preview": {
+        "kind": "text",
+        "line_count": 36
+      }
+    }
+  ],
+  "published_artifacts": [
+    "packet",
+    "summary"
+  ],
+  "missing_artifacts": [],
+  "artifact_findings": [],
+  "validation_evidence": [],
+  "orientation": {
+    "orient_called": false,
+    "orient_call_count": 0,
+    "modes_seen": []
+  },
+  "milestones": {
+    "total": 0,
+    "active": 0,
+    "completed": 0,
+    "blocked": 0,
+    "validation_logs": 0,
+    "milestones": []
+  },
+  "runtime_logs": {
+    "progress": 0,
+    "finding": 0,
+    "decision": 0,
+    "blocking_findings": 0
+  },
+  "active_blockers": [],
+  "operator_observations": {
+    "active": 0,
+    "blocking": 0,
+    "latest": []
+  },
+  "supervisor_recovery": {
+    "active": false
+  },
+  "managed": {
+    "active": false
+  },
+  "helpers": {
+    "active": 0,
+    "completed": 0,
+    "pending": 0,
+    "failed": 0,
+    "missing_artifacts": [],
+    "latest": []
+  },
+  "completion_status": "ready_for_verification",
+  "ready_for_verification": true,
+  "authority_requests": [],
+  "blocking_reasons": []
+}

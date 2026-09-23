@@ -1,0 +1,9 @@
+{
+  "v2/export-readiness.graph.json": "3b11a3a224e8068b4869a1cac4064a24e13ffed8dd0eb478f1b390b1eeb4ee81",
+  "v2/workspace/EXPORT_PREVIEW.md": "9ac4c53a7d391943a06bd13187d949a4f2d889ca1da460dbdbabdb18cae41ac3",
+  "v2/acceptance/check_preview.py": "3db4d7233a1319f3dbd0ebed1a876f739e08173f1512de85fec3a79751cdd8c5",
+  "v2/acceptance/preview-contract.sha256": "25867a3045d932b7b01639b861b8252499a96fc51e634c39f9d1425f1add6e4e",
+  "acceptance/check_export.py": "527d92e6509b694dc3c46deba53d9721e263e8ded0179022c81f483a4a808972",
+  "acceptance/customers.json": "a8509c22a32c54c78eafa0efd6f93364b99400292f26f93378a8d43b19add226",
+  "acceptance/protected-files.json": "4b15de8bf43debbcfcac70470f8f0c6efcae2ef997cbf4eeaa550db27745ac06"
+}

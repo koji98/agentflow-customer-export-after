@@ -1,0 +1,14 @@
+{
+  "graph_id": "northstar-export-readiness",
+  "run_id": "2026-09-23t21-58-04-755z-northstar-export-readiness-preview-rehearsal",
+  "recommendations": [
+    {
+      "area": "none",
+      "recommendation": "No concrete workspace improvement was inferred from this run.",
+      "evidence": "Run reached terminal state without active failures, recovered failures, active blockers, or missing milestone validation.",
+      "priority": "low",
+      "confidence": "medium",
+      "done_when": "No action required unless human review identifies missing context, docs, tests, or tooling."
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "version": "1",
+  "attempt_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_dir": "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8",
+  "packet_path": "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/completion-packet.json",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+  "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+  "kind": "agent",
+  "goal": "Satisfy the full deep-work task from the current state, using plan.md as guidance and validating the result with concrete evidence.",
+  "acceptance_criteria": [
+    "The work satisfies the task contract or records a precise remaining gap.",
+    "Focused validation is run when feasible, with exact results recorded in work notes and draft artifacts.",
+    "Draft user-authored final artifacts exist so completion criteria can grade the result."
+  ],
+  "constraints": [
+    "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+    "Do not weaken, remove, or skip existing tests.",
+    "Do not edit files outside this repository or change independent acceptance tools.",
+    "Do not add dependencies, call remote services, or include unrelated refactors.",
+    "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign."
+  ],
+  "authority": {
+    "sandbox": "workspace-write",
+    "repos": [
+      "main"
+    ]
+  },
+  "declared_artifacts": [
+    {
+      "name": "work_notes",
+      "required": true,
+      "from": "output_dir",
+      "path": "work-notes.md",
+      "expected_path": "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md",
+      "description": "Notes and validation evidence from the current deep work result.",
+      "status": "present",
+      "current_attempt": true,
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 5122,
+      "sha256": "37692986174ee1ffbfc873fff69152fe37c327183a42760d556823a2d7271771",
+      "preview": {
+        "kind": "text",
+        "line_count": 43
+      }
+    },
+    {
+      "name": "draft_summary",
+      "required": true,
+      "from": "output_dir",
+      "path": "draft-summary.md",
+      "expected_path": "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md",
+      "description": "Draft content for final artifact summary.",
+      "status": "present",
+      "current_attempt": true,
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 3174,
+      "sha256": "374f729af061e24484458f8793b9eaafe02598e7054d3ffb0962f5c10262c3fc",
+      "preview": {
+        "kind": "text",
+        "line_count": 36
+      }
+    }
+  ],
+  "published_artifacts": [
+    "work_notes",
+    "draft_summary"
+  ],
+  "missing_artifacts": [],
+  "artifact_findings": [],
+  "validation_evidence": [],
+  "orientation": {
+    "orient_called": true,
+    "orient_call_count": 1,
+    "first_orient_at": "2026-09-23T22:00:27.859Z",
+    "last_orient_at": "2026-09-23T22:00:27.859Z",
+    "modes_seen": [
+      "startup_restore"
+    ],
+    "evidence_ref": "results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0001-output.json"
+  },
+  "milestones": {
+    "total": 1,
+    "active": 0,
+    "completed": 1,
+    "blocked": 0,
+    "validation_logs": 2,
+    "milestones": [
+      {
+        "id": "m1",
+        "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "title": "Implement export repair and preview",
+        "goal": "Add focused tests and a scoped implementation for unpaginated CSV export, export preview API, and dashboard preview while preserving listing pagination.",
+        "status": "completed",
+        "logs": [
+          {
+            "log_id": "m1.l1",
+            "kind": "validation",
+            "summary": "Focused regression tests passed after implementing shared matching, CSV escaping, and preview API/UI source coverage: 12 tests passed.",
+            "command": "node --test test/query.test.mjs test/server.test.mjs",
+            "result": "pass",
+            "created_at": "2026-09-23T22:05:51.806Z"
+          },
+          {
+            "log_id": "m1.l2",
+            "kind": "validation",
+            "summary": "Required combined validation passed: npm test reported 12/12 tests passing; independent checker reported passed=true, 24/24 export/listing checks, and all 5 preview checks passing.",
+            "command": "npm test && python3 showcase/acceptance/check_preview.py",
+            "result": "pass",
+            "created_at": "2026-09-23T22:05:51.870Z"
+          }
+        ],
+        "created_at": "2026-09-23T22:01:07.495Z",
+        "updated_at": "2026-09-23T22:06:48.734Z",
+        "run_id": "2026-09-23t21-58-04-755z-northstar-export-readiness-preview-rehearsal",
+        "graph_id": "northstar-export-readiness",
+        "agent_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+        "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+        "completion_evidence": "Implemented scoped export repair and preview; published work_notes and draft_summary; required combined validation passed with npm test 12/12 and independent checker passed=true with 24/24 export/listing checks plus all preview checks.",
+        "completed_at": "2026-09-23T22:06:48.734Z"
+      }
+    ]
+  },
+  "runtime_logs": {
+    "progress": 0,
+    "finding": 0,
+    "decision": 0,
+    "blocking_findings": 0
+  },
+  "active_blockers": [],
+  "operator_observations": {
+    "active": 0,
+    "blocking": 0,
+    "latest": []
+  },
+  "supervisor_recovery": {
+    "active": false
+  },
+  "managed": {
+    "active": false
+  },
+  "helpers": {
+    "active": 0,
+    "completed": 0,
+    "pending": 0,
+    "failed": 0,
+    "missing_artifacts": [],
+    "latest": []
+  },
+  "completion_status": "ready_for_verification",
+  "ready_for_verification": true,
+  "authority_requests": [],
+  "blocking_reasons": []
+}

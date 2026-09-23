@@ -1,0 +1,894 @@
+OpenAI Codex v0.142.2
+--------
+workdir: .
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a0d04f-01db-7452-a096-8fc9d693b28e
+--------
+user
+## Role
+You are an AI evaluator executing one read-only check node in a wider graph.
+Evaluate the check task below. Never modify the workspace. Your only output is structured JSON describing your judgment.
+
+## Evaluation Target
+- What is being judged: one managed completion criterion.
+- Target: the criterion target described in the Check Task and Rubric, not the whole managed lifecycle.
+- Allowed evidence: the provided context pointers, work notes, draft artifacts, validation evidence, and workspace evidence refs when present.
+- Out of scope: new implementation work, unrelated downstream graph work, broad lifecycle grading, or claims unsupported by the provided evidence.
+- Result controls: managed scorecard aggregation and retry feedback for this criterion.
+
+## Check Task
+
+You are an evidence-based evaluator for completion criterion `operator_clarity`.
+
+Criterion:
+Rubric: Judge the clarity of the export preview from the implemented interface text and state handling in the source, supported by any actual UI observations recorded in the summary. A passing preview makes the full matching record count, active filter scope, exported columns, and first-five-record sample understandable to an operations user. It must distinguish the sample from the full download, provide unambiguous download and cancel actions, explain the no-match case, and avoid stale count/sample information being presented for a different query. Labels should describe the user's task rather than internal API or runtime details. Cite exact user-visible strings and source paths for findings. Score 1.0 when these decisions are immediately clear; 0.85 when they are clear with only optional wording improvements; 0.70 when a specific ambiguity could cause a wrong download decision; 0.50 or below when sample size, export scope, or actions are materially misleading or a required state is absent. Judge semantic clarity, not visual taste. Do not claim rendered layout, keyboard accessibility, or actual browser behavior was verified without corresponding observed evidence. Do not treat a confident summary as a substitute for implemented source.
+Target: workspace
+Weight: 0.15
+Required blocker: yes
+
+Evaluation Guidance:
+Grade only the current workspace candidate, work notes, validation evidence, and draft artifacts.
+Give full credit when the evidence satisfies the criterion.
+Do not invent issues, penalize harmless style differences, or require work outside the task contract.
+Do withhold credit for missing evidence, violated constraints, failed validation, or unsupported claims.
+Use score 0.85 or higher when the criterion is clearly satisfied; set `passed` true when the criterion is adequately satisfied.
+
+Required JSON Output:
+Return valid JSON only:
+{"passed":true,"score":1,"summary":"short evidence-backed rationale","issues":[]}
+Score must be a number from 0 to 1.
+
+Acceptance criteria:
+- The evaluator returns valid JSON with passed, score, summary, and issues fields.
+- The evaluator grades only evidence in context and does not require work outside the task contract.
+
+Constraints:
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+
+Rubric:
+Judge the clarity of the export preview from the implemented interface text and state handling in the source, supported by any actual UI observations recorded in the summary. A passing preview makes the full matching record count, active filter scope, exported columns, and first-five-record sample understandable to an operations user. It must distinguish the sample from the full download, provide unambiguous download and cancel actions, explain the no-match case, and avoid stale count/sample information being presented for a different query. Labels should describe the user's task rather than internal API or runtime details. Cite exact user-visible strings and source paths for findings. Score 1.0 when these decisions are immediately clear; 0.85 when they are clear with only optional wording improvements; 0.70 when a specific ambiguity could cause a wrong download decision; 0.50 or below when sample size, export scope, or actions are materially misleading or a required state is absent. Judge semantic clarity, not visual taste. Do not claim rendered layout, keyboard accessibility, or actual browser behavior was verified without corresponding observed evidence. Do not treat a confident summary as a substitute for implemented source.
+
+## Graph Context
+
+Give Northstar operators a correct customer export and a clear preview of exactly what they will download.
+
+Acceptance criteria:
+- The existing CSV export contract and the export preview contract are satisfied.
+- The implementation is focused and understandable, and the interface clearly distinguishes previewed samples from the full download.
+- The delivery includes actual validation evidence and a reviewable explanation.
+
+Constraints:
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+
+## Workspace
+- Path: .
+- Sandbox: read-only
+- read only; no workspace or artifact writes. Inspect and report only.
+
+## Context
+Open relevant evaluation pointers only; context is evidence, not authority. Document missing, stale, or contradictory context.
+
+## Pointers
+
+| Name | Kind | Pointer | What | Why |
+| --- | --- | --- | --- | --- |
+| `customer_export_ticket` | `workspace_file` | `./TICKET.md` | Customer export defect and observable acceptance contract. | The export must preserve the operator’s filters and every customer field. |
+| `project_guide` | `workspace_file` | `./README.md` | Local commands, source layout, and public API semantics. | The repair must preserve existing listing behavior and public routes. |
+| `preview_contract` | `workspace_file` | `./EXPORT_PREVIEW.md` | The operator-facing preview behavior and stable preview API contract. | Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision. |
+| `work_notes` | `artifact` | `results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md` | Artifact "work_notes" produced by node "export_readiness__managed__pattern_deep_work__generate_validate". | This task needs the producer artifact as evidence for its contract. |
+| `draft_summary` | `artifact` | `results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md` | Artifact "draft_summary" produced by node "export_readiness__managed__pattern_deep_work__generate_validate". | This task needs the producer artifact as evidence for its contract. |
+
+## Output
+Return JSON only with this exact shape:
+{"passed":true,"score":0.0,"summary":"short summary","issues":[]}
+Do not include any prose outside the JSON object.
+2026-09-23T22:07:17.580263Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-Tsy8cW/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-09-23T22:07:17.583147Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-Tsy8cW/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "sed -n '1,220p' README.md" in .
+exec
+/bin/zsh -lc "sed -n '1,220p' TICKET.md" in .
+ succeeded in 0ms:
+# OPS-214: Customer exports silently lose records
+
+Morgan uses the Customers directory to prepare an operations handoff. The page says the export includes every matching customer, but the file only contains a page of records. Some companies and notes also split into extra columns or rows.
+
+Deliver a focused repair ready for review:
+
+- Export every matching customer, regardless of the page and page size currently displayed.
+- Preserve the active search, status, segment, and ID sort order.
+- Preserve all seven fields (`id`, `name`, `company`, `email`, `status`, `segment`, `notes`) exactly, including commas, quotes, LF, CRLF, empty text, and Unicode.
+- A query with zero matches downloads a header-only CSV.
+- Customer listing, pagination, and filter controls remain correct.
+- Leave the existing fixture and acceptance expectations unchanged. Add focused regression tests.
+- Publish a concise change summary with the cause, repaired behavior, changed files, actual test evidence, and remaining limitations.
+
+Scope is local source and focused tests. No dependencies, external services, data edits, unrelated redesign, or modifications to this ticket. This is a synthetic rehearsal product, not a production service.
+
+The independent acceptance suite is supplied by the operator outside this repository. Read its result as evidence; do not replace or weaken it. If a local command cannot run, report the exact limitation rather than treating it as a pass.
+
+ succeeded in 0ms:
+# Northstar customer operations
+
+A small local customer dashboard with synthetic data. Node 24; no dependencies.
+
+```sh
+npm start
+npm test
+```
+
+Open http://127.0.0.1:4317. Override `PORT` to run a second copy.
+
+The existing smoke tests exercise listing, filters, pagination, HTTP responses, and a simple export. The open product defect is described in `TICKET.md`. Passing the existing suite alone does not resolve that ticket.
+
+The implementation lives in `src/`; the interface is in `public/`; the canonical 137-customer fixture is in `data/customers.json`.
+
+API: `GET /api/customers` and `GET /api/export` accept `q`, `status` (`all`, `active`, `inactive`), `segment` (`all`, `starter`, `growth`, `enterprise`), `sort` (`id_asc`, `id_desc`), `page`, and `pageSize`. Search matches ID, name, company, or email case-insensitively. The export contract ignores pagination but preserves all other query semantics. `GET /api/stats` returns workspace totals.
+
+exec
+/bin/zsh -lc "sed -n '1,240p' EXPORT_PREVIEW.md" in .
+ succeeded in 0ms:
+# OPS-215: Let operators inspect an export before downloading
+
+Resolve OPS-214 in TICKET.md and add a small export preview to the existing Customers dashboard. Morgan should be able to check what a file will contain before downloading it.
+
+## User outcome
+
+The export action opens a preview containing:
+
+- The total number of customers matching the current search, status, segment, and sort, across all pages.
+- A plain-language summary of the active filters and exported columns.
+- The first five matching records, clearly labeled as a sample rather than the full export.
+- An unambiguous download action and a cancel/close action that does not download anything.
+- A useful no-match state explaining that a download will contain only column headers.
+
+The preview and subsequent download must use the same query. Opening a preview on page two must still show the full matching count and the first five matching records. Prevent stale preview information from being used for a different query. Keep the existing dashboard design and listing behavior.
+
+## Stable HTTP contract for independent checks
+
+`GET /api/export-preview` takes the same query parameters as `/api/export`. It returns JSON:
+
+```json
+{
+  "total": 103,
+  "columns": ["id", "name", "company", "email", "status", "segment", "notes"],
+  "sample": []
+}
+```
+
+`total` is the full matching count. `sample` contains the first `min(5, total)` full customer objects in the requested order, retaining exact field values. Both ignore page and pageSize. No matches returns total=0 and sample=[], with columns unchanged. The example count is illustrative; compute from the real fixture and query.
+
+The existing export contract remains authoritative for actual CSV output. The new preview is an additional feature, not a replacement for a correct download.
+
+## Quality bar
+
+Prefer the smallest clear change consistent with the current code. Share filtering/ordering semantics where appropriate; do not add a framework, generic export platform, dependencies, or unnecessary indirection. The preview copy should help an operations user distinguish matching count, sample size, and downloaded records without reading technical documentation.
+
+Publish a concise summary of the repair and preview with validation evidence, source references for the user-visible states, and limitations. Do not claim browser behavior or visual quality was checked unless it was actually observed. Do not edit this contract, TICKET.md, AGENTS.md, or the canonical customer data.
+
+exec
+/bin/zsh -lc "sed -n '1,240p' results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md" in .
+ succeeded in 0ms:
+# Work Notes
+
+## What changed
+- `src/customers.mjs:6-36`: added shared `matchingCustomers` query path for search/status/segment/sort, and kept `queryCustomers` paginated only after matching. This preserves `/api/customers` listing pagination while giving export/preview the full matching set.
+- `src/export.mjs:3-21`: kept the seven export columns as the single column list; changed CSV export to use all matching customers; added RFC-style CSV field escaping for commas, quotes, LF, CRLF, empty text, and Unicode; added `previewExport` returning `{ total, columns, sample }` with the first five full customer objects.
+- `src/server.mjs:27-35`: kept `/api/export` and added `GET /api/export-preview` JSON using the same `url.searchParams` query semantics.
+- `public/index.html:8,16-22` and `public/app.js:15-165`: changed the export action to open a preview, added active filter scope, total count, exported columns, first-five sample table with all seven fields, no-match copy, cancel/close actions, and download action.
+- `public/app.js:22-23,66-95,153-165`: listing uses `listingParams()` with page/pageSize; preview and download use `exportParams()` without pagination. The download uses `previewQuery`, the exact stored query that produced the preview, and closes rather than downloading if current filters differ.
+- `public/styles.css`: added focused preview panel/button styles only.
+- `test/query.test.mjs:22-26`: added regression coverage that unpaginated matching ignores page/pageSize while preserving filter and sort.
+- `test/server.test.mjs:77-128`: added regression coverage for unpaginated export counts/order, CSV escaping/round-trip, header-only no-match export, preview API shape/sample, and no-match preview.
+
+## Plan deviations
+- No material deviation from `plan.md`. One late clarity adjustment was added after source review: the preview sample table now displays all seven exported columns (`public/index.html:21`, `public/app.js:53-60`) rather than a reduced five-column table, so the sample better represents the complete CSV.
+
+## Validation evidence
+- Focused red evidence before implementation: `node --test test/query.test.mjs test/server.test.mjs` failed because `matchingCustomers` was missing, exports were paginated, CSV values were not preserved, and `/api/export-preview` returned 404.
+- Focused post-change validation: `node --test test/query.test.mjs test/server.test.mjs` passed with 12 tests, 12 pass, 0 fail.
+- Required full validation command: `npm test && python3 showcase/acceptance/check_preview.py` passed.
+  - `npm test`: 12 tests, 12 pass, 0 fail.
+  - Independent checker: `passed: true`, 24/24 export/listing checks passed, preview checks passed for all matching customers, active customers from page two, combined filters descending, search with commas and line breaks, and no results.
+
+## Source evidence for operator clarity
+- Preview entry point is labeled `Preview export` in `public/index.html:8`.
+- Preview title and actions are explicit: `Review customer export`, `Cancel`, `Download this CSV`, and `Close preview` in `public/index.html:17-22`.
+- Count text distinguishes full download scope: `${result.total} matching customers will be included in the full CSV download.` in `public/app.js:68`.
+- Active filter scope is generated from current search/status/segment/sort in `public/app.js:31-39` and rendered at `public/app.js:69`.
+- Exported columns are shown from the API response in `public/app.js:70`.
+- Sample is labeled `First 5 matching customers sample` and shows ID, name, company, email, status, segment, and notes in `public/index.html:21`; rows are populated from full preview sample objects in `public/app.js:48-63`.
+- No-match state says `No customers match these filters. Downloading now will create a CSV with column headers only.` in `public/index.html:20`.
+- Stale preview protection closes/clears previews on filter input (`public/app.js:153-154`), discards async preview responses when filters changed (`public/app.js:89-95`), and refuses download if the stored preview query differs from the current export query (`public/app.js:160-165`).
+
+## Simplicity and maintainability review
+- Query/filter/order behavior has one source of truth in `src/customers.mjs:6-28`; listing, export, and preview consume it instead of duplicating business rules.
+- CSV and preview responsibilities stay in `src/export.mjs:3-21`; the server only routes requests in `src/server.mjs:24-35`.
+- No dependencies, remote services, fixture edits, contract edits, route removals, or unrelated rewrites were added.
+- Existing tests were kept and strengthened; none were skipped or weakened.
+
+## Remaining risks and limitations
+- I did not run a browser rendering/manual UI interaction check. UI claims above are based on implemented source and automated API/product validation, not observed browser layout.
+- `EXPORT_PREVIEW.md` remains untracked in `git status --short`, as it was supplied as task context and was not edited.
+- No known product gap remains after the passing required validation command.
+
+exec
+/bin/zsh -lc 'pwd && rg --files' in .
+ succeeded in 0ms:
+.
+src/export.mjs
+src/server.mjs
+src/customers.mjs
+data/customers.json
+AGENTS.md
+TICKET.md
+package.json
+public/app.js
+public/styles.css
+public/index.html
+README.md
+test/server.test.mjs
+test/query.test.mjs
+EXPORT_PREVIEW.md
+
+exec
+/bin/zsh -lc "sed -n '1,240p' results/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md" in .
+ succeeded in 0ms:
+# Draft Summary
+
+## Summary
+Repaired the customer CSV export and added an export preview for operators. The root cause was that `src/export.mjs` reused paginated listing rows from `queryCustomers` and serialized CSV by raw comma joins. The fix adds shared unpaginated matching in `src/customers.mjs:6-28`, keeps listing pagination in `src/customers.mjs:31-36`, uses the full matching set plus CSV escaping in `src/export.mjs:5-17`, and exposes the stable preview payload from `src/export.mjs:19-21` through `/api/export-preview` in `src/server.mjs:33-35`.
+
+## Changed Files
+- `src/customers.mjs`: shared search/status/segment/sort matching helper; paginated listing preserved.
+- `src/export.mjs`: unpaginated export, seven-column CSV escaping, and preview payload helper.
+- `src/server.mjs`: new `GET /api/export-preview` route.
+- `public/index.html`: preview panel, sample table, no-match copy, download and cancel/close controls.
+- `public/app.js`: separate listing vs export queries, preview fetch/render flow, stored-query download, stale preview protection.
+- `public/styles.css`: focused preview styles.
+- `test/query.test.mjs`: unpaginated matching regression test.
+- `test/server.test.mjs`: full export scope, CSV escaping, header-only export, and preview API regression tests.
+
+## Validation Evidence
+- `node --test test/query.test.mjs test/server.test.mjs`: passed, 12 tests / 12 pass / 0 fail.
+- `npm test && python3 showcase/acceptance/check_preview.py`: passed.
+  - `npm test`: 12 tests / 12 pass / 0 fail.
+  - Independent checker: `passed: true`, 24/24 export and listing checks passed, plus all preview checks passed.
+
+## User-Visible States
+- Export entry point: `Preview export` (`public/index.html:8`).
+- Preview heading and actions: `Review customer export`, `Cancel`, `Download this CSV`, `Close preview` (`public/index.html:17-22`).
+- Full download count: `${result.total} matching customers will be included in the full CSV download.` (`public/app.js:68`).
+- Active filter scope: `Matching ...` built from current search/status/segment/sort (`public/app.js:31-39`) and rendered in the preview (`public/app.js:69`).
+- Exported columns: `Exported columns: ...` from the preview API response (`public/app.js:70`).
+- Sample label and fields: `First 5 matching customers sample` with ID, name, company, email, status, segment, notes (`public/index.html:21`; rows rendered in `public/app.js:48-63`).
+- No-match state: `No customers match these filters. Downloading now will create a CSV with column headers only.` (`public/index.html:20`).
+- Stale preview protection: closes on filter changes (`public/app.js:153-154`), discards preview responses for changed queries (`public/app.js:89-95`), and blocks download if the stored preview query differs from the current export query (`public/app.js:160-165`).
+
+## Limitations
+- Browser rendering and manual interaction were not observed; UI claims are based on source inspection and automated validation.
+- `EXPORT_PREVIEW.md` is still untracked task context and was not edited.
+- No known remaining gap after the required validation passed.
+
+2026-09-23T22:07:29.793495Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-Tsy8cW/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "nl -ba public/index.html | sed -n '1,220p'" in .
+exec
+/bin/zsh -lc "nl -ba public/app.js | sed -n '1,240p'" in .
+exec
+/bin/zsh -lc "nl -ba src/customers.mjs | sed -n '1,220p'" in .
+exec
+/bin/zsh -lc "nl -ba src/export.mjs | sed -n '1,200p'" in .
+ succeeded in 0ms:
+     1	import { matchingCustomers } from './customers.mjs';
+     2	
+     3	export const columns = ['id', 'name', 'company', 'email', 'status', 'segment', 'notes'];
+     4	
+     5	function csvField(value) {
+     6	  const text = String(value ?? '');
+     7	  return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+     8	}
+     9	
+    10	function csvRow(customer) {
+    11	  return columns.map(column => csvField(customer[column])).join(',');
+    12	}
+    13	
+    14	export function exportCustomers(customers, params) {
+    15	  const rows = matchingCustomers(customers, params);
+    16	  return [columns.join(','), ...rows.map(csvRow)].join('\r\n') + '\r\n';
+    17	}
+    18	
+    19	export function previewExport(customers, params) {
+    20	  const rows = matchingCustomers(customers, params);
+    21	  return { total: rows.length, columns, sample: rows.slice(0, 5) };
+    22	}
+
+ succeeded in 0ms:
+     1	<!doctype html>
+     2	<html lang="en">
+     3	<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Northstar · Customers</title><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head>
+     4	<body>
+     5	  <aside class="sidebar"><a class="brand" href="/" aria-label="Northstar home"><span class="brand-mark">N</span>northstar<span class="brand-dot">.</span></a><div class="workspace"><span class="workspace-icon">N</span><div>Northstar workspace<small>Customer operations</small></div></div><p class="nav-label">WORKSPACE</p><div class="nav-item selected"><span>◉</span> Customers <span class="nav-count">137</span></div><div class="sidebar-bottom"><span class="avatar">MC</span><div>Morgan Carter<small>Operations lead</small></div><span class="online"></span></div></aside>
+     6	  <main>
+     7	    <div class="topbar"><span>Workspace <span class="slash">/</span> <strong>Customers</strong></span><span class="demo-label"><span></span> Synthetic demo data</span></div>
+     8	    <header><div><p class="eyebrow">CUSTOMER OPERATIONS</p><h1>Customers</h1><p class="subtitle">One place to find your customers and take your data with you.</p></div><button id="export" class="primary-button" type="button"><span aria-hidden="true">↓</span> Preview export</button></header>
+     9	    <section class="metrics" aria-label="Customer summary"><article><span>Total customers</span><strong id="total">—</strong><small>Across your workspace</small></article><article><span>Active customers</span><strong id="active">—</strong><small><i class="status-dot"></i> Currently active</small></article><article><span>Enterprise accounts</span><strong id="enterprise">—</strong><small>Your largest customer segment</small></article></section>
+    10	    <section class="directory"><div class="directory-heading"><div><h2>Customer directory <span id="matching-count"></span></h2><p>Search, filter, and export your customer list.</p></div><span class="read-only-label">Local workspace</span></div>
+    11	      <form id="filters" class="filters"><label class="search"><span aria-hidden="true">⌕</span><input id="search" name="q" type="search" placeholder="Search name, company, or email" aria-label="Search customers"></label><label><span class="sr-only">Status</span><select id="status" name="status"><option value="all">All statuses</option><option value="active">Active</option><option value="inactive">Inactive</option></select></label><label><span class="sr-only">Segment</span><select id="segment" name="segment"><option value="all">All segments</option><option value="starter">Starter</option><option value="growth">Growth</option><option value="enterprise">Enterprise</option></select></label><label><span class="sr-only">Sort customers</span><select id="sort" name="sort"><option value="id_asc">ID: ascending</option><option value="id_desc">ID: descending</option></select></label></form>
+    12	      <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Company</th><th>Status</th><th>Segment</th><th>Customer ID</th></tr></thead><tbody id="customers"></tbody></table><p id="empty" hidden>No customers match these filters.</p></div>
+    13	      <footer class="pagination"><span id="range" aria-live="polite"></span><div><button id="previous" type="button">← Previous</button><span id="page-label"></span><button id="next" type="button">Next →</button></div></footer>
+    14	    </section>
+    15	    <p id="export-scope" class="export-scope" aria-live="polite"></p>
+    16	    <section id="export-preview" class="export-preview" aria-live="polite" hidden>
+    17	      <div class="preview-heading"><div><p class="eyebrow">EXPORT PREVIEW</p><h2 id="preview-title">Review customer export</h2><p id="preview-scope"></p></div><button id="preview-cancel" class="secondary-button" type="button">Cancel</button></div>
+    18	      <p id="preview-count" class="preview-count"></p>
+    19	      <p id="preview-columns" class="preview-meta"></p>
+    20	      <p id="preview-empty" class="preview-empty" hidden>No customers match these filters. Downloading now will create a CSV with column headers only.</p>
+    21	      <div id="preview-sample-wrap" class="preview-sample-wrap"><h3>First 5 matching customers sample</h3><table><thead><tr><th>ID</th><th>Name</th><th>Company</th><th>Email</th><th>Status</th><th>Segment</th><th>Notes</th></tr></thead><tbody id="preview-sample"></tbody></table></div>
+    22	      <div class="preview-actions"><button id="preview-download" class="primary-button" type="button">Download this CSV</button><button id="preview-close" class="secondary-button" type="button">Close preview</button></div>
+    23	    </section>
+    24	    <p id="error" role="alert" hidden></p>
+    25	  </main>
+    26	</body></html>
+
+ succeeded in 0ms:
+     1	const form = document.querySelector('#filters');
+     2	const body = document.querySelector('#customers');
+     3	const preview = document.querySelector('#export-preview');
+     4	let page = 1;
+     5	let requestNumber = 0;
+     6	let previewQuery = '';
+     7	
+     8	function cell(value, className = '') {
+     9	  const td = document.createElement('td');
+    10	  td.textContent = value;
+    11	  if (className) td.className = className;
+    12	  return td;
+    13	}
+    14	
+    15	function listingParams() {
+    16	  const params = new URLSearchParams(new FormData(form));
+    17	  params.set('page', page);
+    18	  params.set('pageSize', '25');
+    19	  return params;
+    20	}
+    21	
+    22	function exportParams() {
+    23	  return new URLSearchParams(new FormData(form));
+    24	}
+    25	
+    26	function selectedText(name) {
+    27	  const field = form.elements[name];
+    28	  return field.options[field.selectedIndex].textContent;
+    29	}
+    30	
+    31	function filterScopeText() {
+    32	  const search = form.elements.q.value.trim();
+    33	  const parts = [
+    34	    search ? `search "${search}"` : 'any search text',
+    35	    selectedText('status').toLowerCase(),
+    36	    selectedText('segment').toLowerCase(),
+    37	    selectedText('sort').toLowerCase()
+    38	  ];
+    39	  return `Matching ${parts.join(', ')}.`;
+    40	}
+    41	
+    42	function closePreview() {
+    43	  preview.hidden = true;
+    44	  previewQuery = '';
+    45	  document.querySelector('#preview-sample').replaceChildren();
+    46	}
+    47	
+    48	function renderPreviewSample(sample) {
+    49	  const sampleBody = document.querySelector('#preview-sample');
+    50	  sampleBody.replaceChildren();
+    51	  for (const customer of sample) {
+    52	    const tr = document.createElement('tr');
+    53	    tr.append(
+    54	      cell(customer.id, 'customer-id'),
+    55	      cell(customer.name),
+    56	      cell(customer.company),
+    57	      cell(customer.email),
+    58	      cell(customer.status),
+    59	      cell(customer.segment, 'segment'),
+    60	      cell(customer.notes)
+    61	    );
+    62	    sampleBody.append(tr);
+    63	  }
+    64	}
+    65	
+    66	function renderPreview(result, query) {
+    67	  previewQuery = query;
+    68	  document.querySelector('#preview-count').textContent = `${result.total} matching customers will be included in the full CSV download.`;
+    69	  document.querySelector('#preview-scope').textContent = filterScopeText();
+    70	  document.querySelector('#preview-columns').textContent = `Exported columns: ${result.columns.join(', ')}.`;
+    71	  document.querySelector('#preview-empty').hidden = result.total !== 0;
+    72	  document.querySelector('#preview-sample-wrap').hidden = result.total === 0;
+    73	  renderPreviewSample(result.sample);
+    74	  document.querySelector('#preview-download').disabled = false;
+    75	  preview.hidden = false;
+    76	}
+    77	
+    78	async function openPreview() {
+    79	  const query = exportParams().toString();
+    80	  previewQuery = '';
+    81	  document.querySelector('#preview-download').disabled = true;
+    82	  document.querySelector('#preview-count').textContent = 'Loading export preview...';
+    83	  document.querySelector('#preview-scope').textContent = filterScopeText();
+    84	  document.querySelector('#preview-columns').textContent = '';
+    85	  document.querySelector('#preview-empty').hidden = true;
+    86	  document.querySelector('#preview-sample-wrap').hidden = true;
+    87	  preview.hidden = false;
+    88	  try {
+    89	    const response = await fetch(`/api/export-preview?${query}`);
+    90	    if (!response.ok) throw new Error('Could not load export preview. Please try again.');
+    91	    const result = await response.json();
+    92	    if (query !== exportParams().toString()) {
+    93	      closePreview();
+    94	      return;
+    95	    }
+    96	    renderPreview(result, query);
+    97	    document.querySelector('#error').hidden = true;
+    98	  } catch (error) {
+    99	    closePreview();
+   100	    document.querySelector('#error').textContent = error.message;
+   101	    document.querySelector('#error').hidden = false;
+   102	  }
+   103	}
+   104	
+   105	async function refresh() {
+   106	  const currentRequest = ++requestNumber;
+   107	  const params = listingParams();
+   108	  try {
+   109	    const response = await fetch(`/api/customers?${params}`);
+   110	    if (!response.ok) throw new Error('Could not load customers. Please try again.');
+   111	    const result = await response.json();
+   112	    if (currentRequest !== requestNumber) return;
+   113	    body.replaceChildren();
+   114	    for (const customer of result.rows) {
+   115	      const tr = document.createElement('tr');
+   116	      const identity = cell('');
+   117	      const person = document.createElement('div');
+   118	      person.className = 'person';
+   119	      const avatar = document.createElement('span');
+   120	      avatar.className = `person-avatar tone-${Number(customer.id.slice(1)) % 4}`;
+   121	      avatar.textContent = customer.name.split(' ').map(part => part[0]).slice(0, 2).join('');
+   122	      const name = document.createElement('span');
+   123	      name.textContent = customer.name;
+   124	      const email = document.createElement('small');
+   125	      email.textContent = customer.email;
+   126	      name.append(email);
+   127	      person.append(avatar, name);
+   128	      identity.append(person);
+   129	      const status = cell('');
+   130	      const badge = document.createElement('span');
+   131	      badge.className = `badge ${customer.status}`;
+   132	      badge.textContent = customer.status;
+   133	      status.append(badge);
+   134	      tr.append(identity, cell(customer.company), status, cell(customer.segment, 'segment'), cell(customer.id, 'customer-id'));
+   135	      body.append(tr);
+   136	    }
+   137	    document.querySelector('#matching-count').textContent = result.total;
+   138	    document.querySelector('#empty').hidden = result.total !== 0;
+   139	    const start = result.total ? (page - 1) * 25 + 1 : 0;
+   140	    document.querySelector('#range').textContent = `Showing ${start}–${Math.min(page * 25, result.total)} of ${result.total} customers`;
+   141	    document.querySelector('#page-label').textContent = `${page} / ${Math.max(1, Math.ceil(result.total / 25))}`;
+   142	    document.querySelector('#previous').disabled = page <= 1;
+   143	    document.querySelector('#next').disabled = page * 25 >= result.total;
+   144	    document.querySelector('#export-scope').textContent = `Export includes all ${result.total} matching customers, across every page.`;
+   145	    document.querySelector('#error').hidden = true;
+   146	  } catch (error) {
+   147	    if (currentRequest !== requestNumber) return;
+   148	    document.querySelector('#error').textContent = error.message;
+   149	    document.querySelector('#error').hidden = false;
+   150	  }
+   151	}
+   152	
+   153	form.addEventListener('submit', event => event.preventDefault());
+   154	form.addEventListener('input', () => { page = 1; closePreview(); refresh(); });
+   155	document.querySelector('#previous').addEventListener('click', () => { page -= 1; refresh(); });
+   156	document.querySelector('#next').addEventListener('click', () => { page += 1; refresh(); });
+   157	document.querySelector('#export').addEventListener('click', openPreview);
+   158	document.querySelector('#preview-cancel').addEventListener('click', closePreview);
+   159	document.querySelector('#preview-close').addEventListener('click', closePreview);
+   160	document.querySelector('#preview-download').addEventListener('click', () => {
+   161	  if (!previewQuery || previewQuery !== exportParams().toString()) {
+   162	    closePreview();
+   163	    return;
+   164	  }
+   165	  window.location.href = `/api/export?${previewQuery}`;
+   166	});
+   167	fetch('/api/stats').then(response => response.json()).then(stats => {
+   168	  for (const name of ['total', 'active', 'enterprise']) document.querySelector(`#${name}`).textContent = stats[name];
+   169	}).catch(() => {});
+   170	refresh();
+
+ succeeded in 0ms:
+     1	function positiveInteger(value, fallback, maximum) {
+     2	  const parsed = Number(value);
+     3	  return Number.isSafeInteger(parsed) && parsed > 0 ? Math.min(parsed, maximum) : fallback;
+     4	}
+     5	
+     6	function queryScope(params) {
+     7	  return {
+     8	    search: (params.get('q') || '').trim().toLowerCase(),
+     9	    status: params.get('status') || 'all',
+    10	    segment: params.get('segment') || 'all',
+    11	    sort: params.get('sort') || 'id_asc'
+    12	  };
+    13	}
+    14	
+    15	function customerMatches(customer, scope) {
+    16	  const haystack = [customer.id, customer.name, customer.company, customer.email].join(' ').toLowerCase();
+    17	  return (!scope.search || haystack.includes(scope.search))
+    18	    && (scope.status === 'all' || customer.status === scope.status)
+    19	    && (scope.segment === 'all' || customer.segment === scope.segment);
+    20	}
+    21	
+    22	function compareCustomers(scope) {
+    23	  return (a, b) => scope.sort === 'id_desc' ? b.id.localeCompare(a.id) : a.id.localeCompare(b.id);
+    24	}
+    25	
+    26	export function matchingCustomers(customers, params) {
+    27	  const scope = queryScope(params);
+    28	  return customers.filter(customer => customerMatches(customer, scope)).sort(compareCustomers(scope));
+    29	}
+    30	
+    31	export function queryCustomers(customers, params) {
+    32	  const page = positiveInteger(params.get('page'), 1, 100000);
+    33	  const pageSize = positiveInteger(params.get('pageSize'), 25, 100);
+    34	  const matches = matchingCustomers(customers, params);
+    35	  const start = (page - 1) * pageSize;
+    36	  return { rows: matches.slice(start, start + pageSize), total: matches.length, page, pageSize };
+    37	}
+
+exec
+/bin/zsh -lc "nl -ba src/server.mjs | sed -n '1,180p'" in .
+ succeeded in 0ms:
+     1	import { createServer } from 'node:http';
+     2	import { readFileSync } from 'node:fs';
+     3	import { fileURLToPath } from 'node:url';
+     4	import { resolve } from 'node:path';
+     5	import { queryCustomers } from './customers.mjs';
+     6	import { exportCustomers, previewExport } from './export.mjs';
+     7	
+     8	const customers = JSON.parse(readFileSync(new URL('../data/customers.json', import.meta.url), 'utf8'));
+     9	const assets = new Map([
+    10	  ['/', ['index.html', 'text/html; charset=utf-8']],
+    11	  ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
+    12	  ['/styles.css', ['styles.css', 'text/css; charset=utf-8']]
+    13	]);
+    14	
+    15	export function createApp() {
+    16	  return createServer((request, response) => {
+    17	    response.setHeader('Cache-Control', 'no-store');
+    18	    response.setHeader('X-Content-Type-Options', 'nosniff');
+    19	    if (request.method !== 'GET') {
+    20	      response.writeHead(405, { Allow: 'GET' }).end('Method not allowed');
+    21	      return;
+    22	    }
+    23	    const url = new URL(request.url, 'http://localhost');
+    24	    if (url.pathname === '/api/customers') {
+    25	      response.writeHead(200, { 'Content-Type': 'application/json' });
+    26	      response.end(JSON.stringify(queryCustomers(customers, url.searchParams)));
+    27	    } else if (url.pathname === '/api/export') {
+    28	      response.writeHead(200, {
+    29	        'Content-Type': 'text/csv; charset=utf-8',
+    30	        'Content-Disposition': 'attachment; filename="customers.csv"'
+    31	      });
+    32	      response.end(exportCustomers(customers, url.searchParams));
+    33	    } else if (url.pathname === '/api/export-preview') {
+    34	      response.writeHead(200, { 'Content-Type': 'application/json' });
+    35	      response.end(JSON.stringify(previewExport(customers, url.searchParams)));
+    36	    } else if (url.pathname === '/api/stats') {
+    37	      response.writeHead(200, { 'Content-Type': 'application/json' });
+    38	      response.end(JSON.stringify({ total: customers.length, active: customers.filter(row => row.status === 'active').length, enterprise: customers.filter(row => row.segment === 'enterprise').length }));
+    39	    } else if (assets.has(url.pathname)) {
+    40	      const [filename, contentType] = assets.get(url.pathname);
+    41	      response.writeHead(200, { 'Content-Type': contentType });
+    42	      response.end(readFileSync(new URL(`../public/${filename}`, import.meta.url)));
+    43	    } else {
+    44	      response.writeHead(404).end('Not found');
+    45	    }
+    46	  });
+    47	}
+    48	
+    49	if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+    50	  const server = createApp();
+    51	  server.listen(Number(process.env.PORT || 4317), '127.0.0.1', () => {
+    52	    console.log(`Northstar ready at http://127.0.0.1:${server.address().port}`);
+    53	  });
+    54	  process.on('SIGTERM', () => server.close());
+    55	  process.on('SIGINT', () => server.close());
+    56	}
+
+2026-09-23T22:07:40.213984Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-Tsy8cW/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "nl -ba test/server.test.mjs | sed -n '1,220p'" in .
+ succeeded in 0ms:
+     1	import test, { before, after } from 'node:test';
+     2	import assert from 'node:assert/strict';
+     3	import { once } from 'node:events';
+     4	import { readFileSync } from 'node:fs';
+     5	import { createApp } from '../src/server.mjs';
+     6	import { columns, exportCustomers } from '../src/export.mjs';
+     7	
+     8	const customers = JSON.parse(readFileSync(new URL('../data/customers.json', import.meta.url), 'utf8'));
+     9	
+    10	function parseCsv(text) {
+    11	  const rows = [];
+    12	  let row = [];
+    13	  let field = '';
+    14	  let quoted = false;
+    15	  for (let index = 0; index < text.length; index += 1) {
+    16	    const character = text[index];
+    17	    if (quoted) {
+    18	      if (character === '"' && text[index + 1] === '"') {
+    19	        field += '"';
+    20	        index += 1;
+    21	      } else if (character === '"') {
+    22	        quoted = false;
+    23	      } else {
+    24	        field += character;
+    25	      }
+    26	    } else if (character === '"') {
+    27	      quoted = true;
+    28	    } else if (character === ',') {
+    29	      row.push(field);
+    30	      field = '';
+    31	    } else if (character === '\r' && text[index + 1] === '\n') {
+    32	      row.push(field);
+    33	      rows.push(row);
+    34	      row = [];
+    35	      field = '';
+    36	      index += 1;
+    37	    } else {
+    38	      field += character;
+    39	    }
+    40	  }
+    41	  if (field || row.length) {
+    42	    row.push(field);
+    43	    rows.push(row);
+    44	  }
+    45	  return rows;
+    46	}
+    47	
+    48	let server;
+    49	let base;
+    50	before(async () => {
+    51	  server = createApp();
+    52	  server.listen(0, '127.0.0.1');
+    53	  await once(server, 'listening');
+    54	  base = `http://127.0.0.1:${server.address().port}`;
+    55	});
+    56	after(() => new Promise(resolve => server.close(resolve)));
+    57	
+    58	test('customer API returns a paginated synthetic dataset', async () => {
+    59	  const response = await fetch(`${base}/api/customers`);
+    60	  const data = await response.json();
+    61	  assert.equal(response.status, 200);
+    62	  assert.equal(data.total, 137);
+    63	  assert.equal(data.rows.length, 25);
+    64	  assert.equal(data.rows[0].id, 'C001');
+    65	});
+    66	
+    67	test('dashboard and CSV download are served with appropriate content types', async () => {
+    68	  const dashboard = await fetch(base);
+    69	  assert.match(dashboard.headers.get('content-type'), /text\/html/);
+    70	  assert.match(await dashboard.text(), /Customers/);
+    71	  const csv = await fetch(`${base}/api/export?q=C010`);
+    72	  assert.match(csv.headers.get('content-type'), /text\/csv/);
+    73	  assert.match(csv.headers.get('content-disposition'), /attachment/);
+    74	  assert.match(await csv.text(), /C010/);
+    75	});
+    76	
+    77	test('CSV export includes all filtered records and ignores pagination', async () => {
+    78	  const response = await fetch(`${base}/api/export?status=active&segment=growth&sort=id_desc&page=2&pageSize=1`);
+    79	  const rows = parseCsv(await response.text());
+    80	  const expected = customers
+    81	    .filter(customer => customer.status === 'active' && customer.segment === 'growth')
+    82	    .sort((a, b) => b.id.localeCompare(a.id));
+    83	
+    84	  assert.deepEqual(rows[0], columns);
+    85	  assert.equal(rows.length - 1, expected.length);
+    86	  assert.deepEqual(rows.slice(1).map(row => row[0]), expected.map(customer => customer.id));
+    87	});
+    88	
+    89	test('CSV export preserves commas, quotes, line breaks, empty text, and Unicode', () => {
+    90	  const fixture = [
+    91	    { id: 'C900', name: 'Zoë Ray', company: 'Comma, Quote "Works"', email: 'zoe@example.test', status: 'active', segment: 'growth', notes: 'First line\nSecond line\r\nUnicode snowman ☃' },
+    92	    { id: 'C901', name: 'Empty Notes', company: '', email: 'empty@example.test', status: 'inactive', segment: 'starter', notes: '' }
+    93	  ];
+    94	
+    95	  const rows = parseCsv(exportCustomers(fixture, new URLSearchParams('page=2&pageSize=1')));
+    96	
+    97	  assert.deepEqual(rows, [
+    98	    columns,
+    99	    columns.map(column => fixture[0][column]),
+   100	    columns.map(column => fixture[1][column])
+   101	  ]);
+   102	});
+   103	
+   104	test('CSV export returns headers only when filters match no customers', async () => {
+   105	  const response = await fetch(`${base}/api/export?q=no-such-customer`);
+   106	  assert.deepEqual(parseCsv(await response.text()), [columns]);
+   107	});
+   108	
+   109	test('export preview returns count, columns, and first five matching records', async () => {
+   110	  const response = await fetch(`${base}/api/export-preview?status=active&segment=growth&sort=id_desc&page=2&pageSize=1`);
+   111	  const preview = await response.json();
+   112	  const expected = customers
+   113	    .filter(customer => customer.status === 'active' && customer.segment === 'growth')
+   114	    .sort((a, b) => b.id.localeCompare(a.id));
+   115	
+   116	  assert.equal(response.status, 200);
+   117	  assert.equal(preview.total, expected.length);
+   118	  assert.deepEqual(preview.columns, columns);
+   119	  assert.deepEqual(preview.sample, expected.slice(0, 5));
+   120	});
+   121	
+   122	test('export preview returns unchanged columns and empty sample for no matches', async () => {
+   123	  const response = await fetch(`${base}/api/export-preview?q=no-such-customer`);
+   124	  const preview = await response.json();
+   125	
+   126	  assert.equal(response.status, 200);
+   127	  assert.deepEqual(preview, { total: 0, columns, sample: [] });
+   128	});
+   129	
+   130	test('unknown paths and mutation requests are rejected', async () => {
+   131	  assert.equal((await fetch(`${base}/missing`)).status, 404);
+   132	  assert.equal((await fetch(`${base}/api/customers`, { method: 'POST' })).status, 405);
+   133	});
+
+exec
+/bin/zsh -lc 'npm test' in .
+2026-09-23T22:07:46.500632Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=[temporary-directory]/agentflow-codex-home-Tsy8cW/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+ exited 1 in 418ms:
+
+> agentflow-customer-dashboard-demo@1.0.0 test
+> node --test
+
+✔ listing paginates after filtering and preserves total (12.642875ms)
+✔ search and segment combine, with descending ID order (0.15975ms)
+✔ matching customers ignore pagination while preserving filters and sort (0.109042ms)
+✔ zero matches and invalid pagination have safe defaults (0.109042ms)
+✖ customer API returns a paginated synthetic dataset (5.382875ms)
+✖ dashboard and CSV download are served with appropriate content types (0.048167ms)
+✖ CSV export includes all filtered records and ignores pagination (0.039ms)
+✖ CSV export preserves commas, quotes, line breaks, empty text, and Unicode (0.034958ms)
+✖ CSV export returns headers only when filters match no customers (0.047209ms)
+✖ export preview returns count, columns, and first five matching records (0.035ms)
+✖ export preview returns unchanged columns and empty sample for no matches (0.034083ms)
+✖ unknown paths and mutation requests are rejected (0.039417ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 4
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 127.993167
+
+✖ failing tests:
+
+test at test/server.test.mjs:58:1
+✖ customer API returns a paginated synthetic dataset (5.382875ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:67:1
+✖ dashboard and CSV download are served with appropriate content types (0.048167ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:77:1
+✖ CSV export includes all filtered records and ignores pagination (0.039ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:89:1
+✖ CSV export preserves commas, quotes, line breaks, empty text, and Unicode (0.034958ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:104:1
+✖ CSV export returns headers only when filters match no customers (0.047209ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:109:1
+✖ export preview returns count, columns, and first five matching records (0.035ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:122:1
+✖ export preview returns unchanged columns and empty sample for no matches (0.034083ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at test/server.test.mjs:130:1
+✖ unknown paths and mutation requests are rejected (0.039417ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:1987:21)
+      at listenInCluster (node:net:2066:12)
+      at node:net:2275:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+codex
+{"passed":true,"score":1,"summary":"Source clearly satisfies operator clarity: public/index.html labels the entry and actions as \"Preview export\", \"Review customer export\", \"Cancel\", \"Download this CSV\", and \"Close preview\"; public/app.js renders \"${result.total} matching customers will be included in the full CSV download.\", active scope via \"Matching ...\", and \"Exported columns: ...\". The sample is explicitly labeled \"First 5 matching customers sample\" with all seven columns, no-match copy says the CSV will contain \"column headers only\", and stale previews are cleared or blocked when queries differ. I did not rely on unobserved browser layout; npm test could not complete in this sandbox because server listen on 127.0.0.1 returned EPERM, while work notes report prior passing validation.","issues":[]}
+tokens used
+29,723

@@ -1,0 +1,13 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "add",
+    "--title",
+    "Implement export repair and preview",
+    "--body",
+    "Read README.md, TICKET.md, EXPORT_PREVIEW.md, plan.md, and current source/tests. Source confirms /api/export uses paginated queryCustomers rows and raw comma-joined CSV, and /api/export-preview is absent. Next: add focused regression tests, implement shared unpaginated matching, CSV escaping, preview route, dashboard preview, then run npm test and independent checker."
+  ],
+  "cwd": "."
+}

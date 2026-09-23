@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "{\n  \"command\": \"af artifact write\",\n  \"status\": \"passed\",\n  \"artifact\": \"draft_summary\"\n}\n",
+  "stderr": ""
+}

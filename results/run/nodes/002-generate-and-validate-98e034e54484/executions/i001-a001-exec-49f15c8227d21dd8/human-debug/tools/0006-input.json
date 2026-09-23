@@ -1,0 +1,18 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "log",
+    "m1",
+    "--kind",
+    "validation",
+    "--command",
+    "npm test && python3 showcase/acceptance/check_preview.py",
+    "--result",
+    "pass",
+    "--summary",
+    "Required combined validation passed: npm test reported 12/12 tests passing; independent checker reported passed=true, 24/24 export/listing checks, and all 5 preview checks passing."
+  ],
+  "cwd": "."
+}

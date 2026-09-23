@@ -1,0 +1,205 @@
+{
+  "run_id": "2026-09-23t21-58-04-755z-northstar-export-readiness-preview-rehearsal",
+  "graph_id": "northstar-export-readiness",
+  "snapshot_seq": 57,
+  "status": "passed",
+  "graph_status": "passed",
+  "delivery_status": "passed",
+  "review_ready": true,
+  "evidence_status": "clean",
+  "workspace_backend": "inplace",
+  "repo_workspaces": {
+    "main": {
+      "repo_alias": "main",
+      "source_path": ".",
+      "workspace_path": ".",
+      "backend": "inplace"
+    }
+  },
+  "workspace_change_artifacts": {
+    "main": {
+      "repo_alias": "main",
+      "workspace_path": ".",
+      "status_file": "results/run/workspace-changes/main/status.txt",
+      "diff_file": "results/run/workspace-changes/main/diff.patch",
+      "changed_files_file": "results/run/workspace-changes/main/changed-files.json",
+      "changed_files": [
+        "EXPORT_PREVIEW.md",
+        "public/app.js",
+        "public/index.html",
+        "public/styles.css",
+        "src/customers.mjs",
+        "src/export.mjs",
+        "src/server.mjs",
+        "test/query.test.mjs",
+        "test/server.test.mjs"
+      ]
+    }
+  },
+  "counts": {
+    "total": 7,
+    "pending": 0,
+    "ready": 0,
+    "running": 0,
+    "passed": 7,
+    "failed": 0,
+    "blocked": 0,
+    "canceled": 0,
+    "skipped": 0
+  },
+  "soft_verification_counts": {
+    "passed": 3,
+    "failed": 0
+  },
+  "failed_soft_verifications": [],
+  "supervisor": {
+    "status": "healthy",
+    "intervention_count": 0,
+    "budget_remaining": {
+      "max_total_interventions": 2
+    },
+    "timeline": [],
+    "active_recovery_envelopes": {},
+    "active_recovery_chains": {},
+    "failure_fingerprints": {},
+    "escalations": []
+  },
+  "node_statuses": {
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan": "passed",
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate": "passed",
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior": "passed",
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity": "passed",
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity": "passed",
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate": "passed",
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness": "passed"
+  },
+  "active_executions": {},
+  "latest_execution_by_compiled_id": {
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan": {
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+      "kind": "agent",
+      "status": "passed",
+      "attempt_index": 1,
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "iteration_index": 1,
+      "iteration_attempt_index": 1,
+      "started_at": "2026-09-23T21:58:04.779Z",
+      "ended_at": "2026-09-23T22:00:14.517Z",
+      "duration_ms": 129738
+    },
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate": {
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+      "kind": "agent",
+      "status": "passed",
+      "attempt_index": 1,
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "iteration_index": 1,
+      "iteration_attempt_index": 1,
+      "started_at": "2026-09-23T22:00:14.521Z",
+      "ended_at": "2026-09-23T22:07:12.963Z",
+      "duration_ms": 418442
+    },
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior": {
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "kind": "check",
+      "status": "passed",
+      "attempt_index": 1,
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "iteration_index": 1,
+      "iteration_attempt_index": 1,
+      "started_at": "2026-09-23T22:07:12.974Z",
+      "ended_at": "2026-09-23T22:07:14.688Z",
+      "duration_ms": 1714,
+      "verification": {
+        "verifier_kind": "check",
+        "passed": true,
+        "summary": "Deterministic check passed.",
+        "check_kind": "deterministic",
+        "exit_code": 0
+      }
+    },
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity": {
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "kind": "check",
+      "status": "passed",
+      "attempt_index": 1,
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "iteration_index": 1,
+      "iteration_attempt_index": 1,
+      "started_at": "2026-09-23T22:07:12.977Z",
+      "ended_at": "2026-09-23T22:08:01.915Z",
+      "duration_ms": 48938,
+      "verification": {
+        "verifier_kind": "check",
+        "passed": true,
+        "summary": "Source clearly satisfies operator clarity: public/index.html labels the entry and actions as \"Preview export\", \"Review customer export\", \"Cancel\", \"Download this CSV\", and \"Close preview\"; public/app.js renders \"${result.total} matching customers will be included in the full CSV download.\", active scope via \"Matching ...\", and \"Exported columns: ...\". The sample is explicitly labeled \"First 5 matching customers sample\" with all seven columns, no-match copy says the CSV will contain \"column headers only\", and stale previews are cleared or blocked when queries differ. I did not rely on unobserved browser layout; npm test could not complete in this sandbox because server listen on 127.0.0.1 returned EPERM, while work notes report prior passing validation.",
+        "check_kind": "ai"
+      }
+    },
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity": {
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "kind": "check",
+      "status": "passed",
+      "attempt_index": 1,
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "iteration_index": 1,
+      "iteration_attempt_index": 1,
+      "started_at": "2026-09-23T22:07:12.976Z",
+      "ended_at": "2026-09-23T22:08:29.304Z",
+      "duration_ms": 76328,
+      "verification": {
+        "verifier_kind": "check",
+        "passed": true,
+        "summary": "The implementation is focused and maintainable: src/customers.mjs centralizes search/status/segment/sort in matchingCustomers, src/export.mjs reuses that for both CSV and preview, and src/server.mjs only adds a small route. UI changes in public/app.js separate listingParams from exportParams and store the preview query to avoid stale downloads without adding unrelated abstractions or dependencies. Regression tests cover the shared behavior. My local npm test attempt was blocked by sandbox EPERM on 127.0.0.1 listen, while the provided work notes report npm test and the independent checker passed.",
+        "check_kind": "ai"
+      }
+    },
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate": {
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "authored_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "kind": "check",
+      "status": "passed",
+      "attempt_index": 1,
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "iteration_index": 1,
+      "iteration_attempt_index": 1,
+      "started_at": "2026-09-23T22:08:29.308Z",
+      "ended_at": "2026-09-23T22:08:29.548Z",
+      "duration_ms": 240
+    },
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness": {
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__attempt_1",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+      "authored_id": "export_readiness",
+      "kind": "exec",
+      "status": "passed",
+      "attempt_index": 1,
+      "started_at": "2026-09-23T22:08:29.553Z",
+      "ended_at": "2026-09-23T22:08:29.779Z",
+      "duration_ms": 226
+    }
+  },
+  "repeat_scopes": {
+    "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop": {
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "authored_id": "export_readiness__managed__pattern_deep_work__work_loop",
+      "max_attempts": 3,
+      "until_compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "latest_iteration_index": 1,
+      "status": "passed"
+    }
+  },
+  "started_at": "2026-09-23T21:58:04.759Z",
+  "ended_at": "2026-09-23T22:08:29.828Z"
+}
