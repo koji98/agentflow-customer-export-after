@@ -1,0 +1,52 @@
+name: Setup and acceptance
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.10'
+          - os: ubuntu-latest
+            python: '3.12'
+          - os: macos-latest
+            python: '3.12'
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - run: npm ci
+      - run: npm run doctor
+      - run: npm test
+      - run: npm run test:setup
+      - name: Verify intentional baseline failures
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          result = subprocess.run(['python3', 'showcase/acceptance/check_preview.py'], capture_output=True, text=True)
+          print(result.stdout)
+          print(result.stderr)
+          assert result.returncode == 1, 'Expected the broken baseline, not an environment error'
+          decoder = json.JSONDecoder()
+          export, end = decoder.raw_decode(result.stdout)
+          preview, _ = decoder.raw_decode(result.stdout[end:].lstrip())
+          assert export['checks'] == 24 and export['passed_checks'] == 16
+          assert len(preview['preview_checks']) == 5
+          assert all(not item['passed'] and '404' in item['failure'] for item in preview['preview_checks'])
+          PY
