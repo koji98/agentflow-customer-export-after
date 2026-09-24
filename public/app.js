@@ -1,9 +1,9 @@
 const form = document.querySelector('#filters');
 const body = document.querySelector('#customers');
-const preview = document.querySelector('#export-preview');
+const previewDialog = document.querySelector('#export-preview');
 let page = 1;
 let requestNumber = 0;
-let previewQuery = '';
+let previewRequestNumber = 0;
 
 function cell(value, className = '') {
   const td = document.createElement('td');
@@ -12,99 +12,86 @@ function cell(value, className = '') {
   return td;
 }
 
-function listingParams() {
-  const params = new URLSearchParams(new FormData(form));
-  params.set('page', page);
-  params.set('pageSize', '25');
-  return params;
-}
-
 function exportParams() {
   return new URLSearchParams(new FormData(form));
 }
 
-function selectedText(name) {
-  const field = form.elements[name];
-  return field.options[field.selectedIndex].textContent;
+function describeScope(params) {
+  const search = params.get('q').trim();
+  const status = params.get('status') === 'all' ? 'any status' : `${params.get('status')} status`;
+  const segment = params.get('segment') === 'all' ? 'any segment' : `${params.get('segment')} segment`;
+  const order = params.get('sort') === 'id_desc' ? 'customer ID descending' : 'customer ID ascending';
+  return `Filters: ${search ? `search “${search}”` : 'any search'}, ${status}, ${segment}; ordered by ${order}.`;
 }
 
-function filterScopeText() {
-  const search = form.elements.q.value.trim();
-  const parts = [
-    search ? `search "${search}"` : 'any search text',
-    selectedText('status').toLowerCase(),
-    selectedText('segment').toLowerCase(),
-    selectedText('sort').toLowerCase()
-  ];
-  return `Matching ${parts.join(', ')}.`;
-}
-
-function closePreview() {
-  preview.hidden = true;
-  previewQuery = '';
-  document.querySelector('#preview-sample').replaceChildren();
-}
-
-function renderPreviewSample(sample) {
-  const sampleBody = document.querySelector('#preview-sample');
-  sampleBody.replaceChildren();
-  for (const customer of sample) {
-    const tr = document.createElement('tr');
-    tr.append(
-      cell(customer.id, 'customer-id'),
-      cell(customer.name),
-      cell(customer.company),
-      cell(customer.email),
-      cell(customer.status),
-      cell(customer.segment, 'segment'),
-      cell(customer.notes)
-    );
-    sampleBody.append(tr);
+function renderPreviewTable(preview) {
+  const head = document.querySelector('#preview-head');
+  const rows = document.querySelector('#preview-rows');
+  const heading = document.createElement('tr');
+  for (const column of preview.columns) heading.append(cell(column));
+  head.replaceChildren(heading);
+  rows.replaceChildren();
+  for (const customer of preview.sample) {
+    const row = document.createElement('tr');
+    for (const column of preview.columns) row.append(cell(customer[column]));
+    rows.append(row);
   }
 }
 
-function renderPreview(result, query) {
-  previewQuery = query;
-  document.querySelector('#preview-count').textContent = `${result.total} matching customers will be included in the full CSV download.`;
-  document.querySelector('#preview-scope').textContent = filterScopeText();
-  document.querySelector('#preview-columns').textContent = `Exported columns: ${result.columns.join(', ')}.`;
-  document.querySelector('#preview-empty').hidden = result.total !== 0;
-  document.querySelector('#preview-sample-wrap').hidden = result.total === 0;
-  renderPreviewSample(result.sample);
-  document.querySelector('#preview-download').disabled = false;
-  preview.hidden = false;
+function closePreview() {
+  previewRequestNumber += 1;
+  if (previewDialog.open) previewDialog.close();
 }
 
 async function openPreview() {
-  const query = exportParams().toString();
-  previewQuery = '';
-  document.querySelector('#preview-download').disabled = true;
-  document.querySelector('#preview-count').textContent = 'Loading export preview...';
-  document.querySelector('#preview-scope').textContent = filterScopeText();
-  document.querySelector('#preview-columns').textContent = '';
-  document.querySelector('#preview-empty').hidden = true;
-  document.querySelector('#preview-sample-wrap').hidden = true;
-  preview.hidden = false;
+  const params = exportParams();
+  const query = params.toString();
+  const currentRequest = ++previewRequestNumber;
+  const loading = document.querySelector('#preview-loading');
+  const content = document.querySelector('#preview-content');
+  const errorMessage = document.querySelector('#preview-error');
+  const download = document.querySelector('#preview-download');
+  loading.hidden = false;
+  content.hidden = true;
+  errorMessage.hidden = true;
+  download.hidden = true;
+  download.removeAttribute('href');
+  if (!previewDialog.open) previewDialog.showModal();
   try {
     const response = await fetch(`/api/export-preview?${query}`);
-    if (!response.ok) throw new Error('Could not load export preview. Please try again.');
-    const result = await response.json();
-    if (query !== exportParams().toString()) {
-      closePreview();
-      return;
-    }
-    renderPreview(result, query);
-    document.querySelector('#error').hidden = true;
+    if (!response.ok) throw new Error('Could not prepare the export preview. Please try again.');
+    const preview = await response.json();
+    if (currentRequest !== previewRequestNumber) return;
+    document.querySelector('#preview-count').textContent = preview.total === 1
+      ? 'This download contains 1 matching customer.'
+      : `This download contains ${preview.total} matching customers.`;
+    document.querySelector('#preview-scope').textContent = describeScope(params);
+    document.querySelector('#preview-columns').textContent = `Exported columns: ${preview.columns.join(', ')}.`;
+    document.querySelector('#preview-sample-label').textContent = preview.total > 5
+      ? `Sample: first five matching records. The complete CSV download contains all ${preview.total} matching customers.`
+      : `Sample: all ${preview.total} matching records are shown. The complete CSV contains the same records.`;
+    const empty = document.querySelector('#preview-empty');
+    empty.textContent = 'No customers match these filters. The CSV download will contain only the column headers.';
+    empty.hidden = preview.total !== 0;
+    document.querySelector('#preview-table-wrap').hidden = preview.total === 0;
+    renderPreviewTable(preview);
+    download.href = `/api/export?${query}`;
+    download.hidden = false;
+    loading.hidden = true;
+    content.hidden = false;
   } catch (error) {
-    closePreview();
-    document.querySelector('#error').textContent = error.message;
-    document.querySelector('#error').hidden = false;
+    if (currentRequest !== previewRequestNumber) return;
+    loading.hidden = true;
+    errorMessage.textContent = error.message;
+    errorMessage.hidden = false;
   }
 }
 
 async function refresh() {
   const currentRequest = ++requestNumber;
-  const params = listingParams();
+  const params = new URLSearchParams(new FormData(form));
+  params.set('page', page);
+  params.set('pageSize', '25');
   try {
     const response = await fetch(`/api/customers?${params}`);
     if (!response.ok) throw new Error('Could not load customers. Please try again.');
@@ -141,7 +128,7 @@ async function refresh() {
     document.querySelector('#page-label').textContent = `${page} / ${Math.max(1, Math.ceil(result.total / 25))}`;
     document.querySelector('#previous').disabled = page <= 1;
     document.querySelector('#next').disabled = page * 25 >= result.total;
-    document.querySelector('#export-scope').textContent = `Export includes all ${result.total} matching customers, across every page.`;
+    document.querySelector('#export-scope').textContent = `Preview and download all ${result.total} matching customers, across every page.`;
     document.querySelector('#error').hidden = true;
   } catch (error) {
     if (currentRequest !== requestNumber) return;
@@ -155,15 +142,9 @@ form.addEventListener('input', () => { page = 1; closePreview(); refresh(); });
 document.querySelector('#previous').addEventListener('click', () => { page -= 1; refresh(); });
 document.querySelector('#next').addEventListener('click', () => { page += 1; refresh(); });
 document.querySelector('#export').addEventListener('click', openPreview);
-document.querySelector('#preview-cancel').addEventListener('click', closePreview);
 document.querySelector('#preview-close').addEventListener('click', closePreview);
-document.querySelector('#preview-download').addEventListener('click', () => {
-  if (!previewQuery || previewQuery !== exportParams().toString()) {
-    closePreview();
-    return;
-  }
-  window.location.href = `/api/export?${previewQuery}`;
-});
+document.querySelector('#preview-cancel').addEventListener('click', closePreview);
+previewDialog.addEventListener('cancel', () => { previewRequestNumber += 1; });
 fetch('/api/stats').then(response => response.json()).then(stats => {
   for (const name of ['total', 'active', 'enterprise']) document.querySelector(`#${name}`).textContent = stats[name];
 }).catch(() => {});

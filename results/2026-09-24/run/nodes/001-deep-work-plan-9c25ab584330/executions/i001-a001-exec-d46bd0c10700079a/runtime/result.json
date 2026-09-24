@@ -1,0 +1,36 @@
+{
+  "exit_code": 0,
+  "metadata": {
+    "binary": "/opt/homebrew/bin/codex",
+    "args": [
+      "--cd",
+      ".",
+      "--add-dir",
+      "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a",
+      "--add-dir",
+      "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts",
+      "--add-dir",
+      "results/2026-09-24/run/runtime",
+      "exec",
+      "--output-last-message",
+      "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/last_message.txt",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "\"sandbox_workspace_write.network_access\"=true",
+      "-c",
+      "default_permissions=\"agentflow_judge_permissions\"",
+      "-c",
+      "permissions.agentflow_judge_permissions={ extends = \":workspace\", network = { enabled = true } }",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "-"
+    ],
+    "native_harness": {
+      "harness": "codex-cli",
+      "config_isolation": "isolated"
+    },
+    "timed_out": false,
+    "force_killed": false
+  }
+}

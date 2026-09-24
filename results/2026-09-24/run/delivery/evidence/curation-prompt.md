@@ -1,0 +1,237 @@
+## Role
+You are the delivery curator. Synthesize the terminal run evidence into a human review package.
+You are read-only. Do not edit source workspaces, run commands, request human input, or change run status.
+Your job is to make the handoff useful, concise, and evidence-grounded.
+
+## Source Of Truth
+- The embedded Delivery Source packet below is the source of truth for the curated Markdown.
+- Runtime uses machine JSON for verification; do not cite or copy machine JSON paths.
+- Use only the facts in the source packet and linked deterministic evidence.
+- Use relative Markdown links from the source Markdown. Never copy absolute paths from machine JSON into the curated Markdown.
+- Do not invent changed files, commands, passing validation, artifacts, risks, or follow-ups.
+- Do not expose chain-of-thought, raw debug paths, or `human-debug` links.
+- Do not write the literal string `human-debug`; if debug evidence matters, describe it as audit/debug evidence and link only to the audit index.
+
+## Review Brief Contract
+- Use the exact required heading outline below. Keep every section even when the answer is `None`.
+- Start with outcome, reviewer decision, and what to inspect first.
+- Explain the goal, acceptance criteria, constraints, status, and whether the run satisfied them.
+- Group changed files by repo and reviewer concern when evidence supports grouping.
+- Link final declared artifacts and include each artifact id or exact artifact path from the evidence packet.
+- Separate active failures, active risks, recovered issues, historical attempts, and follow-ups.
+- In `Recovered Issues`, include every recovered issue from the source packet by its exact node id.
+- In `Active Failures And Risks`, do not list recovered or historical attempts as active.
+- Summarize supervisor/human interventions only when they matter to review.
+
+Required `review-brief` heading outline:
+- `# Review Brief`
+- `## Outcome`
+- `## Reviewer Decision`
+- `## What To Inspect First`
+- `## Success Contract`
+- `## Changed Files`
+- `## Final Declared Artifacts`
+- `## Validation Evidence`
+- `## Active Failures And Risks`
+- `## Recovered Issues`
+- `## Historical Attempts`
+- `## Supervisor And Human Interventions`
+- `## Supporting Evidence`
+
+## Run Learnings Contract
+- Use the exact required heading outline below. Keep every section even when the answer is `None`.
+- Provide concrete workspace, graph, prompt, skill, tool, plugin, and eval improvement recommendations when supported by evidence.
+- Recommendations must be a Markdown table with columns: `Area`, `Recommendation`, `Evidence`, `Priority`, `Confidence`, `Done When`.
+- If no action is needed, still include one no-op row with `Area` = `none` and a concrete `Done When` value.
+- Distinguish what worked from what needs action.
+
+Required `run-learnings` heading outline:
+- `# Run Learnings`
+- `## Where Agents Struggled`
+- `## Workspace Improvements`
+- `## Graph Prompt And Support Improvements`
+- `## Plugin Skill And Eval Opportunities`
+- `## What Worked`
+- `## Evidence Links`
+
+## Evidence Packet
+
+# Delivery Source
+
+This runtime-authored packet is the evidence source for the AI-curated human delivery files.
+
+## Run
+
+- Run: `2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun`
+- Graph: `northstar-export-readiness`
+- Status: `passed`
+- Evidence status: `clean`
+- Duration: `12m 9s`
+
+## Success Contract
+
+Give Northstar operators a correct customer export and a clear preview of exactly what they will download.
+
+Acceptance criteria:
+- The existing CSV export contract and the export preview contract are satisfied.
+- The implementation is focused and understandable, and the interface clearly distinguishes previewed samples from the full download.
+- The delivery includes actual validation evidence and a reviewable explanation.
+
+Constraints:
+- Do not edit data/customers.json, TICKET.md, or AGENTS.md.
+- Do not weaken, remove, or skip existing tests.
+- Do not edit files outside this repository or change independent acceptance tools.
+- Do not add dependencies, call remote services, or include unrelated refactors.
+- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.
+- Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/.
+
+## Final Declared Artifacts
+
+| Artifact | Description | Type | Path |
+| --- | --- | --- | --- |
+| `export_readiness.packet` | Machine-readable final evidence packet. | `application/json` | [packet.json](../nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/packet.json) |
+| `export_readiness.summary` | Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations. | `text/markdown` | [summary.md](../nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/summary.md) |
+| `export_readiness__managed__pattern_deep_work__completion_gate.completion_scorecard` | Weighted completion scorecard for the latest deep work result. | `application/json` | [scorecard.json](../nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/artifacts/scorecard.json) |
+| `export_readiness__managed__pattern_deep_work__generate_validate.work_notes` | Notes and validation evidence from the current deep work result. | `text/markdown` | [work-notes.md](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md) |
+| `export_readiness__managed__pattern_deep_work__generate_validate.draft_summary` | Draft content for final artifact summary. | `text/markdown` | [draft-summary.md](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md) |
+| `export_readiness__managed__pattern_deep_work__plan.plan` | Execution plan for satisfying the deep work task from the current state. | `text/markdown` | [plan.md](../nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/plan.md) |
+
+## Changed Files
+
+### main
+
+- `public/app.js`
+- `public/index.html`
+- `public/styles.css`
+- `src/customers.mjs`
+- `src/export.mjs`
+- `src/server.mjs`
+- `test/query.test.mjs`
+- `test/server.test.mjs`
+
+
+### Node Change Evidence
+
+- `export_readiness` (exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__attempt_1): 0 changed file(s). Diff: [patch](../nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/diff.patch); files: [json](../nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/changed-files.json).
+- `export_readiness__managed__pattern_deep_work__completion_gate` (exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1): 0 changed file(s). Diff: [patch](../nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/diff.patch); files: [json](../nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/changed-files.json).
+- `export_readiness__managed__pattern_deep_work__criterion_01_behavior` (exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1): 0 changed file(s). Diff: [patch](../nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/workspace-changes/diff.patch); files: [json](../nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/workspace-changes/changed-files.json).
+- `export_readiness__managed__pattern_deep_work__criterion_02_simplicity` (exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1): 8 changed file(s). Diff: [patch](../nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/workspace-changes/diff.patch); files: [json](../nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/workspace-changes/changed-files.json).
+  - `public/app.js` (tracked)
+  - `public/index.html` (tracked)
+  - `public/styles.css` (tracked)
+  - `src/customers.mjs` (tracked)
+  - `src/export.mjs` (tracked)
+  - `src/server.mjs` (tracked)
+  - `test/query.test.mjs` (tracked)
+  - `test/server.test.mjs` (tracked)
+- `export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity` (exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1): 8 changed file(s). Diff: [patch](../nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/diff.patch); files: [json](../nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/changed-files.json).
+  - `public/app.js` (tracked)
+  - `public/index.html` (tracked)
+  - `public/styles.css` (tracked)
+  - `src/customers.mjs` (tracked)
+  - `src/export.mjs` (tracked)
+  - `src/server.mjs` (tracked)
+  - `test/query.test.mjs` (tracked)
+  - `test/server.test.mjs` (tracked)
+- `export_readiness__managed__pattern_deep_work__generate_validate` (exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1): 8 changed file(s). Diff: [patch](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/diff.patch); files: [json](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/changed-files.json).
+  - `public/app.js` (tracked)
+  - `public/index.html` (tracked)
+  - `public/styles.css` (tracked)
+  - `src/customers.mjs` (tracked)
+  - `src/export.mjs` (tracked)
+  - `src/server.mjs` (tracked)
+  - `test/query.test.mjs` (tracked)
+  - `test/server.test.mjs` (tracked)
+- `export_readiness__managed__pattern_deep_work__plan` (exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1): 0 changed file(s). Diff: [patch](../nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/diff.patch); files: [json](../nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/changed-files.json).
+
+## Validation
+
+| Source | Attempt | Result | Command | Summary |
+| --- | --- | --- | --- | --- |
+| `m1` | [attempt](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8) | `fail` | `node --test test/query.test.mjs test/server.test.mjs` | Expected RED: test modules fail because matchingCustomers and previewCustomers are not yet exported |
+| `m1` | [attempt](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8) | `fail` | `node --test test/query.test.mjs test/server.test.mjs` | Backend slice passes 12 tests; only the expected missing UI preview test remains red |
+| `m1` | [attempt](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8) | `pass` | `node --check public/app.js; node --check src/customers.mjs; node --check src/export.mjs; node --check src/server.mjs; git diff --check` | All changed JavaScript parsed and the diff passed whitespace validation |
+| `m1` | [attempt](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8) | `pass` | `npm test && python3 showcase/acceptance/check_preview.py` | 13/13 Node tests, 24/24 export/listing acceptance checks, and 5/5 preview checks passed; exit 0 |
+
+| Node | Attempt | Result | Evidence | Summary |
+| --- | --- | --- | --- | --- |
+| `export_readiness__managed__pattern_deep_work__generate_validate` | [attempt](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8) | `pass` | [validation ledger](evidence/validation-ledger.json) | The implementation satisfies the export and preview contracts with focused changes, complete artifacts, and consistent validation evidence. The verifier reran `npm test && python3 showcase/acceptance/check_preview.py` successfully: 13/13 Node tests, 24/24 export/listing checks, and 5/5 preview checks passed. Protected files and dependencies were unchanged, and the documented lack of manual browser validation is a disclosed limitation rather than a contract blocker. |
+| `export_readiness__managed__pattern_deep_work__plan` | [attempt](../nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a) | `pass` | [validation ledger](evidence/validation-ledger.json) | The planning node satisfies its contract. The declared plan comprehensively addresses export correctness, preview behavior, operator clarity, regression coverage, validation, and protected-file constraints. The completion packet is ready for verification, the artifact hash matches, and changed-files.json confirms no workspace edits. |
+
+## Active Failures
+
+- No active failures remain.
+
+## Recovered Issues
+
+- No recovered issues were recorded.
+
+## Historical Attempts
+
+- No historical attempts require reviewer action.
+
+## Interventions
+
+- No supervisor or human interventions were recorded.
+
+## Workspace Improvements
+
+| Area | Recommendation | Evidence | Priority | Confidence | Done When |
+| --- | --- | --- | --- | --- | --- |
+| none | No concrete workspace improvement was inferred from this run. | Run reached terminal state without active failures, recovered failures, active blockers, or missing milestone validation. | low | medium | No action required unless human review identifies missing context, docs, tests, or tooling. |
+
+## Evidence Links
+
+- [artifact index](evidence/artifact-index.json)
+- [change map](evidence/change-map.json)
+- [validation ledger](evidence/validation-ledger.json)
+- [decision log](evidence/decision-log.md)
+- [intervention trace](evidence/intervention-trace.json)
+- [milestones](evidence/milestones.json)
+- [workspace improvements](evidence/workspace-improvements.json)
+- [audit index](03-audit-index.md)
+
+## Output
+Return exactly two fenced Markdown blocks and no other prose:
+```review-brief
+# Review Brief
+## Outcome
+...
+## Reviewer Decision
+...
+## What To Inspect First
+...
+## Success Contract
+...
+## Changed Files
+...
+## Final Declared Artifacts
+...
+## Validation Evidence
+...
+## Active Failures And Risks
+...
+## Recovered Issues
+...
+## Historical Attempts
+...
+## Supervisor And Human Interventions
+...
+## Supporting Evidence
+...
+```
+```run-learnings
+# Run Learnings
+## Where Agents Struggled
+...
+## Workspace Improvements
+...
+## Graph Prompt And Support Improvements
+...
+## Plugin Skill And Eval Opportunities
+...
+## What Worked
+...
+## Evidence Links
+...
+```

@@ -1,0 +1,45 @@
+{
+  "exit_code": 0,
+  "passed": true,
+  "score": 1,
+  "summary": "Source evidence fully satisfies operator clarity. public/app.js shows the full count (“This download contains … matching customers.”), active scope (“Filters: …”), columns (“Exported columns: …”), and distinguishes the sample from the full file (“Sample: first five matching records. The complete CSV download contains all …”). public/index.html provides unambiguous “Download complete CSV,” “Cancel,” and “Close export preview” actions. The no-match state says the CSV contains only column headers. public/app.js snapshots one query for preview and download, removes the download link while loading, rejects superseded responses, and invalidates the preview on filter changes or closure, preventing stale-query downloads. src/export.mjs derives count and first-five sample from the same unpaginated matches used by export. Current npm test passed 13/13. No rendered-browser behavior is claimed; the supplied notes explicitly state it was not observed.",
+  "issues": [],
+  "raw": {
+    "passed": true,
+    "score": 1,
+    "summary": "Source evidence fully satisfies operator clarity. public/app.js shows the full count (“This download contains … matching customers.”), active scope (“Filters: …”), columns (“Exported columns: …”), and distinguishes the sample from the full file (“Sample: first five matching records. The complete CSV download contains all …”). public/index.html provides unambiguous “Download complete CSV,” “Cancel,” and “Close export preview” actions. The no-match state says the CSV contains only column headers. public/app.js snapshots one query for preview and download, removes the download link while loading, rejects superseded responses, and invalidates the preview on filter changes or closure, preventing stale-query downloads. src/export.mjs derives count and first-five sample from the same unpaginated matches used by export. Current npm test passed 13/13. No rendered-browser behavior is claimed; the supplied notes explicitly state it was not observed.",
+    "issues": []
+  },
+  "metadata": {
+    "binary": "/opt/homebrew/bin/codex",
+    "args": [
+      "--cd",
+      ".",
+      "--add-dir",
+      "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45",
+      "--add-dir",
+      "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/artifacts",
+      "exec",
+      "--output-last-message",
+      "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/artifacts/last_message.txt",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "default_permissions=\"agentflow_judge_permissions\"",
+      "-c",
+      "permissions.agentflow_judge_permissions={ extends = \":read-only\", network = { enabled = true } }",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "-"
+    ],
+    "native_harness": {
+      "harness": "codex-cli",
+      "config_isolation": "isolated"
+    },
+    "timed_out": false,
+    "force_killed": false
+  },
+  "soft_verification": true,
+  "verifier_kind": "check",
+  "check_kind": "ai"
+}

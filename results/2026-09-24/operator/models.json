@@ -1,0 +1,6 @@
+{
+  "nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/harness/stderr.log": "gpt-5.6-sol",
+  "nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/harness/stderr.log": "gpt-5.6-sol",
+  "nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/harness/stderr.log": "gpt-5.6-sol",
+  "nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/human-debug/harness/stderr.log": "gpt-5.6-sol"
+}

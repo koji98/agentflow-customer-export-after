@@ -2,21 +2,18 @@ import { matchingCustomers } from './customers.mjs';
 
 export const columns = ['id', 'name', 'company', 'email', 'status', 'segment', 'notes'];
 
-function csvField(value) {
-  const text = String(value ?? '');
+function encodeCsvField(value) {
+  const text = String(value);
   return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
 }
 
-function csvRow(customer) {
-  return columns.map(column => csvField(customer[column])).join(',');
-}
-
 export function exportCustomers(customers, params) {
-  const rows = matchingCustomers(customers, params);
-  return [columns.join(','), ...rows.map(csvRow)].join('\r\n') + '\r\n';
+  const matches = matchingCustomers(customers, params);
+  const rows = matches.map(customer => columns.map(column => encodeCsvField(customer[column])).join(','));
+  return [columns.join(','), ...rows].join('\r\n') + '\r\n';
 }
 
-export function previewExport(customers, params) {
-  const rows = matchingCustomers(customers, params);
-  return { total: rows.length, columns, sample: rows.slice(0, 5) };
+export function previewCustomers(customers, params) {
+  const matches = matchingCustomers(customers, params);
+  return { total: matches.length, columns: [...columns], sample: matches.slice(0, 5) };
 }

@@ -1,0 +1,12 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "complete",
+    "m1",
+    "--evidence",
+    "Implementation complete; required artifacts published; exact gate passed with 13/13 Node tests, 24/24 export/listing checks, and 5/5 preview checks; no known remaining task gap."
+  ],
+  "cwd": "."
+}

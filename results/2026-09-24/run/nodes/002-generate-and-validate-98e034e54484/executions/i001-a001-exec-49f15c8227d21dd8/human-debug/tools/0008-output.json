@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "{\n  \"command\": \"af milestone log\",\n  \"status\": \"passed\",\n  \"milestone_id\": \"m1\",\n  \"log\": {\n    \"log_id\": \"m1.l4\",\n    \"kind\": \"validation\",\n    \"summary\": \"13/13 Node tests, 24/24 export/listing acceptance checks, and 5/5 preview checks passed; exit 0\",\n    \"command\": \"npm test && python3 showcase/acceptance/check_preview.py\",\n    \"result\": \"pass\",\n    \"created_at\": \"2026-09-24T10:52:56.209Z\"\n  }\n}\n",
+  "stderr": ""
+}

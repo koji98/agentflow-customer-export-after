@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Task runtime CLI wrapper. Generated per execution; do not edit.
+set -eu
+exec '[operator-home]/.nvm/versions/node/v24.18.0/bin/node' '[agentflow-runtime]/dist/af/index.js' "$@"

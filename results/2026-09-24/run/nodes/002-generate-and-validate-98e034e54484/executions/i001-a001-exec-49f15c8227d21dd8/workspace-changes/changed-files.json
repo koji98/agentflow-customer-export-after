@@ -1,0 +1,34 @@
+[
+  {
+    "path": "public/app.js",
+    "change_kind": "tracked"
+  },
+  {
+    "path": "public/index.html",
+    "change_kind": "tracked"
+  },
+  {
+    "path": "public/styles.css",
+    "change_kind": "tracked"
+  },
+  {
+    "path": "src/customers.mjs",
+    "change_kind": "tracked"
+  },
+  {
+    "path": "src/export.mjs",
+    "change_kind": "tracked"
+  },
+  {
+    "path": "src/server.mjs",
+    "change_kind": "tracked"
+  },
+  {
+    "path": "test/query.test.mjs",
+    "change_kind": "tracked"
+  },
+  {
+    "path": "test/server.test.mjs",
+    "change_kind": "tracked"
+  }
+]

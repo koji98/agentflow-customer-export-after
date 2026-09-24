@@ -1,0 +1,2044 @@
+{
+  "command": "validate",
+  "status": "passed",
+  "validation_level": "run-ready",
+  "message": "Graph validated with warnings for launch profile \"worker\" and workspace backend \"inplace\".",
+  "graph_path": "./agentflow.graph.json",
+  "path_resolution": {
+    "launch_cwd": ".",
+    "graph_path_input": "agentflow.graph.json",
+    "graph_path": "./agentflow.graph.json",
+    "graph_directory": ".",
+    "rules": {
+      "graph_path": "--graph resolves relative to the launch shell current working directory.",
+      "repo_paths": "Repo paths in $.repos.*.path resolve relative to the graph file directory."
+    }
+  },
+  "authored_summary": {
+    "graph_id": "northstar-export-readiness",
+    "node_count": 11,
+    "executable_node_count": 7,
+    "container_node_count": 4,
+    "profile_count": 3,
+    "repo_count": 1,
+    "repeat_count": 1,
+    "node_kind_counts": {
+      "agent": 2,
+      "exec": 1,
+      "check": 4,
+      "checkpoint": 0,
+      "sequence": 2,
+      "parallel": 1,
+      "repeat": 1
+    }
+  },
+  "launch": {
+    "launch_profile": "worker",
+    "workspace_backend": "inplace",
+    "profile": {
+      "harness": "codex-cli",
+      "model": "auto",
+      "reasoning_effort": "medium",
+      "sandbox": "workspace-write",
+      "harness_config": {
+        "isolation": "isolated",
+        "codex": {
+          "config": {
+            "sandbox_workspace_write.network_access": true
+          }
+        }
+      }
+    },
+    "diagnostics": []
+  },
+  "compiled_summary": {
+    "entry_node_count": 1,
+    "node_count": 7,
+    "edge_count": 9,
+    "scope_count": 4
+  },
+  "managed_expansion": [
+    {
+      "authored_id": "export_readiness",
+      "managed_kind": "pattern_deep_work",
+      "lowered_to": "sequence",
+      "ordered_internal_step_ids": [
+        "export_readiness__managed__pattern_deep_work__plan",
+        "export_readiness__managed__pattern_deep_work__generate_validate",
+        "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+        "export_readiness__managed__pattern_deep_work__completion_gate"
+      ],
+      "internal_hard_gates": [
+        "export_readiness__managed__pattern_deep_work__completion_gate"
+      ],
+      "repeat_loops": [
+        {
+          "authored_id": "export_readiness__managed__pattern_deep_work__work_loop",
+          "until": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "max_attempts": 3
+        }
+      ],
+      "published_artifacts": {
+        "packet": {
+          "from": "output_dir",
+          "path": "packet.json",
+          "description": "Machine-readable final evidence packet."
+        },
+        "summary": {
+          "from": "output_dir",
+          "path": "summary.md",
+          "description": "Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations.",
+          "content_type": "text/markdown"
+        }
+      }
+    }
+  ],
+  "findings": {
+    "blockers": [],
+    "warnings": [
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.verification_json\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[0].context[5].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__plan",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      },
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stdout\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[0].context[6].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__plan",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      },
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stderr\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[0].context[7].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__plan",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      },
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_02_simplicity.verification_json\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[0].context[8].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__plan",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      },
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.verification_json\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[0].context[9].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__plan",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      },
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.verification_json\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[3].context[3].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      },
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stdout\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[3].context[4].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      },
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stderr\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[3].context[5].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      },
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_02_simplicity.verification_json\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[3].context[6].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      },
+      {
+        "source": "authoring_review",
+        "severity": "warning",
+        "kind": "handoff",
+        "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.verification_json\".",
+        "recommendation": "Prefer a named declared artifact for durable downstream handoffs.",
+        "path": "$.graph.steps[0].body.steps[3].context[7].ref",
+        "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+        "target": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      }
+    ],
+    "advice": []
+  },
+  "checks": {
+    "authored": {
+      "status": "passed",
+      "diagnostics": []
+    },
+    "launch": {
+      "status": "passed",
+      "launch": {
+        "launch_profile": "worker",
+        "workspace_backend": "inplace",
+        "profile": {
+          "harness": "codex-cli",
+          "model": "auto",
+          "reasoning_effort": "medium",
+          "sandbox": "workspace-write",
+          "harness_config": {
+            "isolation": "isolated",
+            "codex": {
+              "config": {
+                "sandbox_workspace_write.network_access": true
+              }
+            }
+          }
+        },
+        "diagnostics": []
+      }
+    },
+    "compiled": {
+      "status": "passed",
+      "diagnostics": [],
+      "compiled_summary": {
+        "entry_node_count": 1,
+        "node_count": 7,
+        "edge_count": 9,
+        "scope_count": 4
+      },
+      "managed_expansion": [
+        {
+          "authored_id": "export_readiness",
+          "managed_kind": "pattern_deep_work",
+          "lowered_to": "sequence",
+          "ordered_internal_step_ids": [
+            "export_readiness__managed__pattern_deep_work__plan",
+            "export_readiness__managed__pattern_deep_work__generate_validate",
+            "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+            "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+            "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+            "export_readiness__managed__pattern_deep_work__completion_gate"
+          ],
+          "internal_hard_gates": [
+            "export_readiness__managed__pattern_deep_work__completion_gate"
+          ],
+          "repeat_loops": [
+            {
+              "authored_id": "export_readiness__managed__pattern_deep_work__work_loop",
+              "until": "export_readiness__managed__pattern_deep_work__completion_gate",
+              "max_attempts": 3
+            }
+          ],
+          "published_artifacts": {
+            "packet": {
+              "from": "output_dir",
+              "path": "packet.json",
+              "description": "Machine-readable final evidence packet."
+            },
+            "summary": {
+              "from": "output_dir",
+              "path": "summary.md",
+              "description": "Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations.",
+              "content_type": "text/markdown"
+            }
+          }
+        }
+      ]
+    },
+    "authoring_review": {
+      "mode": "strict",
+      "status": "warnings",
+      "summary": {
+        "finding_count": 10,
+        "serious_count": 0,
+        "warning_count": 10,
+        "info_count": 0,
+        "reviewed_node_count": 7,
+        "artifact_handoff_count": 11
+      },
+      "findings": [
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[0].context[5].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.verification_json\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        },
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[0].context[6].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stdout\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        },
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[0].context[7].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stderr\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        },
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[0].context[8].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_02_simplicity.verification_json\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        },
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[0].context[9].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__plan\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.verification_json\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        },
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[3].context[3].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.verification_json\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        },
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[3].context[4].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stdout\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        },
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[3].context[5].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_01_behavior.stderr\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        },
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[3].context[6].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_02_simplicity.verification_json\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        },
+        {
+          "severity": "warning",
+          "category": "handoff",
+          "path": "$.graph.steps[0].body.steps[3].context[7].ref",
+          "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" consumes automatic artifact \"export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.verification_json\".",
+          "recommendation": "Prefer a named declared artifact for durable downstream handoffs."
+        }
+      ],
+      "artifact_handoffs": [
+        {
+          "producer_node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "artifact": "completion_scorecard",
+          "automatic_artifact": false,
+          "consumers": [
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__plan",
+              "context_name": "failed_completion_scorecard",
+              "path": "export_readiness__managed__pattern_deep_work__plan.context[3]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+              "context_name": "failed_completion_scorecard",
+              "path": "export_readiness__managed__pattern_deep_work__generate_validate.context[4]"
+            },
+            {
+              "node_id": "export_readiness",
+              "context_name": "completion_scorecard",
+              "path": "export_readiness.context[3]"
+            }
+          ]
+        },
+        {
+          "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "artifact": "stderr",
+          "automatic_artifact": true,
+          "consumers": [
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__plan",
+              "context_name": "previous_criterion_01_stderr",
+              "path": "export_readiness__managed__pattern_deep_work__plan.context[7]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+              "context_name": "criterion_01_stderr",
+              "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[5]"
+            }
+          ]
+        },
+        {
+          "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "artifact": "stdout",
+          "automatic_artifact": true,
+          "consumers": [
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__plan",
+              "context_name": "previous_criterion_01_stdout",
+              "path": "export_readiness__managed__pattern_deep_work__plan.context[6]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+              "context_name": "criterion_01_stdout",
+              "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[4]"
+            }
+          ]
+        },
+        {
+          "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "artifact": "verification_json",
+          "automatic_artifact": true,
+          "consumers": [
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__plan",
+              "context_name": "previous_criterion_01_result",
+              "path": "export_readiness__managed__pattern_deep_work__plan.context[5]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+              "context_name": "criterion_01_result",
+              "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[3]"
+            }
+          ]
+        },
+        {
+          "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+          "artifact": "verification_json",
+          "automatic_artifact": true,
+          "consumers": [
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__plan",
+              "context_name": "previous_criterion_02_result",
+              "path": "export_readiness__managed__pattern_deep_work__plan.context[8]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+              "context_name": "criterion_02_result",
+              "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[6]"
+            }
+          ]
+        },
+        {
+          "producer_node_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+          "artifact": "verification_json",
+          "automatic_artifact": true,
+          "consumers": [
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__plan",
+              "context_name": "previous_criterion_03_result",
+              "path": "export_readiness__managed__pattern_deep_work__plan.context[9]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+              "context_name": "criterion_03_result",
+              "path": "export_readiness__managed__pattern_deep_work__completion_gate.context[7]"
+            }
+          ]
+        },
+        {
+          "producer_node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "draft_summary",
+          "automatic_artifact": false,
+          "consumers": [
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+              "context_name": "draft_summary",
+              "path": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.context[4]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+              "context_name": "draft_summary",
+              "path": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity.context[4]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+              "context_name": "draft_summary",
+              "path": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.context[4]"
+            },
+            {
+              "node_id": "export_readiness",
+              "context_name": "draft_summary",
+              "path": "export_readiness.context[5]"
+            }
+          ]
+        },
+        {
+          "producer_node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "work_notes",
+          "automatic_artifact": false,
+          "consumers": [
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__plan",
+              "context_name": "previous_work_notes",
+              "path": "export_readiness__managed__pattern_deep_work__plan.context[4]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+              "context_name": "work_notes",
+              "path": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.context[3]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+              "context_name": "work_notes",
+              "path": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity.context[3]"
+            },
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+              "context_name": "work_notes",
+              "path": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.context[3]"
+            },
+            {
+              "node_id": "export_readiness",
+              "context_name": "work_notes",
+              "path": "export_readiness.context[4]"
+            }
+          ]
+        },
+        {
+          "producer_node_id": "export_readiness__managed__pattern_deep_work__plan",
+          "artifact": "plan",
+          "automatic_artifact": false,
+          "consumers": [
+            {
+              "node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+              "context_name": "plan",
+              "path": "export_readiness__managed__pattern_deep_work__generate_validate.context[3]"
+            }
+          ]
+        },
+        {
+          "producer_node_id": "export_readiness",
+          "artifact": "packet",
+          "automatic_artifact": false,
+          "consumers": []
+        },
+        {
+          "producer_node_id": "export_readiness",
+          "artifact": "summary",
+          "automatic_artifact": false,
+          "consumers": []
+        }
+      ]
+    },
+    "readiness": {
+      "status": "ready",
+      "checks": [
+        {
+          "kind": "command",
+          "required": false,
+          "status": "passed",
+          "target": "git",
+          "message": "Command \"git\" is available for workspace setup and change capture."
+        },
+        {
+          "kind": "repo",
+          "required": true,
+          "status": "passed",
+          "target": "main",
+          "message": "Repo \"main\" resolved to .."
+        },
+        {
+          "kind": "repo",
+          "required": false,
+          "status": "passed",
+          "target": "main",
+          "message": "Repo \"main\" is a git worktree."
+        },
+        {
+          "kind": "command",
+          "required": true,
+          "status": "passed",
+          "target": "export_readiness__managed__pattern_deep_work__criterion_01_behavior: sh",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__criterion_01_behavior\" command \"sh\" is available on PATH."
+        },
+        {
+          "kind": "command",
+          "required": true,
+          "status": "passed",
+          "target": "export_readiness__managed__pattern_deep_work__completion_gate: node",
+          "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" command \"node\" is available on PATH."
+        },
+        {
+          "kind": "command",
+          "required": true,
+          "status": "passed",
+          "target": "export_readiness: node",
+          "message": "Node \"export_readiness\" command \"node\" is available on PATH."
+        },
+        {
+          "kind": "harness",
+          "required": true,
+          "status": "passed",
+          "target": "codex-cli",
+          "message": "Harness \"codex-cli\" is available."
+        }
+      ],
+      "passed_count": 7,
+      "warning_count": 0,
+      "blocked_count": 0
+    },
+    "context": {
+      "status": "passed",
+      "nodes": [
+        {
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+          "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+          "repo_alias": "main",
+          "pointer_count": 3,
+          "total_size_bytes": 4923,
+          "items": [
+            {
+              "key": "customer_export_ticket",
+              "name": "customer_export_ticket",
+              "kind": "workspace_file",
+              "path": "TICKET.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 1460,
+              "sample_matches": [
+                "TICKET.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "TICKET.md",
+                  "size_bytes": 1460
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "project_guide",
+              "name": "project_guide",
+              "kind": "workspace_file",
+              "path": "APP_GUIDE.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 955,
+              "sample_matches": [
+                "APP_GUIDE.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "APP_GUIDE.md",
+                  "size_bytes": 955
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "preview_contract",
+              "name": "preview_contract",
+              "kind": "workspace_file",
+              "path": "EXPORT_PREVIEW.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 2508,
+              "sample_matches": [
+                "EXPORT_PREVIEW.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "EXPORT_PREVIEW.md",
+                  "size_bytes": 2508
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "failed_completion_scorecard",
+              "name": "failed_completion_scorecard",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "previous_work_notes",
+              "name": "previous_work_notes",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "previous_criterion_01_result",
+              "name": "previous_criterion_01_result",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "previous_criterion_01_stdout",
+              "name": "previous_criterion_01_stdout",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "previous_criterion_01_stderr",
+              "name": "previous_criterion_01_stderr",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "previous_criterion_02_result",
+              "name": "previous_criterion_02_result",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "previous_criterion_03_result",
+              "name": "previous_criterion_03_result",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+          "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "repo_alias": "main",
+          "pointer_count": 3,
+          "total_size_bytes": 4923,
+          "items": [
+            {
+              "key": "customer_export_ticket",
+              "name": "customer_export_ticket",
+              "kind": "workspace_file",
+              "path": "TICKET.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 1460,
+              "sample_matches": [
+                "TICKET.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "TICKET.md",
+                  "size_bytes": 1460
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "project_guide",
+              "name": "project_guide",
+              "kind": "workspace_file",
+              "path": "APP_GUIDE.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 955,
+              "sample_matches": [
+                "APP_GUIDE.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "APP_GUIDE.md",
+                  "size_bytes": 955
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "preview_contract",
+              "name": "preview_contract",
+              "kind": "workspace_file",
+              "path": "EXPORT_PREVIEW.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 2508,
+              "sample_matches": [
+                "EXPORT_PREVIEW.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "EXPORT_PREVIEW.md",
+                  "size_bytes": 2508
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "plan",
+              "name": "plan",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "failed_completion_scorecard",
+              "name": "failed_completion_scorecard",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "authored_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "repo_alias": "main",
+          "pointer_count": 3,
+          "total_size_bytes": 4923,
+          "items": [
+            {
+              "key": "customer_export_ticket",
+              "name": "customer_export_ticket",
+              "kind": "workspace_file",
+              "path": "TICKET.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 1460,
+              "sample_matches": [
+                "TICKET.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "TICKET.md",
+                  "size_bytes": 1460
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "project_guide",
+              "name": "project_guide",
+              "kind": "workspace_file",
+              "path": "APP_GUIDE.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 955,
+              "sample_matches": [
+                "APP_GUIDE.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "APP_GUIDE.md",
+                  "size_bytes": 955
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "preview_contract",
+              "name": "preview_contract",
+              "kind": "workspace_file",
+              "path": "EXPORT_PREVIEW.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 2508,
+              "sample_matches": [
+                "EXPORT_PREVIEW.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "EXPORT_PREVIEW.md",
+                  "size_bytes": 2508
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "work_notes",
+              "name": "work_notes",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "draft_summary",
+              "name": "draft_summary",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+          "authored_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+          "repo_alias": "main",
+          "pointer_count": 3,
+          "total_size_bytes": 4923,
+          "items": [
+            {
+              "key": "customer_export_ticket",
+              "name": "customer_export_ticket",
+              "kind": "workspace_file",
+              "path": "TICKET.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 1460,
+              "sample_matches": [
+                "TICKET.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "TICKET.md",
+                  "size_bytes": 1460
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "project_guide",
+              "name": "project_guide",
+              "kind": "workspace_file",
+              "path": "APP_GUIDE.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 955,
+              "sample_matches": [
+                "APP_GUIDE.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "APP_GUIDE.md",
+                  "size_bytes": 955
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "preview_contract",
+              "name": "preview_contract",
+              "kind": "workspace_file",
+              "path": "EXPORT_PREVIEW.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 2508,
+              "sample_matches": [
+                "EXPORT_PREVIEW.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "EXPORT_PREVIEW.md",
+                  "size_bytes": 2508
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "work_notes",
+              "name": "work_notes",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "draft_summary",
+              "name": "draft_summary",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+          "authored_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+          "repo_alias": "main",
+          "pointer_count": 3,
+          "total_size_bytes": 4923,
+          "items": [
+            {
+              "key": "customer_export_ticket",
+              "name": "customer_export_ticket",
+              "kind": "workspace_file",
+              "path": "TICKET.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 1460,
+              "sample_matches": [
+                "TICKET.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "TICKET.md",
+                  "size_bytes": 1460
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "project_guide",
+              "name": "project_guide",
+              "kind": "workspace_file",
+              "path": "APP_GUIDE.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 955,
+              "sample_matches": [
+                "APP_GUIDE.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "APP_GUIDE.md",
+                  "size_bytes": 955
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "preview_contract",
+              "name": "preview_contract",
+              "kind": "workspace_file",
+              "path": "EXPORT_PREVIEW.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 2508,
+              "sample_matches": [
+                "EXPORT_PREVIEW.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "EXPORT_PREVIEW.md",
+                  "size_bytes": 2508
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "work_notes",
+              "name": "work_notes",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "draft_summary",
+              "name": "draft_summary",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+          "authored_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "repo_alias": "main",
+          "pointer_count": 3,
+          "total_size_bytes": 4923,
+          "items": [
+            {
+              "key": "customer_export_ticket",
+              "name": "customer_export_ticket",
+              "kind": "workspace_file",
+              "path": "TICKET.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 1460,
+              "sample_matches": [
+                "TICKET.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "TICKET.md",
+                  "size_bytes": 1460
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "project_guide",
+              "name": "project_guide",
+              "kind": "workspace_file",
+              "path": "APP_GUIDE.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 955,
+              "sample_matches": [
+                "APP_GUIDE.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "APP_GUIDE.md",
+                  "size_bytes": 955
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "preview_contract",
+              "name": "preview_contract",
+              "kind": "workspace_file",
+              "path": "EXPORT_PREVIEW.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 2508,
+              "sample_matches": [
+                "EXPORT_PREVIEW.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "EXPORT_PREVIEW.md",
+                  "size_bytes": 2508
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "criterion_01_result",
+              "name": "criterion_01_result",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "criterion_01_stdout",
+              "name": "criterion_01_stdout",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "criterion_01_stderr",
+              "name": "criterion_01_stderr",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "criterion_02_result",
+              "name": "criterion_02_result",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "criterion_03_result",
+              "name": "criterion_03_result",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+          "authored_id": "export_readiness",
+          "repo_alias": "main",
+          "pointer_count": 3,
+          "total_size_bytes": 4923,
+          "items": [
+            {
+              "key": "customer_export_ticket",
+              "name": "customer_export_ticket",
+              "kind": "workspace_file",
+              "path": "TICKET.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 1460,
+              "sample_matches": [
+                "TICKET.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "TICKET.md",
+                  "size_bytes": 1460
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "project_guide",
+              "name": "project_guide",
+              "kind": "workspace_file",
+              "path": "APP_GUIDE.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 955,
+              "sample_matches": [
+                "APP_GUIDE.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "APP_GUIDE.md",
+                  "size_bytes": 955
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "preview_contract",
+              "name": "preview_contract",
+              "kind": "workspace_file",
+              "path": "EXPORT_PREVIEW.md",
+              "repo_alias": "main",
+              "match_count": 1,
+              "total_size_bytes": 2508,
+              "sample_matches": [
+                "EXPORT_PREVIEW.md"
+              ],
+              "largest_matches": [
+                {
+                  "path": "EXPORT_PREVIEW.md",
+                  "size_bytes": 2508
+                }
+              ],
+              "default_ignored_roots": [
+                ".git",
+                ".task-runtime",
+                ".agentflow",
+                ".agentflow-runtime",
+                "node_modules",
+                ".venv",
+                "venv",
+                ".tox",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".next",
+                ".nuxt",
+                ".turbo",
+                ".cache",
+                "dist",
+                "build",
+                "coverage",
+                "target",
+                "vendor",
+                "vendors",
+                "third_party",
+                "generated",
+                "gen",
+                "__generated__",
+                "bazel-bin",
+                "bazel-out"
+              ],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "completion_scorecard",
+              "name": "completion_scorecard",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "work_notes",
+              "name": "work_notes",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            },
+            {
+              "key": "draft_summary",
+              "name": "draft_summary",
+              "kind": "artifact",
+              "match_count": 0,
+              "total_size_bytes": 0,
+              "sample_matches": [],
+              "largest_matches": [],
+              "default_ignored_roots": [],
+              "errors": [],
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "diagnostics": []
+    }
+  },
+  "next_steps": {
+    "run": "agentflow run --graph './agentflow.graph.json'",
+    "graph_help": "agentflow graph-help"
+  },
+  "exports": {
+    "diagram_output_path": "results/2026-09-24/operator/compiled-graph.mmd",
+    "output_dir": "results/2026-09-24/operator/preflight",
+    "files": [
+      "results/2026-09-24/operator/preflight/manifest.json",
+      "results/2026-09-24/operator/preflight/validation.json",
+      "results/2026-09-24/operator/preflight/authored-summary.json",
+      "results/2026-09-24/operator/preflight/compiled-summary.json",
+      "results/2026-09-24/operator/preflight/managed-expansion.json",
+      "results/2026-09-24/operator/preflight/compiled-graph.json",
+      "results/2026-09-24/operator/preflight/compiled-graph.mmd",
+      "results/2026-09-24/operator/preflight/authoring-review.json",
+      "results/2026-09-24/operator/preflight/authoring-review.md",
+      "results/2026-09-24/operator/preflight/readiness.json",
+      "results/2026-09-24/operator/preflight/readiness.md",
+      "results/2026-09-24/operator/preflight/context-analysis.json",
+      "results/2026-09-24/operator/preflight/context-analysis.md"
+    ]
+  }
+}

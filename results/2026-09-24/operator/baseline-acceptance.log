@@ -1,0 +1,166 @@
+{
+  "passed": false,
+  "checks": 24,
+  "passed_checks": 16,
+  "repo": ".",
+  "results": [
+    {
+      "case": "all 137 customers",
+      "passed": false,
+      "expected_records": 137,
+      "failure": "Expected 137 customer records; parsed 27"
+    },
+    {
+      "case": "page two does not limit export",
+      "passed": false,
+      "expected_records": 137,
+      "failure": "Expected 137 customer records; parsed 7"
+    },
+    {
+      "case": "active customers across pages",
+      "passed": false,
+      "expected_records": 103,
+      "failure": "Expected 103 customer records; parsed 25"
+    },
+    {
+      "case": "active growth descending",
+      "passed": false,
+      "expected_records": 35,
+      "failure": "Expected 35 customer records; parsed 5"
+    },
+    {
+      "case": "combined case-insensitive search",
+      "passed": false,
+      "expected_records": 5,
+      "failure": "Expected 5 customer records; parsed 6"
+    },
+    {
+      "case": "quoted field and LF",
+      "passed": false,
+      "expected_records": 1,
+      "failure": "Expected 1 customer records; parsed 2"
+    },
+    {
+      "case": "Unicode and comma",
+      "passed": false,
+      "expected_records": 1,
+      "failure": "Record 1 differs: expected 7 exact fields; got 8 fields"
+    },
+    {
+      "case": "embedded quotes and CRLF",
+      "passed": false,
+      "expected_records": 1,
+      "failure": "Expected 1 customer records; parsed 2"
+    },
+    {
+      "case": "non-Latin text",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "ordinary record and empty note",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "no matches produces header only",
+      "passed": true,
+      "expected_records": 0
+    },
+    {
+      "case": "inactive enterprise descending",
+      "passed": true,
+      "expected_records": 11
+    },
+    {
+      "case": "listing: all 137 customers",
+      "passed": true,
+      "expected_records": 25
+    },
+    {
+      "case": "listing: page two does not limit export",
+      "passed": true,
+      "expected_records": 7
+    },
+    {
+      "case": "listing: active customers across pages",
+      "passed": true,
+      "expected_records": 25
+    },
+    {
+      "case": "listing: active growth descending",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "listing: combined case-insensitive search",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "listing: quoted field and LF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: Unicode and comma",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: embedded quotes and CRLF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: non-Latin text",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: ordinary record and empty note",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: no matches produces header only",
+      "passed": true,
+      "expected_records": 0
+    },
+    {
+      "case": "listing: inactive enterprise descending",
+      "passed": true,
+      "expected_records": 11
+    }
+  ]
+}
+{
+  "passed": false,
+  "preview_checks": [
+    {
+      "case": "all matching customers",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    },
+    {
+      "case": "active customers from page two",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    },
+    {
+      "case": "combined filters descending",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    },
+    {
+      "case": "search with commas and line breaks",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    },
+    {
+      "case": "no results",
+      "passed": false,
+      "failure": "HTTP Error 404: Not Found"
+    }
+  ]
+}

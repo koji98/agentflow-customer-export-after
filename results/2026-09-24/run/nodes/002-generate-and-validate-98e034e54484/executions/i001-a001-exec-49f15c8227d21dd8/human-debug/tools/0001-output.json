@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "# Task Orientation\n\nOrientation mode: `startup_restore`\n\nNo recovery, blockers, or prior progress are active.\n\nDo the task from the prompt. Record real progress and validation as you work, then run `af complete check` before final response.\n",
+  "stderr": ""
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "log",
+    "m1",
+    "--kind",
+    "validation",
+    "--command",
+    "npm test && python3 showcase/acceptance/check_preview.py",
+    "--result",
+    "pass",
+    "--summary",
+    "13/13 Node tests, 24/24 export/listing acceptance checks, and 5/5 preview checks passed; exit 0"
+  ],
+  "cwd": "."
+}

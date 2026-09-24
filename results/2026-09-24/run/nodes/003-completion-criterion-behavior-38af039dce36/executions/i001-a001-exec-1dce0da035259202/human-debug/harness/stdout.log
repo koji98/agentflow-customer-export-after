@@ -1,0 +1,178 @@
+
+> agentflow-customer-dashboard-demo@1.0.0 test
+> node --test test/*.test.mjs
+
+✔ listing paginates after filtering and preserves total (12.373791ms)
+✔ search and segment combine, with descending ID order (0.156917ms)
+✔ zero matches and invalid pagination have safe defaults (0.109084ms)
+✔ matching customers preserve filters and order without pagination (0.111625ms)
+✔ customer API returns a paginated synthetic dataset (32.432417ms)
+✔ dashboard and CSV download are served with appropriate content types (5.098041ms)
+✔ unknown paths and mutation requests are rejected (4.916416ms)
+✔ CSV export ignores pagination and safely preserves all seven fields (0.331583ms)
+✔ CSV export returns only its stable header when no customers match (0.168292ms)
+✔ preview returns the full count and first five ordered matches without pagination (0.765042ms)
+✔ preview API follows the same filtered query and ignores listing pagination (5.290083ms)
+✔ preview API returns an empty sample and stable columns for no matches (3.013042ms)
+✔ dashboard source exposes a labeled preview, download, cancel, and no-match state (5.871959ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 160.861625
+{
+  "passed": true,
+  "checks": 24,
+  "passed_checks": 24,
+  "repo": ".",
+  "results": [
+    {
+      "case": "all 137 customers",
+      "passed": true,
+      "expected_records": 137
+    },
+    {
+      "case": "page two does not limit export",
+      "passed": true,
+      "expected_records": 137
+    },
+    {
+      "case": "active customers across pages",
+      "passed": true,
+      "expected_records": 103
+    },
+    {
+      "case": "active growth descending",
+      "passed": true,
+      "expected_records": 35
+    },
+    {
+      "case": "combined case-insensitive search",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "quoted field and LF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "Unicode and comma",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "embedded quotes and CRLF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "non-Latin text",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "ordinary record and empty note",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "no matches produces header only",
+      "passed": true,
+      "expected_records": 0
+    },
+    {
+      "case": "inactive enterprise descending",
+      "passed": true,
+      "expected_records": 11
+    },
+    {
+      "case": "listing: all 137 customers",
+      "passed": true,
+      "expected_records": 25
+    },
+    {
+      "case": "listing: page two does not limit export",
+      "passed": true,
+      "expected_records": 7
+    },
+    {
+      "case": "listing: active customers across pages",
+      "passed": true,
+      "expected_records": 25
+    },
+    {
+      "case": "listing: active growth descending",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "listing: combined case-insensitive search",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "listing: quoted field and LF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: Unicode and comma",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: embedded quotes and CRLF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: non-Latin text",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: ordinary record and empty note",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: no matches produces header only",
+      "passed": true,
+      "expected_records": 0
+    },
+    {
+      "case": "listing: inactive enterprise descending",
+      "passed": true,
+      "expected_records": 11
+    }
+  ]
+}
+{
+  "passed": true,
+  "preview_checks": [
+    {
+      "case": "all matching customers",
+      "passed": true
+    },
+    {
+      "case": "active customers from page two",
+      "passed": true
+    },
+    {
+      "case": "combined filters descending",
+      "passed": true
+    },
+    {
+      "case": "search with commas and line breaks",
+      "passed": true
+    },
+    {
+      "case": "no results",
+      "passed": true
+    }
+  ]
+}

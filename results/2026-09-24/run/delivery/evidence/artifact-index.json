@@ -1,0 +1,129 @@
+{
+  "graph_id": "northstar-export-readiness",
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "policy": "Declared artifacts are indexed in place and are not copied into delivery.",
+  "final_declared_artifacts": [
+    {
+      "authored_id": "export_readiness",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__attempt_1",
+      "name": "packet",
+      "declared_path": "packet.json",
+      "description": "Machine-readable final evidence packet.",
+      "artifact_path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/packet.json",
+      "content_type": "application/json",
+      "detected_content_type": "application/json",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 5205,
+      "sha256": "7d8e578c1615c79dd6ceca474379af6d92ffbe87d85da128d81bce63f138d920",
+      "preview": {
+        "kind": "text",
+        "line_count": 62
+      },
+      "classification": "final"
+    },
+    {
+      "authored_id": "export_readiness",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__attempt_1",
+      "name": "summary",
+      "declared_path": "summary.md",
+      "description": "Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations.",
+      "artifact_path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/summary.md",
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "declared_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 2697,
+      "sha256": "20e86438229a07515b6e6a28ff7eb641c08630787600dbac37eb826f1b226190",
+      "preview": {
+        "kind": "text",
+        "line_count": 34
+      },
+      "classification": "final"
+    },
+    {
+      "authored_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "name": "completion_scorecard",
+      "declared_path": "scorecard.json",
+      "description": "Weighted completion scorecard for the latest deep work result.",
+      "artifact_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/artifacts/scorecard.json",
+      "content_type": "application/json",
+      "detected_content_type": "application/json",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 3548,
+      "sha256": "357d142c78ea4b0e0395fde2a90223a4e76f05337c7d5b00144d06f9668553aa",
+      "preview": {
+        "kind": "text",
+        "line_count": 47
+      },
+      "classification": "final"
+    },
+    {
+      "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "name": "work_notes",
+      "declared_path": "work-notes.md",
+      "description": "Notes and validation evidence from the current deep work result.",
+      "artifact_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md",
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 5324,
+      "sha256": "85ea4061c0db8c4e8a1cfb511a943a79d368d293978c6cda09d525b00e5547ca",
+      "preview": {
+        "kind": "text",
+        "line_count": 47
+      },
+      "classification": "final"
+    },
+    {
+      "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "name": "draft_summary",
+      "declared_path": "draft-summary.md",
+      "description": "Draft content for final artifact summary.",
+      "artifact_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md",
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 2697,
+      "sha256": "20e86438229a07515b6e6a28ff7eb641c08630787600dbac37eb826f1b226190",
+      "preview": {
+        "kind": "text",
+        "line_count": 34
+      },
+      "classification": "final"
+    },
+    {
+      "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+      "name": "plan",
+      "declared_path": "plan.md",
+      "description": "Execution plan for satisfying the deep work task from the current state.",
+      "artifact_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/plan.md",
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 11490,
+      "sha256": "5545da60af35bdcd8b4f73b54a45057023ff33c80f295c27c2fbfefc35b04b0d",
+      "preview": {
+        "kind": "text",
+        "line_count": 84
+      },
+      "classification": "final"
+    }
+  ],
+  "superseded_declared_artifacts": []
+}

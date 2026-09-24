@@ -1,0 +1,40 @@
+{
+  "version": "1",
+  "run_root": "results/2026-09-24/run",
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "graph_id": "northstar-export-readiness",
+  "agent_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+  "repo_alias": "main",
+  "workspace_path": ".",
+  "output_dir": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts",
+  "runtime_dir": "results/2026-09-24/run/runtime",
+  "context_packet_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/context.json",
+  "context_manifest_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/agent/context.md",
+  "tool_state_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/tools/state.json",
+  "tool_bin_dir": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/tools/bin",
+  "tool_invocations_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/index.jsonl",
+  "credential_index_path": "[operator-home]/.agentflow/credentials.index.json",
+  "credential_specs": {},
+  "declared_artifacts": {
+    "work_notes": {
+      "from": "output_dir",
+      "path": "work-notes.md",
+      "description": "Notes and validation evidence from the current deep work result."
+    },
+    "draft_summary": {
+      "from": "output_dir",
+      "path": "draft-summary.md",
+      "description": "Draft content for final artifact summary."
+    }
+  },
+  "tools": [],
+  "harness": "codex-cli",
+  "model": "auto",
+  "reasoning_effort": "medium",
+  "sandbox": "workspace-write",
+  "timeout_sec": 21600,
+  "af_command_policy": "worker"
+}

@@ -1,0 +1,16 @@
+
+> agentflow-customer-dashboard-demo@1.0.0 test:setup
+> node --test showcase/setup/doctor.test.mjs
+
+✔ dashboard setup succeeds without requiring either agent CLI (656.507833ms)
+✔ missing Git and Python produce actionable failures (55.575792ms)
+✔ an older Python version fails even when the executable exists (517.9435ms)
+✔ workflow setup rejects signed-out Codex without echoing auth output (992.035625ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2291.735916

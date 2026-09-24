@@ -1,0 +1,120 @@
+{
+  "version": "1",
+  "prompt_kind": "outcome_verification",
+  "renderer": "renderOutcomeVerificationPrompt",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1__verifier",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+  "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+  "harness": "codex-cli",
+  "model": "auto",
+  "reasoning_effort": "medium",
+  "sandbox": "read-only",
+  "total_chars": 23358,
+  "sections": [
+    {
+      "name": "Role",
+      "chars": 326
+    },
+    {
+      "name": "Decision Rule",
+      "chars": 3928
+    },
+    {
+      "name": "Graph Intent",
+      "chars": 891
+    },
+    {
+      "name": "Node Intent",
+      "chars": 908
+    },
+    {
+      "name": "Completion Packet",
+      "chars": 928
+    },
+    {
+      "name": "Workspace",
+      "chars": 204
+    },
+    {
+      "name": "Workspace Diff",
+      "chars": 1732
+    },
+    {
+      "name": "Captured Execution Evidence",
+      "chars": 473
+    },
+    {
+      "name": "Runtime Decision Evidence",
+      "chars": 393
+    },
+    {
+      "name": "Agent Response",
+      "chars": 549
+    },
+    {
+      "name": "Declared Artifacts",
+      "chars": 406
+    },
+    {
+      "name": "Task target",
+      "chars": 1162
+    },
+    {
+      "name": "Current state",
+      "chars": 1466
+    },
+    {
+      "name": "Gap",
+      "chars": 875
+    },
+    {
+      "name": "Execution plan",
+      "chars": 3494
+    },
+    {
+      "name": "Validation plan",
+      "chars": 2309
+    },
+    {
+      "name": "Expected material change",
+      "chars": 606
+    },
+    {
+      "name": "Remaining gap",
+      "chars": 452
+    },
+    {
+      "name": "Risks or constraints",
+      "chars": 1132
+    },
+    {
+      "name": "Output",
+      "chars": 1124
+    }
+  ],
+  "context_pointer_count": 3,
+  "context_pointer_kinds": [
+    "workspace_file"
+  ],
+  "context_priority_bucket_counts": {
+    "read_first": 0,
+    "current_work": 0,
+    "task_context": 3,
+    "progress_state": 0,
+    "reference_set": 0
+  },
+  "context_read_first_count": 0,
+  "context_glob_set_count": 0,
+  "context_glob_match_count": 0,
+  "context_glob_included_count": 0,
+  "context_limited_glob_count": 0,
+  "context_uses_flat_glob_expansion": false,
+  "tool_count": 0,
+  "skill_count": 0,
+  "cli_hint_count": 0,
+  "declared_artifact_count": 0,
+  "has_supervisor_recovery": false,
+  "orient_required_by_prompt": true,
+  "complete_check_required_by_prompt": true,
+  "warnings": []
+}

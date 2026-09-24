@@ -1,0 +1,18 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "log",
+    "m1",
+    "--kind",
+    "validation",
+    "--command",
+    "node --test test/query.test.mjs test/server.test.mjs",
+    "--result",
+    "fail",
+    "--summary",
+    "Backend slice passes 12 tests; only the expected missing UI preview test remains red"
+  ],
+  "cwd": "."
+}

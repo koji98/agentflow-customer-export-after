@@ -1,0 +1,18 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "log",
+    "m1",
+    "--kind",
+    "validation",
+    "--command",
+    "node --check public/app.js; node --check src/customers.mjs; node --check src/export.mjs; node --check src/server.mjs; git diff --check",
+    "--result",
+    "pass",
+    "--summary",
+    "All changed JavaScript parsed and the diff passed whitespace validation"
+  ],
+  "cwd": "."
+}

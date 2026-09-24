@@ -1,0 +1,31 @@
+{
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+  "authored_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+  "repo_alias": "main",
+  "workspace_context": [
+    {
+      "from": "workspace_file",
+      "key": "customer_export_ticket",
+      "repo_alias": "main",
+      "path": "TICKET.md",
+      "resolved_path": "./TICKET.md",
+      "digest": "de976535e33be16ae44e429b2a0621101ef1c9d95ae34f5670cc16788ce5e1bf"
+    },
+    {
+      "from": "workspace_file",
+      "key": "project_guide",
+      "repo_alias": "main",
+      "path": "APP_GUIDE.md",
+      "resolved_path": "./APP_GUIDE.md",
+      "digest": "ecc5f051bf1c3ba3a5ce0f4a4a2970879f3b10532168daa195d67cb868ca12ec"
+    },
+    {
+      "from": "workspace_file",
+      "key": "preview_contract",
+      "repo_alias": "main",
+      "path": "EXPORT_PREVIEW.md",
+      "resolved_path": "./EXPORT_PREVIEW.md",
+      "digest": "9ac4c53a7d391943a06bd13187d949a4f2d889ca1da460dbdbabdb18cae41ac3"
+    }
+  ]
+}

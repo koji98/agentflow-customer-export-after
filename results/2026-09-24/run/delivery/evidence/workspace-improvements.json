@@ -1,0 +1,14 @@
+{
+  "graph_id": "northstar-export-readiness",
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "recommendations": [
+    {
+      "area": "none",
+      "recommendation": "No concrete workspace improvement was inferred from this run.",
+      "evidence": "Run reached terminal state without active failures, recovered failures, active blockers, or missing milestone validation.",
+      "priority": "low",
+      "confidence": "medium",
+      "done_when": "No action required unless human review identifies missing context, docs, tests, or tooling."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "started_at": "2026-09-24T10:42:57.341696+00:00",
+  "runtime_commit": "460fdf31d94390a1aaf12a8f309ebcbf8c4b1d13",
+  "baseline_commit": "8c5387e80a736ceeda41994c1af93b41881b8340",
+  "node_version": "v24.18.0",
+  "codex_version": "codex-cli 0.144.5",
+  "graph_sha256": "421c4b7bb166bb0ebebfb0c29bfc848ad402713c35491b5e0871240648d44a72",
+  "label": "network-permissions-rerun",
+  "workspace": ".",
+  "run_root_parent": "[recorded-rerun]/runs"
+}

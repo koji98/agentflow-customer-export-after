@@ -1,0 +1,35 @@
+{
+  "version": "1",
+  "run_root": "results/2026-09-24/run",
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "graph_id": "northstar-export-readiness",
+  "agent_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "node_id": "export_readiness__managed__pattern_deep_work__plan",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+  "repo_alias": "main",
+  "workspace_path": ".",
+  "output_dir": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts",
+  "runtime_dir": "results/2026-09-24/run/runtime",
+  "context_packet_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/context.json",
+  "context_manifest_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/agent/context.md",
+  "tool_state_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/tools/state.json",
+  "tool_bin_dir": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/tools/bin",
+  "tool_invocations_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/index.jsonl",
+  "credential_index_path": "[operator-home]/.agentflow/credentials.index.json",
+  "credential_specs": {},
+  "declared_artifacts": {
+    "plan": {
+      "from": "output_dir",
+      "path": "plan.md",
+      "description": "Execution plan for satisfying the deep work task from the current state."
+    }
+  },
+  "tools": [],
+  "harness": "codex-cli",
+  "model": "auto",
+  "reasoning_effort": "medium",
+  "sandbox": "workspace-write",
+  "timeout_sec": 21600,
+  "af_command_policy": "worker"
+}

@@ -1,0 +1,1035 @@
+{
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "graph_id": "northstar-export-readiness",
+  "status": "passed",
+  "graph_status": "passed",
+  "delivery_status": "passed",
+  "review_ready": true,
+  "evidence_status": "clean",
+  "generated_at": "2026-09-24T10:55:06.571Z",
+  "manifest_path": "results/2026-09-24/run/delivery/manifest.json",
+  "sections": {
+    "review_brief": "results/2026-09-24/run/delivery/01-review-brief.md",
+    "run_learnings": "results/2026-09-24/run/delivery/02-run-learnings.md",
+    "audit_index": "results/2026-09-24/run/delivery/03-audit-index.md",
+    "artifact_index": "results/2026-09-24/run/delivery/evidence/artifact-index.json",
+    "change_map": "results/2026-09-24/run/delivery/evidence/change-map.json",
+    "validation_ledger": "results/2026-09-24/run/delivery/evidence/validation-ledger.json",
+    "decision_log": "results/2026-09-24/run/delivery/evidence/decision-log.md",
+    "intervention_trace": "results/2026-09-24/run/delivery/evidence/intervention-trace.json",
+    "milestones": "results/2026-09-24/run/delivery/evidence/milestones.json",
+    "workspace_improvements": "results/2026-09-24/run/delivery/evidence/workspace-improvements.json"
+  },
+  "human_entrypoints": {
+    "review_brief": "results/2026-09-24/run/delivery/01-review-brief.md",
+    "run_learnings": "results/2026-09-24/run/delivery/02-run-learnings.md",
+    "audit_index": "results/2026-09-24/run/delivery/03-audit-index.md"
+  },
+  "evidence_files": {
+    "artifact_index": "results/2026-09-24/run/delivery/evidence/artifact-index.json",
+    "change_map": "results/2026-09-24/run/delivery/evidence/change-map.json",
+    "validation_ledger": "results/2026-09-24/run/delivery/evidence/validation-ledger.json",
+    "decision_log": "results/2026-09-24/run/delivery/evidence/decision-log.md",
+    "intervention_trace": "results/2026-09-24/run/delivery/evidence/intervention-trace.json",
+    "milestones": "results/2026-09-24/run/delivery/evidence/milestones.json",
+    "workspace_improvements": "results/2026-09-24/run/delivery/evidence/workspace-improvements.json",
+    "delivery_source": "results/2026-09-24/run/delivery/evidence/delivery-source.json",
+    "delivery_source_markdown": "results/2026-09-24/run/delivery/evidence/delivery-source.md",
+    "curation_verdict": "results/2026-09-24/run/delivery/evidence/curation-verdict.json",
+    "curation_prompt": "results/2026-09-24/run/delivery/evidence/curation-prompt.md",
+    "curation_response": "results/2026-09-24/run/delivery/evidence/curation-response.md",
+    "supervisor_timeline": "results/2026-09-24/run/supervisor-timeline.jsonl",
+    "runtime_log": "results/2026-09-24/run/runtime/log.jsonl",
+    "operator_observations": "results/2026-09-24/run/runtime/observations.jsonl"
+  },
+  "internal_artifacts": {
+    "run_record": "results/2026-09-24/run/run.json",
+    "state": "results/2026-09-24/run/state.json",
+    "events": "results/2026-09-24/run/events.jsonl",
+    "supervisor_timeline": "results/2026-09-24/run/supervisor-timeline.jsonl",
+    "runtime_log": "results/2026-09-24/run/runtime/log.jsonl",
+    "operator_observations": "results/2026-09-24/run/runtime/observations.jsonl",
+    "interventions": "results/2026-09-24/run/interventions.jsonl",
+    "node_attempts": "results/2026-09-24/run/nodes",
+    "workspace_changes": "results/2026-09-24/run/workspace-changes"
+  },
+  "artifact_taxonomy": {
+    "human_entrypoints": [
+      {
+        "path": "results/2026-09-24/run/delivery/01-review-brief.md",
+        "label": "Review brief",
+        "purpose": "Start here for outcome, changed files, final artifacts, validation, risks, and recovered issues."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/02-run-learnings.md",
+        "label": "Run learnings",
+        "purpose": "Future-run lessons, workspace improvement candidates, and eval/plugin/skill extraction hints."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/03-audit-index.md",
+        "label": "Audit index",
+        "purpose": "Map to raw run evidence for debugging, trace inspection, and recovery audits."
+      }
+    ],
+    "declared_artifacts": [
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/packet.json",
+        "label": "export_readiness.packet",
+        "purpose": "Machine-readable final evidence packet.",
+        "bytes": 5205,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/artifacts/summary.md",
+        "label": "export_readiness.summary",
+        "purpose": "Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations.",
+        "bytes": 2697,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/artifacts/scorecard.json",
+        "label": "export_readiness__managed__pattern_deep_work__completion_gate.completion_scorecard",
+        "purpose": "Weighted completion scorecard for the latest deep work result.",
+        "bytes": 3548,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate.work_notes",
+        "purpose": "Notes and validation evidence from the current deep work result.",
+        "bytes": 5324,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate.draft_summary",
+        "purpose": "Draft content for final artifact summary.",
+        "bytes": 2697,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/plan.md",
+        "label": "export_readiness__managed__pattern_deep_work__plan.plan",
+        "purpose": "Execution plan for satisfying the deep work task from the current state.",
+        "bytes": 11490,
+        "empty": false
+      }
+    ],
+    "resume_required": [
+      {
+        "path": "results/2026-09-24/run/run.json",
+        "label": "Run record",
+        "purpose": "Stable run identity, launch profile, workspace backend, and terminal status used by inspect/resume.",
+        "bytes": 442,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/authored_graph.json",
+        "label": "Authored graph snapshot",
+        "purpose": "Exact authored graph contract captured at launch.",
+        "bytes": 71924,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/compiled_graph.json",
+        "label": "Compiled graph snapshot",
+        "purpose": "Resolved executable graph contract used by runtime and resume checks.",
+        "bytes": 96449,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/execution_manifest.json",
+        "label": "Execution manifest",
+        "purpose": "Resolved repo workspaces, node policies, and launch metadata.",
+        "bytes": 10796,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/state.json",
+        "label": "Runtime state",
+        "purpose": "Latest scheduler state and node statuses required for resume.",
+        "bytes": 17024,
+        "empty": false
+      }
+    ],
+    "audit_trail": [
+      {
+        "path": "results/2026-09-24/run/events.jsonl",
+        "label": "Runtime event ledger",
+        "purpose": "Append-only lifecycle event stream for replay, audit, and debugging.",
+        "bytes": 67208,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/supervisor-timeline.jsonl",
+        "label": "Supervisor timeline",
+        "purpose": "Append-only supervisor health and decision records.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/runtime/log.jsonl",
+        "label": "Worker runtime log",
+        "purpose": "Worker milestone evidence recorded during node execution.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/runtime/observations.jsonl",
+        "label": "Human observation ledger",
+        "purpose": "Append-only live human observation records that can influence completion without pausing the run."
+      },
+      {
+        "path": "results/2026-09-24/run/interventions.jsonl",
+        "label": "Supervisor intervention ledger",
+        "purpose": "Append-only supervisor intervention records.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/nodes",
+        "label": "Node attempt tree",
+        "purpose": "Per-node execution metadata, artifacts, logs, context, and tool invocation ledgers.",
+        "bytes": 288,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/workspace-changes",
+        "label": "Workspace change captures",
+        "purpose": "Git status, diffs, and changed-file lists used for review/apply workflows.",
+        "bytes": 96,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/artifact-index.json",
+        "label": "artifact index",
+        "purpose": "Delivery evidence file referenced by the manifest and audit index."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/change-map.json",
+        "label": "change map",
+        "purpose": "Delivery evidence file referenced by the manifest and audit index."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/validation-ledger.json",
+        "label": "validation ledger",
+        "purpose": "Delivery evidence file referenced by the manifest and audit index."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/decision-log.md",
+        "label": "decision log",
+        "purpose": "Delivery evidence file referenced by the manifest and audit index."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/intervention-trace.json",
+        "label": "intervention trace",
+        "purpose": "Delivery evidence file referenced by the manifest and audit index."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/milestones.json",
+        "label": "milestones",
+        "purpose": "Delivery evidence file referenced by the manifest and audit index."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/workspace-improvements.json",
+        "label": "workspace improvements",
+        "purpose": "Delivery evidence file referenced by the manifest and audit index."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/delivery-source.json",
+        "label": "delivery source",
+        "purpose": "Runtime-authored source packet used by the delivery curator and verifier."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/delivery-source.md",
+        "label": "delivery source markdown",
+        "purpose": "Human-readable source packet used by the delivery curator."
+      },
+      {
+        "path": "results/2026-09-24/run/delivery/evidence/curation-verdict.json",
+        "label": "curation verdict",
+        "purpose": "Deterministic verification result for the curated delivery files."
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/verifier/verdict.md",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate outcome verification (passed)",
+        "purpose": "Outcome verifier verdict, summary, and findings rendered for review.",
+        "bytes": 1041,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/verifier.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate outcome verification JSON",
+        "purpose": "Outcome verifier verdict, findings, and verifier metadata in machine-readable form.",
+        "bytes": 1448,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/verifier/verdict.md",
+        "label": "export_readiness__managed__pattern_deep_work__plan outcome verification (passed)",
+        "purpose": "Outcome verifier verdict, summary, and findings rendered for review.",
+        "bytes": 1283,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/verifier.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan outcome verification JSON",
+        "purpose": "Outcome verifier verdict, findings, and verifier metadata in machine-readable form.",
+        "bytes": 1834,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/diff.patch",
+        "label": "export_readiness node workspace diff (attempt 1)",
+        "purpose": "Per-attempt workspace diff captured against the pre-execution baseline.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/diff.patch",
+        "label": "export_readiness__managed__pattern_deep_work__completion_gate node workspace diff (attempt 1)",
+        "purpose": "Per-attempt workspace diff captured against the pre-execution baseline.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/workspace-changes/diff.patch",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_01_behavior node workspace diff (attempt 1)",
+        "purpose": "Per-attempt workspace diff captured against the pre-execution baseline.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/workspace-changes/diff.patch",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity node workspace diff (attempt 1)",
+        "purpose": "Per-attempt workspace diff captured against the pre-execution baseline.",
+        "bytes": 35237,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/diff.patch",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity node workspace diff (attempt 1)",
+        "purpose": "Per-attempt workspace diff captured against the pre-execution baseline.",
+        "bytes": 35237,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/diff.patch",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate node workspace diff (attempt 1)",
+        "purpose": "Per-attempt workspace diff captured against the pre-execution baseline.",
+        "bytes": 35237,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/diff.patch",
+        "label": "export_readiness__managed__pattern_deep_work__plan node workspace diff (attempt 1)",
+        "purpose": "Per-attempt workspace diff captured against the pre-execution baseline.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/index.jsonl",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate tool invocation ledger",
+        "purpose": "Canonical JSONL ledger of runtime-provided `af` and plugin tool calls for this execution.",
+        "bytes": 29665,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/index.jsonl",
+        "label": "export_readiness__managed__pattern_deep_work__plan tool invocation ledger",
+        "purpose": "Canonical JSONL ledger of runtime-provided `af` and plugin tool calls for this execution.",
+        "bytes": 16619,
+        "empty": false
+      }
+    ],
+    "debug_only": [
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/human-debug/harness/stdout.log",
+        "label": "export_readiness stdout log",
+        "purpose": "Raw harness stdout for this execution.",
+        "bytes": 68,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/human-debug/harness/stderr.log",
+        "label": "export_readiness stderr log",
+        "purpose": "Raw harness stderr for this execution.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/runtime/result.json",
+        "label": "export_readiness harness result",
+        "purpose": "Raw harness result metadata for this execution.",
+        "bytes": 190,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/runtime/context.json",
+        "label": "export_readiness runtime context",
+        "purpose": "Exact pointer-only context contract provided to the node.",
+        "bytes": 8386,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/agent/context.md",
+        "label": "export_readiness agent context brief",
+        "purpose": "Prompt-facing index of context pointers and provenance.",
+        "bytes": 2603,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/human-debug/context-provenance.json",
+        "label": "export_readiness context provenance",
+        "purpose": "Digests and source metadata for context debugging.",
+        "bytes": 1237,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/human-debug/harness/stdout.log",
+        "label": "export_readiness__managed__pattern_deep_work__completion_gate stdout log",
+        "purpose": "Raw harness stdout for this execution.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/human-debug/harness/stderr.log",
+        "label": "export_readiness__managed__pattern_deep_work__completion_gate stderr log",
+        "purpose": "Raw harness stderr for this execution.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/runtime/result.json",
+        "label": "export_readiness__managed__pattern_deep_work__completion_gate harness result",
+        "purpose": "Raw harness result metadata for this execution.",
+        "bytes": 367,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/runtime/context.json",
+        "label": "export_readiness__managed__pattern_deep_work__completion_gate runtime context",
+        "purpose": "Exact pointer-only context contract provided to the node.",
+        "bytes": 11569,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/agent/context.md",
+        "label": "export_readiness__managed__pattern_deep_work__completion_gate agent context brief",
+        "purpose": "Prompt-facing index of context pointers and provenance.",
+        "bytes": 2697,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/human-debug/context-provenance.json",
+        "label": "export_readiness__managed__pattern_deep_work__completion_gate context provenance",
+        "purpose": "Digests and source metadata for context debugging.",
+        "bytes": 1446,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/human-debug/harness/stdout.log",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_01_behavior stdout log",
+        "purpose": "Raw harness stdout for this execution.",
+        "bytes": 4525,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/human-debug/harness/stderr.log",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_01_behavior stderr log",
+        "purpose": "Raw harness stderr for this execution.",
+        "bytes": 0,
+        "empty": true
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/runtime/result.json",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_01_behavior harness result",
+        "purpose": "Raw harness result metadata for this execution.",
+        "bytes": 5364,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/runtime/context.json",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_01_behavior runtime context",
+        "purpose": "Exact pointer-only context contract provided to the node.",
+        "bytes": 8011,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/agent/context.md",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_01_behavior agent context brief",
+        "purpose": "Prompt-facing index of context pointers and provenance.",
+        "bytes": 2103,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/human-debug/context-provenance.json",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_01_behavior context provenance",
+        "purpose": "Digests and source metadata for context debugging.",
+        "bytes": 1520,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/human-debug/harness/stdout.log",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity stdout log",
+        "purpose": "Raw harness stdout for this execution.",
+        "bytes": 793,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/human-debug/harness/stderr.log",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity stderr log",
+        "purpose": "Raw harness stderr for this execution.",
+        "bytes": 70168,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/runtime/result.json",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity harness result",
+        "purpose": "Raw harness result metadata for this execution.",
+        "bytes": 3316,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/runtime/context.json",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity runtime context",
+        "purpose": "Exact pointer-only context contract provided to the node.",
+        "bytes": 8017,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/agent/context.md",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity agent context brief",
+        "purpose": "Prompt-facing index of context pointers and provenance.",
+        "bytes": 2103,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/human-debug/context-provenance.json",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity context provenance",
+        "purpose": "Digests and source metadata for context debugging.",
+        "bytes": 1816,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/harness/stdout.log",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity stdout log",
+        "purpose": "Raw harness stdout for this execution.",
+        "bytes": 1039,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/harness/stderr.log",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity stderr log",
+        "purpose": "Raw harness stderr for this execution.",
+        "bytes": 72580,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/runtime/result.json",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity harness result",
+        "purpose": "Raw harness result metadata for this execution.",
+        "bytes": 3826,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/runtime/context.json",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity runtime context",
+        "purpose": "Exact pointer-only context contract provided to the node.",
+        "bytes": 8035,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/agent/context.md",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity agent context brief",
+        "purpose": "Prompt-facing index of context pointers and provenance.",
+        "bytes": 2103,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/context-provenance.json",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity context provenance",
+        "purpose": "Digests and source metadata for context debugging.",
+        "bytes": 1828,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/harness/stdout.log",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate stdout log",
+        "purpose": "Raw harness stdout for this execution.",
+        "bytes": 1212,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/harness/stderr.log",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate stderr log",
+        "purpose": "Raw harness stderr for this execution.",
+        "bytes": 606312,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/result.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate harness result",
+        "purpose": "Raw harness result metadata for this execution.",
+        "bytes": 1838,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/context.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate runtime context",
+        "purpose": "Exact pointer-only context contract provided to the node.",
+        "bytes": 7472,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/agent/context.md",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate agent context brief",
+        "purpose": "Prompt-facing index of context pointers and provenance.",
+        "bytes": 1569,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/context-provenance.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate context provenance",
+        "purpose": "Digests and source metadata for context debugging.",
+        "bytes": 1742,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/harness/stdout.log",
+        "label": "export_readiness__managed__pattern_deep_work__plan stdout log",
+        "purpose": "Raw harness stdout for this execution.",
+        "bytes": 163,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/harness/stderr.log",
+        "label": "export_readiness__managed__pattern_deep_work__plan stderr log",
+        "purpose": "Raw harness stderr for this execution.",
+        "bytes": 121471,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/result.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan harness result",
+        "purpose": "Raw harness result metadata for this execution.",
+        "bytes": 1817,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/context.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan runtime context",
+        "purpose": "Exact pointer-only context contract provided to the node.",
+        "bytes": 12585,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/agent/context.md",
+        "label": "export_readiness__managed__pattern_deep_work__plan agent context brief",
+        "purpose": "Prompt-facing index of context pointers and provenance.",
+        "bytes": 1120,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/context-provenance.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan context provenance",
+        "purpose": "Digests and source metadata for context debugging.",
+        "bytes": 1716,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0001-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 167,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0001-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 301,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0002-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 195,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0002-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 2072,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0003-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 407,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0003-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 1881,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0004-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 452,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0004-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 507,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0005-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 437,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0005-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 492,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0006-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 196,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0006-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 859,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0007-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 506,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0007-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 561,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0008-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 452,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0008-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 507,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0009-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 668,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0009-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 724,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0010-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 200,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0010-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 157,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0011-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 203,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0011-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 160,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0012-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 399,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0012-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 4302,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0013-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 182,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0013-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__generate_validate af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 1456,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0001-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 167,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0001-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 301,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0002-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 196,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0002-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 859,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0003-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 194,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0003-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 151,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0004-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 194,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0004-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 151,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0005-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 182,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0005-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 1714,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0006-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 183,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0006-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 203,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0007-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 167,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0007-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 1314,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0008-input.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af input",
+        "purpose": "Raw invocation input for a single runtime-provided tool invocation.",
+        "bytes": 182,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0008-output.json",
+        "label": "export_readiness__managed__pattern_deep_work__plan af output",
+        "purpose": "Raw invocation output for a single runtime-provided tool invocation.",
+        "bytes": 1199,
+        "empty": false
+      },
+      {
+        "path": "results/2026-09-24/run/runtime",
+        "label": "Runtime coordination state",
+        "purpose": "Milestone evidence, helper sessions, and structured human resume input for live/debug workflows.",
+        "bytes": 128,
+        "empty": false
+      }
+    ],
+    "empty_or_noop": [
+      {
+        "path": "results/2026-09-24/run/interventions.jsonl",
+        "label": "Supervisor intervention ledger",
+        "purpose": "No supervisor interventions were recorded.",
+        "bytes": 0,
+        "empty": true,
+        "reason": "empty_ledger"
+      },
+      {
+        "path": "results/2026-09-24/run/supervisor-timeline.jsonl",
+        "label": "Supervisor timeline",
+        "purpose": "No supervisor decisions were recorded.",
+        "bytes": 0,
+        "empty": true,
+        "reason": "empty_ledger"
+      },
+      {
+        "path": "results/2026-09-24/run/runtime/log.jsonl",
+        "label": "Worker runtime log",
+        "purpose": "No worker milestone evidence was recorded.",
+        "bytes": 0,
+        "empty": true,
+        "reason": "empty_ledger"
+      },
+      {
+        "path": "results/2026-09-24/run/runtime/observations.jsonl",
+        "label": "Human observation ledger",
+        "purpose": "No live human observations were recorded.",
+        "reason": "missing_ledger"
+      },
+      {
+        "path": "results/2026-09-24/run/compile_diagnostics.json",
+        "label": "Compile diagnostics",
+        "purpose": "Compilation produced no diagnostics.",
+        "bytes": 3,
+        "empty": false,
+        "reason": "no_diagnostics"
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/human-debug/harness/stderr.log",
+        "label": "export_readiness stderr log",
+        "purpose": "Execution produced no stderr output.",
+        "bytes": 0,
+        "empty": true,
+        "reason": "empty_stderr"
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/human-debug/harness/stderr.log",
+        "label": "export_readiness__managed__pattern_deep_work__completion_gate stderr log",
+        "purpose": "Execution produced no stderr output.",
+        "bytes": 0,
+        "empty": true,
+        "reason": "empty_stderr"
+      },
+      {
+        "path": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/human-debug/harness/stderr.log",
+        "label": "export_readiness__managed__pattern_deep_work__criterion_01_behavior stderr log",
+        "purpose": "Execution produced no stderr output.",
+        "bytes": 0,
+        "empty": true,
+        "reason": "empty_stderr"
+      }
+    ]
+  },
+  "artifact_counts": {
+    "attempts": 7,
+    "final_attempts": 7,
+    "events": 55,
+    "agent_responses": 2,
+    "final_declared_artifacts": 6,
+    "superseded_declared_artifacts": 0,
+    "tool_invocation_records": 21,
+    "workspace_change_artifacts": 1,
+    "node_workspace_change_artifacts": 7,
+    "operator_observations": 0,
+    "milestones": 1,
+    "milestone_validation_logs": 4,
+    "verifications_passed": 2,
+    "verifications_failed": 0
+  },
+  "intervention_count": 0,
+  "active_failure_count": 0,
+  "recovered_issue_count": 0,
+  "workspace_changed_file_count": 8,
+  "curation": {
+    "status": "passed",
+    "source_path": "results/2026-09-24/run/delivery/evidence/delivery-source.json",
+    "source_markdown_path": "results/2026-09-24/run/delivery/evidence/delivery-source.md",
+    "verdict_path": "results/2026-09-24/run/delivery/evidence/curation-verdict.json",
+    "prompt_path": "results/2026-09-24/run/delivery/evidence/curation-prompt.md",
+    "response_path": "results/2026-09-24/run/delivery/evidence/curation-response.md"
+  }
+}

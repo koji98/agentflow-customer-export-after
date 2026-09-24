@@ -1,0 +1,185 @@
+{
+  "version": "1",
+  "attempt_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_dir": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8",
+  "packet_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/completion-packet.json",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+  "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+  "kind": "agent",
+  "goal": "Satisfy the full deep-work task from the current state, using plan.md as guidance and validating the result with concrete evidence.",
+  "acceptance_criteria": [
+    "The work satisfies the task contract or records a precise remaining gap.",
+    "Focused validation is run when feasible, with exact results recorded in work notes and draft artifacts.",
+    "Draft user-authored final artifacts exist so completion criteria can grade the result."
+  ],
+  "constraints": [
+    "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+    "Do not weaken, remove, or skip existing tests.",
+    "Do not edit files outside this repository or change independent acceptance tools.",
+    "Do not add dependencies, call remote services, or include unrelated refactors.",
+    "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+    "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+  ],
+  "authority": {
+    "sandbox": "workspace-write",
+    "repos": [
+      "main"
+    ]
+  },
+  "declared_artifacts": [
+    {
+      "name": "work_notes",
+      "required": true,
+      "from": "output_dir",
+      "path": "work-notes.md",
+      "expected_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md",
+      "description": "Notes and validation evidence from the current deep work result.",
+      "status": "present",
+      "current_attempt": true,
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 5324,
+      "sha256": "85ea4061c0db8c4e8a1cfb511a943a79d368d293978c6cda09d525b00e5547ca",
+      "preview": {
+        "kind": "text",
+        "line_count": 47
+      }
+    },
+    {
+      "name": "draft_summary",
+      "required": true,
+      "from": "output_dir",
+      "path": "draft-summary.md",
+      "expected_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md",
+      "description": "Draft content for final artifact summary.",
+      "status": "present",
+      "current_attempt": true,
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 2697,
+      "sha256": "20e86438229a07515b6e6a28ff7eb641c08630787600dbac37eb826f1b226190",
+      "preview": {
+        "kind": "text",
+        "line_count": 34
+      }
+    }
+  ],
+  "published_artifacts": [
+    "work_notes",
+    "draft_summary"
+  ],
+  "missing_artifacts": [],
+  "artifact_findings": [],
+  "validation_evidence": [],
+  "orientation": {
+    "orient_called": true,
+    "orient_call_count": 1,
+    "first_orient_at": "2026-09-24T10:47:50.050Z",
+    "last_orient_at": "2026-09-24T10:47:50.050Z",
+    "modes_seen": [
+      "startup_restore"
+    ],
+    "evidence_ref": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/tools/0001-output.json"
+  },
+  "milestones": {
+    "total": 1,
+    "active": 0,
+    "completed": 1,
+    "blocked": 0,
+    "validation_logs": 4,
+    "milestones": [
+      {
+        "id": "m1",
+        "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "title": "Repair exports and add safe preview",
+        "goal": "Implement and validate complete CSV export, stable preview API, query-snapshotted operator preview UI, regression coverage, and delivery artifacts",
+        "status": "completed",
+        "logs": [
+          {
+            "log_id": "m1.l1",
+            "kind": "validation",
+            "summary": "Expected RED: test modules fail because matchingCustomers and previewCustomers are not yet exported",
+            "command": "node --test test/query.test.mjs test/server.test.mjs",
+            "result": "fail",
+            "created_at": "2026-09-24T10:49:04.100Z"
+          },
+          {
+            "log_id": "m1.l2",
+            "kind": "validation",
+            "summary": "Backend slice passes 12 tests; only the expected missing UI preview test remains red",
+            "command": "node --test test/query.test.mjs test/server.test.mjs",
+            "result": "fail",
+            "created_at": "2026-09-24T10:49:50.529Z"
+          },
+          {
+            "log_id": "m1.l3",
+            "kind": "validation",
+            "summary": "All changed JavaScript parsed and the diff passed whitespace validation",
+            "command": "node --check public/app.js; node --check src/customers.mjs; node --check src/export.mjs; node --check src/server.mjs; git diff --check",
+            "result": "pass",
+            "created_at": "2026-09-24T10:52:56.144Z"
+          },
+          {
+            "log_id": "m1.l4",
+            "kind": "validation",
+            "summary": "13/13 Node tests, 24/24 export/listing acceptance checks, and 5/5 preview checks passed; exit 0",
+            "command": "npm test && python3 showcase/acceptance/check_preview.py",
+            "result": "pass",
+            "created_at": "2026-09-24T10:52:56.209Z"
+          },
+          {
+            "log_id": "m1.l5",
+            "kind": "finding",
+            "summary": "Five-axis review found no required issues",
+            "evidence": "Shared matchingCustomers keeps filter/order semantics centralized; listing alone paginates; CSV encoding uses the stable columns array; preview download reuses the successful request query and late responses are discarded; DOM values use textContent; changed files are limited to src, public, and focused tests with no dependency or protected-file changes.",
+            "created_at": "2026-09-24T10:52:56.272Z"
+          }
+        ],
+        "created_at": "2026-09-24T10:48:18.402Z",
+        "updated_at": "2026-09-24T10:53:40.575Z",
+        "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+        "graph_id": "northstar-export-readiness",
+        "agent_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "node_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+        "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+        "completion_evidence": "Implementation complete; required artifacts published; exact gate passed with 13/13 Node tests, 24/24 export/listing checks, and 5/5 preview checks; no known remaining task gap.",
+        "completed_at": "2026-09-24T10:53:40.575Z"
+      }
+    ]
+  },
+  "runtime_logs": {
+    "progress": 0,
+    "finding": 0,
+    "decision": 0,
+    "blocking_findings": 0
+  },
+  "active_blockers": [],
+  "operator_observations": {
+    "active": 0,
+    "blocking": 0,
+    "latest": []
+  },
+  "supervisor_recovery": {
+    "active": false
+  },
+  "managed": {
+    "active": false
+  },
+  "helpers": {
+    "active": 0,
+    "completed": 0,
+    "pending": 0,
+    "failed": 0,
+    "missing_artifacts": [],
+    "latest": []
+  },
+  "completion_status": "ready_for_verification",
+  "ready_for_verification": true,
+  "authority_requests": [],
+  "blocking_reasons": []
+}

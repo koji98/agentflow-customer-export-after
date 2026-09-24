@@ -1,0 +1,76 @@
+{
+  "version": "1",
+  "attempt_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_dir": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202",
+  "packet_path": "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/runtime/completion-packet.json",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+  "authored_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+  "kind": "check",
+  "goal": "Run deterministic completion criterion `behavior` for the current deep work result.",
+  "acceptance_criteria": [
+    "The command result is captured as completion feedback for the deterministic gate."
+  ],
+  "constraints": [
+    "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+    "Do not weaken, remove, or skip existing tests.",
+    "Do not edit files outside this repository or change independent acceptance tools.",
+    "Do not add dependencies, call remote services, or include unrelated refactors.",
+    "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+    "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+  ],
+  "authority": {
+    "sandbox": "workspace-write",
+    "repos": [
+      "main"
+    ]
+  },
+  "declared_artifacts": [],
+  "published_artifacts": [],
+  "missing_artifacts": [],
+  "artifact_findings": [],
+  "validation_evidence": [],
+  "orientation": {
+    "orient_called": false,
+    "orient_call_count": 0,
+    "modes_seen": []
+  },
+  "milestones": {
+    "total": 0,
+    "active": 0,
+    "completed": 0,
+    "blocked": 0,
+    "validation_logs": 0,
+    "milestones": []
+  },
+  "runtime_logs": {
+    "progress": 0,
+    "finding": 0,
+    "decision": 0,
+    "blocking_findings": 0
+  },
+  "active_blockers": [],
+  "operator_observations": {
+    "active": 0,
+    "blocking": 0,
+    "latest": []
+  },
+  "supervisor_recovery": {
+    "active": false
+  },
+  "managed": {
+    "active": false
+  },
+  "helpers": {
+    "active": 0,
+    "completed": 0,
+    "pending": 0,
+    "failed": 0,
+    "missing_artifacts": [],
+    "latest": []
+  },
+  "completion_status": "ready_for_verification",
+  "ready_for_verification": true,
+  "authority_requests": [],
+  "blocking_reasons": []
+}

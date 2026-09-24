@@ -1,0 +1,1388 @@
+{
+  "status": "passed",
+  "nodes": [
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+      "repo_alias": "main",
+      "pointer_count": 3,
+      "total_size_bytes": 4923,
+      "items": [
+        {
+          "key": "customer_export_ticket",
+          "name": "customer_export_ticket",
+          "kind": "workspace_file",
+          "path": "TICKET.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 1460,
+          "sample_matches": [
+            "TICKET.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "TICKET.md",
+              "size_bytes": 1460
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "project_guide",
+          "name": "project_guide",
+          "kind": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 955,
+          "sample_matches": [
+            "APP_GUIDE.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "APP_GUIDE.md",
+              "size_bytes": 955
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "preview_contract",
+          "name": "preview_contract",
+          "kind": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 2508,
+          "sample_matches": [
+            "EXPORT_PREVIEW.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "EXPORT_PREVIEW.md",
+              "size_bytes": 2508
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "failed_completion_scorecard",
+          "name": "failed_completion_scorecard",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "previous_work_notes",
+          "name": "previous_work_notes",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "previous_criterion_01_result",
+          "name": "previous_criterion_01_result",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "previous_criterion_01_stdout",
+          "name": "previous_criterion_01_stdout",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "previous_criterion_01_stderr",
+          "name": "previous_criterion_01_stderr",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "previous_criterion_02_result",
+          "name": "previous_criterion_02_result",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "previous_criterion_03_result",
+          "name": "previous_criterion_03_result",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+      "repo_alias": "main",
+      "pointer_count": 3,
+      "total_size_bytes": 4923,
+      "items": [
+        {
+          "key": "customer_export_ticket",
+          "name": "customer_export_ticket",
+          "kind": "workspace_file",
+          "path": "TICKET.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 1460,
+          "sample_matches": [
+            "TICKET.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "TICKET.md",
+              "size_bytes": 1460
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "project_guide",
+          "name": "project_guide",
+          "kind": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 955,
+          "sample_matches": [
+            "APP_GUIDE.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "APP_GUIDE.md",
+              "size_bytes": 955
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "preview_contract",
+          "name": "preview_contract",
+          "kind": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 2508,
+          "sample_matches": [
+            "EXPORT_PREVIEW.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "EXPORT_PREVIEW.md",
+              "size_bytes": 2508
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "plan",
+          "name": "plan",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "failed_completion_scorecard",
+          "name": "failed_completion_scorecard",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "repo_alias": "main",
+      "pointer_count": 3,
+      "total_size_bytes": 4923,
+      "items": [
+        {
+          "key": "customer_export_ticket",
+          "name": "customer_export_ticket",
+          "kind": "workspace_file",
+          "path": "TICKET.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 1460,
+          "sample_matches": [
+            "TICKET.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "TICKET.md",
+              "size_bytes": 1460
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "project_guide",
+          "name": "project_guide",
+          "kind": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 955,
+          "sample_matches": [
+            "APP_GUIDE.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "APP_GUIDE.md",
+              "size_bytes": 955
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "preview_contract",
+          "name": "preview_contract",
+          "kind": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 2508,
+          "sample_matches": [
+            "EXPORT_PREVIEW.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "EXPORT_PREVIEW.md",
+              "size_bytes": 2508
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "work_notes",
+          "name": "work_notes",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "draft_summary",
+          "name": "draft_summary",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "repo_alias": "main",
+      "pointer_count": 3,
+      "total_size_bytes": 4923,
+      "items": [
+        {
+          "key": "customer_export_ticket",
+          "name": "customer_export_ticket",
+          "kind": "workspace_file",
+          "path": "TICKET.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 1460,
+          "sample_matches": [
+            "TICKET.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "TICKET.md",
+              "size_bytes": 1460
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "project_guide",
+          "name": "project_guide",
+          "kind": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 955,
+          "sample_matches": [
+            "APP_GUIDE.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "APP_GUIDE.md",
+              "size_bytes": 955
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "preview_contract",
+          "name": "preview_contract",
+          "kind": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 2508,
+          "sample_matches": [
+            "EXPORT_PREVIEW.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "EXPORT_PREVIEW.md",
+              "size_bytes": 2508
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "work_notes",
+          "name": "work_notes",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "draft_summary",
+          "name": "draft_summary",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "repo_alias": "main",
+      "pointer_count": 3,
+      "total_size_bytes": 4923,
+      "items": [
+        {
+          "key": "customer_export_ticket",
+          "name": "customer_export_ticket",
+          "kind": "workspace_file",
+          "path": "TICKET.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 1460,
+          "sample_matches": [
+            "TICKET.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "TICKET.md",
+              "size_bytes": 1460
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "project_guide",
+          "name": "project_guide",
+          "kind": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 955,
+          "sample_matches": [
+            "APP_GUIDE.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "APP_GUIDE.md",
+              "size_bytes": 955
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "preview_contract",
+          "name": "preview_contract",
+          "kind": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 2508,
+          "sample_matches": [
+            "EXPORT_PREVIEW.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "EXPORT_PREVIEW.md",
+              "size_bytes": 2508
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "work_notes",
+          "name": "work_notes",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "draft_summary",
+          "name": "draft_summary",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "authored_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "repo_alias": "main",
+      "pointer_count": 3,
+      "total_size_bytes": 4923,
+      "items": [
+        {
+          "key": "customer_export_ticket",
+          "name": "customer_export_ticket",
+          "kind": "workspace_file",
+          "path": "TICKET.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 1460,
+          "sample_matches": [
+            "TICKET.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "TICKET.md",
+              "size_bytes": 1460
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "project_guide",
+          "name": "project_guide",
+          "kind": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 955,
+          "sample_matches": [
+            "APP_GUIDE.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "APP_GUIDE.md",
+              "size_bytes": 955
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "preview_contract",
+          "name": "preview_contract",
+          "kind": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 2508,
+          "sample_matches": [
+            "EXPORT_PREVIEW.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "EXPORT_PREVIEW.md",
+              "size_bytes": 2508
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "criterion_01_result",
+          "name": "criterion_01_result",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "criterion_01_stdout",
+          "name": "criterion_01_stdout",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "criterion_01_stderr",
+          "name": "criterion_01_stderr",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "criterion_02_result",
+          "name": "criterion_02_result",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "criterion_03_result",
+          "name": "criterion_03_result",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+      "authored_id": "export_readiness",
+      "repo_alias": "main",
+      "pointer_count": 3,
+      "total_size_bytes": 4923,
+      "items": [
+        {
+          "key": "customer_export_ticket",
+          "name": "customer_export_ticket",
+          "kind": "workspace_file",
+          "path": "TICKET.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 1460,
+          "sample_matches": [
+            "TICKET.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "TICKET.md",
+              "size_bytes": 1460
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "project_guide",
+          "name": "project_guide",
+          "kind": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 955,
+          "sample_matches": [
+            "APP_GUIDE.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "APP_GUIDE.md",
+              "size_bytes": 955
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "preview_contract",
+          "name": "preview_contract",
+          "kind": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "repo_alias": "main",
+          "match_count": 1,
+          "total_size_bytes": 2508,
+          "sample_matches": [
+            "EXPORT_PREVIEW.md"
+          ],
+          "largest_matches": [
+            {
+              "path": "EXPORT_PREVIEW.md",
+              "size_bytes": 2508
+            }
+          ],
+          "default_ignored_roots": [
+            ".git",
+            ".task-runtime",
+            ".agentflow",
+            ".agentflow-runtime",
+            "node_modules",
+            ".venv",
+            "venv",
+            ".tox",
+            ".mypy_cache",
+            ".pytest_cache",
+            ".ruff_cache",
+            ".next",
+            ".nuxt",
+            ".turbo",
+            ".cache",
+            "dist",
+            "build",
+            "coverage",
+            "target",
+            "vendor",
+            "vendors",
+            "third_party",
+            "generated",
+            "gen",
+            "__generated__",
+            "bazel-bin",
+            "bazel-out"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "completion_scorecard",
+          "name": "completion_scorecard",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "work_notes",
+          "name": "work_notes",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        },
+        {
+          "key": "draft_summary",
+          "name": "draft_summary",
+          "kind": "artifact",
+          "match_count": 0,
+          "total_size_bytes": 0,
+          "sample_matches": [],
+          "largest_matches": [],
+          "default_ignored_roots": [],
+          "errors": [],
+          "warnings": []
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "diagnostics": []
+}

@@ -1,0 +1,94 @@
+{
+  "nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/harness/stderr.log": [
+    {
+      "line": 7,
+      "text": "sandbox: read-only (network access enabled)"
+    },
+    {
+      "line": 218,
+      "text": "npm test"
+    },
+    {
+      "line": 224,
+      "text": "| `npm test` | All 6 app tests pass. They miss the export bug. |"
+    },
+    {
+      "line": 263,
+      "text": "npm test"
+    },
+    {
+      "line": 623,
+      "text": "- Required exact gate: `npm test && python3 showcase/acceptance/check_preview.py` exited 0. Node reported 13 passed, 0 failed, 0 skipped. The independent checker reported 24/24 export/listing checks passed and all 5 preview cases passed, including page-two active customers, combined descending filters, commas/line breaks, and no results."
+    },
+    {
+      "line": 667,
+      "text": "- `npm test && python3 showcase/acceptance/check_preview.py` \u2014 exit 0; 13/13 Node tests, 24/24 export/listing checks, and 5/5 preview checks passed, with no skips."
+    },
+    {
+      "line": 1158,
+      "text": "/bin/zsh -lc 'npm test' in ."
+    },
+    {
+      "line": 1177,
+      "text": "\u2139 tests 13"
+    },
+    {
+      "line": 1179,
+      "text": "\u2139 pass 13"
+    },
+    {
+      "line": 1180,
+      "text": "\u2139 fail 0"
+    },
+    {
+      "line": 1187,
+      "text": "{\"passed\":true,\"score\":1,\"summary\":\"Source evidence fully satisfies operator clarity. public/app.js shows the full count (\u201cThis download contains \u2026 matching customers.\u201d), active scope (\u201cFilters: \u2026\u201d), columns (\u201cExported columns: \u2026\u201d), and distinguishes the sample from the full file (\u201cSample: first five matching records. The complete CSV download contains all \u2026\u201d). public/index.html provides unambiguous \u201cDownload complete CSV,\u201d \u201cCancel,\u201d and \u201cClose export preview\u201d actions. The no-match state says the CSV contains only column headers. public/app.js snapshots one query for preview and download, removes the download link while loading, rejects superseded responses, and invalidates the preview on filter changes or closure, preventing stale-query downloads. src/export.mjs derives count and first-five sample from the same unpaginated matches used by export. Current npm test passed 13/13. No rendered-browser behavior is claimed; the supplied notes explicitly state it was not observed.\",\"issues\":["
+    }
+  ],
+  "nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/human-debug/harness/stderr.log": [
+    {
+      "line": 7,
+      "text": "sandbox: read-only (network access enabled)"
+    },
+    {
+      "line": 547,
+      "text": "npm test"
+    },
+    {
+      "line": 553,
+      "text": "| `npm test` | All 6 app tests pass. They miss the export bug. |"
+    },
+    {
+      "line": 592,
+      "text": "npm test"
+    },
+    {
+      "line": 665,
+      "text": "- Required exact gate: `npm test && python3 showcase/acceptance/check_preview.py` exited 0. Node reported 13 passed, 0 failed, 0 skipped. The independent checker reported 24/24 export/listing checks passed and all 5 preview cases passed, including page-two active customers, combined descending filters, commas/line breaks, and no results."
+    },
+    {
+      "line": 709,
+      "text": "- `npm test && python3 showcase/acceptance/check_preview.py` \u2014 exit 0; 13/13 Node tests, 24/24 export/listing checks, and 5/5 preview checks passed, with no skips."
+    },
+    {
+      "line": 840,
+      "text": "/bin/zsh -lc 'npm test' in ."
+    },
+    {
+      "line": 859,
+      "text": "\u2139 tests 13"
+    },
+    {
+      "line": 861,
+      "text": "\u2139 pass 13"
+    },
+    {
+      "line": 862,
+      "text": "\u2139 fail 0"
+    },
+    {
+      "line": 869,
+      "text": "{\"passed\":true,\"score\":1,\"summary\":\"The implementation is focused and maintainable. `src/customers.mjs` centralizes filtering and ordering in `matchingCustomers`, with pagination applied only by `queryCustomers`; `src/export.mjs` reuses that single rule set for both complete CSV generation and five-record previews while keeping CSV encoding and the seven-column contract local and clear. `src/server.mjs` adds only the required preview route, and `public/app.js` uses one captured query for preview and download with straightforward stale-response invalidation. No dependencies, unrelated rewrites, dead code, or conflicting business rules were introduced. Focused regression coverage was added, and the evaluator reran `npm test` successfully: 13 passed, 0 failed, 0 skipped.\",\"issues\":[]}"
+    }
+  ]
+}

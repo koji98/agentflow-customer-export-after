@@ -1,0 +1,44 @@
+{
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+  "authored_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+  "kind": "check",
+  "repo_alias": "main",
+  "execution_dir": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af",
+  "attempt_index": 1,
+  "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+  "iteration_index": 1,
+  "iteration_attempt_index": 1,
+  "status": "passed",
+  "started_at": "2026-09-24T10:55:06.073Z",
+  "artifacts": {
+    "verification_json": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/artifacts/verification.json",
+    "completion_scorecard": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/artifacts/scorecard.json"
+  },
+  "metadata": {
+    "completion": {
+      "completion_status": "ready_for_verification",
+      "ready_for_verification": true,
+      "blocking_reasons": [],
+      "packet_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/runtime/completion-packet.json"
+    },
+    "node_workspace_changes": {
+      "baseline_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/baseline.json",
+      "after_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/after.json",
+      "status_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/status.txt",
+      "diff_patch_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/diff.patch",
+      "changed_files_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/changed-files.json",
+      "changed_file_count": 0,
+      "status": "captured"
+    }
+  },
+  "ended_at": "2026-09-24T10:55:06.304Z",
+  "duration_ms": 231,
+  "outcome": "passed",
+  "stdout_log_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/human-debug/harness/stdout.log",
+  "stderr_log_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/human-debug/harness/stderr.log",
+  "result_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/runtime/result.json",
+  "context_packet_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/runtime/context.json",
+  "context_manifest_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/agent/context.md",
+  "context_provenance_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/human-debug/context-provenance.json"
+}

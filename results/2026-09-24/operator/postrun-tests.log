@@ -1,0 +1,25 @@
+
+> agentflow-customer-dashboard-demo@1.0.0 test
+> node --test test/*.test.mjs
+
+✔ listing paginates after filtering and preserves total (13.222792ms)
+✔ search and segment combine, with descending ID order (0.1655ms)
+✔ zero matches and invalid pagination have safe defaults (0.107542ms)
+✔ matching customers preserve filters and order without pagination (0.117208ms)
+✔ customer API returns a paginated synthetic dataset (34.534959ms)
+✔ dashboard and CSV download are served with appropriate content types (5.196708ms)
+✔ unknown paths and mutation requests are rejected (4.113208ms)
+✔ CSV export ignores pagination and safely preserves all seven fields (0.24725ms)
+✔ CSV export returns only its stable header when no customers match (0.106333ms)
+✔ preview returns the full count and first five ordered matches without pagination (0.765834ms)
+✔ preview API follows the same filtered query and ignores listing pagination (4.672667ms)
+✔ preview API returns an empty sample and stable columns for no matches (2.283542ms)
+✔ dashboard source exposes a labeled preview, download, cancel, and no-match state (4.799334ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 204.993

@@ -1,0 +1,10 @@
+{
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "graph_id": "northstar-export-readiness",
+  "launch_profile": "worker",
+  "workspace_backend": "inplace",
+  "graph_path": "./agentflow.graph.json",
+  "status": "passed",
+  "started_at": "2026-09-24T10:42:57.812Z",
+  "ended_at": "2026-09-24T10:55:06.551Z"
+}

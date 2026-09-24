@@ -1,0 +1,1204 @@
+{
+  "graph_id": "northstar-export-readiness",
+  "intent": {
+    "goal": "Give Northstar operators a correct customer export and a clear preview of exactly what they will download.",
+    "constraints": [
+      "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+      "Do not weaken, remove, or skip existing tests.",
+      "Do not edit files outside this repository or change independent acceptance tools.",
+      "Do not add dependencies, call remote services, or include unrelated refactors.",
+      "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+      "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+    ],
+    "acceptance_criteria": [
+      "The existing CSV export contract and the export preview contract are satisfied.",
+      "The implementation is focused and understandable, and the interface clearly distinguishes previewed samples from the full download.",
+      "The delivery includes actual validation evidence and a reviewable explanation."
+    ]
+  },
+  "supervision": {
+    "profile": "supervisor",
+    "max_total_interventions": 2
+  },
+  "supervisor_effective_policy": {
+    "profile_name": "supervisor",
+    "harness": "codex-cli",
+    "harness_config": {
+      "isolation": "isolated",
+      "codex": {
+        "config": {
+          "approval_policy": "never",
+          "sandbox_workspace_write.network_access": true
+        }
+      }
+    },
+    "model": "auto",
+    "reasoning_effort": "medium",
+    "sandbox": "workspace-write",
+    "timeout_sec": 21600
+  },
+  "launch": {
+    "launch_profile": "worker",
+    "workspace_backend": "inplace"
+  },
+  "entry_node_ids": [
+    "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+  ],
+  "nodes": [
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+      "kind": "agent",
+      "label": "Deep Work Plan",
+      "intent": {
+        "goal": "Plan the execution work needed to satisfy the full deep-work task from the current state. Do not edit files in this planning phase.",
+        "acceptance_criteria": [
+          "The plan addresses the task contract and any prior failed completion criteria.",
+          "The plan identifies focused validation the execution agent should run when feasible.",
+          "The plan does not edit the workspace."
+        ],
+        "constraints": [
+          "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+          "Do not weaken, remove, or skip existing tests.",
+          "Do not edit files outside this repository or change independent acceptance tools.",
+          "Do not add dependencies, call remote services, or include unrelated refactors.",
+          "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+          "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+        ]
+      },
+      "repo": "main",
+      "deps": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      ],
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "worker",
+        "workspace_backend": "inplace",
+        "harness": "codex-cli",
+        "harness_config": {
+          "isolation": "isolated",
+          "codex": {
+            "config": {
+              "approval_policy": "never",
+              "sandbox_workspace_write.network_access": true
+            }
+          }
+        },
+        "model": "auto",
+        "reasoning_effort": "medium",
+        "sandbox": "workspace-write",
+        "timeout_sec": 21600,
+        "artifact_repair": {
+          "max_attempts": 1
+        }
+      },
+      "context": [
+        {
+          "name": "customer_export_ticket",
+          "from": "workspace_file",
+          "path": "TICKET.md",
+          "what": "Customer export defect and observable acceptance contract.",
+          "why": "The export must preserve the operator’s filters and every customer field."
+        },
+        {
+          "name": "project_guide",
+          "from": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "what": "Local commands, source layout, and public API semantics.",
+          "why": "The repair must preserve existing listing behavior and public routes."
+        },
+        {
+          "name": "preview_contract",
+          "from": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "what": "The operator-facing preview behavior and stable preview API contract.",
+          "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__completion_gate.completion_scorecard",
+          "name": "failed_completion_scorecard",
+          "node": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "artifact": "completion_scorecard",
+          "what": "Artifact \"completion_scorecard\" produced by node \"export_readiness__managed__pattern_deep_work__completion_gate\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_failed",
+          "if_available": true
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__generate_validate.work_notes",
+          "name": "previous_work_notes",
+          "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "work_notes",
+          "what": "Artifact \"work_notes\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_failed",
+          "if_available": true
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.verification_json",
+          "name": "previous_criterion_01_result",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "artifact": "verification_json",
+          "what": "Artifact \"verification_json\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_01_behavior\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_failed",
+          "if_available": true
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.stdout",
+          "name": "previous_criterion_01_stdout",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "artifact": "stdout",
+          "what": "Artifact \"stdout\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_01_behavior\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_failed",
+          "if_available": true
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.stderr",
+          "name": "previous_criterion_01_stderr",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "artifact": "stderr",
+          "what": "Artifact \"stderr\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_01_behavior\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_failed",
+          "if_available": true
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity.verification_json",
+          "name": "previous_criterion_02_result",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+          "artifact": "verification_json",
+          "what": "Artifact \"verification_json\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_02_simplicity\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_failed",
+          "if_available": true
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.verification_json",
+          "name": "previous_criterion_03_result",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+          "artifact": "verification_json",
+          "what": "Artifact \"verification_json\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_failed",
+          "if_available": true
+        }
+      ],
+      "declared_artifacts": {
+        "plan": {
+          "from": "output_dir",
+          "path": "plan.md",
+          "description": "Execution plan for satisfying the deep work task from the current state."
+        }
+      },
+      "managed_runtime": {
+        "kind": "pattern_deep_work",
+        "root_id": "export_readiness",
+        "phase": "plan"
+      },
+      "managed_prompt": {
+        "phase": "plan",
+        "task": "Plan execution work needed to satisfy the full task from the current state.",
+        "sections": [
+          {
+            "title": "Task",
+            "lines": [
+              "You are planning execution work to satisfy the full task from the current state. Do not edit files in this phase. Preserve the task intent, inspect the available evidence, and give the execution agent a plan that aims to complete the task now when feasible."
+            ]
+          },
+          {
+            "title": "Task Contract",
+            "lines": [
+              "Goal: Repair customer exports and add a preview that helps an operations user understand and confirm the complete download.",
+              "Acceptance criteria",
+              "- CSV exports preserve all matching records and field values while customer listing remains paginated.",
+              "- The preview API satisfies EXPORT_PREVIEW.md for count, columns, and first-five matching sample records.",
+              "- The dashboard exposes a preview with active filter scope, sample labeling, download and cancel actions, and a useful no-match state.",
+              "- The preview and download use the same query, and stale preview information cannot silently describe a different download.",
+              "- Focused regression tests and the full product test suite pass.",
+              "- The summary documents changed files, actual validation evidence, user-visible states with source references, and limitations.",
+              "Constraints",
+              "- Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+              "- Do not weaken, remove, or skip existing tests.",
+              "- Do not edit files outside this repository or change independent acceptance tools.",
+              "- Do not add dependencies, call remote services, or include unrelated refactors.",
+              "- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+              "- Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+            ]
+          },
+          {
+            "title": "Completion Model",
+            "lines": [
+              "Maximum cycles: 3",
+              "Pass threshold: 0.85",
+              "- behavior (required, weight 0.6): command `npm test && python3 showcase/acceptance/check_preview.py`",
+              "- simplicity (required, weight 0.25, target workspace): Judge the changed implementation for simplicity and maintainability by inspecting actual source and the change evidence. A passing implementation is the smallest clear solution for this product: query/filter/order behavior is consistent between listing, export, and preview; responsibilities are understandable; added abstractions earn their complexity; and no unrelated rewrites, dependencies, dead code, or duplicated business rules are introduced. Accept justified small helpers and multiple files; do not use line count, file count, personal naming preferences, or a demand for one particular design as a proxy for simplicity. Cite concrete paths and explain the maintenance consequence of each substantive finding. Score 1.0 for a focused, easy-to-follow solution with no substantive issue; 0.85 for a clear solution with only optional nits; 0.70 for an identifiable maintainability problem requiring a small repair; 0.50 or below for substantial unnecessary complexity or conflicting business rules. Missing evidence is uncertainty to report, not permission to invent findings. Do not recommend a refactor unless its benefit is tied to observed code.",
+              "- operator_clarity (required, weight 0.15, target workspace): Judge the clarity of the export preview from the implemented interface text and state handling in the source, supported by any actual UI observations recorded in the summary. A passing preview makes the full matching record count, active filter scope, exported columns, and first-five-record sample understandable to an operations user. It must distinguish the sample from the full download, provide unambiguous download and cancel actions, explain the no-match case, and avoid stale count/sample information being presented for a different query. Labels should describe the user's task rather than internal API or runtime details. Cite exact user-visible strings and source paths for findings. Score 1.0 when these decisions are immediately clear; 0.85 when they are clear with only optional wording improvements; 0.70 when a specific ambiguity could cause a wrong download decision; 0.50 or below when sample size, export scope, or actions are materially misleading or a required state is absent. Judge semantic clarity, not visual taste. Do not claim rendered layout, keyboard accessibility, or actual browser behavior was verified without corresponding observed evidence. Do not treat a confident summary as a substitute for implemented source."
+            ]
+          },
+          {
+            "title": "Planning Task",
+            "lines": [
+              "Use the provided context pointers for the planning phase.",
+              "Read the task context, any prior failed scorecard, criterion verification records, command output excerpts, and current workspace state available to you.",
+              "If prior scorecards, work notes, criterion records, or repeat history are omitted because no prior cycle exists, treat that as expected first-cycle state.",
+              "Do not wait for, search globally for, or report a blocker solely because first-cycle prior materials are missing.",
+              "Identify the concrete gap between the current state and the task contract.",
+              "Use prior feedback, scorecards, and failed criteria as gap evidence; do not shrink the task to only the last failed check.",
+              "Plan the work needed to satisfy the full task from the current state.",
+              "Aim for completion in this execution. If full completion is not feasible now, plan the most complete useful slice and state the remaining gap explicitly.",
+              "Map every completion criterion to the evidence the execution phase should produce or inspect.",
+              "Name the expected material change or evidence that should prove progress toward completion.",
+              "Name likely files or areas to inspect or change, but do not over-prescribe exact code unless the evidence requires it.",
+              "Recommend focused validation commands or checks the execution agent should run.",
+              "Say the executor may adapt the plan when workspace evidence proves an assumption wrong, as long as the adaptation serves the full task contract.",
+              "Do not edit repository or workspace files in this planning phase. Only write the planning artifact requested below."
+            ]
+          },
+          {
+            "title": "Output Contract",
+            "lines": [
+              "Publish only the declared `plan` artifact.",
+              "Use `af artifact write plan` to publish the plan content.",
+              "Do not create or edit workspace files during this planning phase.",
+              "Include sections: `Task target`, `Current state`, `Gap`, `Execution plan`, `Validation plan`, `Expected material change`, `Remaining gap`, and `Risks or constraints`.",
+              "Preserve exact task-specific names, labels, commands, and required phrases from the task contract in the plan.",
+              "Do not create a milestone solely to restate the plan. If you do create a milestone, complete it before running `af complete check`."
+            ]
+          }
+        ]
+      },
+      "skills": [],
+      "cli": [],
+      "tools": []
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+      "kind": "agent",
+      "label": "Generate And Validate",
+      "intent": {
+        "goal": "Satisfy the full deep-work task from the current state, using plan.md as guidance and validating the result with concrete evidence.",
+        "acceptance_criteria": [
+          "The work satisfies the task contract or records a precise remaining gap.",
+          "Focused validation is run when feasible, with exact results recorded in work notes and draft artifacts.",
+          "Draft user-authored final artifacts exist so completion criteria can grade the result."
+        ],
+        "constraints": [
+          "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+          "Do not weaken, remove, or skip existing tests.",
+          "Do not edit files outside this repository or change independent acceptance tools.",
+          "Do not add dependencies, call remote services, or include unrelated refactors.",
+          "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+          "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+        ]
+      },
+      "repo": "main",
+      "deps": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      ],
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "worker",
+        "workspace_backend": "inplace",
+        "harness": "codex-cli",
+        "harness_config": {
+          "isolation": "isolated",
+          "codex": {
+            "config": {
+              "approval_policy": "never",
+              "sandbox_workspace_write.network_access": true
+            }
+          }
+        },
+        "model": "auto",
+        "reasoning_effort": "medium",
+        "sandbox": "workspace-write",
+        "timeout_sec": 21600,
+        "artifact_repair": {
+          "max_attempts": 1
+        }
+      },
+      "context": [
+        {
+          "name": "customer_export_ticket",
+          "from": "workspace_file",
+          "path": "TICKET.md",
+          "what": "Customer export defect and observable acceptance contract.",
+          "why": "The export must preserve the operator’s filters and every customer field."
+        },
+        {
+          "name": "project_guide",
+          "from": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "what": "Local commands, source layout, and public API semantics.",
+          "why": "The repair must preserve existing listing behavior and public routes."
+        },
+        {
+          "name": "preview_contract",
+          "from": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "what": "The operator-facing preview behavior and stable preview API contract.",
+          "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__plan.plan",
+          "name": "plan",
+          "node": "export_readiness__managed__pattern_deep_work__plan",
+          "artifact": "plan",
+          "what": "Artifact \"plan\" produced by node \"export_readiness__managed__pattern_deep_work__plan\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__completion_gate.completion_scorecard",
+          "name": "failed_completion_scorecard",
+          "node": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "artifact": "completion_scorecard",
+          "what": "Artifact \"completion_scorecard\" produced by node \"export_readiness__managed__pattern_deep_work__completion_gate\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_failed",
+          "if_available": true
+        }
+      ],
+      "declared_artifacts": {
+        "work_notes": {
+          "from": "output_dir",
+          "path": "work-notes.md",
+          "description": "Notes and validation evidence from the current deep work result."
+        },
+        "draft_summary": {
+          "from": "output_dir",
+          "path": "draft-summary.md",
+          "description": "Draft content for final artifact summary."
+        }
+      },
+      "managed_prompt": {
+        "phase": "execute",
+        "task": "Do and validate the work needed to satisfy the full task from the current state.",
+        "sections": [
+          {
+            "title": "Task",
+            "lines": [
+              "You are responsible for satisfying the full task from the current state. Do not stop at a plausible change. Work until you have verified the candidate satisfies the goal, acceptance criteria, and constraints, or until you have concrete evidence of what remains."
+            ]
+          },
+          {
+            "title": "Task Contract",
+            "lines": [
+              "Aim to complete the task in this execution. Retries are a fallback; write concrete validation evidence and residual risks only after doing the work.",
+              "Goal: Repair customer exports and add a preview that helps an operations user understand and confirm the complete download.",
+              "Acceptance criteria",
+              "- CSV exports preserve all matching records and field values while customer listing remains paginated.",
+              "- The preview API satisfies EXPORT_PREVIEW.md for count, columns, and first-five matching sample records.",
+              "- The dashboard exposes a preview with active filter scope, sample labeling, download and cancel actions, and a useful no-match state.",
+              "- The preview and download use the same query, and stale preview information cannot silently describe a different download.",
+              "- Focused regression tests and the full product test suite pass.",
+              "- The summary documents changed files, actual validation evidence, user-visible states with source references, and limitations.",
+              "Constraints",
+              "- Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+              "- Do not weaken, remove, or skip existing tests.",
+              "- Do not edit files outside this repository or change independent acceptance tools.",
+              "- Do not add dependencies, call remote services, or include unrelated refactors.",
+              "- Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+              "- Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+            ]
+          },
+          {
+            "title": "Completion Criteria",
+            "lines": [
+              "Pass threshold: 0.85",
+              "- behavior (required, weight 0.6): command `npm test && python3 showcase/acceptance/check_preview.py`",
+              "- simplicity (required, weight 0.25, target workspace): Judge the changed implementation for simplicity and maintainability by inspecting actual source and the change evidence. A passing implementation is the smallest clear solution for this product: query/filter/order behavior is consistent between listing, export, and preview; responsibilities are understandable; added abstractions earn their complexity; and no unrelated rewrites, dependencies, dead code, or duplicated business rules are introduced. Accept justified small helpers and multiple files; do not use line count, file count, personal naming preferences, or a demand for one particular design as a proxy for simplicity. Cite concrete paths and explain the maintenance consequence of each substantive finding. Score 1.0 for a focused, easy-to-follow solution with no substantive issue; 0.85 for a clear solution with only optional nits; 0.70 for an identifiable maintainability problem requiring a small repair; 0.50 or below for substantial unnecessary complexity or conflicting business rules. Missing evidence is uncertainty to report, not permission to invent findings. Do not recommend a refactor unless its benefit is tied to observed code.",
+              "- operator_clarity (required, weight 0.15, target workspace): Judge the clarity of the export preview from the implemented interface text and state handling in the source, supported by any actual UI observations recorded in the summary. A passing preview makes the full matching record count, active filter scope, exported columns, and first-five-record sample understandable to an operations user. It must distinguish the sample from the full download, provide unambiguous download and cancel actions, explain the no-match case, and avoid stale count/sample information being presented for a different query. Labels should describe the user's task rather than internal API or runtime details. Cite exact user-visible strings and source paths for findings. Score 1.0 when these decisions are immediately clear; 0.85 when they are clear with only optional wording improvements; 0.70 when a specific ambiguity could cause a wrong download decision; 0.50 or below when sample size, export scope, or actions are materially misleading or a required state is absent. Judge semantic clarity, not visual taste. Do not claim rendered layout, keyboard accessibility, or actual browser behavior was verified without corresponding observed evidence. Do not treat a confident summary as a substitute for implemented source."
+            ]
+          },
+          {
+            "title": "Execution Task",
+            "lines": [
+              "Use `plan.md` as guidance, not as a limit.",
+              "The task contract controls when `plan.md` is incomplete, stale, too small, or contradicted by repository evidence.",
+              "Satisfy the task contract, not only the visible tests; handle edge cases directly implied by the goal, acceptance criteria, and local code.",
+              "Keep edits scoped; add/edit tests only when the task asks or repo contract expects them.",
+              "If evidence shows the plan is wrong, make the task-justified adjustment needed to satisfy the full task and record why in work notes.",
+              "Inspect enough repository context to follow local patterns before editing.",
+              "When draft artifacts rely on upstream research, plans, tests, or prior context, cite concrete evidence names, paths, commands, or packet fields instead of using generic references like prior research.",
+              "Use available repo, device, and plugin CLIs naturally when they help complete or validate the work.",
+              "Run focused validation commands when feasible. If validation fails and the fix is clear, fix and rerun.",
+              "If you cannot run a useful validation command, record exactly why and what evidence you used instead.",
+              "Fix ordinary task, validation, and quality failures yourself when the next action is clear.",
+              "Report precise blockers only for missing context, broken tools, malformed runtime outputs, artifact publishing failures, harness failures, or runtime failures."
+            ]
+          },
+          {
+            "title": "Output Contract",
+            "lines": [
+              "Publish the `work_notes` artifact after doing the work.",
+              "Use `af artifact write work_notes` to publish the work notes.",
+              "Include what changed, why any deviations from `plan.md` were needed, exact validation evidence, remaining risks, and any remaining gap.",
+              "Also write draft versions of user-authored final artifacts so completion criteria can grade them before final publication.",
+              "Draft final artifacts should include enough evidence citations for an evaluator to see why the change, validation, and risk claims are supported.",
+              "- draft_summary: Use `af artifact write draft_summary` to publish the draft for final artifact summary."
+            ]
+          }
+        ]
+      },
+      "skills": [],
+      "cli": [],
+      "tools": []
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "kind": "check",
+      "label": "Completion Criterion behavior",
+      "intent": {
+        "goal": "Run deterministic completion criterion `behavior` for the current deep work result.",
+        "acceptance_criteria": [
+          "The command result is captured as completion feedback for the deterministic gate."
+        ],
+        "constraints": [
+          "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+          "Do not weaken, remove, or skip existing tests.",
+          "Do not edit files outside this repository or change independent acceptance tools.",
+          "Do not add dependencies, call remote services, or include unrelated refactors.",
+          "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+          "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+        ]
+      },
+      "repo": "main",
+      "deps": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate"
+      ],
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "judge",
+        "workspace_backend": "inplace",
+        "timeout_sec": 21600
+      },
+      "context": [
+        {
+          "name": "customer_export_ticket",
+          "from": "workspace_file",
+          "path": "TICKET.md",
+          "what": "Customer export defect and observable acceptance contract.",
+          "why": "The export must preserve the operator’s filters and every customer field."
+        },
+        {
+          "name": "project_guide",
+          "from": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "what": "Local commands, source layout, and public API semantics.",
+          "why": "The repair must preserve existing listing behavior and public routes."
+        },
+        {
+          "name": "preview_contract",
+          "from": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "what": "The operator-facing preview behavior and stable preview API contract.",
+          "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__generate_validate.work_notes",
+          "name": "work_notes",
+          "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "work_notes",
+          "what": "Artifact \"work_notes\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__generate_validate.draft_summary",
+          "name": "draft_summary",
+          "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "draft_summary",
+          "what": "Artifact \"draft_summary\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        }
+      ],
+      "declared_artifacts": {},
+      "managed_runtime": {
+        "kind": "pattern_deep_work",
+        "root_id": "export_readiness",
+        "phase": "verify",
+        "config": {
+          "criterion_id": "behavior",
+          "criterion_kind": "command"
+        }
+      },
+      "skills": [],
+      "cli": [],
+      "check_kind": "deterministic",
+      "on_failure": "continue",
+      "command": "sh",
+      "args": [
+        "-lc",
+        "npm test && python3 showcase/acceptance/check_preview.py"
+      ],
+      "pass_if": {
+        "exit_code": 0
+      }
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "kind": "check",
+      "label": "Completion Criterion simplicity",
+      "intent": {
+        "goal": "You are an evidence-based evaluator for completion criterion `simplicity`.\n\nCriterion:\nRubric: Judge the changed implementation for simplicity and maintainability by inspecting actual source and the change evidence. A passing implementation is the smallest clear solution for this product: query/filter/order behavior is consistent between listing, export, and preview; responsibilities are understandable; added abstractions earn their complexity; and no unrelated rewrites, dependencies, dead code, or duplicated business rules are introduced. Accept justified small helpers and multiple files; do not use line count, file count, personal naming preferences, or a demand for one particular design as a proxy for simplicity. Cite concrete paths and explain the maintenance consequence of each substantive finding. Score 1.0 for a focused, easy-to-follow solution with no substantive issue; 0.85 for a clear solution with only optional nits; 0.70 for an identifiable maintainability problem requiring a small repair; 0.50 or below for substantial unnecessary complexity or conflicting business rules. Missing evidence is uncertainty to report, not permission to invent findings. Do not recommend a refactor unless its benefit is tied to observed code.\nTarget: workspace\nWeight: 0.25\nRequired blocker: yes\n\nEvaluation Guidance:\nGrade only the current workspace candidate, work notes, validation evidence, and draft artifacts.\nGive full credit when the evidence satisfies the criterion.\nDo not invent issues, penalize harmless style differences, or require work outside the task contract.\nDo withhold credit for missing evidence, violated constraints, failed validation, or unsupported claims.\nUse score 0.85 or higher when the criterion is clearly satisfied; set `passed` true when the criterion is adequately satisfied.\n\nRequired JSON Output:\nReturn valid JSON only:\n{\"passed\":true,\"score\":1,\"summary\":\"short evidence-backed rationale\",\"issues\":[]}\nScore must be a number from 0 to 1.",
+        "acceptance_criteria": [
+          "The evaluator returns valid JSON with passed, score, summary, and issues fields.",
+          "The evaluator grades only evidence in context and does not require work outside the task contract."
+        ],
+        "constraints": [
+          "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+          "Do not weaken, remove, or skip existing tests.",
+          "Do not edit files outside this repository or change independent acceptance tools.",
+          "Do not add dependencies, call remote services, or include unrelated refactors.",
+          "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+          "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+        ]
+      },
+      "repo": "main",
+      "deps": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate"
+      ],
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "judge",
+        "workspace_backend": "inplace",
+        "harness": "codex-cli",
+        "harness_config": {
+          "isolation": "isolated",
+          "codex": {
+            "config": {
+              "approval_policy": "never",
+              "sandbox_workspace_write.network_access": true
+            }
+          }
+        },
+        "model": "auto",
+        "reasoning_effort": "medium",
+        "sandbox": "read-only",
+        "timeout_sec": 21600
+      },
+      "context": [
+        {
+          "name": "customer_export_ticket",
+          "from": "workspace_file",
+          "path": "TICKET.md",
+          "what": "Customer export defect and observable acceptance contract.",
+          "why": "The export must preserve the operator’s filters and every customer field."
+        },
+        {
+          "name": "project_guide",
+          "from": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "what": "Local commands, source layout, and public API semantics.",
+          "why": "The repair must preserve existing listing behavior and public routes."
+        },
+        {
+          "name": "preview_contract",
+          "from": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "what": "The operator-facing preview behavior and stable preview API contract.",
+          "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__generate_validate.work_notes",
+          "name": "work_notes",
+          "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "work_notes",
+          "what": "Artifact \"work_notes\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__generate_validate.draft_summary",
+          "name": "draft_summary",
+          "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "draft_summary",
+          "what": "Artifact \"draft_summary\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        }
+      ],
+      "declared_artifacts": {},
+      "managed_runtime": {
+        "kind": "pattern_deep_work",
+        "root_id": "export_readiness",
+        "phase": "verify",
+        "config": {
+          "criterion_id": "simplicity",
+          "criterion_kind": "rubric",
+          "target": "workspace"
+        }
+      },
+      "skills": [],
+      "cli": [],
+      "check_kind": "ai",
+      "on_failure": "continue",
+      "rubric": "Judge the changed implementation for simplicity and maintainability by inspecting actual source and the change evidence. A passing implementation is the smallest clear solution for this product: query/filter/order behavior is consistent between listing, export, and preview; responsibilities are understandable; added abstractions earn their complexity; and no unrelated rewrites, dependencies, dead code, or duplicated business rules are introduced. Accept justified small helpers and multiple files; do not use line count, file count, personal naming preferences, or a demand for one particular design as a proxy for simplicity. Cite concrete paths and explain the maintenance consequence of each substantive finding. Score 1.0 for a focused, easy-to-follow solution with no substantive issue; 0.85 for a clear solution with only optional nits; 0.70 for an identifiable maintainability problem requiring a small repair; 0.50 or below for substantial unnecessary complexity or conflicting business rules. Missing evidence is uncertainty to report, not permission to invent findings. Do not recommend a refactor unless its benefit is tied to observed code."
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "kind": "check",
+      "label": "Completion Criterion operator_clarity",
+      "intent": {
+        "goal": "You are an evidence-based evaluator for completion criterion `operator_clarity`.\n\nCriterion:\nRubric: Judge the clarity of the export preview from the implemented interface text and state handling in the source, supported by any actual UI observations recorded in the summary. A passing preview makes the full matching record count, active filter scope, exported columns, and first-five-record sample understandable to an operations user. It must distinguish the sample from the full download, provide unambiguous download and cancel actions, explain the no-match case, and avoid stale count/sample information being presented for a different query. Labels should describe the user's task rather than internal API or runtime details. Cite exact user-visible strings and source paths for findings. Score 1.0 when these decisions are immediately clear; 0.85 when they are clear with only optional wording improvements; 0.70 when a specific ambiguity could cause a wrong download decision; 0.50 or below when sample size, export scope, or actions are materially misleading or a required state is absent. Judge semantic clarity, not visual taste. Do not claim rendered layout, keyboard accessibility, or actual browser behavior was verified without corresponding observed evidence. Do not treat a confident summary as a substitute for implemented source.\nTarget: workspace\nWeight: 0.15\nRequired blocker: yes\n\nEvaluation Guidance:\nGrade only the current workspace candidate, work notes, validation evidence, and draft artifacts.\nGive full credit when the evidence satisfies the criterion.\nDo not invent issues, penalize harmless style differences, or require work outside the task contract.\nDo withhold credit for missing evidence, violated constraints, failed validation, or unsupported claims.\nUse score 0.85 or higher when the criterion is clearly satisfied; set `passed` true when the criterion is adequately satisfied.\n\nRequired JSON Output:\nReturn valid JSON only:\n{\"passed\":true,\"score\":1,\"summary\":\"short evidence-backed rationale\",\"issues\":[]}\nScore must be a number from 0 to 1.",
+        "acceptance_criteria": [
+          "The evaluator returns valid JSON with passed, score, summary, and issues fields.",
+          "The evaluator grades only evidence in context and does not require work outside the task contract."
+        ],
+        "constraints": [
+          "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+          "Do not weaken, remove, or skip existing tests.",
+          "Do not edit files outside this repository or change independent acceptance tools.",
+          "Do not add dependencies, call remote services, or include unrelated refactors.",
+          "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+          "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+        ]
+      },
+      "repo": "main",
+      "deps": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate"
+      ],
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "judge",
+        "workspace_backend": "inplace",
+        "harness": "codex-cli",
+        "harness_config": {
+          "isolation": "isolated",
+          "codex": {
+            "config": {
+              "approval_policy": "never",
+              "sandbox_workspace_write.network_access": true
+            }
+          }
+        },
+        "model": "auto",
+        "reasoning_effort": "medium",
+        "sandbox": "read-only",
+        "timeout_sec": 21600
+      },
+      "context": [
+        {
+          "name": "customer_export_ticket",
+          "from": "workspace_file",
+          "path": "TICKET.md",
+          "what": "Customer export defect and observable acceptance contract.",
+          "why": "The export must preserve the operator’s filters and every customer field."
+        },
+        {
+          "name": "project_guide",
+          "from": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "what": "Local commands, source layout, and public API semantics.",
+          "why": "The repair must preserve existing listing behavior and public routes."
+        },
+        {
+          "name": "preview_contract",
+          "from": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "what": "The operator-facing preview behavior and stable preview API contract.",
+          "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__generate_validate.work_notes",
+          "name": "work_notes",
+          "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "work_notes",
+          "what": "Artifact \"work_notes\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__generate_validate.draft_summary",
+          "name": "draft_summary",
+          "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "draft_summary",
+          "what": "Artifact \"draft_summary\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        }
+      ],
+      "declared_artifacts": {},
+      "managed_runtime": {
+        "kind": "pattern_deep_work",
+        "root_id": "export_readiness",
+        "phase": "verify",
+        "config": {
+          "criterion_id": "operator_clarity",
+          "criterion_kind": "rubric",
+          "target": "workspace"
+        }
+      },
+      "skills": [],
+      "cli": [],
+      "check_kind": "ai",
+      "on_failure": "continue",
+      "rubric": "Judge the clarity of the export preview from the implemented interface text and state handling in the source, supported by any actual UI observations recorded in the summary. A passing preview makes the full matching record count, active filter scope, exported columns, and first-five-record sample understandable to an operations user. It must distinguish the sample from the full download, provide unambiguous download and cancel actions, explain the no-match case, and avoid stale count/sample information being presented for a different query. Labels should describe the user's task rather than internal API or runtime details. Cite exact user-visible strings and source paths for findings. Score 1.0 when these decisions are immediately clear; 0.85 when they are clear with only optional wording improvements; 0.70 when a specific ambiguity could cause a wrong download decision; 0.50 or below when sample size, export scope, or actions are materially misleading or a required state is absent. Judge semantic clarity, not visual taste. Do not claim rendered layout, keyboard accessibility, or actual browser behavior was verified without corresponding observed evidence. Do not treat a confident summary as a substitute for implemented source."
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "authored_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+      "kind": "check",
+      "label": "Completion Gate",
+      "intent": {
+        "goal": "Aggregate completion criterion results and decide whether the managed deep work loop is complete.",
+        "acceptance_criteria": [
+          "The scorecard records every completion criterion result.",
+          "Required criterion failures block completion regardless of weighted score.",
+          "The weighted score must meet or exceed 0.85 to pass."
+        ],
+        "constraints": [
+          "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+          "Do not weaken, remove, or skip existing tests.",
+          "Do not edit files outside this repository or change independent acceptance tools.",
+          "Do not add dependencies, call remote services, or include unrelated refactors.",
+          "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+          "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+        ]
+      },
+      "repo": "main",
+      "deps": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity"
+      ],
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body"
+      ],
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "effective_policy": {
+        "profile_name": "worker",
+        "workspace_backend": "inplace",
+        "timeout_sec": 21600
+      },
+      "context": [
+        {
+          "name": "customer_export_ticket",
+          "from": "workspace_file",
+          "path": "TICKET.md",
+          "what": "Customer export defect and observable acceptance contract.",
+          "why": "The export must preserve the operator’s filters and every customer field."
+        },
+        {
+          "name": "project_guide",
+          "from": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "what": "Local commands, source layout, and public API semantics.",
+          "why": "The repair must preserve existing listing behavior and public routes."
+        },
+        {
+          "name": "preview_contract",
+          "from": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "what": "The operator-facing preview behavior and stable preview API contract.",
+          "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.verification_json",
+          "name": "criterion_01_result",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "artifact": "verification_json",
+          "what": "Artifact \"verification_json\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_01_behavior\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.stdout",
+          "name": "criterion_01_stdout",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "artifact": "stdout",
+          "what": "Artifact \"stdout\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_01_behavior\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "if_available": true
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_01_behavior.stderr",
+          "name": "criterion_01_stderr",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+          "artifact": "stderr",
+          "what": "Artifact \"stderr\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_01_behavior\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "if_available": true
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity.verification_json",
+          "name": "criterion_02_result",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+          "artifact": "verification_json",
+          "what": "Artifact \"verification_json\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_02_simplicity\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity.verification_json",
+          "name": "criterion_03_result",
+          "node": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+          "artifact": "verification_json",
+          "what": "Artifact \"verification_json\" produced by node \"export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity\".",
+          "why": "This task needs the producer artifact as evidence for its contract."
+        }
+      ],
+      "declared_artifacts": {
+        "completion_scorecard": {
+          "from": "output_dir",
+          "path": "scorecard.json",
+          "description": "Weighted completion scorecard for the latest deep work result."
+        }
+      },
+      "skills": [],
+      "cli": [],
+      "check_kind": "deterministic",
+      "on_failure": "fail",
+      "command": "node",
+      "args": [
+        "-e",
+        "const fs = require(\"node:fs\");\nconst path = require(\"node:path\");\nconst criteria = [{\"id\":\"behavior\",\"kind\":\"command\",\"weight\":0.6,\"required\":true,\"context_key\":\"CRITERION_01_RESULT\",\"stdout_key\":\"CRITERION_01_STDOUT\",\"stderr_key\":\"CRITERION_01_STDERR\"},{\"id\":\"simplicity\",\"kind\":\"rubric\",\"weight\":0.25,\"required\":true,\"context_key\":\"CRITERION_02_RESULT\"},{\"id\":\"operator_clarity\",\"kind\":\"rubric\",\"weight\":0.15,\"required\":true,\"context_key\":\"CRITERION_03_RESULT\"}];\nconst passThreshold = 0.85;\nconst out = process.env.AGENTFLOW_OUTPUT_DIR;\n\nfunction readOptionalText(contextKey) {\n  if (!contextKey) return undefined;\n  const pointerPath = process.env[\"AGENTFLOW_CONTEXT_\" + contextKey];\n  if (!pointerPath) return undefined;\n  try {\n    const text = fs.readFileSync(pointerPath, \"utf8\");\n    if (!text.trim()) return undefined;\n    return text.length > 4000 ? text.slice(0, 4000) + \"\\n...[truncated]\" : text;\n  } catch {\n    return undefined;\n  }\n}\n\nfunction readCriterion(record) {\n  const envName = \"AGENTFLOW_CONTEXT_\" + record.context_key;\n  const pointerPath = process.env[envName];\n  if (!pointerPath) {\n    return {\n      id: record.id,\n      kind: record.kind,\n      weight: record.weight,\n      required: record.required,\n      passed: false,\n      score: 0,\n      summary: \"Criterion result pointer was not available.\",\n      evidence_path: null\n    };\n  }\n\n  try {\n    const parsed = JSON.parse(fs.readFileSync(pointerPath, \"utf8\"));\n    const passed = parsed.passed === true;\n    const rawScore = typeof parsed.score === \"number\" ? parsed.score : passed ? 1 : 0;\n    const score = Math.max(0, Math.min(1, rawScore));\n    const stdoutExcerpt = readOptionalText(record.stdout_key);\n    const stderrExcerpt = readOptionalText(record.stderr_key);\n    return {\n      id: record.id,\n      kind: record.kind,\n      weight: record.weight,\n      required: record.required,\n      passed,\n      score,\n      weighted_score: score * record.weight,\n      summary: typeof parsed.summary === \"string\" ? parsed.summary : passed ? \"Criterion passed.\" : \"Criterion failed.\",\n      evidence_path: pointerPath,\n      issues: Array.isArray(parsed.issues) ? parsed.issues : [],\n      stdout_excerpt: stdoutExcerpt,\n      stderr_excerpt: stderrExcerpt\n    };\n  } catch (error) {\n    return {\n      id: record.id,\n      kind: record.kind,\n      weight: record.weight,\n      required: record.required,\n      passed: false,\n      score: 0,\n      weighted_score: 0,\n      summary: \"Criterion result could not be read: \" + (error && error.message ? error.message : String(error)),\n      evidence_path: pointerPath,\n      issues: [\"criterion_result_unreadable\"]\n    };\n  }\n}\n\nfunction requiredCriterionGateBlocker(result) {\n  if (!result.required) return null;\n  if (!result.passed) {\n    return {\n      criterion_id: result.id,\n      summary: result.summary\n    };\n  }\n  if (result.score < passThreshold) {\n    return {\n      criterion_id: result.id,\n      summary: result.summary + \" Required criterion score \" + result.score.toFixed(2) + \" is below the pass threshold \" + passThreshold.toFixed(2) + \".\"\n    };\n  }\n  return null;\n}\n\nfunction normalizeCriterionForGate(result) {\n  const blocker = requiredCriterionGateBlocker(result);\n  if (!blocker) return result;\n  const issues = Array.isArray(result.issues) ? [...result.issues] : [];\n  if (result.passed === true) {\n    issues.push(blocker.summary);\n  }\n  return {\n    ...result,\n    evaluator_passed: result.passed,\n    passed: false,\n    summary: blocker.summary,\n    issues\n  };\n}\n\nconst results = criteria.map(readCriterion).map(normalizeCriterionForGate);\nconst blockers = results\n  .flatMap((result) => {\n    const blocker = requiredCriterionGateBlocker(result);\n    return blocker ? [blocker] : [];\n  });\nconst totalScore = results.reduce((sum, result) => sum + (result.weighted_score ?? result.score * result.weight), 0);\nconst passed = blockers.length === 0 && totalScore >= passThreshold;\nconst failedCriteria = results.filter((result) => !result.passed || result.score < passThreshold);\nconst scorecard = {\n  passed,\n  total_score: Number(totalScore.toFixed(4)),\n  pass_threshold: passThreshold,\n  blockers,\n  criteria: results,\n  next_attempt_guidance: failedCriteria.map((result) => ({\n    criterion_id: result.id,\n    guidance: result.summary\n  })),\n  generated_at: new Date().toISOString()\n};\n\nfs.mkdirSync(out, { recursive: true });\nfs.writeFileSync(path.join(out, \"scorecard.json\"), JSON.stringify(scorecard, null, 2) + \"\\n\");\nfs.writeFileSync(path.join(out, \"verification.json\"), JSON.stringify({\n  passed,\n  score: scorecard.total_score,\n  summary: passed\n    ? \"Completion criteria passed.\"\n    : \"Completion criteria did not reach the pass threshold or had required blockers.\",\n  issues: blockers,\n  check_kind: \"deterministic\"\n}, null, 2) + \"\\n\");"
+      ],
+      "pass_if": {
+        "json_path": "$.passed",
+        "equals": true
+      }
+    },
+    {
+      "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+      "authored_id": "export_readiness",
+      "kind": "exec",
+      "label": "Finalize Deep Work",
+      "intent": {
+        "goal": "Finalize the latest passing deep-work result into graph-addressable artifacts without new implementation or unsupported claims.",
+        "acceptance_criteria": [
+          "CSV exports preserve all matching records and field values while customer listing remains paginated.",
+          "The preview API satisfies EXPORT_PREVIEW.md for count, columns, and first-five matching sample records.",
+          "The dashboard exposes a preview with active filter scope, sample labeling, download and cancel actions, and a useful no-match state.",
+          "The preview and download use the same query, and stale preview information cannot silently describe a different download.",
+          "Focused regression tests and the full product test suite pass.",
+          "The summary documents changed files, actual validation evidence, user-visible states with source references, and limitations.",
+          "The runtime-owned packet records the latest passing completion scorecard, work notes, and promoted artifact references.",
+          "User-authored final artifacts are copied from accepted drafts without LLM rewriting."
+        ],
+        "constraints": [
+          "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+          "Do not weaken, remove, or skip existing tests.",
+          "Do not edit files outside this repository or change independent acceptance tools.",
+          "Do not add dependencies, call remote services, or include unrelated refactors.",
+          "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+          "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+        ]
+      },
+      "repo": "main",
+      "deps": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      ],
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow"
+      ],
+      "effective_policy": {
+        "profile_name": "worker",
+        "workspace_backend": "inplace",
+        "timeout_sec": 21600
+      },
+      "context": [
+        {
+          "name": "customer_export_ticket",
+          "from": "workspace_file",
+          "path": "TICKET.md",
+          "what": "Customer export defect and observable acceptance contract.",
+          "why": "The export must preserve the operator’s filters and every customer field."
+        },
+        {
+          "name": "project_guide",
+          "from": "workspace_file",
+          "path": "APP_GUIDE.md",
+          "what": "Local commands, source layout, and public API semantics.",
+          "why": "The repair must preserve existing listing behavior and public routes."
+        },
+        {
+          "name": "preview_contract",
+          "from": "workspace_file",
+          "path": "EXPORT_PREVIEW.md",
+          "what": "The operator-facing preview behavior and stable preview API contract.",
+          "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__completion_gate.completion_scorecard",
+          "name": "completion_scorecard",
+          "node": "export_readiness__managed__pattern_deep_work__completion_gate",
+          "artifact": "completion_scorecard",
+          "what": "Artifact \"completion_scorecard\" produced by node \"export_readiness__managed__pattern_deep_work__completion_gate\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_passed"
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__generate_validate.work_notes",
+          "name": "work_notes",
+          "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "work_notes",
+          "what": "Artifact \"work_notes\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_passed"
+        },
+        {
+          "ref": "export_readiness__managed__pattern_deep_work__generate_validate.draft_summary",
+          "name": "draft_summary",
+          "node": "export_readiness__managed__pattern_deep_work__generate_validate",
+          "artifact": "draft_summary",
+          "what": "Artifact \"draft_summary\" produced by node \"export_readiness__managed__pattern_deep_work__generate_validate\".",
+          "why": "This task needs the producer artifact as evidence for its contract.",
+          "iteration": "latest_passed"
+        }
+      ],
+      "declared_artifacts": {
+        "packet": {
+          "from": "output_dir",
+          "path": "packet.json",
+          "description": "Machine-readable final evidence packet."
+        },
+        "summary": {
+          "from": "output_dir",
+          "path": "summary.md",
+          "description": "Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations.",
+          "content_type": "text/markdown"
+        }
+      },
+      "skills": [],
+      "cli": [],
+      "lowered_from": "pattern_deep_work",
+      "command": "node",
+      "args": [
+        "-e",
+        "const fs = require(\"node:fs\");\nconst path = require(\"node:path\");\nconst artifacts = [{\"name\":\"summary\",\"definition\":{\"from\":\"output_dir\",\"path\":\"summary.md\",\"description\":\"Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations.\",\"content_type\":\"text/markdown\"},\"draft_name\":\"draft_summary\"}];\nconst packetDefinition = {\"from\":\"output_dir\",\"path\":\"packet.json\",\"description\":\"Machine-readable final evidence packet.\"};\nconst out = process.env.AGENTFLOW_OUTPUT_DIR;\nconst workspace = process.env.AGENTFLOW_WORKSPACE;\n\nfunction fail(message) {\n  console.error(message);\n  process.exit(1);\n}\n\nfunction envKey(name) {\n  return \"AGENTFLOW_CONTEXT_\" + String(name).toUpperCase();\n}\n\nfunction readJsonOptional(filePath) {\n  if (!filePath) return undefined;\n  try {\n    return JSON.parse(fs.readFileSync(filePath, \"utf8\"));\n  } catch {\n    return undefined;\n  }\n}\n\nfunction resolveWithin(root, relativePath, label) {\n  if (!root) fail(\"Missing root for \" + label + \".\");\n  const resolvedRoot = path.resolve(root);\n  const resolvedPath = path.resolve(resolvedRoot, relativePath);\n  if (resolvedPath !== resolvedRoot && !resolvedPath.startsWith(resolvedRoot + path.sep)) {\n    fail(label + \" escapes its root: \" + relativePath);\n  }\n  return resolvedPath;\n}\n\nfunction destinationFor(definition, label) {\n  return resolveWithin(definition.from === \"workspace\" ? workspace : out, definition.path, label);\n}\n\nif (!out) fail(\"Missing AGENTFLOW_OUTPUT_DIR.\");\n\nconst scorecardPath = process.env.AGENTFLOW_CONTEXT_COMPLETION_SCORECARD;\nconst workNotesPath = process.env.AGENTFLOW_CONTEXT_WORK_NOTES;\nconst scorecard = readJsonOptional(scorecardPath);\nconst finalArtifacts = [];\n\nfor (const artifact of artifacts) {\n  const source = process.env[envKey(artifact.draft_name)];\n  if (!source || !fs.existsSync(source)) {\n    fail(\"Missing accepted draft artifact for \" + artifact.name + \".\");\n  }\n  const destination = destinationFor(artifact.definition, \"Final artifact \" + artifact.name);\n  fs.mkdirSync(path.dirname(destination), { recursive: true });\n  fs.copyFileSync(source, destination);\n  finalArtifacts.push({\n    name: artifact.name,\n    path: destination,\n    source_draft_path: source,\n    description: artifact.definition.description\n  });\n}\n\nconst packetPath = destinationFor(packetDefinition, \"Runtime packet artifact\");\nconst packet = {\n  schema_version: 1,\n  status: scorecard && scorecard.passed === true ? \"completed\" : \"unknown\",\n  generated_at: new Date().toISOString(),\n  completion_scorecard_path: scorecardPath ?? null,\n  work_notes_path: workNotesPath ?? null,\n  completion: scorecard ?? null,\n  final_artifacts: finalArtifacts\n};\n\nfs.mkdirSync(path.dirname(packetPath), { recursive: true });\nfs.writeFileSync(packetPath, JSON.stringify(packet, null, 2) + \"\\n\");\nconsole.log(\"Published runtime deep-work packet\" + (finalArtifacts.length > 0 ? \" and \" + finalArtifacts.length + \" user-authored artifact(s).\" : \".\"));"
+      ],
+      "on_failure": "fail"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "edge__1",
+      "from": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "to": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "on": "passed",
+      "kind": "flow"
+    },
+    {
+      "edge_id": "edge__2",
+      "from": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "to": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "on": "passed",
+      "kind": "flow"
+    },
+    {
+      "edge_id": "edge__3",
+      "from": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "to": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "on": "passed",
+      "kind": "flow"
+    },
+    {
+      "edge_id": "edge__4",
+      "from": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+      "to": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "on": "passed",
+      "kind": "flow"
+    },
+    {
+      "edge_id": "edge__5",
+      "from": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+      "to": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "on": "passed",
+      "kind": "flow"
+    },
+    {
+      "edge_id": "edge__6",
+      "from": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+      "to": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "on": "passed",
+      "kind": "flow"
+    },
+    {
+      "edge_id": "edge__7",
+      "from": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+      "to": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "on": "passed",
+      "kind": "flow"
+    },
+    {
+      "edge_id": "edge__8",
+      "from": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "to": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+      "on": "failed",
+      "kind": "repeat-back",
+      "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop"
+    },
+    {
+      "edge_id": "edge__9",
+      "from": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "to": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+      "on": "passed",
+      "kind": "flow"
+    }
+  ],
+  "scopes": [
+    {
+      "scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel",
+      "authored_id": "export_readiness__managed__pattern_deep_work__criteria_panel",
+      "kind": "parallel",
+      "parent_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel"
+      ],
+      "entry_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity"
+      ],
+      "exit_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity"
+      ],
+      "compiled_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity"
+      ],
+      "max_concurrency": 3
+    },
+    {
+      "scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body",
+      "authored_id": "export_readiness__managed__pattern_deep_work__work_loop_body",
+      "kind": "sequence",
+      "parent_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body"
+      ],
+      "entry_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      ],
+      "exit_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      ],
+      "compiled_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      ]
+    },
+    {
+      "scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+      "authored_id": "export_readiness__managed__pattern_deep_work__work_loop",
+      "kind": "repeat",
+      "parent_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow",
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow",
+        "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop"
+      ],
+      "entry_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      ],
+      "exit_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      ],
+      "compiled_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      ],
+      "max_attempts": 3,
+      "until_compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+      "body_entry_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      ],
+      "body_exit_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+      ]
+    },
+    {
+      "scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow",
+      "authored_id": "export_readiness__managed__pattern_deep_work__workflow",
+      "kind": "sequence",
+      "parent_scope_id": null,
+      "scope_stack": [
+        "scope__export_readiness__managed__pattern_deep_work__workflow"
+      ],
+      "entry_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+      ],
+      "exit_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness"
+      ],
+      "compiled_node_ids": [
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+        "export_readiness__managed__pattern_deep_work__workflow__export_readiness"
+      ]
+    }
+  ],
+  "credential_specs": {},
+  "authored_to_compiled": {
+    "export_readiness__managed__pattern_deep_work__plan": [
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan"
+    ],
+    "export_readiness__managed__pattern_deep_work__generate_validate": [
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate"
+    ],
+    "export_readiness__managed__pattern_deep_work__criterion_01_behavior": [
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior"
+    ],
+    "export_readiness__managed__pattern_deep_work__criterion_02_simplicity": [
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity"
+    ],
+    "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity": [
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity"
+    ],
+    "export_readiness__managed__pattern_deep_work__completion_gate": [
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate"
+    ],
+    "export_readiness": [
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness"
+    ]
+  }
+}

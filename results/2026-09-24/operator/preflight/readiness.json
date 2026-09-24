@@ -1,0 +1,57 @@
+{
+  "status": "ready",
+  "checks": [
+    {
+      "kind": "command",
+      "required": false,
+      "status": "passed",
+      "target": "git",
+      "message": "Command \"git\" is available for workspace setup and change capture."
+    },
+    {
+      "kind": "repo",
+      "required": true,
+      "status": "passed",
+      "target": "main",
+      "message": "Repo \"main\" resolved to .."
+    },
+    {
+      "kind": "repo",
+      "required": false,
+      "status": "passed",
+      "target": "main",
+      "message": "Repo \"main\" is a git worktree."
+    },
+    {
+      "kind": "command",
+      "required": true,
+      "status": "passed",
+      "target": "export_readiness__managed__pattern_deep_work__criterion_01_behavior: sh",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__criterion_01_behavior\" command \"sh\" is available on PATH."
+    },
+    {
+      "kind": "command",
+      "required": true,
+      "status": "passed",
+      "target": "export_readiness__managed__pattern_deep_work__completion_gate: node",
+      "message": "Node \"export_readiness__managed__pattern_deep_work__completion_gate\" command \"node\" is available on PATH."
+    },
+    {
+      "kind": "command",
+      "required": true,
+      "status": "passed",
+      "target": "export_readiness: node",
+      "message": "Node \"export_readiness\" command \"node\" is available on PATH."
+    },
+    {
+      "kind": "harness",
+      "required": true,
+      "status": "passed",
+      "target": "codex-cli",
+      "message": "Harness \"codex-cli\" is available."
+    }
+  ],
+  "passed_count": 7,
+  "warning_count": 0,
+  "blocked_count": 0
+}

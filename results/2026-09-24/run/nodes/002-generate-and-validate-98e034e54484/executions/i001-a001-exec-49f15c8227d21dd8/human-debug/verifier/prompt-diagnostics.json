@@ -1,0 +1,137 @@
+{
+  "version": "1",
+  "prompt_kind": "outcome_verification",
+  "renderer": "renderOutcomeVerificationPrompt",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1__verifier",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+  "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+  "harness": "codex-cli",
+  "model": "auto",
+  "reasoning_effort": "medium",
+  "sandbox": "read-only",
+  "total_chars": 23045,
+  "sections": [
+    {
+      "name": "Role",
+      "chars": 326
+    },
+    {
+      "name": "Decision Rule",
+      "chars": 3928
+    },
+    {
+      "name": "Graph Intent",
+      "chars": 891
+    },
+    {
+      "name": "Node Intent",
+      "chars": 983
+    },
+    {
+      "name": "Completion Packet",
+      "chars": 2556
+    },
+    {
+      "name": "Workspace",
+      "chars": 204
+    },
+    {
+      "name": "Workspace Diff",
+      "chars": 1753
+    },
+    {
+      "name": "Captured Execution Evidence",
+      "chars": 473
+    },
+    {
+      "name": "Runtime Decision Evidence",
+      "chars": 393
+    },
+    {
+      "name": "Agent Response",
+      "chars": 1604
+    },
+    {
+      "name": "Declared Artifacts",
+      "chars": 430
+    },
+    {
+      "name": "Result",
+      "chars": 107
+    },
+    {
+      "name": "What changed",
+      "chars": 1761
+    },
+    {
+      "name": "Plan alignment",
+      "chars": 300
+    },
+    {
+      "name": "Validation evidence",
+      "chars": 1098
+    },
+    {
+      "name": "Review findings",
+      "chars": 610
+    },
+    {
+      "name": "User-visible states",
+      "chars": 923
+    },
+    {
+      "name": "Remaining risks and limitations",
+      "chars": 1059
+    },
+    {
+      "name": "Cause and repair",
+      "chars": 590
+    },
+    {
+      "name": "Operator experience",
+      "chars": 786
+    },
+    {
+      "name": "Changed files",
+      "chars": 288
+    },
+    {
+      "name": "Validation",
+      "chars": 622
+    },
+    {
+      "name": "Limitation",
+      "chars": 236
+    },
+    {
+      "name": "Output",
+      "chars": 1124
+    }
+  ],
+  "context_pointer_count": 4,
+  "context_pointer_kinds": [
+    "artifact",
+    "workspace_file"
+  ],
+  "context_priority_bucket_counts": {
+    "read_first": 0,
+    "current_work": 0,
+    "task_context": 4,
+    "progress_state": 0,
+    "reference_set": 0
+  },
+  "context_read_first_count": 0,
+  "context_glob_set_count": 0,
+  "context_glob_match_count": 0,
+  "context_glob_included_count": 0,
+  "context_limited_glob_count": 0,
+  "context_uses_flat_glob_expansion": false,
+  "tool_count": 0,
+  "skill_count": 0,
+  "cli_hint_count": 0,
+  "declared_artifact_count": 0,
+  "has_supervisor_recovery": false,
+  "orient_required_by_prompt": true,
+  "complete_check_required_by_prompt": true,
+  "warnings": []
+}

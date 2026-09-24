@@ -1,0 +1,20 @@
+{
+  "command": "validate",
+  "status": "passed",
+  "graph_path": "./agentflow.graph.json",
+  "validation_level": "run-ready",
+  "files": [
+    "results/2026-09-24/operator/preflight/validation.json",
+    "results/2026-09-24/operator/preflight/authored-summary.json",
+    "results/2026-09-24/operator/preflight/compiled-summary.json",
+    "results/2026-09-24/operator/preflight/managed-expansion.json",
+    "results/2026-09-24/operator/preflight/compiled-graph.json",
+    "results/2026-09-24/operator/preflight/compiled-graph.mmd",
+    "results/2026-09-24/operator/preflight/authoring-review.json",
+    "results/2026-09-24/operator/preflight/authoring-review.md",
+    "results/2026-09-24/operator/preflight/readiness.json",
+    "results/2026-09-24/operator/preflight/readiness.md",
+    "results/2026-09-24/operator/preflight/context-analysis.json",
+    "results/2026-09-24/operator/preflight/context-analysis.md"
+  ]
+}

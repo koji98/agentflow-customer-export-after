@@ -1,0 +1,40 @@
+{
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "run_root": "results/2026-09-24/run",
+  "baseline_commit": "8c5387e80a736ceeda41994c1af93b41881b8340",
+  "runtime_commit": "460fdf31d94390a1aaf12a8f309ebcbf8c4b1d13",
+  "codex_version": "codex-cli 0.144.5",
+  "models": [
+    "gpt-5.6-sol"
+  ],
+  "graph_status": "passed",
+  "delivery_status": "passed",
+  "review_ready": true,
+  "started_at": "2026-09-24T10:42:57.812Z",
+  "graph_completed_at": "2026-09-24T10:55:06.551Z",
+  "process_completed_at": "2026-09-24T10:55:49.898864+00:00",
+  "graph_seconds": 728.739,
+  "delivery_seconds": 43.347864,
+  "total_seconds": 772.086864,
+  "cycles": 1,
+  "supervisor": {
+    "status": "healthy",
+    "intervention_count": 0,
+    "budget_remaining": {
+      "max_total_interventions": 2
+    },
+    "timeline": [],
+    "active_recovery_envelopes": {},
+    "active_recovery_chains": {},
+    "failure_fingerprints": {},
+    "escalations": []
+  },
+  "scores": {
+    "behavior": 1,
+    "simplicity": 1,
+    "operator_clarity": 1
+  },
+  "weighted_score": 1,
+  "protected_files_unchanged": 21,
+  "scope_note": "Open-book synthetic workflow demo. The starting README exposes prior-result links and was read by the planning agent. Model auto changed from GPT-5.5 in the first run."
+}

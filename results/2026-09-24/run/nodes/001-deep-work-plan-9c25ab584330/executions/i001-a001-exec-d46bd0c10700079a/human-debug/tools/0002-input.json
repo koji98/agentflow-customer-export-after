@@ -1,0 +1,10 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "artifact",
+    "write",
+    "--help"
+  ],
+  "cwd": "."
+}

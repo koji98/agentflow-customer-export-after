@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "stdout": "Published runtime deep-work packet and 1 user-authored artifact(s).\n",
+  "stderr": "",
+  "timed_out": false,
+  "canceled": false,
+  "force_killed": false
+}

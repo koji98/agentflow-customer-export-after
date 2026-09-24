@@ -1,0 +1,8 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "orient"
+  ],
+  "cwd": "."
+}

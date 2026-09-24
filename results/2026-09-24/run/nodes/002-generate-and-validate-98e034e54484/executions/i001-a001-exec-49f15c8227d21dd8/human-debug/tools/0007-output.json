@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "{\n  \"command\": \"af milestone log\",\n  \"status\": \"passed\",\n  \"milestone_id\": \"m1\",\n  \"log\": {\n    \"log_id\": \"m1.l3\",\n    \"kind\": \"validation\",\n    \"summary\": \"All changed JavaScript parsed and the diff passed whitespace validation\",\n    \"command\": \"node --check public/app.js; node --check src/customers.mjs; node --check src/export.mjs; node --check src/server.mjs; git diff --check\",\n    \"result\": \"pass\",\n    \"created_at\": \"2026-09-24T10:52:56.144Z\"\n  }\n}\n",
+  "stderr": ""
+}

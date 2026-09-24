@@ -1,0 +1,393 @@
+agentflow: compiled graph "northstar-export-readiness" with 7 executable nodes
+agentflow: RUN      run · workspace=inplace
+  REPEAT   export_readiness__managed__pattern_deep_work__work_loop · iteration=1/3
+[0/7] RUN      agent Deep Work Plan · repo=main
+  VERIFY   start Deep Work Plan · outcome
+  PASS     verification Deep Work Plan · The planning node satisfies its contract. The declared plan comprehensively addresses export correctness, preview behavior, operator clarity, regression coverage, validation, and protected-file constraints. The completion packet is ready for verification, the artifact hash matches, and changed-files.json confirms no workspace edits.
+[1/7] PASS     agent Deep Work Plan · 4m 41s
+[1/7] RUN      agent Generate And Validate · repo=main
+  VERIFY   start Generate And Validate · outcome
+  PASS     verification Generate And Validate · The implementation satisfies the export and preview contracts with focused changes, complete artifacts, and consistent validation evidence. The verifier reran `npm test && python3 showcase/acceptance/check_preview.py` successfully: 13/13 Node tests, 24/24 export/listing checks, and 5/5 preview checks passed. Protected files and dependencies were unchanged, and the documented lack of manual browser validation is a disclosed limitation rather than a contract blocker.
+[2/7] PASS     agent Generate And Validate · 6m 49s
+[2/7] RUN      check Completion Criterion behavior · repo=main
+[2/7] RUN      check Completion Criterion simplicity · repo=main
+[2/7] RUN      check Completion Criterion operator_clarity · repo=main
+  VERIFY   start Completion Criterion simplicity · ai
+  VERIFY   start Completion Criterion operator_clarity · ai
+  VERIFY   start Completion Criterion behavior · deterministic
+  PASS     verification Completion Criterion behavior · Deterministic check passed.
+[3/7] PASS     check Completion Criterion behavior · 2s
+  PASS     verification Completion Criterion simplicity · The implementation is focused and maintainable. `src/customers.mjs` centralizes filtering and ordering in `matchingCustomers`, with pagination applied only by `queryCustomers`; `src/export.mjs` reuses that single rule set for both complete CSV generation and five-record previews while keeping CSV encoding and the seven-column contract local and clear. `src/server.mjs` adds only the required preview route, and `public/app.js` uses one captured query for preview and download with straightforward stale-response invalidation. No dependencies, unrelated rewrites, dead code, or conflicting business rules were introduced. Focused regression coverage was added, and the evaluator reran `npm test` successfully: 13 passed, 0 failed, 0 skipped.
+[4/7] PASS     check Completion Criterion simplicity · 28s
+  PASS     verification Completion Criterion operator_clarity · Source evidence fully satisfies operator clarity. public/app.js shows the full count (“This download contains … matching customers.”), active scope (“Filters: …”), columns (“Exported columns: …”), and distinguishes the sample from the full file (“Sample: first five matching records. The complete CSV download contains all …”). public/index.html provides unambiguous “Download complete CSV,” “Cancel,” and “Close export preview” actions. The no-match state says the CSV contains only column headers. public/app.js snapshots one query for preview and download, removes the download link while loading, rejects superseded responses, and invalidates the preview on filter changes or closure, preventing stale-query downloads. src/export.mjs derives count and first-five sample from the same unpaginated matches used by export. Current npm test passed 13/13. No rendered-browser behavior is claimed; the supplied notes explicitly state it was not observed.
+[5/7] PASS     check Completion Criterion operator_clarity · 38s
+[5/7] RUN      check Completion Gate · repo=main
+  VERIFY   start Completion Gate · deterministic
+  PASS     verification Completion Gate · Completion criteria passed.
+[6/7] PASS     check Completion Gate · 231ms
+[6/7] RUN      exec Finalize Deep Work · repo=main
+[7/7] PASS     exec Finalize Deep Work · 214ms
+agentflow: PASS     run · 7/7 terminal nodes · 12m 9s
+  DELIVERY curation started
+  PASS     delivery curation · results/2026-09-24/run/delivery/evidence/curation-verdict.json
+  PASS     delivery package ready · results/2026-09-24/run/delivery/manifest.json · review=results/2026-09-24/run/delivery/01-review-brief.md
+{
+  "command": "run",
+  "status": "passed",
+  "message": "Run completed and durable artifacts are ready.",
+  "graph_path": "./agentflow.graph.json",
+  "path_resolution": {
+    "launch_cwd": ".",
+    "graph_path_input": "agentflow.graph.json",
+    "graph_path": "./agentflow.graph.json",
+    "graph_directory": ".",
+    "rules": {
+      "graph_path": "--graph resolves relative to the launch shell current working directory.",
+      "repo_paths": "Repo paths in $.repos.*.path resolve relative to the graph file directory."
+    }
+  },
+  "runs_root": "[recorded-rerun]/runs",
+  "runs_root_env": "AGENTFLOW_RUNS_ROOT",
+  "runs_root_source": "environment",
+  "runs_root_input": "[recorded-rerun]/runs",
+  "default_runs_root": "./.task-runtime/runs",
+  "runs_root_contract": "CLI commands resolve runs roots from an absolute AGENTFLOW_RUNS_ROOT when set; otherwise they default to <graph-directory>/.task-runtime/runs (falling back to <launch-cwd>/.task-runtime/runs when the graph directory is unavailable).",
+  "authored_summary": {
+    "graph_id": "northstar-export-readiness",
+    "node_count": 11,
+    "executable_node_count": 7,
+    "container_node_count": 4,
+    "profile_count": 3,
+    "repo_count": 1,
+    "repeat_count": 1,
+    "node_kind_counts": {
+      "agent": 2,
+      "exec": 1,
+      "check": 4,
+      "checkpoint": 0,
+      "sequence": 2,
+      "parallel": 1,
+      "repeat": 1
+    }
+  },
+  "launch": {
+    "launch_profile": "worker",
+    "workspace_backend": "inplace",
+    "profile": {
+      "harness": "codex-cli",
+      "model": "auto",
+      "reasoning_effort": "medium",
+      "sandbox": "workspace-write",
+      "harness_config": {
+        "isolation": "isolated",
+        "codex": {
+          "config": {
+            "sandbox_workspace_write.network_access": true
+          }
+        }
+      }
+    },
+    "diagnostics": []
+  },
+  "repo_sources": {
+    "main": "."
+  },
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "run_root": "results/2026-09-24/run",
+  "counts": {
+    "total": 7,
+    "pending": 0,
+    "ready": 0,
+    "running": 0,
+    "passed": 7,
+    "failed": 0,
+    "blocked": 0,
+    "canceled": 0,
+    "skipped": 0
+  },
+  "supervisor_status": "healthy",
+  "intervention_count": 0,
+  "supervisor_budget_remaining": {
+    "max_total_interventions": 2
+  },
+  "delivery_package": "results/2026-09-24/run/delivery/manifest.json",
+  "review_brief": "results/2026-09-24/run/delivery/01-review-brief.md",
+  "repo_workspaces": {
+    "main": {
+      "repo_alias": "main",
+      "source_path": ".",
+      "workspace_path": ".",
+      "backend": "inplace"
+    }
+  },
+  "workspace_change_artifacts": {
+    "main": {
+      "repo_alias": "main",
+      "workspace_path": ".",
+      "status_file": "results/2026-09-24/run/workspace-changes/main/status.txt",
+      "diff_file": "results/2026-09-24/run/workspace-changes/main/diff.patch",
+      "changed_files_file": "results/2026-09-24/run/workspace-changes/main/changed-files.json",
+      "changed_files": [
+        "public/app.js",
+        "public/index.html",
+        "public/styles.css",
+        "src/customers.mjs",
+        "src/export.mjs",
+        "src/server.mjs",
+        "test/query.test.mjs",
+        "test/server.test.mjs"
+      ]
+    }
+  },
+  "attempt_count": 7,
+  "evidence_status": "clean",
+  "graph_status": "passed",
+  "delivery_status": "passed",
+  "review_ready": true,
+  "soft_verification_counts": {
+    "passed": 3,
+    "failed": 0
+  },
+  "outcome_verification_counts": {
+    "passed": 2,
+    "failed": 0,
+    "attempts_with_verification": 2,
+    "failed_attempts": []
+  },
+  "node_workspace_change_counts": {
+    "attempts_with_changes": 7,
+    "diff_paths": [
+      "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/diff.patch"
+    ]
+  },
+  "duration_ms": 728739,
+  "artifacts": {
+    "run_file": "results/2026-09-24/run/run.json",
+    "authored_graph_file": "results/2026-09-24/run/authored_graph.json",
+    "compiled_graph_file": "results/2026-09-24/run/compiled_graph.json",
+    "execution_manifest_file": "results/2026-09-24/run/execution_manifest.json",
+    "compile_diagnostics_file": "results/2026-09-24/run/compile_diagnostics.json",
+    "state_file": "results/2026-09-24/run/state.json",
+    "events_file": "results/2026-09-24/run/events.jsonl",
+    "interventions_file": "results/2026-09-24/run/interventions.jsonl",
+    "summary_file": "results/2026-09-24/run/summary.md",
+    "delivery_dir": "results/2026-09-24/run/delivery",
+    "workspace_changes_dir": "results/2026-09-24/run/workspace-changes"
+  },
+  "cancel_note": "Press Ctrl-C in the terminal running agentflow run to cancel. The runtime waits for cleanup and durable artifacts capture the terminal Canceled state.",
+  "next_steps": {
+    "validate": "agentflow validate --graph './agentflow.graph.json'",
+    "rerun": "agentflow run --graph './agentflow.graph.json'",
+    "resume": "agentflow resume --run-root 'results/2026-09-24/run'"
+  },
+  "latest_run_state": {
+    "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+    "graph_id": "northstar-export-readiness",
+    "snapshot_seq": 57,
+    "status": "passed",
+    "graph_status": "passed",
+    "delivery_status": "passed",
+    "review_ready": true,
+    "evidence_status": "clean",
+    "workspace_backend": "inplace",
+    "repo_workspaces": {
+      "main": {
+        "repo_alias": "main",
+        "source_path": ".",
+        "workspace_path": ".",
+        "backend": "inplace"
+      }
+    },
+    "workspace_change_artifacts": {
+      "main": {
+        "repo_alias": "main",
+        "workspace_path": ".",
+        "status_file": "results/2026-09-24/run/workspace-changes/main/status.txt",
+        "diff_file": "results/2026-09-24/run/workspace-changes/main/diff.patch",
+        "changed_files_file": "results/2026-09-24/run/workspace-changes/main/changed-files.json",
+        "changed_files": [
+          "public/app.js",
+          "public/index.html",
+          "public/styles.css",
+          "src/customers.mjs",
+          "src/export.mjs",
+          "src/server.mjs",
+          "test/query.test.mjs",
+          "test/server.test.mjs"
+        ]
+      }
+    },
+    "counts": {
+      "total": 7,
+      "pending": 0,
+      "ready": 0,
+      "running": 0,
+      "passed": 7,
+      "failed": 0,
+      "blocked": 0,
+      "canceled": 0,
+      "skipped": 0
+    },
+    "soft_verification_counts": {
+      "passed": 3,
+      "failed": 0
+    },
+    "failed_soft_verifications": [],
+    "supervisor": {
+      "status": "healthy",
+      "intervention_count": 0,
+      "budget_remaining": {
+        "max_total_interventions": 2
+      },
+      "timeline": [],
+      "active_recovery_envelopes": {},
+      "active_recovery_chains": {},
+      "failure_fingerprints": {},
+      "escalations": []
+    },
+    "node_statuses": {
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan": "passed",
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate": "passed",
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior": "passed",
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity": "passed",
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity": "passed",
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate": "passed",
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness": "passed"
+    },
+    "active_executions": {},
+    "latest_execution_by_compiled_id": {
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan": {
+        "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+        "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+        "kind": "agent",
+        "status": "passed",
+        "attempt_index": 1,
+        "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "iteration_index": 1,
+        "iteration_attempt_index": 1,
+        "started_at": "2026-09-24T10:42:57.832Z",
+        "ended_at": "2026-09-24T10:47:39.058Z",
+        "duration_ms": 281226
+      },
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate": {
+        "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+        "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+        "kind": "agent",
+        "status": "passed",
+        "attempt_index": 1,
+        "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "iteration_index": 1,
+        "iteration_attempt_index": 1,
+        "started_at": "2026-09-24T10:47:39.061Z",
+        "ended_at": "2026-09-24T10:54:27.955Z",
+        "duration_ms": 408894
+      },
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior": {
+        "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "authored_id": "export_readiness__managed__pattern_deep_work__criterion_01_behavior",
+        "kind": "check",
+        "status": "passed",
+        "attempt_index": 1,
+        "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "iteration_index": 1,
+        "iteration_attempt_index": 1,
+        "started_at": "2026-09-24T10:54:27.960Z",
+        "ended_at": "2026-09-24T10:54:29.603Z",
+        "duration_ms": 1643,
+        "verification": {
+          "verifier_kind": "check",
+          "passed": true,
+          "summary": "Deterministic check passed.",
+          "check_kind": "deterministic",
+          "exit_code": 0
+        }
+      },
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity": {
+        "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "authored_id": "export_readiness__managed__pattern_deep_work__criterion_02_simplicity",
+        "kind": "check",
+        "status": "passed",
+        "attempt_index": 1,
+        "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "iteration_index": 1,
+        "iteration_attempt_index": 1,
+        "started_at": "2026-09-24T10:54:27.964Z",
+        "ended_at": "2026-09-24T10:54:55.498Z",
+        "duration_ms": 27534,
+        "verification": {
+          "verifier_kind": "check",
+          "passed": true,
+          "summary": "The implementation is focused and maintainable. `src/customers.mjs` centralizes filtering and ordering in `matchingCustomers`, with pagination applied only by `queryCustomers`; `src/export.mjs` reuses that single rule set for both complete CSV generation and five-record previews while keeping CSV encoding and the seven-column contract local and clear. `src/server.mjs` adds only the required preview route, and `public/app.js` uses one captured query for preview and download with straightforward stale-response invalidation. No dependencies, unrelated rewrites, dead code, or conflicting business rules were introduced. Focused regression coverage was added, and the evaluator reran `npm test` successfully: 13 passed, 0 failed, 0 skipped.",
+          "check_kind": "ai"
+        }
+      },
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity": {
+        "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+        "authored_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+        "kind": "check",
+        "status": "passed",
+        "attempt_index": 1,
+        "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "iteration_index": 1,
+        "iteration_attempt_index": 1,
+        "started_at": "2026-09-24T10:54:27.965Z",
+        "ended_at": "2026-09-24T10:55:06.070Z",
+        "duration_ms": 38105,
+        "verification": {
+          "verifier_kind": "check",
+          "passed": true,
+          "summary": "Source evidence fully satisfies operator clarity. public/app.js shows the full count (“This download contains … matching customers.”), active scope (“Filters: …”), columns (“Exported columns: …”), and distinguishes the sample from the full file (“Sample: first five matching records. The complete CSV download contains all …”). public/index.html provides unambiguous “Download complete CSV,” “Cancel,” and “Close export preview” actions. The no-match state says the CSV contains only column headers. public/app.js snapshots one query for preview and download, removes the download link while loading, rejects superseded responses, and invalidates the preview on filter changes or closure, preventing stale-query downloads. src/export.mjs derives count and first-five sample from the same unpaginated matches used by export. Current npm test passed 13/13. No rendered-browser behavior is claimed; the supplied notes explicitly state it was not observed.",
+          "check_kind": "ai"
+        }
+      },
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate": {
+        "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+        "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+        "authored_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+        "kind": "check",
+        "status": "passed",
+        "attempt_index": 1,
+        "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "iteration_index": 1,
+        "iteration_attempt_index": 1,
+        "started_at": "2026-09-24T10:55:06.073Z",
+        "ended_at": "2026-09-24T10:55:06.304Z",
+        "duration_ms": 231
+      },
+      "export_readiness__managed__pattern_deep_work__workflow__export_readiness": {
+        "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__attempt_1",
+        "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness",
+        "authored_id": "export_readiness",
+        "kind": "exec",
+        "status": "passed",
+        "attempt_index": 1,
+        "started_at": "2026-09-24T10:55:06.308Z",
+        "ended_at": "2026-09-24T10:55:06.522Z",
+        "duration_ms": 214
+      }
+    },
+    "repeat_scopes": {
+      "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop": {
+        "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "authored_id": "export_readiness__managed__pattern_deep_work__work_loop",
+        "max_attempts": 3,
+        "until_compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+        "latest_iteration_index": 1,
+        "status": "passed"
+      }
+    },
+    "started_at": "2026-09-24T10:42:57.812Z",
+    "ended_at": "2026-09-24T10:55:06.551Z"
+  }
+}

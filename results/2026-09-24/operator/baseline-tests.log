@@ -1,0 +1,18 @@
+
+> agentflow-customer-dashboard-demo@1.0.0 test
+> node --test test/*.test.mjs
+
+✔ listing paginates after filtering and preserves total (12.366125ms)
+✔ search and segment combine, with descending ID order (0.167416ms)
+✔ zero matches and invalid pagination have safe defaults (0.110125ms)
+✔ customer API returns a paginated synthetic dataset (38.568416ms)
+✔ dashboard and CSV download are served with appropriate content types (5.607666ms)
+✔ unknown paths and mutation requests are rejected (2.969875ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 187.259542

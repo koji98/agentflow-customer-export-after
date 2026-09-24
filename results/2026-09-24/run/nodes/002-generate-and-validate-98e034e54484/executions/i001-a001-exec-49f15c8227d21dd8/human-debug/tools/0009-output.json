@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "{\n  \"command\": \"af milestone log\",\n  \"status\": \"passed\",\n  \"milestone_id\": \"m1\",\n  \"log\": {\n    \"log_id\": \"m1.l5\",\n    \"kind\": \"finding\",\n    \"summary\": \"Five-axis review found no required issues\",\n    \"evidence\": \"Shared matchingCustomers keeps filter/order semantics centralized; listing alone paginates; CSV encoding uses the stable columns array; preview download reuses the successful request query and late responses are discarded; DOM values use textContent; changed files are limited to src, public, and focused tests with no dependency or protected-file changes.\",\n    \"created_at\": \"2026-09-24T10:52:56.272Z\"\n  }\n}\n",
+  "stderr": ""
+}

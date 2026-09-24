@@ -1,0 +1,127 @@
+{
+  "command": "inspect",
+  "status": "passed",
+  "run_root": "results/2026-09-24/run",
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "graph_id": "northstar-export-readiness",
+  "graph_path": "./agentflow.graph.json",
+  "launch_profile": "worker",
+  "workspace_backend": "inplace",
+  "run_status": "passed",
+  "started_at": "2026-09-24T10:42:57.812Z",
+  "ended_at": "2026-09-24T10:55:06.551Z",
+  "counts": {
+    "total": 7,
+    "pending": 0,
+    "ready": 0,
+    "running": 0,
+    "passed": 7,
+    "failed": 0,
+    "blocked": 0,
+    "canceled": 0,
+    "skipped": 0
+  },
+  "evidence_status": "clean",
+  "supervisor_status": "healthy",
+  "supervisor_timeline_count": 0,
+  "runtime_log_count": 0,
+  "operator_observation_count": 0,
+  "active_operator_observation_count": 0,
+  "blocking_operator_observation_count": 0,
+  "operator_observations": [],
+  "intervention_count": 0,
+  "supervisor_budget_remaining": {
+    "max_total_interventions": 2
+  },
+  "delivery_package": "results/2026-09-24/run/delivery/manifest.json",
+  "review_brief": "results/2026-09-24/run/delivery/01-review-brief.md",
+  "delivery_artifact_taxonomy": {
+    "human_entrypoints": 3,
+    "declared_artifacts": 6,
+    "resume_required": 5,
+    "audit_trail": 30,
+    "debug_only": 85,
+    "empty_or_noop": 8
+  },
+  "soft_verification_counts": {
+    "passed": 3,
+    "failed": 0
+  },
+  "repo_workspaces": {
+    "main": {
+      "repo_alias": "main",
+      "source_path": ".",
+      "workspace_path": ".",
+      "backend": "inplace"
+    }
+  },
+  "workspace_change_artifacts": {
+    "main": {
+      "repo_alias": "main",
+      "workspace_path": ".",
+      "status_file": "results/2026-09-24/run/workspace-changes/main/status.txt",
+      "diff_file": "results/2026-09-24/run/workspace-changes/main/diff.patch",
+      "changed_files_file": "results/2026-09-24/run/workspace-changes/main/changed-files.json",
+      "changed_files": [
+        "public/app.js",
+        "public/index.html",
+        "public/styles.css",
+        "src/customers.mjs",
+        "src/export.mjs",
+        "src/server.mjs",
+        "test/query.test.mjs",
+        "test/server.test.mjs"
+      ]
+    }
+  },
+  "graph_status": "passed",
+  "delivery_status": "passed",
+  "review_ready": true,
+  "outcome_verification_counts": {
+    "passed": 2,
+    "failed": 0,
+    "attempts_with_verification": 2,
+    "failed_attempts": []
+  },
+  "node_workspace_change_counts": {
+    "attempts_with_changes": 7,
+    "diff_paths": [
+      "results/2026-09-24/run/nodes/007-finalize-deep-work-fe537ae7d679/executions/001-exec-4ed80f3db0c7ea5a/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/diff.patch",
+      "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/diff.patch"
+    ]
+  },
+  "duration_ms": 728739,
+  "attempt_count": 7,
+  "event_count": 57,
+  "failed_node_count": 0,
+  "active_failed_node_count": 0,
+  "failed_attempt_count": 0,
+  "historical_failed_attempt_count": 0,
+  "failed_node_stderr_tails": [],
+  "historical_failed_attempt_stderr_tails": [],
+  "active_managed_contract_failures": [],
+  "historical_managed_contract_failure_count": 0,
+  "artifacts": {
+    "run_file": "results/2026-09-24/run/run.json",
+    "authored_graph_file": "results/2026-09-24/run/authored_graph.json",
+    "compiled_graph_file": "results/2026-09-24/run/compiled_graph.json",
+    "execution_manifest_file": "results/2026-09-24/run/execution_manifest.json",
+    "compile_diagnostics_file": "results/2026-09-24/run/compile_diagnostics.json",
+    "state_file": "results/2026-09-24/run/state.json",
+    "events_file": "results/2026-09-24/run/events.jsonl",
+    "supervisor_timeline_file": "results/2026-09-24/run/supervisor-timeline.jsonl",
+    "runtime_log_file": "results/2026-09-24/run/runtime/log.jsonl",
+    "operator_observations_file": "results/2026-09-24/run/runtime/observations.jsonl",
+    "interventions_file": "results/2026-09-24/run/interventions.jsonl",
+    "summary_file": "results/2026-09-24/run/summary.md",
+    "delivery_dir": "results/2026-09-24/run/delivery",
+    "workspaces_dir": "results/2026-09-24/run/workspaces",
+    "workspace_changes_dir": "results/2026-09-24/run/workspace-changes",
+    "nodes_dir": "results/2026-09-24/run/nodes"
+  }
+}

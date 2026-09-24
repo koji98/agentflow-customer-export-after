@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "summary": "The planning node satisfies its contract. The declared plan comprehensively addresses export correctness, preview behavior, operator clarity, regression coverage, validation, and protected-file constraints. The completion packet is ready for verification, the artifact hash matches, and changed-files.json confirms no workspace edits.",
+  "findings": [
+    {
+      "severity": "low",
+      "category": "missing_validation",
+      "evidence": "artifacts/plan.md reports exact baseline results, but the completion packet contains no validation evidence and no execution transcript was captured.",
+      "recommendation": "During execution, capture the output and exit status of the focused tests, npm test, the acceptance checker, and the combined completion command as planned.",
+      "references": [
+        "artifacts/plan.md",
+        "runtime/completion-packet.json"
+      ]
+    }
+  ],
+  "blockers": [],
+  "verifier_metadata": {
+    "harness": "codex-cli",
+    "profile_name": "supervisor",
+    "model": "auto",
+    "duration_ms": 38564,
+    "prompt_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/verifier/prompt.md",
+    "response_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/verifier/raw-response.md",
+    "truncated_artifacts": [],
+    "workspace_diff_status": "captured",
+    "decision_log_count": 0,
+    "attempt_count": 1,
+    "parse_status": "ok"
+  }
+}

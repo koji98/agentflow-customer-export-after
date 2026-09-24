@@ -1,0 +1,13 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "add",
+    "--title",
+    "Repair exports and add safe preview",
+    "--goal",
+    "Implement and validate complete CSV export, stable preview API, query-snapshotted operator preview UI, regression coverage, and delivery artifacts"
+  ],
+  "cwd": "."
+}

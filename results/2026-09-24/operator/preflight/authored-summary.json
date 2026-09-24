@@ -1,0 +1,18 @@
+{
+  "graph_id": "northstar-export-readiness",
+  "node_count": 11,
+  "executable_node_count": 7,
+  "container_node_count": 4,
+  "profile_count": 3,
+  "repo_count": 1,
+  "repeat_count": 1,
+  "node_kind_counts": {
+    "agent": 2,
+    "exec": 1,
+    "check": 4,
+    "checkpoint": 0,
+    "sequence": 2,
+    "parallel": 1,
+    "repeat": 1
+  }
+}

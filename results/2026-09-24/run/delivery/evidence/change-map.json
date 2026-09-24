@@ -1,0 +1,25 @@
+{
+  "graph_id": "northstar-export-readiness",
+  "run_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun",
+  "repos": [
+    {
+      "repo_alias": "main",
+      "workspace_path": ".",
+      "changed_files": [
+        "public/app.js",
+        "public/index.html",
+        "public/styles.css",
+        "src/customers.mjs",
+        "src/export.mjs",
+        "src/server.mjs",
+        "test/query.test.mjs",
+        "test/server.test.mjs"
+      ],
+      "artifacts": {
+        "status_file": "results/2026-09-24/run/workspace-changes/main/status.txt",
+        "diff_file": "results/2026-09-24/run/workspace-changes/main/diff.patch",
+        "changed_files_file": "results/2026-09-24/run/workspace-changes/main/changed-files.json"
+      }
+    }
+  ]
+}

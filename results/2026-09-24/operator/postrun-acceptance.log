@@ -1,0 +1,153 @@
+{
+  "passed": true,
+  "checks": 24,
+  "passed_checks": 24,
+  "repo": ".",
+  "results": [
+    {
+      "case": "all 137 customers",
+      "passed": true,
+      "expected_records": 137
+    },
+    {
+      "case": "page two does not limit export",
+      "passed": true,
+      "expected_records": 137
+    },
+    {
+      "case": "active customers across pages",
+      "passed": true,
+      "expected_records": 103
+    },
+    {
+      "case": "active growth descending",
+      "passed": true,
+      "expected_records": 35
+    },
+    {
+      "case": "combined case-insensitive search",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "quoted field and LF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "Unicode and comma",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "embedded quotes and CRLF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "non-Latin text",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "ordinary record and empty note",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "no matches produces header only",
+      "passed": true,
+      "expected_records": 0
+    },
+    {
+      "case": "inactive enterprise descending",
+      "passed": true,
+      "expected_records": 11
+    },
+    {
+      "case": "listing: all 137 customers",
+      "passed": true,
+      "expected_records": 25
+    },
+    {
+      "case": "listing: page two does not limit export",
+      "passed": true,
+      "expected_records": 7
+    },
+    {
+      "case": "listing: active customers across pages",
+      "passed": true,
+      "expected_records": 25
+    },
+    {
+      "case": "listing: active growth descending",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "listing: combined case-insensitive search",
+      "passed": true,
+      "expected_records": 5
+    },
+    {
+      "case": "listing: quoted field and LF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: Unicode and comma",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: embedded quotes and CRLF",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: non-Latin text",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: ordinary record and empty note",
+      "passed": true,
+      "expected_records": 1
+    },
+    {
+      "case": "listing: no matches produces header only",
+      "passed": true,
+      "expected_records": 0
+    },
+    {
+      "case": "listing: inactive enterprise descending",
+      "passed": true,
+      "expected_records": 11
+    }
+  ]
+}
+{
+  "passed": true,
+  "preview_checks": [
+    {
+      "case": "all matching customers",
+      "passed": true
+    },
+    {
+      "case": "active customers from page two",
+      "passed": true
+    },
+    {
+      "case": "combined filters descending",
+      "passed": true
+    },
+    {
+      "case": "search with commas and line breaks",
+      "passed": true
+    },
+    {
+      "case": "no results",
+      "passed": true
+    }
+  ]
+}

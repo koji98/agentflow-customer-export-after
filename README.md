@@ -2,7 +2,7 @@
 
 This repo holds the app from a real Agentflow run. The task was to fix a broken customer CSV download and add a preview of the file.
 
-**The app now passes all 29 export and preview checks.** All 12 app tests pass too. Both AI judges gave the work full marks. A later browser check found one issue: you have to scroll down to see the preview.
+**The app now passes all 29 export and preview checks.** All 13 app tests pass too. Both AI judges gave the work full marks. Both judges could run the tests. A later browser check found a bug: the download control stays visible if the preview request fails.
 
 You can [read the results](results/README.md) on GitHub right now. To try the app below, you do not need Agentflow, a Codex account, or an API key.
 
@@ -15,7 +15,7 @@ flowchart LR
     C --> D[Code and results saved here]
 ```
 
-The run passed on its **first try** and took **13 minutes and 13 seconds**. Agentflow did not need to call in its helper agent. A high AI score does not mean the app has no bugs.
+The run passed on its **first try** and took **12 minutes and 52 seconds**. Agentflow did not need to call in its helper agent. A high AI score does not mean the app has no bugs. This is an **open-book demo**: agents could read prior-result links and the task checks. See the [fairness audit](results/2026-09-24/operator/graph-audit.md).
 
 | I want to… | Go here |
 | --- | --- |
@@ -56,13 +56,13 @@ Keep the terminal open while you use the app. Press **Ctrl+C** to stop it. If a 
 
 1. Choose **Active** in the status filter.
 2. Go to page two.
-3. Click **Preview export**, then **scroll down**.
+3. Click **Preview export**. A dialog opens in view.
 4. Check the preview: **103** customers in the full file, with **5** shown as a sample.
 5. Download the CSV. It should include all 103 matching customers.
 
 You can also change a filter, cancel the preview, or search for a name that does not exist. With no matches, the file should contain only column names.
 
-**Known issue:** the preview opens below the table. The page does not scroll to it. This is part of the app the AI made. See the [saved browser check](results/operator/browser-review.md).
+**Known issue:** if the preview request fails, the download control still looks usable, but its link is gone. This is part of the app the AI made. See the [saved browser check](results/2026-09-24/operator/browser-review.md).
 
 ## 4. Run the checks yourself
 
@@ -74,12 +74,12 @@ npm run check:acceptance
 npm run test:setup
 ```
 
-You should see **12 app tests**, **29 export and preview checks**, and **4 setup tests** pass. These commands use made-up data and do not call an AI service.
+You should see **13 app tests**, **29 export and preview checks**, and **4 setup tests** pass. These commands use made-up data and do not call an AI service.
 
 To see the code changed by the recorded run:
 
 ```sh
-git diff before-agentflow..after-agentflow -- src public test
+git diff before-network-permissions..after-network-permissions -- src public test
 ```
 
 These two Git tags are saved copies of the app before and after the run.
@@ -90,4 +90,6 @@ These two Git tags are saved copies of the app before and after the run.
 - [File guide](showcase/README.md): where the app, checks, and saved run live.
 - [About the saved files](results/PROVENANCE.md): how the run was copied into this repo.
 
-For a live demo, keep the results guide open while a new run works. The saved run took over 13 minutes, so it will not fit inside an eight-minute talk.
+For a live demo, keep the results guide open while a new run works. The latest saved run took almost 13 minutes, so it will not fit inside an eight-minute talk.
+
+The [first run and its original files](results/first-run.md) are still available. [Why could six old tests pass while the task was unfinished?](results/2026-09-24/operator/tests-explained.md)

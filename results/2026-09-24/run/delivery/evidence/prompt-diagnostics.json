@@ -1,0 +1,189 @@
+{
+  "version": "1",
+  "prompt_kind": "delivery_curator",
+  "renderer": "renderHarnessPrompt",
+  "execution_id": "2026-09-24t10-42-57-811z-northstar-export-readiness-network-permissions-rerun__delivery_curator",
+  "harness": "codex-cli",
+  "model": "auto",
+  "reasoning_effort": "medium",
+  "sandbox": "read-only",
+  "total_chars": 16686,
+  "sections": [
+    {
+      "name": "Role",
+      "chars": 284
+    },
+    {
+      "name": "Source Of Truth",
+      "chars": 718
+    },
+    {
+      "name": "Review Brief Contract",
+      "chars": 1235
+    },
+    {
+      "name": "Run Learnings Contract",
+      "chars": 802
+    },
+    {
+      "name": "Evidence Packet",
+      "chars": 133
+    },
+    {
+      "name": "Run",
+      "chars": 201
+    },
+    {
+      "name": "Success Contract",
+      "chars": 890
+    },
+    {
+      "name": "Final Declared Artifacts",
+      "chars": 1816
+    },
+    {
+      "name": "Changed Files",
+      "chars": 6232
+    },
+    {
+      "name": "Validation",
+      "chars": 2608
+    },
+    {
+      "name": "Active Failures",
+      "chars": 50
+    },
+    {
+      "name": "Recovered Issues",
+      "chars": 59
+    },
+    {
+      "name": "Historical Attempts",
+      "chars": 75
+    },
+    {
+      "name": "Interventions",
+      "chars": 73
+    },
+    {
+      "name": "Workspace Improvements",
+      "chars": 445
+    },
+    {
+      "name": "Evidence Links",
+      "chars": 406
+    },
+    {
+      "name": "Output",
+      "chars": 103
+    },
+    {
+      "name": "Outcome",
+      "chars": 15
+    },
+    {
+      "name": "Reviewer Decision",
+      "chars": 25
+    },
+    {
+      "name": "What To Inspect First",
+      "chars": 29
+    },
+    {
+      "name": "Success Contract",
+      "chars": 24
+    },
+    {
+      "name": "Changed Files",
+      "chars": 21
+    },
+    {
+      "name": "Final Declared Artifacts",
+      "chars": 32
+    },
+    {
+      "name": "Validation Evidence",
+      "chars": 27
+    },
+    {
+      "name": "Active Failures And Risks",
+      "chars": 33
+    },
+    {
+      "name": "Recovered Issues",
+      "chars": 24
+    },
+    {
+      "name": "Historical Attempts",
+      "chars": 27
+    },
+    {
+      "name": "Supervisor And Human Interventions",
+      "chars": 42
+    },
+    {
+      "name": "Supporting Evidence",
+      "chars": 64
+    },
+    {
+      "name": "Where Agents Struggled",
+      "chars": 30
+    },
+    {
+      "name": "Workspace Improvements",
+      "chars": 30
+    },
+    {
+      "name": "Graph Prompt And Support Improvements",
+      "chars": 45
+    },
+    {
+      "name": "Plugin Skill And Eval Opportunities",
+      "chars": 43
+    },
+    {
+      "name": "What Worked",
+      "chars": 19
+    },
+    {
+      "name": "Evidence Links",
+      "chars": 26
+    }
+  ],
+  "context_pointer_count": 17,
+  "context_pointer_kinds": [
+    "Attempt",
+    "Description",
+    "Draft content for final artifact summary.",
+    "Execution plan for satisfying the deep work task from the current state.",
+    "Machine-readable final evidence packet.",
+    "No concrete workspace improvement was inferred from this run.",
+    "Notes and validation evidence from the current deep work result.",
+    "Recommendation",
+    "Review handoff explaining the export repair and preview, changed files, actual validation results, user-visible state text with source references, and remaining limitations.",
+    "Weighted completion scorecard for the latest deep work result.",
+    "[attempt](../nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a)",
+    "[attempt](../nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8)"
+  ],
+  "context_priority_bucket_counts": {
+    "read_first": 0,
+    "current_work": 0,
+    "task_context": 17,
+    "progress_state": 0,
+    "reference_set": 0
+  },
+  "context_read_first_count": 0,
+  "context_glob_set_count": 0,
+  "context_glob_match_count": 0,
+  "context_glob_included_count": 0,
+  "context_limited_glob_count": 0,
+  "context_uses_flat_glob_expansion": false,
+  "tool_count": 0,
+  "skill_count": 0,
+  "cli_hint_count": 0,
+  "declared_artifact_count": 0,
+  "has_supervisor_recovery": false,
+  "orient_required_by_prompt": false,
+  "complete_check_required_by_prompt": false,
+  "warnings": []
+}

@@ -1,0 +1,77 @@
+{
+  "version": "1",
+  "attempt_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_dir": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45",
+  "packet_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/runtime/completion-packet.json",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+  "authored_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+  "kind": "check",
+  "goal": "You are an evidence-based evaluator for completion criterion `operator_clarity`.\n\nCriterion:\nRubric: Judge the clarity of the export preview from the implemented interface text and state handling in the source, supported by any actual UI observations recorded in the summary. A passing preview makes the full matching record count, active filter scope, exported columns, and first-five-record sample understandable to an operations user. It must distinguish the sample from the full download, provide unambiguous download and cancel actions, explain the no-match case, and avoid stale count/sample information being presented for a different query. Labels should describe the user's task rather than internal API or runtime details. Cite exact user-visible strings and source paths for findings. Score 1.0 when these decisions are immediately clear; 0.85 when they are clear with only optional wording improvements; 0.70 when a specific ambiguity could cause a wrong download decision; 0.50 or below when sample size, export scope, or actions are materially misleading or a required state is absent. Judge semantic clarity, not visual taste. Do not claim rendered layout, keyboard accessibility, or actual browser behavior was verified without corresponding observed evidence. Do not treat a confident summary as a substitute for implemented source.\nTarget: workspace\nWeight: 0.15\nRequired blocker: yes\n\nEvaluation Guidance:\nGrade only the current workspace candidate, work notes, validation evidence, and draft artifacts.\nGive full credit when the evidence satisfies the criterion.\nDo not invent issues, penalize harmless style differences, or require work outside the task contract.\nDo withhold credit for missing evidence, violated constraints, failed validation, or unsupported claims.\nUse score 0.85 or higher when the criterion is clearly satisfied; set `passed` true when the criterion is adequately satisfied.\n\nRequired JSON Output:\nReturn valid JSON only:\n{\"passed\":true,\"score\":1,\"summary\":\"short evidence-backed rationale\",\"issues\":[]}\nScore must be a number from 0 to 1.",
+  "acceptance_criteria": [
+    "The evaluator returns valid JSON with passed, score, summary, and issues fields.",
+    "The evaluator grades only evidence in context and does not require work outside the task contract."
+  ],
+  "constraints": [
+    "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+    "Do not weaken, remove, or skip existing tests.",
+    "Do not edit files outside this repository or change independent acceptance tools.",
+    "Do not add dependencies, call remote services, or include unrelated refactors.",
+    "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+    "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+  ],
+  "authority": {
+    "sandbox": "read-only",
+    "repos": [
+      "main"
+    ]
+  },
+  "declared_artifacts": [],
+  "published_artifacts": [],
+  "missing_artifacts": [],
+  "artifact_findings": [],
+  "validation_evidence": [],
+  "orientation": {
+    "orient_called": false,
+    "orient_call_count": 0,
+    "modes_seen": []
+  },
+  "milestones": {
+    "total": 0,
+    "active": 0,
+    "completed": 0,
+    "blocked": 0,
+    "validation_logs": 0,
+    "milestones": []
+  },
+  "runtime_logs": {
+    "progress": 0,
+    "finding": 0,
+    "decision": 0,
+    "blocking_findings": 0
+  },
+  "active_blockers": [],
+  "operator_observations": {
+    "active": 0,
+    "blocking": 0,
+    "latest": []
+  },
+  "supervisor_recovery": {
+    "active": false
+  },
+  "managed": {
+    "active": false
+  },
+  "helpers": {
+    "active": 0,
+    "completed": 0,
+    "pending": 0,
+    "failed": 0,
+    "missing_artifacts": [],
+    "latest": []
+  },
+  "completion_status": "ready_for_verification",
+  "ready_for_verification": true,
+  "authority_requests": [],
+  "blocking_reasons": []
+}

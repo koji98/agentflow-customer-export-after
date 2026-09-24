@@ -1,0 +1,107 @@
+{
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+  "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+  "kind": "agent",
+  "repo_alias": "main",
+  "execution_dir": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a",
+  "attempt_index": 1,
+  "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+  "iteration_index": 1,
+  "iteration_attempt_index": 1,
+  "status": "passed",
+  "started_at": "2026-09-24T10:42:57.832Z",
+  "artifacts": {
+    "agent_response": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/agent-response.md",
+    "plan": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/plan.md"
+  },
+  "metadata": {
+    "binary": "/opt/homebrew/bin/codex",
+    "args": [
+      "--cd",
+      ".",
+      "--add-dir",
+      "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a",
+      "--add-dir",
+      "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts",
+      "--add-dir",
+      "results/2026-09-24/run/runtime",
+      "exec",
+      "--output-last-message",
+      "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/last_message.txt",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "\"sandbox_workspace_write.network_access\"=true",
+      "-c",
+      "default_permissions=\"agentflow_judge_permissions\"",
+      "-c",
+      "permissions.agentflow_judge_permissions={ extends = \":workspace\", network = { enabled = true } }",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "-"
+    ],
+    "native_harness": {
+      "harness": "codex-cli",
+      "config_isolation": "isolated"
+    },
+    "timed_out": false,
+    "force_killed": false,
+    "completion": {
+      "completion_status": "ready_for_verification",
+      "ready_for_verification": true,
+      "blocking_reasons": [],
+      "packet_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/completion-packet.json"
+    },
+    "node_workspace_changes": {
+      "baseline_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/baseline.json",
+      "after_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/after.json",
+      "status_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/status.txt",
+      "diff_patch_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/diff.patch",
+      "changed_files_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/workspace-changes/changed-files.json",
+      "changed_file_count": 0,
+      "status": "captured"
+    },
+    "outcome_verification": {
+      "passed": true,
+      "summary": "The planning node satisfies its contract. The declared plan comprehensively addresses export correctness, preview behavior, operator clarity, regression coverage, validation, and protected-file constraints. The completion packet is ready for verification, the artifact hash matches, and changed-files.json confirms no workspace edits.",
+      "findings": [
+        {
+          "severity": "low",
+          "category": "missing_validation",
+          "evidence": "artifacts/plan.md reports exact baseline results, but the completion packet contains no validation evidence and no execution transcript was captured.",
+          "recommendation": "During execution, capture the output and exit status of the focused tests, npm test, the acceptance checker, and the combined completion command as planned.",
+          "references": [
+            "artifacts/plan.md",
+            "runtime/completion-packet.json"
+          ]
+        }
+      ],
+      "blockers": [],
+      "verifier_metadata": {
+        "harness": "codex-cli",
+        "profile_name": "supervisor",
+        "model": "auto",
+        "duration_ms": 38564,
+        "prompt_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/verifier/prompt.md",
+        "response_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/verifier/raw-response.md",
+        "truncated_artifacts": [],
+        "workspace_diff_status": "captured",
+        "decision_log_count": 0,
+        "attempt_count": 1,
+        "parse_status": "ok"
+      }
+    }
+  },
+  "prompt_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/agent/prompt.md",
+  "prompt_sha256": "46555438ec92ecfb1906c1ed0383d94ca5c22a589d602ebd2c8c6255f373dac4",
+  "ended_at": "2026-09-24T10:47:39.058Z",
+  "duration_ms": 281226,
+  "outcome": "passed",
+  "stdout_log_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/harness/stdout.log",
+  "stderr_log_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/harness/stderr.log",
+  "result_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/result.json",
+  "context_packet_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/context.json",
+  "context_manifest_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/agent/context.md",
+  "context_provenance_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/context-provenance.json"
+}

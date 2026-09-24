@@ -1,0 +1,5 @@
+{
+  "exit_code": 2,
+  "stdout": "{\n  \"command\": \"af\",\n  \"status\": \"failed\",\n  \"message\": \"af command \\\"complete\\\" is not allowed by the worker command policy.\"\n}\n",
+  "stderr": ""
+}

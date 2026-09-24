@@ -1,0 +1,14 @@
+{
+  "version": "1",
+  "node_id": "export_readiness__managed__pattern_deep_work__plan",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+  "workspace_path": ".",
+  "artifacts_root": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts",
+  "declared_artifacts": {
+    "plan": {
+      "from": "output_dir",
+      "path": "plan.md",
+      "description": "Execution plan for satisfying the deep work task from the current state."
+    }
+  }
+}

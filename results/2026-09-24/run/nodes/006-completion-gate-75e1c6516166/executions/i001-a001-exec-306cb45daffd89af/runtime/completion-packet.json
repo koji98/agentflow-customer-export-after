@@ -1,0 +1,115 @@
+{
+  "version": "1",
+  "attempt_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_dir": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af",
+  "packet_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/runtime/completion-packet.json",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__completion_gate",
+  "authored_id": "export_readiness__managed__pattern_deep_work__completion_gate",
+  "kind": "check",
+  "goal": "Aggregate completion criterion results and decide whether the managed deep work loop is complete.",
+  "acceptance_criteria": [
+    "The scorecard records every completion criterion result.",
+    "Required criterion failures block completion regardless of weighted score.",
+    "The weighted score must meet or exceed 0.85 to pass."
+  ],
+  "constraints": [
+    "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+    "Do not weaken, remove, or skip existing tests.",
+    "Do not edit files outside this repository or change independent acceptance tools.",
+    "Do not add dependencies, call remote services, or include unrelated refactors.",
+    "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+    "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+  ],
+  "authority": {
+    "sandbox": "workspace-write",
+    "repos": [
+      "main"
+    ]
+  },
+  "declared_artifacts": [
+    {
+      "name": "completion_scorecard",
+      "required": true,
+      "from": "output_dir",
+      "path": "scorecard.json",
+      "expected_path": "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/artifacts/scorecard.json",
+      "description": "Weighted completion scorecard for the latest deep work result.",
+      "status": "present",
+      "current_attempt": true,
+      "content_type": "application/json",
+      "detected_content_type": "application/json",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 3548,
+      "sha256": "357d142c78ea4b0e0395fde2a90223a4e76f05337c7d5b00144d06f9668553aa",
+      "preview": {
+        "kind": "text",
+        "line_count": 47
+      }
+    }
+  ],
+  "published_artifacts": [
+    "completion_scorecard"
+  ],
+  "missing_artifacts": [],
+  "artifact_findings": [],
+  "validation_evidence": [],
+  "orientation": {
+    "orient_called": false,
+    "orient_call_count": 0,
+    "modes_seen": []
+  },
+  "milestones": {
+    "total": 0,
+    "active": 0,
+    "completed": 0,
+    "blocked": 0,
+    "validation_logs": 0,
+    "milestones": []
+  },
+  "runtime_logs": {
+    "progress": 0,
+    "finding": 0,
+    "decision": 0,
+    "blocking_findings": 0
+  },
+  "active_blockers": [],
+  "operator_observations": {
+    "active": 0,
+    "blocking": 0,
+    "latest": []
+  },
+  "supervisor_recovery": {
+    "active": false
+  },
+  "managed": {
+    "active": true,
+    "managed_kind": "pattern_deep_work",
+    "cycle": 1,
+    "cycle_limit": 3,
+    "failing_required_criteria": [],
+    "regressions": [],
+    "blocking_criteria": [],
+    "ready_for_publish": true,
+    "material_delta": [],
+    "evidence_refs": [
+      "results/2026-09-24/run/nodes/006-completion-gate-75e1c6516166/executions/i001-a001-exec-306cb45daffd89af/artifacts/scorecard.json",
+      "results/2026-09-24/run/nodes/003-completion-criterion-behavior-38af039dce36/executions/i001-a001-exec-1dce0da035259202/artifacts/verification.json",
+      "results/2026-09-24/run/nodes/004-completion-criterion-simplicity-b6a79a212e3f/executions/i001-a001-exec-5f3d8df7e49b2f08/artifacts/verification.json",
+      "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/artifacts/verification.json"
+    ]
+  },
+  "helpers": {
+    "active": 0,
+    "completed": 0,
+    "pending": 0,
+    "failed": 0,
+    "missing_artifacts": [],
+    "latest": []
+  },
+  "completion_status": "ready_for_verification",
+  "ready_for_verification": true,
+  "authority_requests": [],
+  "blocking_reasons": []
+}

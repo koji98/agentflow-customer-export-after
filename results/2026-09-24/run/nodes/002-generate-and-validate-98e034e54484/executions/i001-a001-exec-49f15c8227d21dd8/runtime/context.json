@@ -1,0 +1,131 @@
+{
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+  "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+  "repo_alias": "main",
+  "workspace_path": ".",
+  "materials": [
+    {
+      "key": "customer_export_ticket",
+      "source": {
+        "name": "customer_export_ticket",
+        "from": "workspace_file",
+        "path": "TICKET.md",
+        "what": "Customer export defect and observable acceptance contract.",
+        "why": "The export must preserve the operator’s filters and every customer field."
+      },
+      "description": "Customer export defect and observable acceptance contract. Why: The export must preserve the operator’s filters and every customer field.",
+      "pointer_path": "./TICKET.md",
+      "digest": "de976535e33be16ae44e429b2a0621101ef1c9d95ae34f5670cc16788ce5e1bf",
+      "size_bytes": 1460,
+      "priority_bucket": "task_context",
+      "priority_reason": "Authored workspace file context for this task.",
+      "source_authored_order": 0,
+      "binding": {
+        "kind": "live_workspace_input",
+        "requested_path": "TICKET.md",
+        "resolved_path": "./TICKET.md"
+      },
+      "priority_rank": 0
+    },
+    {
+      "key": "project_guide",
+      "source": {
+        "name": "project_guide",
+        "from": "workspace_file",
+        "path": "APP_GUIDE.md",
+        "what": "Local commands, source layout, and public API semantics.",
+        "why": "The repair must preserve existing listing behavior and public routes."
+      },
+      "description": "Local commands, source layout, and public API semantics. Why: The repair must preserve existing listing behavior and public routes.",
+      "pointer_path": "./APP_GUIDE.md",
+      "digest": "ecc5f051bf1c3ba3a5ce0f4a4a2970879f3b10532168daa195d67cb868ca12ec",
+      "size_bytes": 955,
+      "priority_bucket": "task_context",
+      "priority_reason": "Authored workspace file context for this task.",
+      "source_authored_order": 1,
+      "binding": {
+        "kind": "live_workspace_input",
+        "requested_path": "APP_GUIDE.md",
+        "resolved_path": "./APP_GUIDE.md"
+      },
+      "priority_rank": 1
+    },
+    {
+      "key": "preview_contract",
+      "source": {
+        "name": "preview_contract",
+        "from": "workspace_file",
+        "path": "EXPORT_PREVIEW.md",
+        "what": "The operator-facing preview behavior and stable preview API contract.",
+        "why": "Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision."
+      },
+      "description": "The operator-facing preview behavior and stable preview API contract. Why: Count, sample, filter scope, and download behavior must agree for the operator to make an informed decision.",
+      "pointer_path": "./EXPORT_PREVIEW.md",
+      "digest": "9ac4c53a7d391943a06bd13187d949a4f2d889ca1da460dbdbabdb18cae41ac3",
+      "size_bytes": 2508,
+      "priority_bucket": "task_context",
+      "priority_reason": "Authored workspace file context for this task.",
+      "source_authored_order": 2,
+      "binding": {
+        "kind": "live_workspace_input",
+        "requested_path": "EXPORT_PREVIEW.md",
+        "resolved_path": "./EXPORT_PREVIEW.md"
+      },
+      "priority_rank": 2
+    },
+    {
+      "key": "plan",
+      "source": {
+        "ref": "export_readiness__managed__pattern_deep_work__plan.plan",
+        "name": "plan",
+        "node": "export_readiness__managed__pattern_deep_work__plan",
+        "artifact": "plan",
+        "what": "Artifact \"plan\" produced by node \"export_readiness__managed__pattern_deep_work__plan\".",
+        "why": "This task needs the producer artifact as evidence for its contract."
+      },
+      "description": "Artifact \"plan\" produced by node \"export_readiness__managed__pattern_deep_work__plan\". Why: This task needs the producer artifact as evidence for its contract. Producer artifact: Execution plan for satisfying the deep work task from the current state.",
+      "pointer_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/plan.md",
+      "digest": "5545da60af35bdcd8b4f73b54a45057023ff33c80f295c27c2fbfefc35b04b0d",
+      "size_bytes": 11490,
+      "priority_bucket": "task_context",
+      "priority_reason": "Declared artifact context for this task.",
+      "source_authored_order": 3,
+      "priority_rank": 3
+    }
+  ],
+  "omitted": [
+    {
+      "key": "failed_completion_scorecard",
+      "source": {
+        "ref": "export_readiness__managed__pattern_deep_work__completion_gate.completion_scorecard",
+        "name": "failed_completion_scorecard",
+        "node": "export_readiness__managed__pattern_deep_work__completion_gate",
+        "artifact": "completion_scorecard",
+        "what": "Artifact \"completion_scorecard\" produced by node \"export_readiness__managed__pattern_deep_work__completion_gate\".",
+        "why": "This task needs the producer artifact as evidence for its contract.",
+        "iteration": "latest_failed",
+        "if_available": true
+      },
+      "description": "Artifact \"completion_scorecard\" produced by node \"export_readiness__managed__pattern_deep_work__completion_gate\". Why: This task needs the producer artifact as evidence for its contract. Producer artifact: Weighted completion scorecard for the latest deep work result.",
+      "reason": "No execution matched \"export_readiness__managed__pattern_deep_work__completion_gate\".",
+      "if_available": true
+    },
+    {
+      "key": "repeat_history",
+      "source": {
+        "name": "repeat_history",
+        "from": "runtime_repeat_history",
+        "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+        "current_iteration": 1
+      },
+      "description": "Deterministic summary of completed prior iterations in the enclosing repeat scope.",
+      "reason": "No prior repeat iterations have completed.",
+      "if_available": true
+    }
+  ],
+  "totals": {
+    "pointer_count": 4,
+    "file_count": 4
+  }
+}

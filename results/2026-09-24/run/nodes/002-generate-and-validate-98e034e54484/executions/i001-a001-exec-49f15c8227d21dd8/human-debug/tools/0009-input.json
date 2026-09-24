@@ -1,0 +1,16 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "log",
+    "m1",
+    "--kind",
+    "finding",
+    "--summary",
+    "Five-axis review found no required issues",
+    "--evidence",
+    "Shared matchingCustomers keeps filter/order semantics centralized; listing alone paginates; CSV encoding uses the stable columns array; preview download reuses the successful request query and late responses are discarded; DOM values use textContent; changed files are limited to src, public, and focused tests with no dependency or protected-file changes."
+  ],
+  "cwd": "."
+}

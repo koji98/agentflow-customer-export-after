@@ -1,0 +1,18 @@
+{
+  "kind": "af",
+  "tool": "af",
+  "argv": [
+    "milestone",
+    "log",
+    "m1",
+    "--kind",
+    "validation",
+    "--command",
+    "node --test test/query.test.mjs test/server.test.mjs",
+    "--result",
+    "fail",
+    "--summary",
+    "Expected RED: test modules fail because matchingCustomers and previewCustomers are not yet exported"
+  ],
+  "cwd": "."
+}

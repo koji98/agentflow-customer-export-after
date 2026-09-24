@@ -1,0 +1,51 @@
+{
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__criteria_panel__export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+  "authored_id": "export_readiness__managed__pattern_deep_work__criterion_03_operator_clarity",
+  "kind": "check",
+  "repo_alias": "main",
+  "execution_dir": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45",
+  "attempt_index": 1,
+  "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+  "iteration_index": 1,
+  "iteration_attempt_index": 1,
+  "status": "passed",
+  "started_at": "2026-09-24T10:54:27.965Z",
+  "artifacts": {
+    "verification_json": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/artifacts/verification.json"
+  },
+  "metadata": {
+    "completion": {
+      "completion_status": "ready_for_verification",
+      "ready_for_verification": true,
+      "blocking_reasons": [],
+      "packet_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/runtime/completion-packet.json"
+    },
+    "verification": {
+      "verifier_kind": "check",
+      "passed": true,
+      "summary": "Source evidence fully satisfies operator clarity. public/app.js shows the full count (“This download contains … matching customers.”), active scope (“Filters: …”), columns (“Exported columns: …”), and distinguishes the sample from the full file (“Sample: first five matching records. The complete CSV download contains all …”). public/index.html provides unambiguous “Download complete CSV,” “Cancel,” and “Close export preview” actions. The no-match state says the CSV contains only column headers. public/app.js snapshots one query for preview and download, removes the download link while loading, rejects superseded responses, and invalidates the preview on filter changes or closure, preventing stale-query downloads. src/export.mjs derives count and first-five sample from the same unpaginated matches used by export. Current npm test passed 13/13. No rendered-browser behavior is claimed; the supplied notes explicitly state it was not observed.",
+      "check_kind": "ai"
+    },
+    "node_workspace_changes": {
+      "baseline_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/baseline.json",
+      "after_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/after.json",
+      "status_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/status.txt",
+      "diff_patch_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/diff.patch",
+      "changed_files_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/workspace-changes/changed-files.json",
+      "changed_file_count": 8,
+      "status": "captured"
+    }
+  },
+  "prompt_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/agent/prompt.md",
+  "prompt_sha256": "26ad7070ccaf43b7cc17200c24ae9e1ca32d3b32cab573a43f326ced6c85d1cd",
+  "ended_at": "2026-09-24T10:55:06.070Z",
+  "duration_ms": 38105,
+  "outcome": "passed",
+  "stdout_log_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/harness/stdout.log",
+  "stderr_log_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/harness/stderr.log",
+  "result_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/runtime/result.json",
+  "context_packet_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/runtime/context.json",
+  "context_manifest_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/agent/context.md",
+  "context_provenance_path": "results/2026-09-24/run/nodes/005-completion-criterion-operator-clarity-02d7462b7481/executions/i001-a001-exec-d3211ef81bbcfd45/human-debug/context-provenance.json"
+}

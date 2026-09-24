@@ -1,0 +1,97 @@
+{
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__generate_validate",
+  "authored_id": "export_readiness__managed__pattern_deep_work__generate_validate",
+  "kind": "agent",
+  "repo_alias": "main",
+  "execution_dir": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8",
+  "attempt_index": 1,
+  "repeat_scope_id": "scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop",
+  "iteration_index": 1,
+  "iteration_attempt_index": 1,
+  "status": "passed",
+  "started_at": "2026-09-24T10:47:39.061Z",
+  "artifacts": {
+    "agent_response": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/agent-response.md",
+    "work_notes": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/work-notes.md",
+    "draft_summary": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/draft-summary.md"
+  },
+  "metadata": {
+    "binary": "/opt/homebrew/bin/codex",
+    "args": [
+      "--cd",
+      ".",
+      "--add-dir",
+      "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8",
+      "--add-dir",
+      "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts",
+      "--add-dir",
+      "results/2026-09-24/run/runtime",
+      "exec",
+      "--output-last-message",
+      "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/artifacts/last_message.txt",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "\"sandbox_workspace_write.network_access\"=true",
+      "-c",
+      "default_permissions=\"agentflow_judge_permissions\"",
+      "-c",
+      "permissions.agentflow_judge_permissions={ extends = \":workspace\", network = { enabled = true } }",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "-"
+    ],
+    "native_harness": {
+      "harness": "codex-cli",
+      "config_isolation": "isolated"
+    },
+    "timed_out": false,
+    "force_killed": false,
+    "completion": {
+      "completion_status": "ready_for_verification",
+      "ready_for_verification": true,
+      "blocking_reasons": [],
+      "packet_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/completion-packet.json"
+    },
+    "node_workspace_changes": {
+      "baseline_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/baseline.json",
+      "after_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/after.json",
+      "status_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/status.txt",
+      "diff_patch_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/diff.patch",
+      "changed_files_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/workspace-changes/changed-files.json",
+      "changed_file_count": 8,
+      "status": "captured"
+    },
+    "outcome_verification": {
+      "passed": true,
+      "summary": "The implementation satisfies the export and preview contracts with focused changes, complete artifacts, and consistent validation evidence. The verifier reran `npm test && python3 showcase/acceptance/check_preview.py` successfully: 13/13 Node tests, 24/24 export/listing checks, and 5/5 preview checks passed. Protected files and dependencies were unchanged, and the documented lack of manual browser validation is a disclosed limitation rather than a contract blocker.",
+      "findings": [],
+      "blockers": [],
+      "verifier_metadata": {
+        "harness": "codex-cli",
+        "profile_name": "supervisor",
+        "model": "auto",
+        "duration_ms": 39657,
+        "prompt_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/verifier/prompt.md",
+        "response_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/verifier/raw-response.md",
+        "truncated_artifacts": [],
+        "workspace_diff_status": "captured",
+        "decision_log_count": 0,
+        "attempt_count": 1,
+        "parse_status": "ok"
+      }
+    }
+  },
+  "prompt_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/agent/prompt.md",
+  "prompt_sha256": "b1c14243f80ab97daf0a438e70f54f979d53adec5884d250740521c82e6cfc11",
+  "ended_at": "2026-09-24T10:54:27.955Z",
+  "duration_ms": 408894,
+  "outcome": "passed",
+  "stdout_log_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/harness/stdout.log",
+  "stderr_log_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/harness/stderr.log",
+  "result_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/result.json",
+  "context_packet_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/runtime/context.json",
+  "context_manifest_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/agent/context.md",
+  "context_provenance_path": "results/2026-09-24/run/nodes/002-generate-and-validate-98e034e54484/executions/i001-a001-exec-49f15c8227d21dd8/human-debug/context-provenance.json"
+}

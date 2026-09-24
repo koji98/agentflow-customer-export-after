@@ -1,0 +1,11 @@
+{
+  "src/customers.mjs": "182dd244c7d9c5209831ea1e8875894446d75af3ff66798325a36110ea3b1abd",
+  "src/export.mjs": "f8a1d1200e32e30185dc16dbbc17a1c77732b27a557cf1aa0b4b8dd91497aad2",
+  "src/server.mjs": "ee9f2e4ef3c0a88214cf28b48d949dc4ee215c297ff0203653537605748f634a",
+  "public/app.js": "b6fed6dd2ad3b01e14fb17200d4027951fb6bc102520e2731b0fd741d813cb6c",
+  "public/index.html": "5880003a06f8dabb73e6d47868aecff55ceb2574547f58f5acb4a358c332e529",
+  "public/styles.css": "a478dacd85d1b4a6cbab1d4b1cceabd89bc9b8f44f35807b466fe587673872ec",
+  "test/query.test.mjs": "048ed3245e1f8a51cc3d08c455b9b9c41f59982cbc9e41b74aed535ef3559d95",
+  "test/server.test.mjs": "1e66d5e60237279b838f1d1d2dd852cbb8c4522e4fd0d24ccef554ace797872e",
+  "data/customers.json": "a8509c22a32c54c78eafa0efd6f93364b99400292f26f93378a8d43b19add226"
+}

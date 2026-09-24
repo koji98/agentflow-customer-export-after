@@ -1,0 +1,106 @@
+{
+  "version": "1",
+  "attempt_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_id": "exec__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan__attempt_1__repeat_scope__export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__iter_1",
+  "execution_dir": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a",
+  "packet_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/runtime/completion-packet.json",
+  "compiled_id": "export_readiness__managed__pattern_deep_work__workflow__export_readiness__managed__pattern_deep_work__work_loop__export_readiness__managed__pattern_deep_work__work_loop_body__export_readiness__managed__pattern_deep_work__plan",
+  "authored_id": "export_readiness__managed__pattern_deep_work__plan",
+  "kind": "agent",
+  "goal": "Plan the execution work needed to satisfy the full deep-work task from the current state. Do not edit files in this planning phase.",
+  "acceptance_criteria": [
+    "The plan addresses the task contract and any prior failed completion criteria.",
+    "The plan identifies focused validation the execution agent should run when feasible.",
+    "The plan does not edit the workspace."
+  ],
+  "constraints": [
+    "Do not edit data/customers.json, TICKET.md, or AGENTS.md.",
+    "Do not weaken, remove, or skip existing tests.",
+    "Do not edit files outside this repository or change independent acceptance tools.",
+    "Do not add dependencies, call remote services, or include unrelated refactors.",
+    "Do not edit EXPORT_PREVIEW.md or introduce unrelated interface redesign.",
+    "Do not edit agentflow.graph.json, APP_GUIDE.md, or any file under showcase/."
+  ],
+  "authority": {
+    "sandbox": "workspace-write",
+    "repos": [
+      "main"
+    ]
+  },
+  "declared_artifacts": [
+    {
+      "name": "plan",
+      "required": true,
+      "from": "output_dir",
+      "path": "plan.md",
+      "expected_path": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/artifacts/plan.md",
+      "description": "Execution plan for satisfying the deep work task from the current state.",
+      "status": "present",
+      "current_attempt": true,
+      "content_type": "text/markdown",
+      "detected_content_type": "text/markdown",
+      "media_kind": "text",
+      "encoding": "utf-8",
+      "size_bytes": 11490,
+      "sha256": "5545da60af35bdcd8b4f73b54a45057023ff33c80f295c27c2fbfefc35b04b0d",
+      "preview": {
+        "kind": "text",
+        "line_count": 84
+      }
+    }
+  ],
+  "published_artifacts": [
+    "plan"
+  ],
+  "missing_artifacts": [],
+  "artifact_findings": [],
+  "validation_evidence": [],
+  "orientation": {
+    "orient_called": true,
+    "orient_call_count": 1,
+    "first_orient_at": "2026-09-24T10:43:09.349Z",
+    "last_orient_at": "2026-09-24T10:43:09.349Z",
+    "modes_seen": [
+      "startup_restore"
+    ],
+    "evidence_ref": "results/2026-09-24/run/nodes/001-deep-work-plan-9c25ab584330/executions/i001-a001-exec-d46bd0c10700079a/human-debug/tools/0001-output.json"
+  },
+  "milestones": {
+    "total": 0,
+    "active": 0,
+    "completed": 0,
+    "blocked": 0,
+    "validation_logs": 0,
+    "milestones": []
+  },
+  "runtime_logs": {
+    "progress": 0,
+    "finding": 0,
+    "decision": 0,
+    "blocking_findings": 0
+  },
+  "active_blockers": [],
+  "operator_observations": {
+    "active": 0,
+    "blocking": 0,
+    "latest": []
+  },
+  "supervisor_recovery": {
+    "active": false
+  },
+  "managed": {
+    "active": false
+  },
+  "helpers": {
+    "active": 0,
+    "completed": 0,
+    "pending": 0,
+    "failed": 0,
+    "missing_artifacts": [],
+    "latest": []
+  },
+  "completion_status": "ready_for_verification",
+  "ready_for_verification": true,
+  "authority_requests": [],
+  "blocking_reasons": []
+}

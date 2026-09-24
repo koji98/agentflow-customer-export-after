@@ -51,9 +51,9 @@ A file fingerprint is called a **hash**. If a file changes, its hash changes too
 | [doctor.mjs](setup/doctor.mjs) | Checks that you have the tools needed to run the app. Its workflow mode also checks Agentflow, Codex, and sign-in. |
 | [doctor.test.mjs](setup/doctor.test.mjs) | Checks that the doctor spots common setup problems. |
 
-## Saved checks in `showcase/verification/`
+## Earlier saved checks in `showcase/verification/`
 
-These files show what happened when we checked the public repos.
+These files are from the first run and public setup checks. For the current app, use the [September 24 evidence](../results/2026-09-24/README.md).
 
 | File | What it shows |
 | --- | --- |

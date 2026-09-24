@@ -1,0 +1,6 @@
+{
+  "head_sha": "8c5387e80a736ceeda41994c1af93b41881b8340",
+  "stash_sha": "ddb1250c6ceb551ac7ecb19775d8d98472a4241f",
+  "untracked_files": [],
+  "status_text": " M public/app.js\n M public/index.html\n M public/styles.css\n M src/customers.mjs\n M src/export.mjs\n M src/server.mjs\n M test/query.test.mjs\n M test/server.test.mjs\n"
+}
