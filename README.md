@@ -1,24 +1,46 @@
-# Agentflow customer export — before
+# Fix a customer export with Agentflow
 
-Start here to run Agentflow against an intentionally broken customer dashboard. The workflow graph, task contracts, and independent acceptance checks are committed. For the completed example and real scorecards, open the [after repository](https://github.com/koji98/agentflow-customer-export-after).
+This small app has a bug. It shows 103 active customers, but its CSV download only includes one page. Names and notes with commas or quotes can also break the file. CSV is a file format you can open in a spreadsheet.
 
-**Two paths:** run the dashboard with Node/Python only, or follow the additional Agentflow setup below to execute the AI workflow. Reading the saved results on GitHub needs no installation.
+The task is to fix the download and add a preview. The preview should show how many customers will be in the file, plus a sample of up to five rows.
 
-## Prerequisites
+**This repo is the starting point.** The [after repo](https://github.com/koji98/agentflow-customer-export-after) has the app from a real Agentflow run and all its saved results.
 
-These commands use bash/zsh on macOS or Linux. On Windows, use WSL2; native PowerShell setup is not covered.
+## What this demo shows
 
-| Tool | Version / purpose | Install help |
-| --- | --- | --- |
-| Git | Clone the repositories | [Git downloads](https://git-scm.com/downloads) |
-| Node.js + npm | Node **24.18.0**, pinned in `.nvmrc`; npm is bundled | [Install nvm](https://github.com/nvm-sh/nvm#installing-and-updating), then use the commands below |
-| Python | **3.10+**, available as `python3`, for acceptance checks | [Python downloads](https://www.python.org/downloads/) |
+Codex writes the code. Agentflow runs the steps, checks the work, and saves the results.
 
-The app has no npm or pip dependencies, build step, database, Docker requirement, or `.env` file. `npm ci` verifies the committed package metadata and Node requirement. `.npmrc` rejects unsupported Node versions; Node 24.x is supported, with 24.18.0 used for the recorded run. Python 3.12 was used for that run.
+```mermaid
+flowchart LR
+    A[Start with the broken app] --> B[Ask Codex to fix it]
+    B --> C[Run tests and two AI reviews]
+    C --> D[Save the code and scores]
+```
 
-## 1. Clone and start the dashboard
+The tests check facts, such as whether all 103 customers are in the file. Two AI judges check things that need judgment: Is the code easy to follow? Is the preview clear?
 
-Install the prerequisites above first. Then run:
+Agentflow can ask for another try if a check fails. The saved run passed on its first try. See [how the workflow works](showcase/AUTHORING.md) for the full diagram and scoring rules.
+
+## Choose where to start
+
+| I want to… | Go here |
+| --- | --- |
+| Try the broken app | Follow the steps below |
+| Run Agentflow on it | [Run the workflow](showcase/RUN.md) |
+| See the saved result | [Open the after repo](https://github.com/koji98/agentflow-customer-export-after) |
+| Understand the files | [Read the file guide](showcase/README.md) |
+
+## 1. Get the tools
+
+You need [Git](https://git-scm.com/downloads), [nvm](https://github.com/nvm-sh/nvm#installing-and-updating), and [Python 3.10 or later](https://www.python.org/downloads/). nvm installs the right Node.js version for this app: **24.18.0**.
+
+Use a Bash or Zsh terminal on macOS or Linux. On Windows, use WSL2, which gives you a Linux terminal. These steps do not cover PowerShell.
+
+You do not need a database, Docker, or an `.env` file. You only need an AI account if you choose to run Agentflow.
+
+## 2. Start the app
+
+Paste these commands into your terminal:
 
 ```sh
 git clone https://github.com/koji98/agentflow-customer-export-before.git
@@ -30,110 +52,44 @@ npm run doctor
 npm start
 ```
 
-The doctor should end with `Environment checks passed`. The server should print `Northstar ready at http://127.0.0.1:4317`. Open that URL. Press Ctrl+C to stop the server; use another terminal for the following commands, running `nvm use` there too.
+`doctor` checks your tools. It should print `Environment checks passed`.
 
-There are 137 synthetic customers. Select Active and page two: there are 103 matching customers, but the broken CSV exports only one page. Special characters expose additional CSV defects. The requested preview is absent.
+Open **http://127.0.0.1:4317** in your browser. Keep the terminal open while you use the app. Press **Ctrl+C** when you want to stop it.
 
-## 2. Confirm the intended starting state
+If a command fails, use the [setup help](showcase/SETUP.md).
 
-From this repository root:
+## 3. See the bug
 
-```sh
-npm test
-npm run check:acceptance
-```
+1. Choose **Active** in the status filter.
+2. Go to page two. There are **103** matching customers across all pages.
+3. Download the CSV. It only has one page of customers.
 
-| Command | Expected result before Agentflow |
-| --- | --- |
-| `npm run doctor` | Passes: the environment works |
-| `npm test` | Six existing product tests pass |
-| `npm run check:acceptance` | **Exits 1 intentionally:** 16 of 29 checks pass; eight export checks and five missing-preview checks fail |
+The app uses 137 made-up customers. No real customer data is needed.
 
-An acceptance failure with those counts is the demo's starting defect. A missing executable, permission error, or failed doctor is an environment issue to resolve first. The five preview cases should report HTTP 404.
+## 4. Check the starting point
 
-## 3. Install Agentflow and Codex for an AI run
-
-Skip this section if you only want to inspect the dashboard. A live run requires internet access and a signed-in Codex account with model access and available quota. The recorded run used **Codex CLI 0.144.5** and Agentflow commit **bf7399955a45ea9e8fe0959c64be7a06649d997f**.
-
-Keep Node 24 active. From the before repo root, clone the public runtime into a separate sibling directory and build its pinned revision:
-
-```sh
-git clone https://github.com/koji98/agentflow.git ../agentflow-showcase-runtime
-git -C ../agentflow-showcase-runtime checkout --detach bf7399955a45ea9e8fe0959c64be7a06649d997f
-(
-  cd ../agentflow-showcase-runtime
-  npm ci
-  npm run build
-  npm run setup:link
-)
-agentflow --help
-```
-
-The parentheses return you to the demo directory automatically. Keep the sibling runtime checkout: the linked command points to it. If that directory already exists, use a new sibling directory name consistently rather than overwriting an unrelated checkout. Use the pinned revision for this showcase instead of an unpinned `npm install -g agentflow` package.
-
-Install and sign in to Codex under the same active Node version:
-
-```sh
-npm install --global @openai/codex@0.144.5
-codex --version
-codex login
-codex login status
-```
-
-Complete the browser sign-in yourself. If already signed in, `codex login status` confirms the existing session. This recipe uses the normal Codex login; no demo `.env` or API key is required. See the [official CLI guide](https://learn.chatgpt.com/docs/codex/cli) and [authentication guide](https://learn.chatgpt.com/docs/auth) for account setup or headless login options. Global npm commands under nvm should not require sudo.
-
-## 4. Check and execute the workflow
-
-From the **before repository root**, with a fresh unchanged application:
-
-```sh
-npm run doctor:workflow
-npm run workflow:validate
-npm run workflow:run
-```
-
-The workflow doctor checks CLI availability and stored login status without consuming a model run. Validation must pass before execution. The pinned runtime reports ten warnings about its generated artifact handoffs; those are recorded warnings, not missing environment prerequisites. Resolve any blockers first.
-
-`workflow:run` executes the committed [agentflow.graph.json](agentflow.graph.json) in place and changes this checkout. It runs the implementation, deterministic checks, and two read-only LLM rubric judges. Each required rubric must score at least 0.85, and the deterministic command must pass. Up to three cycles are allowed. Source-based clarity review does not establish rendered UI usability.
-
-The original run took **13m 13s including delivery**. Allow extra time; model output and duration can vary. It uses your Codex access and quota.
-
-Run files normally appear under `.task-runtime/runs/` in this repo. The CLI prints the actual run root (an existing `AGENTFLOW_RUNS_ROOT` environment variable overrides the default). Start with `delivery/01-review-brief.md` inside that run directory, then its scorecard and evidence. After execution:
+Stop the app with Ctrl+C. Stay in this repo's folder and run:
 
 ```sh
 npm test
 npm run check:acceptance
-git diff -- src public test
 ```
 
-Both test commands should now pass. Use a **new clone in a new directory** for another live run so you keep the previous result intact.
-
-## Setup troubleshooting
-
-| Symptom | Fix |
+| Check | What you should see |
 | --- | --- |
-| `nvm: command not found` | Install nvm using the link above, reopen the terminal, then run `nvm install` and `nvm use` in this repo. |
-| `EBADENGINE`, or the doctor reports Node 20/22 | Run `nvm use` in this shell. Run it again in each new terminal. |
-| `python3` missing or too old | Install Python 3.10+ and verify `python3 --version`. No `pip install` step is needed. |
-| `EADDRINUSE` | Another app owns the port. Stop it, or use `PORT=4321 npm start` and open the URL printed by the server. |
-| `EPERM` / `EACCES` binding `127.0.0.1` | Use a local terminal or runner that allows localhost servers. The doctor checks this without running a model. |
+| `npm test` | All 6 app tests pass. They miss the export bug. |
+| `npm run check:acceptance` | 16 of 29 checks pass. The command ends with an error. |
 
-`npm run test:setup` tests the doctor's missing-tool, old-Python, and signed-out cases. GitHub Actions checks setup and product behavior on Linux and macOS without an AI account or secrets.
+**Those 13 failed checks are expected.** Eight find export bugs. Five find that the preview is missing, so they report HTTP 404.
 
-Additional workflow fixes:
+If you see a missing tool or a permission error, fix that first with the [setup help](showcase/SETUP.md).
 
-| Symptom | Fix |
-| --- | --- |
-| `agentflow` not found | Run `nvm use`, then `npm run setup:link` from the built runtime checkout. |
-| `codex` not found after switching Node | Install the pinned Codex package under Node 24; nvm versions have separate global packages. |
-| Codex authentication fails | Run `codex login`, complete sign-in, and rerun `npm run doctor:workflow`. A cached login does not prove current quota/model access. |
-| npm audit or install-script warnings in the runtime | The pinned runtime currently reports development-tool advisories and optional script warnings; its install, TypeScript build, and CLI validation were tested successfully. These are upstream runtime warnings, not dashboard dependencies. Avoid changing its lockfile just to reproduce this run. |
+Ready to let Agentflow work on it? Follow [Run the workflow](showcase/RUN.md). The recorded run took **13 minutes and 13 seconds**.
 
-## Files and provenance
+## More detail
 
-- [Graph](agentflow.graph.json), [authoring rationale](showcase/AUTHORING.md), and [runtime provenance](showcase/PROVENANCE.md).
-- [Repair ticket](TICKET.md), [preview contract](EXPORT_PREVIEW.md), and [original application guide](APP_GUIDE.md).
-- `showcase/acceptance/`: independent oracle and fixture; `showcase/setup/`: environment doctor and its tests.
-- `src/`, `public/`, `data/`, `test/`: the unchanged broken application and its product tests.
+- [How the workflow works](showcase/AUTHORING.md): the steps and what each judge checks.
+- [File guide](showcase/README.md): what belongs in each folder.
+- [Where this example came from](showcase/PROVENANCE.md): versions and saved Git copies.
 
-The `before-agentflow` tag preserves the original packaged baseline shared with the after repository. Later main-branch commits add setup documentation and tooling; they do not repair the application. CI in this repository deliberately verifies the broken baseline. The [after repository](https://github.com/koji98/agentflow-customer-export-after) retains the scored result and its known browser issue.
+The original instructions for the AI are in [TICKET.md](TICKET.md), [EXPORT_PREVIEW.md](EXPORT_PREVIEW.md), [APP_GUIDE.md](APP_GUIDE.md), and [AGENTS.md](AGENTS.md). We keep their exact wording so later runs have the same task.
