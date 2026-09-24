@@ -1,17 +1,54 @@
-# Evidence provenance and export policy
+# About the saved files
 
-Recorded run: `2026-09-23t21-58-04-755z-northstar-export-readiness-preview-rehearsal`. Runtime commit: `bf7399955a45ea9e8fe0959c64be7a06649d997f`. Packaged before commit: `e72e8a5124b408505040a60913b54137d98f14d2`.
+[Back to the results](README.md)
 
-The app source, UI, tests, and data match the recorded final workspace. The known preview-visibility issue is preserved. No manual repair was mixed into the scored result. Documentation, graph portability, and evidence packaging were added after the run.
+This repo keeps the app and files from one real Agentflow run. The app code, page, tests, and data match that run. The known scroll issue is still there.
 
-Every one of the 202 run files is included under run/, including delivery, the event stream, state, authored and compiled graphs, all node executions, prompts, responses, verdicts, logs, artifacts, and patches. The two credential-config.json files contain empty credential_specs and tools arrays; they hold no credentials. A scan found no API keys, bearer tokens, JWTs, GitHub tokens, or populated secret-shaped JSON fields. No run files were omitted.
+## What is included?
 
-Absolute paths have been normalized: the recorded workspace becomes `.`, the original run root becomes `results/run`, and operator evidence becomes `results/operator`. Home and temporary directory prefixes become placeholders. These are presentation changes only; judge text, scores, timestamps, IDs, and event ordering remain intact. archive-manifest.json records original and exported SHA-256 hashes for each source file. Its original hashes refer to the untouched source evidence, not to the normalized copies. Hashes embedded inside archived runtime files likewise retain their original meaning.
+- **202 run files** in `run/`: plans, AI messages, checks, scores, logs, and reports.
+- **28 files** in `operator/`: saved checks and notes from the person running the demo.
+- [archive-manifest.json](archive-manifest.json): a list of the copied files and their fingerprints.
 
-The archived graphs, events, state, and prompts are historical evidence, not a resumable runtime root after relocation. Use the portable graph in the before repository to execute a new run. The root graph includes portability adjustments documented in showcase/PROVENANCE.md; results/recorded-graph.json preserves the original graph's structure with path normalization only.
+No run files were left out. The copied files were scanned for secrets. The two files named `credential-config.json` have empty settings and contain no credentials.
 
-The original review brief flags EXPORT_PREVIEW.md as untracked. It existed before the run; prelaunch and postrun hashes prove it was unchanged. The before repository now commits that context. The separate browser review is an operator observation and was not input to either recorded rubric judge.
+The guides, setup tools, and public repo layout were added after the run.
 
-This is one successful cycle, not an observed recovery demonstration. Reported 1.0 scores are judgments under the authored rubric, not guarantees of defect-free software. Total observed duration including delivery was 13m 13s.
+## Why do some paths look different?
 
-The original generated audit index contains one link to `runtime/observations.jsonl`. That optional file was never created in the source run, which recorded no operator interventions. Its absence is preserved; it was not omitted during export. All other local links in the delivery review brief, learnings, audit index, and repository entry documents were verified. The separate browser observations are in operator/browser-review.md.
+We changed paths that only worked on the original computer. This lets you follow the files in this repo.
+
+| Original location | Location shown here |
+| --- | --- |
+| The app's working folder | `.` |
+| The saved run folder | `results/run` |
+| The extra checks and notes | `results/operator` |
+| Home and temporary folders | Placeholder names |
+
+The AI comments, scores, times, IDs, and order of events were kept. The original files were also kept separately without these path changes.
+
+Each file has a **hash**, which works like a fingerprint. The file list records hashes for both the original file and the copy here. A path change can make these hashes differ. Hashes written inside the old logs still refer to the original files.
+
+## Can I restart this saved run?
+
+Use the [before repo](https://github.com/koji98/agentflow-customer-export-before) to start a new run. These saved files are a record to read; they are not set up to resume from this folder.
+
+The [recorded graph](recorded-graph.json) keeps the original workflow with updated paths. The runnable graph at the top of the repo also has changes that let it find the public check tools. See [where the example came from](../showcase/PROVENANCE.md).
+
+## Notes that may look odd
+
+**The preview task was marked as untracked.** The file `EXPORT_PREVIEW.md` existed before the run, but had not been added to Git. Its hashes before and after the run match. The before repo now includes it in Git.
+
+**One link in the old audit index has no file.** It points to `runtime/observations.jsonl`. The original run never created that optional file. It was not lost when we copied the run. The separate browser notes are in [browser-review.md](operator/browser-review.md).
+
+**The browser issue did not affect the AI scores.** The browser check happened separately. Its findings were not sent to either judge. A score of 1.00 means the judge passed the work under its rules; it does not prove there are no bugs.
+
+## IDs for checking the source
+
+| Item | Value |
+| --- | --- |
+| Run ID | `2026-09-23t21-58-04-755z-northstar-export-readiness-preview-rehearsal` |
+| Agentflow commit | `bf7399955a45ea9e8fe0959c64be7a06649d997f` |
+| First public before commit | `e72e8a5124b408505040a60913b54137d98f14d2` |
+
+The saved run took **13 minutes and 13 seconds** and passed on its first try. It does not show how a failed try would be repaired.
