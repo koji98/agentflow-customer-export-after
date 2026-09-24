@@ -43,12 +43,12 @@ nvm install
 nvm use
 npm ci
 npm run doctor
-PORT=4318 npm start
+npm start
 ```
 
 `doctor` checks your tools. It should print `Environment checks passed`.
 
-Open **http://127.0.0.1:4318** in your browser. We use port 4318 so you can keep the before app open on port 4317 too.
+Open **http://127.0.0.1:4318** in your browser. `npm start` uses port **4318** by default. The before app uses **4317**, so you can run both in separate terminals at the same time.
 
 Keep the terminal open while you use the app. Press **Ctrl+C** to stop it. If a command fails, use the [setup help](showcase/SETUP.md).
 

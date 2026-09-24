@@ -7,7 +7,7 @@ npm start
 npm test
 ```
 
-Open http://127.0.0.1:4317. Override `PORT` to run a second copy.
+Open http://127.0.0.1:4318. In this after repo, `npm start` uses port 4318 by default. The before repo uses 4317, so both can run at once. Set `PORT` to choose a different port.
 
 The existing smoke tests exercise listing, filters, pagination, HTTP responses, and a simple export. The open product defect is described in `TICKET.md`. Passing the existing suite alone does not resolve that ticket.
 

@@ -12,4 +12,6 @@ The tags `before-network-permissions` and `after-network-permissions` mark this 
 
 The task and its graph were kept unchanged during the rerun. Setup guides were updated afterward. In the public repo, acceptance tools live inside `showcase/acceptance/`; the agent can read them and is told not to edit them. An outside hash check confirmed that they stayed unchanged. One sentence in the original ticket still describes the earlier layout, where these tools lived outside the app.
 
+After the recorded run, the `npm start` command was set to use port **4318** by default. This lets the before app keep using **4317** while both run at once. This setup change and its guide updates do not change the saved app source, tests, customer data, or run results.
+
 [Back to the app](../README.md) · [Run the workflow](RUN.md)

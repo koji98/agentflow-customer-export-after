@@ -4,6 +4,17 @@
 
 Start with `npm run doctor` in the app's folder. It checks Node.js, Git, Python, and whether your computer lets the app start a local server.
 
+## Run both apps at once
+
+Open a separate terminal for each repo. Run `nvm use` and `npm start` in each one.
+
+| Repo | Default address |
+| --- | --- |
+| Before | http://127.0.0.1:4317 |
+| After | http://127.0.0.1:4318 |
+
+To choose another port, run `PORT=4321 npm start`. Press **Ctrl+C** in a terminal to stop its app.
+
 ## Use the right Node.js version
 
 This app uses **Node.js 24.18.0**. The `.nvmrc` file tells nvm which version to use.
